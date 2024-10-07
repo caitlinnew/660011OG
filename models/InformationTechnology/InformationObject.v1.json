@@ -1,0 +1,106 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/InformationObject.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INFORMATION OBJECT",
+    "type": "object",
+    "description": "The INFORMATION OBJECT is a representation of a piece of information within Boehringer Ingelheim. It may contain more detailed information (INFORMATION ATTRIBUTE).\nDepending on the layer of the Boehringer Information Model where the INFORMATION OBJECT is used, it is also known as \"conceptual object\" (conceptual model layer).",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "example": {
+                    "title": "example",
+                    "type": "string",
+                    "description": "In addition to the description, information objects may also contain examples in order to provide a better understanding of their description."
+                },
+                "informationBundle": {
+                    "title": "informationBundle",
+                    "type": "string",
+                    "description": "An Information Bundle is a subset of an information domain, a meaningful selection of information objects assigned to and managed by an Information Owner"
+                },
+                "subDomain": {
+                    "title": "subDomain",
+                    "type": "string",
+                    "description": "Separation of the Domain into Main Business Areas of the Domain."
+                },
+                "owner": {
+                    "title": "owner",
+                    "type": "string",
+                    "description": "The owner is the role within BI organisation that is responsible for the content and usage of the respective INFORMATION OBJECT."
+                },
+                "domainName": {
+                    "title": "domain.name",
+                    "type": "string",
+                    "description": "The name of the DATA DOMAIN is the way how it is called typically."
+                },
+                "containedInDiagrams": {
+                    "type": "array",
+                    "description": "The INFOMRATION MODEL DIAGRAM is a visualisation of one or mulitple INFORMATION OBJECT(s), their INFORMATION ATTRIBUTE(s) and the respective INFORMATION RELATION(s) among them.",
+                    "items": {
+                        "$ref": "#/definitions/InformationModelDiagram"
+                    }
+                },
+                "incomingRelation": {
+                    "type": "array",
+                    "description": "An INFORMATION RELATION is the representation of how two pieces of information are connected to each other",
+                    "items": {
+                        "$ref": "#/definitions/InformationRelation"
+                    }
+                },
+                "outgoingRelation": {
+                    "type": "array",
+                    "description": "An INFORMATION RELATION is the representation of how two pieces of information are connected to each other",
+                    "items": {
+                        "$ref": "#/definitions/InformationRelation"
+                    }
+                },
+                "ownedSimpleInformationAttribute": {
+                    "title": "ownedInformationAttribute",
+                    "type": "array",
+                    "description": "An INFORMATION ATTRIBUTE is an INFORMATION MODEL ELEMENT that represents detail information on its most detailed level.",
+                    "items": {
+                        "$ref": "InformationAttribute.v1.json"
+                    }
+                },
+                "ownedComplexInformationAttribute": {
+                    "title": "ownedInformationAttribute",
+                    "type": "array",
+                    "description": "The INFORMATION RELATIONSHIP ROLE represents an INFORMATION OBJECT that is connected to another INFORMATION OBJECT via an INFORMATION RELATION. It is displayed as a special type of an attribute within the connected object.",
+                    "items": {
+                        "$ref": "InformationRelationshipRole.v1.json"
+                    }
+                },
+                "superElement": {
+                    "$ref": "InformationObject.v1.json"
+                }
+            }
+        },
+        {
+            "$ref": "InformationModelElement.v1.json"
+        }
+    ],
+    "definitions": {
+        "InformationModelDiagram": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        },
+        "InformationRelation": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        }
+    }
+}

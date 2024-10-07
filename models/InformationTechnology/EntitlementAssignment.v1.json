@@ -1,0 +1,59 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/EntitlementAssignment.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ENTITLEMENT ASSIGNMENT",
+    "type": "object",
+    "properties": {
+        "entitlementId": {
+            "title": "entitlement.identifier",
+            "type": "string",
+            "description": "The Identifier of the ENTITLEMENT in BIDS"
+        },
+        "entitlementName": {
+            "title": "entitlement.name",
+            "type": "string",
+            "description": "Name of the Entitlement."
+        },
+        "entitlementInformationSystemId": {
+            "title": "entitlementGroup.configItem.systemIdentifier",
+            "type": "string",
+            "description": "The unique Config Item ID for the Information System as defined in CMDB."
+        },
+        "entitlementInformationSystemName": {
+            "title": "entitlementGroup.configItem.systemName",
+            "type": "string",
+            "description": "The name of the Information System as defined in CMDB."
+        },
+        "adIdentity": {
+            "$ref": "#/definitions/Identity"
+        },
+        "adUserName": {
+            "title": "user.userName",
+            "type": "string",
+            "description": "The name of the DIRECTORY SERVICE ACCOUNT."
+        },
+        "requestType": {
+            "title": "entitlementRequest.requestType",
+            "type": "string",
+            "description": "An ENTITLEMENT REQUEST has a type that triggers assignment or revocation of an ENTITLEMENT.",
+            "enum": [
+                "ASSIGN",
+                "REVOKE"
+            ]
+        }
+    },
+    "definitions": {
+        "Identity": {
+            "title": "identity",
+            "type": "object",
+            "description": "Identity is a collection of information on the employee and his access rights.",
+            "properties": {
+                "globalId": {
+                    "title": "globalIdentifier",
+                    "type": "string",
+                    "description": "The Global Identifier also known as BIDS-ID is the global unique identifier of an Identity It is also the only one-to-one identifier of an Identity. Example: \"GI00001234\""
+                }
+            }
+        }
+    }
+}

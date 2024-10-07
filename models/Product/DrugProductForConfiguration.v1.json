@@ -1,0 +1,147 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/DrugProductForConfiguration.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DRUG PRODUCT FOR CONFIGURATION",
+    "type": "object",
+    "description": "The DRUG PRODUCT is the fully formulated pharmaceutically active product without any packaging (the \"naked tablet\"). It is the actual manufactured item as it is delivered from the manufacturer but before any transformation, if applicable, for administration to or use by the patient. [ISO 11615: 7.6.2.10.1 Manufactured Item]\nDRUG PRODUCT also includes fully formulated pharmaceutically inactive products, such as solvent for an injection solution or a placebo drug product without any active pharmaceutical ingredient.\nThe DRUG PRODUCT FOR CONFIGURATION contains the regulatory relevant PRODUCT COMPOSITION which PRODUCT INGREDIENTs may be less specificied than those of the DRUG PRODUCT in the Scientific Product Description.\nIn case BI acts as a Contract Manufacturer for this DRUG PRODUCT the corresponding SECONDARY PACKED DRUG PRODUCT and its MARKETING AUTHORIZATION will not be maintained in BI. In such case, the MARKETING AUTHORIZATION HOLDER is defined by the ORGANIZATION that owns the corresponding LOCAL BRAND of this DRUG PRODUCT.",
+    "properties": {
+        "id": {
+            "title": "productId",
+            "type": "string",
+            "description": "Unique identifier of the object DRUG PRODUCT FOR CONFIGURATION."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "additionalInformatonText": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself.",
+            "deprecated": true
+        },
+        "additionalInformationLanguageIso2": {
+            "title": "additionalInformation.language.alpha-2Code",
+            "type": "string"
+        },
+        "additionalInformationLanguageRefId": {
+            "title": "language.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "physicalAppearance": {
+            "$ref": "PhysicalAppearance.v1.json"
+        },
+        "productCompositionId": {
+            "title": "productComposition.id",
+            "type": "string",
+            "description": "Unique identifier of the object PRODUCT COMPOSITION. Often called PCID."
+        },
+        "productCompositionGlobalProductsId": {
+            "title": "globalProducts",
+            "type": "array",
+            "description": "The GLOBAL PRODUCT is the GLOBAL BRAND Name + Strength + Dose Form. It documents the Strengths and Dose Form combinations that BI has in its portfolio for the referenced GLOBAL BRAND.\nWith this, the GLOBAL PRODUCT is the \"mother in headquarters\" of all LOCAL PRODUCTs referencing (via the LOCAL BRAND) the same GLOBAL BRAND.\nFor GLOBAL BRANDs of PRODUCT CATEGORY immunological the Strength is documented in the GLOBAL PRODUCT, but not displayed in the GLOBAL PRODUCT Name.",
+            "items": {
+                "title": "globalProductId",
+                "type": "string",
+                "description": "Unique identifier of the object GLOBAL PRODUCT."
+            }
+        },
+        "productCompositionGlobalProductId": {
+            "title": "productComposition.globalProduct.globalProductId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL PRODUCT.\nThis field is deprecated and will be removed soon. Use productCompositionGlobalProductIDs instead."
+        },
+        "productStageCode": {
+            "title": "productStage.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use *sapCode instead."
+        },
+        "productStageSapCode": {
+            "title": "productStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "productStageRefId": {
+            "title": "productStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One DRUG PRODUCT FOR CONFIGURATION must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing DRUG PRODUCT FOR CONFIGURATION."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageIso2Code": {
+                    "title": "language.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 Code according to Iso 639."
+                },
+                "languageCode": {
+                    "title": "language.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

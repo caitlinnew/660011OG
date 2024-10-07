@@ -1,0 +1,80 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/AddressUsage.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ADDRESS USAGE",
+    "type": "object",
+    "description": "Address usage says that a certain business partner is using a certain address (which is (usually) independent of a business partner). Via the relationship to ADDRESS TYPE it also tells the purpose which the address is used for, e.g. Sold-To, Bill-To, Ship-To, Private, Office, ... (see Examples tab of ADDRESS TYPE).",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "preferedCommunicationMethod": {
+                    "title": "defaultCommunicationMethod",
+                    "type": "string",
+                    "enum": [
+                        "TELEPHONE",
+                        "SMS",
+                        "EMAIL",
+                        "FAX",
+                        "LETTER",
+                        "URL"
+                    ]
+                },
+                "doNotUseReason": {
+                    "title": "doNotUseReason",
+                    "type": "string",
+                    "description": "This field is to maintain the reason why a specific address cannot or should not be used."
+                },
+                "isStandardAddress": {
+                    "title": "primaryFlag",
+                    "type": "boolean",
+                    "description": "The Primary Flag is an indicator for the Standard Address Usage (True/False)\nUsed in case multiple addresses are defined for a Business Partner .\nThe Primary Flag may be set only for one ADDRESS per BUSINESS PARTNER and a single ADDRESS USAGE."
+                },
+                "locationEmails": {
+                    "title": "location.emails",
+                    "type": "array",
+                    "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+                    "items": {
+                        "$ref": "Email.v1.json"
+                    }
+                },
+                "locationFaxes": {
+                    "title": "location.faxs",
+                    "type": "array",
+                    "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+                    "items": {
+                        "$ref": "Fax.v1.json"
+                    }
+                },
+                "locationTelephones": {
+                    "title": "location.telephones",
+                    "type": "array",
+                    "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+                    "items": {
+                        "$ref": "Telephone.v1.json"
+                    }
+                },
+                "locationWebs": {
+                    "title": "location.webs",
+                    "type": "array",
+                    "description": "COMMUNICATION CHANNEL WEB reflects the WEB-Sites that a customer has and where we can find information about him. This can be his private WEB-Site, the official Company Homepage of a HCO or even a dedicated page of a HCO where is information about a HCP is available (e.g. as a kind of staff member profile).",
+                    "items": {
+                        "$ref": "Web.v1.json"
+                    }
+                },
+                "locationFaxs": {
+                    "title": "location.faxs",
+                    "type": "array",
+                    "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+                    "deprecated": "true",
+                    "items": {
+                        "$ref": "Fax.v1.json"
+                    }
+                }
+            }
+        },
+        {
+            "$ref": "Address.v2.json"
+        }
+    ]
+}

@@ -1,0 +1,129 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/LocalProduct.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "LocalProduct",
+    "type": "object",
+    "description": "The LOCAL PRODUCT is the minimal description of a marketable product in a COUNTRY to which an INDICATION with an AUTHORIZATION STATUS can be assigned.",
+    "properties": {
+        "id": {
+            "title": "localProductId",
+            "type": "string",
+            "description": "Unique identifier of the object LOCAL PRODUCT."
+        },
+        "descriptions": {
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "descriptionEnglish": {
+            "title": "descriptionEnglish",
+            "type": "string",
+            "description": "The english long description used for filtering. It is the same as the english item in descriptions."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalProductId": {
+            "title": "globalProduct.globalProductId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL PRODUCT."
+        },
+        "localBrandId": {
+            "title": "localBrand.localBrandId",
+            "type": "string",
+            "description": "Unique identifier of the object LOCAL BRAND."
+        },
+        "prevailingId": {  
+            "title": "prevailingId",
+            "type": "string",
+            "description": "Reference to the prevailant Object."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "productStageRefId": {
+            "title": "productStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productStageCode": {
+            "title": "productStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "routingLocalBrand": {
+            "$ref": "#/definitions/RoutingInformationLocalBrand"
+        }
+    },
+    "definitions": {
+        "Description": {
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "shortdescription": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "languageCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        },
+        "RoutingInformationLocalBrand": {
+            "type": "object",
+            "description": "accumulates information from LOCAL BRAND (COUNTRY) und GLOBAL BRAND (BUSINESS UNIT) for veeva.",
+            "properties": {
+                "localBrandId": {
+                    "title": "localBrandId",
+                    "type": "string",
+                    "description": "Unique identifier of the object LOCAL BRAND."
+                },
+                "countrySapCode": {
+                    "title": "country.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "countryRefId": {
+                    "title": "country.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "businessUnitPrismaCode": {
+                    "title": "businessUnit.prismaCode",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object.\nSynonym for the Prisma Code, by default in sync with the SAP Code (2019)"
+                },
+                "businessUnitRefId": {
+                    "title": "businessUnit.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

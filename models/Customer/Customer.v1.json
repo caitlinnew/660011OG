@@ -1,0 +1,451 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Customer.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CUSTOMER",
+    "type": "object",
+    "description": "A CUSTOMER is any person, legal entity or authority with which Boehringer Ingelheim is doing business, that ...\n\n•\treceives goods or services from Boehringer Ingelheim, or\n•\tpays BI for goods or services according to agreed terms and conditions or applicable laws, or\n•\tinteracts with BI as part of any selling or information gathering or distributing activity such as quotations, offers, rebates, ...",
+    "properties": {
+        "customerStatusCode": {
+            "title": "customerStatus.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "startDate": {
+            "title": "startDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date on which the CUSTOMER got active."
+        },
+        "customerClassCode": {
+            "title": "customerClass.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "customerClassName": {
+            "title": "customerClass.name",
+            "type": "string"
+        },
+        "sptsCustomer": {
+            "title": "sptsCustomer",
+            "type": "string",
+            "description": "This flag contains the information if sales channel is SPTS (Sales Promotion Techniques) and brand is FL Gold."
+        },
+        "creationDate": {
+            "title": "creationDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date of creation of a specific Information Object."
+        },
+        "customerConsents": {
+            "type": "array",
+            "description": "The CUSTOMER CONSENT describes the state whether it is allowed to communicate with the respective customer using the associated communication channel or channel detail.",
+            "items": {
+                "$ref": "#/definitions/CustomerConsent"
+            }
+        },
+        "customerPreferences": {
+            "title": "customerPreferences",
+            "type": "array",
+            "description": "A CUSTOMER PREFERENCE is anything a customer is explicitly interested in or not interested in. So it could also be called \"area of interest\" which may express a positive or negative interest (\"keep me informed about ...\" / don't bother me with ...\"). \nMainly a CUSTOMER PREFERENCE will be about a product, or a therapeutic are, or an indication, but other areas of interest may be put down here as well if they are worth knowing for BI. \nA special manifestation of CUSTOMER PREFERENCE is a subscription which is like a contract to be provided - usually - with information by BI e.g. via a newsletter. \nKnowing about customer's preferences is useful for all BI AGENTs / CFEs (Customer Facing Employees) as it will improve customer's opinion about BI's concern / care / interest about him.",
+            "items": {
+                "$ref": "#/definitions/CustomerPreference"
+            }
+        },
+        "customerSegments": {
+            "title": "customerSegments",
+            "type": "array",
+            "description": "A Customer can be assigned to diferent segments, based on the available (defined) Customer Segmentation Types and allowed values per segment type.\nExample:\n- Customer A: Logistics --> Platinum\n- Customer A: Sales --> B\n- Customer B: Logistics --> Gold\nInformation Object is not under Governance of MDM.",
+            "items": {
+                "$ref": "#/definitions/CustomerSegmentAssignment"
+            }
+        },
+        "customerProfiles": {
+            "title": "customerProfiles",
+            "type": "array",
+            "description": "The customer profile bundles some important profile information about a customer from the marketing and sales perspective.",
+            "items": {
+                "$ref": "#/definitions/CustomerProfile"
+            }
+        },
+        "groupingAssignments": {
+            "title": "groupingAssignments",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/GroupingAssignment"
+            }
+        },
+        "customerSubgroupAssignments": {
+            "type": "array",
+            "description": "CUSTOMERT SUBGROUP ASSIGNMENT is the resolution of the many to many relationship between CUSTOMER and CUSTOMER SUBGROUP.",
+            "items": {
+                "$ref": "#/definitions/CustomerSubgroupAssignment"
+            }
+        },
+        "customerTerritories": {
+            "title": "customerTerritoryAssignments",
+            "type": "array",
+            "description": "shows the fact that a CUSTOMER is assigned to a TERRITORY",
+            "items": {
+                "$ref": "#/definitions/CustomerTerritoryAssignment"
+            }
+        }
+    },
+    "definitions": {
+        "CustomerConsent": {
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "optInIndicator": {
+                            "title": "opt-InIndicator",
+                            "type": "boolean",
+                            "description": "The Opt-In Indicator documents whether the communication is allowed (true) or not (false)."
+                        },
+                        "startDate": {
+                            "title": "startDate",
+                            "type": "string",
+                            "format": "date",
+                            "description": "The date when the given CUSTOMER CONSENT starts."
+                        },
+                        "communicationChannelCode": {
+                            "title": "communicationChannel.code",
+                            "type": "string",
+                            "description": "The Code is the unique identifier of the data record for this object."
+                        },
+                        "communicationChannelTerm": {
+                            "title": "communicationChannel.term",
+                            "type": "string",
+                            "description": "Term is a human readable designator of the data record for this object."
+                        },
+                        "consentTypeCode": {
+                            "title": "consentType.code",
+                            "type": "string",
+                            "description": "The Unique Identifier for a CONSENT TYPE."
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/Email"
+                },
+                {
+                    "$ref": "#/definitions/Fax"
+                },
+                {
+                    "$ref": "#/definitions/Telephone"
+                },
+                {
+                    "$ref": "#/definitions/Web"
+                }
+            ]
+        },
+        "Email": {
+            "title": "email",
+            "type": "object",
+            "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+            "properties": {
+                "primaryChannelDetail": {
+                    "title": "primaryChannelDetail",
+                    "type": "boolean"
+                },
+                "emailAddress": {
+                    "title": "emailAddress",
+                    "type": "string"
+                },
+                "isStandardE-Mail": {
+                    "title": "isStandardE-Mail",
+                    "type": "boolean",
+                    "description": "This field indicates that this Email Is the Standard Email for a defined use."
+                }
+            }
+        },
+        "Fax": {
+            "title": "fax",
+            "type": "object",
+            "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+            "properties": {
+                "primaryChannelDetail": {
+                    "title": "primaryChannelDetail",
+                    "type": "boolean"
+                },
+                "faxNumberComplete": {
+                    "title": "faxNumberComplete",
+                    "type": "string",
+                    "description": "The Complete Fax Number. That means dialing code + number + extension."
+                },
+                "isStandardFaxNumber": {
+                    "title": "isStandardFaxNumber",
+                    "type": "boolean",
+                    "description": "This field indicates that this Fax Number is the Standard Phone Number for a defined use."
+                }
+            }
+        },
+        "Telephone": {
+            "title": "telephone",
+            "type": "object",
+            "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+            "properties": {
+                "primaryChannelDetail": {
+                    "title": "primaryChannelDetail",
+                    "type": "boolean"
+                },
+                "isStandardPhoneNumber": {
+                    "title": "isStandardPhoneNumber",
+                    "type": "boolean",
+                    "description": "This field indicates that this Phone Number Is the Standard Phone Number for a defined use."
+                },
+                "telephoneNumberComplete": {
+                    "title": "telephoneNumberComplete",
+                    "type": "string",
+                    "description": "Telephone Number with Country Prefix, Dialling Code and with Extension"
+                }
+            }
+        },
+        "Web": {
+            "title": "web",
+            "type": "object",
+            "description": "COMMUNICATION CHANNEL WEB reflects the WEB-Sites that a customer has and where we can find information about him. This can be his private WEB-Site, the official Company Homepage of a HCO or even a dedicated page of a HCO where is information about a HCP is available (e.g. as a kind of staff member profile).",
+            "properties": {
+                "primaryChannelDetail": {
+                    "title": "primaryChannelDetail",
+                    "type": "boolean"
+                },
+                "isStandardUrl": {
+                    "title": "isStandardUrl",
+                    "type": "boolean",
+                    "description": "This field indicates that this Web ULR Is the Standard URL for a defined use."
+                },
+                "urlName": {
+                    "title": "urlName",
+                    "type": "string"
+                }
+            }
+        },
+        "CustomerPreference": {
+            "title": "customerPreference",
+            "type": "object",
+            "description": "A CUSTOMER PREFERENCE is anything a customer is explicitly interested in or not interested in. So it could also be called \"area of interest\" which may express a positive or negative interest (\"keep me informed about ...\" / don't bother me with ...\"). \nMainly a CUSTOMER PREFERENCE will be about a product, or a therapeutic are, or an indication, but other areas of interest may be put down here as well if they are worth knowing for BI. \nA special manifestation of CUSTOMER PREFERENCE is a subscription which is like a contract to be provided - usually - with information by BI e.g. via a newsletter. \nKnowing about customer's preferences is useful for all BI AGENTs / CFEs (Customer Facing Employees) as it will improve customer's opinion about BI's concern / care / interest about him.",
+            "properties": {
+                "latestChangedDate": {
+                    "title": "latestChangedDate",
+                    "type": "string",
+                    "format": "date"
+                },
+                "optInIndicator": {
+                    "title": "optInIndicator",
+                    "type": "boolean",
+                    "description": "The Opt-In Indicator says if the customer is interested (true) in the topic pointed to by the customer preference or if he is not (false)."
+                },
+                "biNewsletterTitle": {
+                    "title": "biNewsletter.title",
+                    "type": "string",
+                    "description": "The Title of a specific BI NEWSLETTER."
+                }
+            }
+        },
+        "CustomerSegmentAssignment": {
+            "title": "customerSegmentAssignment",
+            "type": "object",
+            "description": "A Customer can be assigned to diferent segments, based on the available (defined) Customer Segmentation Types and allowed values per segment type.\nExample:\n- Customer A: Logistics --> Platinum\n- Customer A: Sales --> B\n- Customer B: Logistics --> Gold\nInformation Object is not under Governance of MDM.",
+            "properties": {
+                "createdDate": {
+                    "title": "createdDate",
+                    "type": "string",
+                    "format": "date"
+                },
+                "customerSegmentTerm": {
+                    "title": "customerSegment.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "customerSegmentTypeCode": {
+                    "title": "customerSegment.customerSegmentationType.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "customerSegmentTypeName": {
+                    "title": "customerSegment.customerSegmentationType.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "customerSegmentOwner": {
+                    "title": "customerSegment.owner",
+                    "type": "string"
+                },
+                "customerSegmentTargets": {
+                    "title": "customerSegment.customerSegmentTargets",
+                    "type": "array",
+                    "description": "Identifies whether the segment is made up of Accounts (e.g. locations or clinics) or Customer Contacts (e.g. vets.)",
+                    "items": {
+                        "$ref": "#/definitions/CustomerSegmentTarget"
+                    }
+                },
+                "localBrandId": {
+                    "title": "localBrandId",
+                    "type": "string",
+                    "description": "Unique identifier of the object LOCAL BRAND."
+                },
+                "validFrom": {
+                    "title": "validFrom",
+                    "type": "string",
+                    "format": "date"
+                },
+                "validTo": {
+                    "title": "validTo",
+                    "type": "string",
+                    "format": "date"
+                },
+                "assignmentIdentifier": {
+                    "title": "assignmentIdentifier",
+                    "type": "string"
+                }
+            }
+        },
+        "CustomerSegmentTarget": {
+            "title": "customerSegmentTarget",
+            "type": "object",
+            "description": "Identifies whether the segment is made up of Accounts (e.g. locations or clinics) or Customer Contacts (e.g. vets.)",
+            "properties": {
+                "code": {
+                    "title": "code",
+                    "type": "string"
+                },
+                "term": {
+                    "title": "term",
+                    "type": "string"
+                }
+            }
+        },
+        "CustomerProfile": {
+            "title": "customerProfile",
+            "type": "object",
+            "description": "The customer profile bundles some important profile information about a customer from the marketing and sales perspective.",
+            "properties": {
+                "referralType": {
+                    "title": "referralType",
+                    "type": "string",
+                    "description": "Indicates how the customer heard about BI"
+                },
+                "informationSource": {
+                    "title": "informationSource",
+                    "type": "string",
+                    "description": "How we received customer's information"
+                },
+                "relationshipLevel": {
+                    "title": "relationshipLevel",
+                    "type": "string",
+                    "description": "Indicates the customer's relationship / intimacy with BI"
+                },
+                "customerOrderProposals": {
+                    "title": "customerOrderProposals",
+                    "type": "array",
+                    "description": "CUSTOMER ORDER PROPOSAL defines a default proposal which a CUSTOMER is suggested to order.",
+                    "items": {
+                        "$ref": "#/definitions/CustomerOrderProposal"
+                    }
+                }
+            }
+        },
+        "CustomerOrderProposal": {
+            "title": "customerOrderProposal",
+            "type": "object",
+            "description": "CUSTOMER ORDER PROPOSAL defines a default proposal which a CUSTOMER is suggested to order.",
+            "properties": {
+                "code": {
+                    "title": "code",
+                    "type": "string"
+                },
+                "term": {
+                    "title": "term",
+                    "type": "string"
+                }
+            }
+        },
+        "GroupingAssignment": {
+            "title": "groupingAssignment",
+            "type": "object",
+            "properties": {
+                "groupingCode": {
+                    "title": "grouping.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "groupingName": {
+                    "title": "grouping.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "groupingTypeCode": {
+                    "title": "grouping.groupingType.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "groupingTypeName": {
+                    "title": "grouping.groupingType.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "CustomerSubgroupAssignment": {
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "#/definitions/CustomerSubgroup"
+                }
+            ]
+        },
+        "CustomerSubgroup": {
+            "title": "customerSubgroup",
+            "type": "object",
+            "description": "CUSTOMER SUBGROUPs classifies the CUSTOMER GROUP in detail.\nThe CUSTOMER GROUP classifies customers into different groups of customers (for example, wholesale or retail) for the purpose of pricing or generating statistics.",
+            "properties": {
+                "subgroupCode": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "subgroupName": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "customerGroupCode": {
+                    "title": "customerGroup.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "customerGroupName": {
+                    "title": "customerGroup.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "CustomerTerritoryAssignment": {
+            "title": "customerTerritoryAssignment",
+            "type": "object",
+            "description": "shows the fact that a CUSTOMER is assigned to a TERRITORY",
+            "properties": {
+                "startDate": {
+                    "title": "startDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "First Day of assignment"
+                },
+                "endDate": {
+                    "title": "endDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Last Day of assignment"
+                },
+                "territoryName": {
+                    "title": "territory.name",
+                    "type": "string",
+                    "description": "Name of territory, used as an identifier (naming conventions are in place, like Country - Business Unit - Business Segment - Territory Code"
+                }
+            }
+        }
+    }
+}

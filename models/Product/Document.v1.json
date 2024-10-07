@@ -1,0 +1,183 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/Document.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DOCUMENT",
+    "type": "object",
+    "description": "A DOCUMENT is an information object that has a digital and/or analog representation within Boehringer Ingelheim systems and has a specific minimal state of internal distribution/internal usage.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "englishName": {
+                    "title": "englishName",
+                    "type": "string",
+                    "description": "The English Name of a DOCUMENT is the leading term a document entity is described by. It is the human readable english term a system provides the user for explicit identification of a DOCUMENT.\nAs BI's company language is english English Name is mandatory.\nIn case of a not existing English Name the Non English Name has to be translated!"
+                },
+                "documentIdentifier": {
+                    "title": "documentIdentifier",
+                    "type": "array",
+                    "description": "A DOCUMENT can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+                    "items": {
+                        "title": "documentIdentifier",
+                        "type": "object",
+                        "description": "A DOCUMENT can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+                        "properties": {
+                            "identifier": {
+                                "title": "identifier",
+                                "type": "string",
+                                "description": "Unique Identifier of a Document."
+                            },
+                            "typeName": {
+                                "title": "documentIdentifierType.term",
+                                "type": "string",
+                                "description": "Term is the name of the specific Identifier."
+                            }
+                        }
+                    }
+                },
+                "version": {
+                    "title": "version",
+                    "type": "string",
+                    "description": "Version displays a specific change set or release version of a DOCUMENT."
+                },
+                "englishDescription": {
+                    "title": "englishDescription",
+                    "type": "string",
+                    "description": "The English Description is a short mandatory text of the purpose or content of the DOCUMENT in english. \nIn case of a not existing English Description the Non English Description has to be translated!"
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "description": "The Status displays the actual status of a DOCUMENT.\nThe historical status are either not maintained or maintained in previous versions of the DOCUMENT."
+                },
+                "informationSystemConfigItemName": {
+                    "title": "informationSystem.configItem.systemName",
+                    "type": "string",
+                    "description": "The name of the Information System as defined in CMDB."
+                },
+                "informationSystemProvidedIdentifierName": {
+                    "title": "providedIdentifier",
+                    "type": "array",
+                    "description": "A TECHNICAL IDENTIFIER can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+                    "items": {
+                        "title": "identifierName",
+                        "type": "string",
+                        "description": "The name of the identifier."
+                    }
+                },
+                "informationSystemProvidedIdentifierId": {
+                    "title": "providedIdentifier",
+                    "type": "array",
+                    "description": "A TECHNICAL IDENTIFIER can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+                    "items": {
+                        "title": "identifier",
+                        "type": "string",
+                        "description": "The code sequence of the identifier."
+                    }
+                },
+                "documentOwner": {
+                    "type": "array",
+                    "description": "DOCUMENT OWNER is accountable for a DOCUMENT. Accountability includes the maintenance of the DOCUMENT to reflect reality.\nAssignments of a DOCUMENT to an DOCUMENT OWNER may vary by DOCUMENT TYPE or other criteria.",
+                    "items": {
+                        "title": "individualName",
+                        "type": "object",
+                        "description": "Individual Name is the first name and last name of an individual. For example a Chinese individual can have two names, one in Chinese and one in English.",
+                        "properties": {
+                            "firstName": {
+                                "title": "firstName",
+                                "type": "string"
+                            },
+                            "lastName": {
+                                "title": "lastName",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "creator": {
+                    "type": "array",
+                    "description": "A CREATOR is a role that generates/prepares information within a defined medium for example a digital document, movie, ... .",
+                    "items": {
+                        "title": "individualName",
+                        "type": "object",
+                        "description": "Individual Name is the first name and last name of an individual. For example a Chinese individual can have two names, one in Chinese and one in English.",
+                        "properties": {
+                            "firstName": {
+                                "title": "firstName",
+                                "type": "string"
+                            },
+                            "lastName": {
+                                "title": "lastName",
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "documentStorageInformationSourceLink": {
+                    "title": "documentStorageInformation",
+                    "type": "array",
+                    "description": "DOCUMENT STORAGE INFORMATION are representing the exact location path of a instance.",
+                    "items": {
+                        "title": "sourceLink",
+                        "type": "string",
+                        "description": "Source Link represents the complete system path with an invoking protocol for direct access to a DOCUMENT instance."
+                    }
+                },
+                "documentStorageInformationFileName": {
+                    "title": "documentStorageInformation",
+                    "type": "array",
+                    "description": "DOCUMENT STORAGE INFORMATION are representing the exact location path of a instance.",
+                    "items": {
+                        "title": "fileName",
+                        "type": "string",
+                        "description": "Within a storage system a document name might be enriched or replaced by specific storage system rules. This attribute represents the document name as it is shown in a specific storage system."
+                    }
+                },
+                "documentStorageInformationFileSize": {
+                    "title": "documentStorageInformation",
+                    "type": "array",
+                    "description": "DOCUMENT STORAGE INFORMATION are representing the exact location path of a instance.",
+                    "items": {
+                        "title": "fileSize",
+                        "type": "string",
+                        "description": "File Size indicates the space a specific DOCUMENT needs at a storage system. This may be represented by a number and KB, MB, GB [...]"
+                    }
+                },
+                "renditionTypeName": {
+                    "title": "renditionType.name",
+                    "type": "string",
+                    "description": "Name of file extension"
+                },
+                "languageNames": {
+                    "title": "language",
+                    "type": "array",
+                    "description": "Language definitions are based on ISO 639.\nISO 639-1 contains much other information about the use of language symbols and registration of new symbols.\nThe language codes of ISO 639-1 are said to be \"devised primarily for use in terminology, lexicography and linguistics, but they may be used for any application requiring the expression of languages in coded form.\"",
+                    "items": {
+                        "title": "name",
+                        "type": "string",
+                        "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                    }
+                }
+            }
+        },
+        {
+            "title": "basicChangeInfo",
+            "type": "object",
+            "description": "Each MULTI-CHANNEL CYCLE PLAN [AH] has 1 to n BASIC CHANGE INFOs",
+            "properties": {
+                "createdDate": {
+                    "title": "createdDate",
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "indicates date and time of creation"
+                },
+                "lastChangedDate": {
+                    "title": "lastChangedDate",
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "indicates date and time of last change"
+                }
+            }
+        }
+    ]
+}

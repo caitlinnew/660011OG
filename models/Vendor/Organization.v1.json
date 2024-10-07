@@ -1,0 +1,94 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/Organization.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ORGANIZATION",
+    "type": "object",
+    "description": "A NON-INDIVIDUAL PARTY or ORGANIZATION describes a non-individual BUSINESS PARTNER. \nIt may specialize, for example, in LEGAL ENTITY, NON-LEGAL ASSOCIATION, …",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "fullName": {
+                    "title": "fullName",
+                    "type": "string",
+                    "description": "The Formatted Name contains the name parts which are used for written communication.\nThere may exist country specific rules to concatenate the name parts to this full name (MDG).\n\nThe formattedName or fullName is a calculated field containing the Organisation name or the concatenation of the first and last name. In the most Systems this field is read only because the properties are stored separately (e.g. firstName and lastName)."
+                },
+                "organizationName": {
+                    "title": "preferedOrganizationName.name",
+                    "type": "string",
+                    "description": "The name of the Business Partner."
+                },
+                "organizationNameExtension": {
+                    "title": "preferedOrganizationName.nameExtension",
+                    "type": "string",
+                    "description": "Name Extension of Business Partner Name. Used for Organizations."
+                },
+                "organizationNameExtension2": {
+                    "title": "preferedOrganizationName.nameExtension2",
+                    "type": "string",
+                    "description": "Name Extension 2 of Business Partner Name. Used for Organizations."
+                },
+                "organizationNameExtension3": {
+                    "title": "preferedOrganizationName.nameExtension3",
+                    "type": "string",
+                    "description": "Name Extension 3 of Business Partner Name. Used for Organizations."
+                },
+                "organizationNameExtension4": {
+                    "title": "preferedOrganizationName.nameExtension4",
+                    "type": "string",
+                    "description": "Name Extension 4 of Business Partner Name. Used for Organizations."
+                },
+                "contactPersons": {
+                    "title": "contactPersons",
+                    "type": "array",
+                    "items": {
+                        "$ref": "../Customer/ContactPerson.v1.json"
+                    }
+                },
+                "createdBy": {
+                    "title": "auditTrail.createdBy",
+                    "type": "string",
+                    "description": "User who created the object."
+                },
+                "updatedBy": {
+                    "title": "auditTrail.updatedBy",
+                    "type": "string",
+                    "description": "Last user to change object."
+                },
+                "updateTimestamp": {
+                    "title": "updateTimestamp",
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time of the last modification of a Business Partner in a specific IT system."
+                },
+                "orgName1": {
+                    "title": "orgName1",
+                    "type": "string",
+                    "description": "The (Organisation) Name of the BUSINESS PARTNER.",
+                    "deprecated": "true"
+                },
+                "orgName2": {
+                    "title": "orgName2",
+                    "type": "string",
+                    "description": "The (Organisation) Name Extension of the BUSINESS PARTNER.",
+                    "deprecated": "true"
+                },
+                "orgName3": {
+                    "title": "orgName3",
+                    "type": "string",
+                    "description": "The (Organisation) Name Extension2 of the BUSINESS PARTNER.",
+                    "deprecated": "true"
+                },
+                "orgName4": {
+                    "title": "orgName4",
+                    "type": "string",
+                    "description": "The (Organisation) Name Extension3 of the BUSINESS PARTNER.",
+                    "deprecated": "true"
+                }
+            }
+        },
+        {
+            "$ref": "BusinessPartner.v2.json"
+        }
+    ]
+}

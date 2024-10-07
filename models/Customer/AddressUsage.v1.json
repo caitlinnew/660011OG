@@ -1,0 +1,308 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/AddressUsage.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ADDRESS USAGE",
+    "type": "object",
+    "description": "Address usage says that a certain business partner is using a certain address (which is (usually) independent of a business partner). Via the relationship to ADDRESS TYPE it also tells the purpose which the address is used for, e.g. Sold-To, Bill-To, Ship-To, Private, Office, ... (see Examples tab of ADDRESS TYPE).",
+    "properties": {
+        "defaultCommunicationMethodCode": {
+            "title": "defaultCommunicationMethod.code",
+            "type": "string"
+        },
+        "defaultCommunicationMethodName": {
+            "title": "defaultCommunicationMethod.term",
+            "type": "string"
+        },
+        "careOfName": {
+            "title": "address.careOfName",
+            "type": "string",
+            "description": "c/o name\n\nPart of the address (c/o = care of) if the recipient is different from the occupant and the names are not similar (e.g. subtenants).\n\nSource: SAP field help"
+        },
+        "city": {
+            "title": "address.city",
+            "type": "string",
+            "description": "Name of the City for the postal ADDRESS"
+        },
+        "cityDistrict": {
+            "title": "address.cityDistrict",
+            "type": "string",
+            "description": "Customer Neighborhood description within a City."
+        },
+        "companyPostalCode": {
+            "title": "address.companyPostalCode",
+            "type": "string",
+            "description": "The Comany Postal Code is used for countries where major companies are assigned their own postal code by the national post office."
+        },
+        "houseNumber": {
+            "title": "address.houseNumber",
+            "type": "string",
+            "description": "The House Number"
+        },
+        "houseNumberSupplement": {
+            "title": "address.houseNumberSupplement",
+            "type": "string",
+            "description": "House Number Supplement may be used in case a more specific description than the Address with Street Name and House Number is required.\nE.g. track 7, ramp 5"
+        },
+        "identifiers": {
+            "title": "address.identifiers",
+            "type": "string"
+        },
+        "postboxCity": {
+            "title": "address.postboxCity",
+            "type": "string",
+            "description": "The PO Box city can be entered here if it is different from the address city.\n\nIf the address is only a PO Box address, enter the city in the normal city field.\n\nSource: SAP field help"
+        },
+        "postboxNumber": {
+            "title": "address.postboxNumber",
+            "type": "string",
+            "description": "Post Office Box Number"
+        },
+        "postboxPostalCode": {
+            "title": "address.postboxPostalCode",
+            "type": "string",
+            "description": "The Postal code that is required for a unique assignment of the PO box\nThis field is used for countries where a different postal code applies to mail that is sent to the PO box rather than to the street address of a particular business partner."
+        },
+        "postboxWithoutNumber": {
+            "title": "address.postboxWithoutNumber",
+            "type": "string",
+            "description": "This field is set to true if the PO Box is without a number."
+        },
+        "streetName": {
+            "title": "address.streetName",
+            "type": "string",
+            "description": "The name of the Street"
+        },
+        "streetNameExtension": {
+            "title": "address.streetNameExtension",
+            "type": "string",
+            "description": "Additional address text line for Street Name"
+        },
+        "streetNameExtension2": {
+            "title": "address.streetNameExtension2",
+            "type": "string",
+            "description": "2nd Additional address text line for Street Name"
+        },
+        "streetNameExtension3": {
+            "title": "address.streetNameExtension3",
+            "type": "string",
+            "description": "3rd Additional address text line for Street Name"
+        },
+        "streetNameExtension4": {
+            "title": "address.streetNameExtension4",
+            "type": "string",
+            "description": "4th Additional address text line for Street Name"
+        },
+        "zip": {
+            "title": "address.zipOrPostalCode",
+            "type": "string"
+        },
+        "countryIso3code": {
+            "title": "address.country.alpha-3Code",
+            "type": "string"
+        },
+        "countryEnglishShortName": {
+            "title": "address.country.englishShortName",
+            "type": "string",
+            "description": "English short name according to ISO 3166-1"
+        },
+        "countryRefId": {
+            "title": "country.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "timeZoneOfAddressTimezoneCode": {
+            "title": "address.timeZoneOfAddress.timezoneCode",
+            "type": "string"
+        },
+        "writingSystemSapNationId": {
+            "title": "address.writingSystem.sapNationId",
+            "type": "string"
+        },
+        "locationGeographicalInformationCityCoordinates": {
+            "title": "location.geographicalInformation.cityCoordinates",
+            "type": "string",
+            "description": "Coordinates of the city in which e.g. the headquarter of a BUSINESS PARTNER is located."
+        },
+        "locationWebs": {
+            "title": "location.webs",
+            "type": "array",
+            "description": "COMMUNICATION CHANNEL WEB reflects the WEB-Sites that a customer has and where we can find information about him. This can be his private WEB-Site, the official Company Homepage of a HCO or even a dedicated page of a HCO where is information about a HCP is available (e.g. as a kind of staff member profile).",
+            "items": {
+                "$ref": "#/definitions/Web"
+            }
+        },
+        "locationEmails": {
+            "title": "location.emails",
+            "type": "array",
+            "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+            "items": {
+                "$ref": "#/definitions/Email"
+            }
+        },
+        "locationTelephones": {
+            "title": "location.telephones",
+            "type": "array",
+            "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+            "items": {
+                "$ref": "#/definitions/Telephone"
+            }
+        },
+        "locationFaxs": {
+            "title": "location.faxs",
+            "type": "array",
+            "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+            "items": {
+                "$ref": "#/definitions/Fax"
+            }
+        }
+    },
+    "definitions": {
+        "Web": {
+            "title": "web",
+            "type": "object",
+            "description": "COMMUNICATION CHANNEL WEB reflects the WEB-Sites that a customer has and where we can find information about him. This can be his private WEB-Site, the official Company Homepage of a HCO or even a dedicated page of a HCO where is information about a HCP is available (e.g. as a kind of staff member profile).",
+            "properties": {
+                "doNotUseFlag": {
+                    "title": "doNotUseFlag",
+                    "type": "boolean",
+                    "description": "The Do not Use Flag indicates that a particular Communication Number is Not Used."
+                },
+                "sequenceNumber": {
+                    "title": "sequenceNumber",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "isStandardUrl": {
+                    "title": "isStandardUrl",
+                    "type": "boolean",
+                    "description": "This field indicates that this Web ULR Is the Standard URL for a defined use."
+                },
+                "urlName": {
+                    "title": "urlName",
+                    "type": "string"
+                },
+                "urlTypeCode": {
+                    "title": "urlType.code",
+                    "type": "string"
+                },
+                "urlTypeName": {
+                    "title": "urlType.term",
+                    "type": "string"
+                }
+            }
+        },
+        "Email": {
+            "title": "email",
+            "type": "object",
+            "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+            "properties": {
+                "doNotUseFlag": {
+                    "title": "doNotUseFlag",
+                    "type": "boolean",
+                    "description": "The Do not Use Flag indicates that a particular Communication Number is Not Used."
+                },
+                "sequenceNumber": {
+                    "title": "sequenceNumber",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "address": {
+                    "title": "emailAddress",
+                    "type": "string"
+                },
+                "isStandardE-Mail": {
+                    "title": "isStandardE-Mail",
+                    "type": "boolean",
+                    "description": "This field indicates that this Email Is the Standard Email for a defined use."
+                }
+            }
+        },
+        "Telephone": {
+            "title": "telephone",
+            "type": "object",
+            "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+            "properties": {
+                "doNotUseFlag": {
+                    "title": "doNotUseFlag",
+                    "type": "boolean",
+                    "description": "The Do not Use Flag indicates that a particular Communication Number is Not Used."
+                },
+                "sequenceNumber": {
+                    "title": "sequenceNumber",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "extension": {
+                    "title": "extension",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "A Phone Number may have an Extension"
+                },
+                "isMobilePhoneNumber": {
+                    "title": "isMobilePhoneNumber",
+                    "type": "boolean",
+                    "description": "Telephone Number blongs to a Mobile Phone"
+                },
+                "isSmsEnabled": {
+                    "title": "isSmsEnabled",
+                    "type": "boolean",
+                    "description": "Telephone is SMS-Enabled"
+                },
+                "isStandardPhoneNumber": {
+                    "title": "isStandardPhoneNumber",
+                    "type": "boolean",
+                    "description": "This field indicates that this Phone Number Is the Standard Phone Number for a defined use."
+                },
+                "number": {
+                    "title": "telephoneNumber",
+                    "type": "string"
+                },
+                "complete": {
+                    "title": "telephoneNumberComplete",
+                    "type": "string",
+                    "description": "Telephone Number with Country Prefix, Dialling Code and with Extension"
+                },
+                "countryIso3code": {
+                    "title": "phoneCountry.alpha-3Code",
+                    "type": "string"
+                },
+                "countryEnglishShortName": {
+                    "title": "phoneCountry.englishShortName",
+                    "type": "string",
+                    "description": "English short name according to ISO 3166-1"
+                },
+                "countryRefId": {
+                    "title": "phoneCountry.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "Fax": {
+            "title": "fax",
+            "type": "object",
+            "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+            "properties": {
+                "doNotUseFlag": {
+                    "title": "doNotUseFlag",
+                    "type": "boolean",
+                    "description": "The Do not Use Flag indicates that a particular Communication Number is Not Used."
+                },
+                "sequenceNumber": {
+                    "title": "sequenceNumber",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "number": {
+                    "title": "faxNumber",
+                    "type": "string"
+                },
+                "isStandardFaxNumber": {
+                    "title": "isStandardFaxNumber",
+                    "type": "boolean",
+                    "description": "This field indicates that this Fax Number is the Standard Phone Number for a defined use."
+                }
+            }
+        }
+    }
+}

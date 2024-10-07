@@ -1,0 +1,19 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/PaymentTerm.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PaymentTerm",
+    "type": "object",
+    "description": "Key for defining payment terms composed of cash discount percentages and payment periods.\nUse:\nIt is used in sales orders, purchase orders, and invoices. Terms of payment provide information for:\n• Cash management\n• Dunning procedures\n• Payment transactions\nProcedure:\nData can be entered in the field for the terms of payment key in various ways as you enter a business transaction:\n• In most business transactions, the system defaults the key specified in the master record of the customer/vendor in question.\n• In some transactions (for example, credit memos), however, the system does not default the key from the master record. Despite this, you can use the key from the customer/vendor master record by entering \"*\" in the field.\n• Regardless of whether or not a key is defaulted from the master record, you can manually enter a key during document entry at:\n- item level in sales orders\n- header level in purchase orders and invoices\nNote:\nMaster records have separate areas for Financial Accounting, Sales, and Purchasing. You can specify different terms of payment keys in each of these areas. When you then enter a business transaction, the application in question will use the key specified in its area of the master record.",
+    "properties": {
+        "paymentTermCode": {
+            "title": "code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "paymentTermName": {
+            "title": "term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        }
+    }
+}

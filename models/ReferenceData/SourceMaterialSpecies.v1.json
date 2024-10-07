@@ -1,0 +1,79 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MasterDataDomains/SourceMaterialSpecies.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SOURCE MATERIAL SPECIES",
+    "type": "object",
+    "description": "The SOURCE MATERIAL SPECIES names the source of a SUBSTANCE which is sourced from a SPECIES, i.e. from an organism. This list is different from the list SPECIES: The list SPECIES is a noun (e.g. cat, dog, horse, human) while SOURCE MATERIAL SPECIES is an adjective (e.g. feline, canine, equine, human).\nThis list is used to standardize the source from which SUBSTANCEs with SUBSTANCE TYPE Stem Cells are generated. This term is used in the respective SUBSTANCE NAME in the form <SOURCE MATERIAL SPECIES>, <Tissue origin>, <Cell type>.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Unique Identifier of source record in EMA RMS"
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "enum": [
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        },
+        "validityBusinessUnit": {
+            "title": "validityHumanOrVeterinary",
+            "type": "string",
+            "enum": [
+                "HP",
+                "AH",
+                "HP + AH"
+            ]
+        }
+    }
+}

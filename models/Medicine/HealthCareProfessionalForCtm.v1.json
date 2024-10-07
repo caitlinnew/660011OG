@@ -1,0 +1,39 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/HealthCareProfessionalForCtm.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HEALTH CARE PROFESSIONAL FOR CTM",
+    "type": "object",
+    "description": "Supplement information for a HEALTH CARE PROFESSIONAL.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "isDiscontinued": {
+                    "title": "discontinuedFlag",
+                    "type": "boolean",
+                    "description": "The discontinued Flag indicates wether a specific Role of a Business Partner is in use or discontinued."
+                }
+            }
+        },
+        {
+            "$ref": "../Customer/Individual.v2.json"
+        },
+        {
+            "$ref": "#/definitions/HealthCareProfessionalCtmSupplement"
+        }
+    ],
+    "definitions": {
+        "HealthCareProfessionalCtmSupplement": {
+            "title": "healthCareProfessionalCtmSupplement",
+            "type": "object",
+            "description": "Supplement information for a HEALTH CARE PROFESSIONAL.",
+            "properties": {
+                "ctmsHealthCareProfessionalId": {
+                    "title": "ctmsHealthCareProfessionalId",
+                    "type": "string",
+                    "description": "The unique identifier of the HEALTH CARE PROFESSIONAL concerning clinical trial management."
+                }
+            }
+        }
+    }
+}

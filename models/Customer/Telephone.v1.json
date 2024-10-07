@@ -1,0 +1,86 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Telephone.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "TELEPHONE",
+    "type": "object",
+    "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+    "properties": {
+        "usageTypeName": {
+            "title": "communicationChannelUsageType.term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        },
+        "isStandardPhoneNumber": {
+            "title": "isStandardPhoneNumber",
+            "type": "boolean",
+            "description": "This field indicates that this Phone Number Is the Standard Phone Number for a defined use."
+        },
+        "number": {
+            "title": "telephoneNumber",
+            "type": "string"
+        },
+        "numberComplete": {
+            "title": "telephoneNumberComplete",
+            "type": "string",
+            "description": "Telephone Number with Country Prefix, Dialling Code and with Extension"
+        },
+        "countryIso2Code": {
+            "title": "phoneCountry.alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 code according to ISO 3166-1"
+        },
+        "countryCallingCode": {
+            "title": "phoneCountry.countryCallingCode",
+            "type": "string",
+            "description": "Country calling codes or country dial in codes are telephone dialing prefixes for the member countries or regions of the International Telecommunication Union (ITU). They are defined by the ITU-T in standards E.123 and E.164. The prefixes enable international direct dialing (IDD), and are also referred to as international subscriber dialing (ISD) codes."
+        },
+        "countryEnglishShortName": {
+            "title": "phoneCountry.englishShortName",
+            "type": "string",
+            "description": "English short name according to ISO 3166-1"
+        },
+        "countryRefId": {
+            "title": "phoneCountry.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "doNotUseFlag": {
+            "title": "doNotUseFlag",
+            "type": "boolean",
+            "description": "The Do not Use Flag indicates that a particular Communication Number is Not Used."
+        },
+        "sequenceNumber": {
+            "title": "sequenceNumber",
+            "type": "integer",
+            "format": "int32"
+        },
+        "extension": {
+            "title": "extension",
+            "type": "integer",
+            "format": "int32",
+            "description": "A Phone Number may have an Extension"
+        },
+        "isMobilePhoneNumber": {
+            "title": "isMobilePhoneNumber",
+            "type": "boolean",
+            "description": "Telephone Number blongs to a Mobile Phone"
+        },
+        "isSmsEnabled": {
+            "title": "isSmsEnabled",
+            "type": "boolean",
+            "description": "Telephone is SMS-Enabled"
+        },
+        "complete": {
+            "title": "telephoneNumberComplete",
+            "type": "string",
+            "description": "DEPRECATED property, use numberComplete instead.",
+            "deprecated": "true"
+        },
+        "countryIso3code": {
+            "title": "phoneCountry.alpha-3Code",
+            "type": "string",
+            "description": "DEPRECATED property, use countryIso2Code instead.",
+            "deprecated": "true" 
+        }
+    }
+}

@@ -1,0 +1,513 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Address.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ADDRESS",
+    "type": "object",
+    "description": "An ADDRESS is the particulars of the place where a business partner is situated for example the purposes of postal delivery.\nADDRESS contains the non-localized attributes of this place.\nLOCALIZED ADDRESS contains the localized attributes of this place.",
+    "properties": {
+        "addressClassification": {
+            "title": "addressClassification",
+            "type": "string",
+            "description": "Address Classification is used to indicate which kind of Address is delivered. There existi (country) specific rules which are not considered for classification. Then the value UNKNOWN is returned.",
+            "enum": [
+                "PHYSICAL ADDRESS",
+                "POSTBOX ADDRESS",
+                "BAD POSTAL BOX DATA",
+                "UNKNOWN"
+            ]
+        },
+        "careOfName": {
+            "title": "careOfName",
+            "type": "string",
+            "description": "c/o name\n\nPart of the address (c/o = care of) if the recipient is different from the occupant and the names are not similar (e.g. subtenants).\n\nSource: SAP field help"
+        },
+        "city": {
+            "title": "city",
+            "type": "string",
+            "description": "Name of the City for the postal ADDRESS"
+        },
+        "cityDistrict": {
+            "title": "cityDistrict",
+            "type": "string",
+            "description": "Customer Neighborhood description within a City."
+        },
+        "companyPostalCode": {
+            "title": "companyPostalCode",
+            "type": "string",
+            "description": "The Company Postal Code is used for countries where major companies are assigned their own postal code by the national post office."
+        },
+        "houseNumber": {
+            "title": "houseNumber",
+            "type": "string",
+            "description": "The House Number"
+        },
+        "houseNumberSupplement": {
+            "title": "houseNumberSupplement",
+            "type": "string",
+            "description": "House Number Supplement may be used in case a more specific description than the Address with Street Name and House Number is required.\nE.g. track 7, ramp 5"
+        },
+        "id": {
+            "title": "id",
+            "type": "string",
+            "description":"The Identifier of an ADDRESS."
+        },
+        "line1": {
+            "title": "addressLine1",
+            "type": "string",
+            "description": "May be used as alternative to Street Name and House Number or in addition to these attributes."
+        },
+        "line2": {
+            "title": "addressLine2",
+            "type": "string",
+            "description": "May be used as alternative to Street Name and House Number or in addition to these attributes."
+        },
+        "line3": {
+            "title": "addressLine3",
+            "type": "string",
+            "description": "May be used as alternative to Street Name and House Number or in addition to these attributes."
+        },
+        "line4": {
+            "title": "addressLine4",
+            "type": "string",
+            "description": "May be used as alternative to Street Name and House Number or in addition to these attributes."
+        },
+        "postboxCity": {
+            "title": "postboxCity",
+            "type": "string",
+            "description": "The PO Box city can be maintained here if it is different from the address city.\nIf the address contains only a PO Box address, then the \"normal\" city field is maintained.\nSource: SAP field help"
+        },
+        "postboxNumber": {
+            "title": "postboxNumber",
+            "type": "string",
+            "description": "Post Office Box Number"
+        },
+        "postboxPostalCode": {
+            "title": "postboxPostalCode",
+            "type": "string",
+            "description": "The Postal code that is required for a unique assignment of the PO box\nThis field is used for countries where a different postal code applies to mail that is sent to the PO box rather than to the street address of a particular business partner."
+        },
+        "postboxWithoutNumber": {
+            "title": "postboxWithoutNumber",
+            "type": "boolean",
+            "description": "This field is set to true if the PO Box is without a number."
+        },
+        "streetName": {
+            "title": "streetName",
+            "type": "string",
+            "description": "The name of the Street"
+        },
+        "streetNameExtension": {
+            "title": "streetNameExtension",
+            "type": "string",
+            "description": "Additional address text line for Street Name"
+        },
+        "streetNameExtension2": {
+            "title": "streetNameExtension2",
+            "type": "string",
+            "description": "2nd Additional address text line for Street Name"
+        },
+        "streetNameExtension3": {
+            "title": "streetNameExtension3",
+            "type": "string",
+            "description": "3rd Additional address text line for Street Name"
+        },
+        "streetNameExtension4": {
+            "title": "streetNameExtension4",
+            "type": "string",
+            "description": "4th Additional address text line for Street Name"
+        },
+        "taxJurisdictionCode": {
+            "title": "taxJurisdictionCode",
+            "type": "string",
+            "description": "The (Tax) Jurisdiction Code is a key which (together with the tax code) determines the tax amount and the way in which payment of the total tax amount is divided between different tax authorities. Jurisdiction codes are used in the USA and Brazil."
+        },
+        "zip": {
+            "title": "zipOrPostalCode",
+            "type": "string"
+        },
+        "countryIso2Code": {
+            "title": "country.alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 code according to ISO 3166-1"
+        },
+        "countryRefId": {
+            "title": "country.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "countryName": {
+            "title": "country.name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "countrySubdivisionSapCode": {
+            "title": "countrySubdivision.sapCode",
+            "type": "string",
+            "description": "A Country Subdivision is indentified in SAP MDG by the code for the country together with the code for the country subdivision (SAP name: region)."
+        },
+        "countrySubdivisionIsoCode": {
+            "title": "countrySubdivision.isoCode",
+            "type": "string",
+            "description": "The Code according to ISO 3166-2.\nIf a COUNTRY SUBDIVISION is defined for a level not provided by ISO, then this Code remains empty (0). Instead an Alternate National Code has to be provided."
+        },
+        "countrySubdivisionAlternateNationalCode": {
+            "title": "countrySubdivision.alternateNationalCode",
+            "type": "string",
+            "description": "A COUNTRY may specify it's own Codes to identify COUNTRY SUBDIVISIONs.\nE.g. in the US this Alternate National Code is the so called FIPS-Code."
+        },
+        "countrySubdivisionRefId": {
+            "title": "countrySubdivision.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "countrySubdivisionName": {
+            "title": "countrySubdivision.name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        
+        "languageIso2Code": {
+            "title": "language.alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 Code according to Iso 639."
+        },
+        
+        "languageRefId": {
+            "title": "language.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "languageName": {
+            "title": "language.name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "localizedAddress": {
+            "title": "localizedAddress - use localizedAddresses",
+            "type": "array",
+            "description": "The LOCALIZED ADDRESS is an ADDRESS converted into another WRITING SYSTEM as e.g. Arabic, Chinese, Cyrillic, Greek & Thai.",
+            "deprecated": "true",
+            "items": {
+                "$ref": "#/definitions/LocalizedAddress"
+            }
+        },
+        "localizedAddresses": {
+            "title": "localizedAddresses",
+            "type": "array",
+            "description": "The LOCALIZED ADDRESS is an ADDRESS converted into another WRITING SYSTEM as e.g. Arabic, Chinese, Cyrillic, Greek & Thai.\"",
+            "items": {
+                "$ref": "#/definitions/LocalizedAddress"
+            }
+        },
+        "timeZoneCode": {
+            "title": "timeZoneOfAddress.timezoneCode",
+            "type": "string"
+        },
+        "transportationZone": {
+            "$ref": "#/definitions/RegionalGrouping"
+        },
+        "writingSystemSapCode": {
+            "title": "writingSystem.sapCode",
+            "type": "string",
+            "description": "This SAP Code identifies the international display format in which an address can be stored in the system.",
+            "enum": [
+                "A",
+                "B",
+                "C",
+                "D",
+                "G",
+                "H",
+                "I",
+                "K",
+                "M",
+                "N",
+                "R",
+                "T",
+                "V",
+                "Z"
+            ]
+        },
+        "writingSystem": {
+            "title": "writingSystem.term",
+            "type": "string",
+            "description": "This SAP Code identifies the international display format in which an address can be stored in the system.",
+            "enum": [
+                "ARABIC",
+                "CHINESE",
+                "CHINESE_TRADITIONAL",
+                "CYRILLIC",
+                "GREEK",
+                "HANGUL",
+                "HEBREW",
+                "INTERNATIONAL",
+                "KANJI",
+                "KATAKANA",
+                "THAI",
+                "VIETNAMESE",
+                "D",
+                "Z"
+            ]
+        },
+        "defaultCommunicationMethodCode": {
+            "title": "defaultCommunicationMethod.code",
+            "type": "string",
+            "description": "DEPRECATED property, use preferedCommunicationMethod instead",
+            "deprecated": "true"
+        },
+        "defaultCommunicationMethodName": {
+            "title": "defaultCommunicationMethod.term",
+            "type": "string",
+            "description": "DEPRECATED property, use preferedCommunicationMethod instead",
+            "deprecated": "true"
+        },
+        
+        "countryEnglishShortName": {
+            "title": "address.country.englishShortName",
+            "type": "string",
+            "description": "English short name according to ISO 3166-1"
+        },
+        
+        "locationGeographicalInformationCityCoordinates": {
+            "title": "location.geographicalInformation.cityCoordinates",
+            "type": "string",
+            "description": "Coordinates of the city in which e.g. the headquarter of a BUSINESS PARTNER is located."
+        },
+
+        "zipOrPostalCode": {
+            "title": "zipOrPostalCode - use zip",
+            "type": "string",
+            "description": "DEPRECATED property, use zip instead",
+            "deprecated": "true"
+        },
+        "timeZoneOfAddressTimezoneCode": {
+            "title": "address.timeZoneOfAddress.timezoneCode",
+            "type": "string",
+            "description": "DEPRECATED property, use timeZoneCode instead",
+            "deprecated": "true"
+        },
+        "writingSystemSapNationId": {
+            "title": "address.writingSystem.sapNationId",
+            "type": "string",
+            "description": "DEPRECATED property, use writingSystemSapCode instead",
+            "deprecated": "true"
+        },
+
+        "identifiers": {
+            "title": "address.identifiers",
+            "type": "string",
+            "description": "DEPRECATED property, bad naming. There is only one address identifier",
+            "deprecated": "true"
+        },
+        "countryIso3code": {
+            "title": "address.country.alpha-3Code",
+            "type": "string",
+            "description": "DEPRECATED property, use CountryIso2Code instead",
+            "deprecated": "true"
+        }
+    },
+    "definitions": {
+        "LocalizedAddress": {
+            "title": "localizedAddress",
+            "type": "object",
+            "description": "The LOCALIZED ADDRESS is an ADDRESS converted into another WRITING SYSTEM as e.g. Arabic, Chinese, Cyrillic, Greek & Thai.\"",
+            "properties": {
+                "name1": {
+                    "title": "name1",
+                    "type": "string",
+                    "description": "Localized name part 1 of a Business Partner corresponding with the localized address. Only used for SAP MDG."
+                },
+                "name2": {
+                    "title": "name2",
+                    "type": "string",
+                    "description": "Localized name part 2 of a Business Partner corresponding with the localized address. Only used for SAP MDG"
+                },
+                "name3": {
+                    "title": "name3",
+                    "type": "string",
+                    "description": "Localized name part 3 of a Business Partner corresponding with the localized address. Only used for SAP MDG"
+                },
+                "name4": {
+                    "title": "name4",
+                    "type": "string",
+                    "description": "Localized name part 4 of a Business Partner corresponding with the localized address. Only used for SAP MDG"
+                },
+                "city": {
+                    "title": "city",
+                    "type": "string"
+                },
+                "cityDistrict": {
+                    "title": "cityDistrict",
+                    "type": "string"
+                },
+                "houseNumber": {
+                    "title": "houseNumber",
+                    "type": "string",
+                    "description": "The House Number"
+                },
+                "postboxCity": {
+                    "title": "postboxCity",
+                    "type": "string",
+                    "description": "The PO Box city can be maintained here if it is different from the address city.\nIf the address contains only a PO Box address, then the \"normal\" city field is maintained.\nSource: SAP field help"
+                },
+                "postboxNumber": {
+                    "title": "postboxNumber",
+                    "type": "string",
+                    "description": "Post Office Box Number"
+                },
+                "postboxPostalCode": {
+                    "title": "postboxPostalCode",
+                    "type": "string",
+                    "description": "The Postal code that is required for a unique assignment of the PO box\nThis field is used for countries where a different postal code applies to mail that is sent to the PO box rather than to the street address of a particular business partner."
+                },
+                "postboxWithoutNumber": {
+                    "title": "postboxWithoutNumber",
+                    "type": "boolean",
+                    "description": "This field is set to true if the PO Box is without a number."
+                },
+                "streetName": {
+                    "title": "streetName",
+                    "type": "string",
+                    "description": "The name of the Street"
+                },
+                "streetNameExtension": {
+                    "title": "streetNameExtension",
+                    "type": "string",
+                    "description": "Additional address text line for Street Name"
+                },
+                "streetNameExtension2": {
+                    "title": "streetNameExtension2",
+                    "type": "string",
+                    "description": "2nd Additional address text line for Street Name"
+                },
+                "streetNameExtension3": {
+                    "title": "streetNameExtension3",
+                    "type": "string",
+                    "description": "3rd Additional address text line for Street Name"
+                },
+                "streetNameExtension4": {
+                    "title": "streetNameExtension4",
+                    "type": "string",
+                    "description": "4th Additional address text line for Street Name"
+                },
+                "zip": {
+                    "title": "zipOrPostalCode",
+                    "type": "string"
+                },
+                "countryIso2Code": {
+                    "title": "country.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                },
+                "countryRefId": {
+                    "title": "country.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "countryName": {
+                    "title": "country.name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                },
+                "countrySubdivisionSapCode": {
+                    "title": "countrySubdivision.sapCode",
+                    "type": "string",
+                    "description": "A Country Subdivision is indentified in SAP MDG by the code for the country together with the code for the country subdivision (SAP name: region)."
+                },
+                "countrySubdivisionIsoCode": {
+                    "title": "countrySubdivision.isoCode",
+                    "type": "string",
+                    "description": "The Code according to ISO 3166-2.\nIf a COUNTRY SUBDIVISION is defined for a level not provided by ISO, then this Code remains empty (0). Instead an Alternate National Code has to be provided."
+                },
+                "countrySubdivisionAlternateNationalCode": {
+                    "title": "countrySubdivision.alternateNationalCode",
+                    "type": "string",
+                    "description": "A COUNTRY may specify it's own Codes to identify COUNTRY SUBDIVISIONs.\nE.g. in the US this Alternate National Code is the so called FIPS-Code."
+                },
+                "countrySubdivisionRefId": {
+                    "title": "countrySubdivision.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "countrySubdivisionName": {
+                    "title": "countrySubdivision.name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                },
+                "writingSystemSapCode": {
+                    "title": "writingSystem.sapCode",
+                    "type": "string",
+                    "description": "This SAP Code identifies the international display format in which an address can be stored in the system.",                    
+                    "enum": [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "G",
+                        "H",
+                        "I",
+                        "K",
+                        "M",
+                        "N",
+                        "R",
+                        "T",
+                        "V",
+                        "Z"
+                    ]
+                },
+                "writingSystemTerm": {
+                    "title": "writingSystem.term",
+                    "type": "string",
+                    "enum": [
+                        "ARABIC",
+                        "CHINESE",
+                        "CHINESE_TRADITIONAL",
+                        "CYRILLIC",
+                        "GREEK",
+                        "HANGUL",
+                        "HEBREW",
+                        "INTERNATIONAL",
+                        "KANJI",
+                        "KATAKANA",
+                        "THAI",
+                        "VIETNAMESE",
+                        "D",
+                        "Z"
+                    ],
+                         "description": "The Term converted from SAP internal Code to identify the international display format in which an address can be stored in the system."
+                },
+                "writingSystemRefId": {
+                    "title": "writingSystem.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "writingSystemName": {
+                    "title": "writingSystem.name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                }
+            }
+        },
+        "RegionalGrouping": {
+            "title": "regionalGrouping",
+            "type": "object",
+            "description": "REGIONAL GROUPING is a piece of a geographical subdivision of a country. \nThere may be several such subdivisions within one country, determined by the REGIONAL GROUPING TYPE.\nLeading standard is the ISO 3166-2 (part of the ISO 3166) standard published by the International Organization for Standardization (ISO), and defines codes for identifying the principal subdivisions (e.g., provinces or states) of all countries coded in ISO 3166-1. The official name of the standard is Codes for the representation of names of countries and their subdivisions – Part 2: Country subdivision code. \n\nOnly for cases, that are not defined by the ISO custom extensions to the standard are allowed.\nExample: Grouping via Sanibrick",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                },
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "code": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                }
+            }
+        }
+    }
+}

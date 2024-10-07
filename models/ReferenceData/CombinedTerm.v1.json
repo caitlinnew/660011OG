@@ -1,0 +1,119 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/CombinedTerm.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "COMBINED TERM",
+    "type": "object",
+    "description": "In special cases (e.g. identical products which may be distinguished only by reference to the container), the information about the immediate container can be included in the authorised pharmaceutical form. In this case the RMS list “Combined term” shall be used.\nThe term is used for products where the immediate container functions as application device at the same time.",
+    "properties": {
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": 
+                {
+                    "title": "disabledAttributes",
+                    "type": "string",
+                    "description": "a list of disabled misc attributes in this dataset"
+                }
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "sources": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": 
+                {
+                    "$ref": "#/definitions/SourceOfInformationRef"
+                }
+        },
+        "combinedPharmaceuticalDoseForm": {
+            "$ref": "CombinedPharmaceuticalDoseForm.v1.json"
+        },
+        "pharmaceuticalDoseForm": {
+            "$ref": "PharmaceuticalDoseForm.v2.json"
+        },
+        "code": {
+            "title": "code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object.\nAlias SAP Code."
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "enum":[
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        },
+        "validityBusinessUnit": {
+            "title": "validityHumanOrVeterinary",
+            "type": "string",
+            "enum": [
+                "HP",
+                "AH",
+                "HP + AH"
+            ]
+        },
+        "xevmpdCode": {
+            "title": "xevmpdCode",
+            "type": "string",
+            "description": "Unique Identifier of the record with same meaning in Extended EudraVigilance medicinal product dictionary."
+        }
+    },
+    "definitions": {
+        "SourceOfInformationRef": {
+            "title": "sourceOfInformationRef",
+            "type": "object",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ManagedDocument.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MANAGED DOCUMENT",
+    "type": "object",
+    "description": "A MANAGED DOCUMENT is a specialization of a DOCUMENT.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "fullTitle": {
+                    "title": "fullTitle",
+                    "type": "string",
+                    "description": "The Fulltitle of a Managed Document \nOfficial title of the document as it will appear in a submission table of contents or eCTD outline."
+                },
+                "type": {
+                    "title": "type",
+                    "type": "string",
+                    "description": "Type defines what kind of document it is."
+                },
+                "productCategoryAiCombination": {
+                    "title": "productCategory.aiCombination",
+                    "type": "array",
+                    "description": "An ACTIVE INGREDIENT (AI) COMBINATION is a single SUBSTANCE (or SPECIFIED SUBSTANCE) or a combination of more than one SUBSTANCE (or SPECIFIED SUBSTANCEs) with the role active ingredient.\nSUBSTANCEs are used for AI COMBINATIONs of PRODUCT CATEGORY chemical. The SUBSTANCE naming only the Active Pharmaceutical Ingredient (API) moiety is used for definition of an AI COMBINATION, i.e. without salt form and hydrate form. Salt form and hydrate form are provided in the PRODUCT COMPOSITION.\n[Source: Eudralex - The Rules Governing Medicinal Products in the European Union, Volume 2C: Regulatory Guidelines, A GUIDELINE ON SUMMARY OF PRODUCT CHARACTERISTICS (SmPC) Rev. 2, Sep. 2009; http://ec.europa.eu/health/files/eudralex/vol-2/c/smpc_guideline_rev2_en.pdf]\n\nSPECIFIED SUBSTANCEs are used for AI COMBINATIONs of PRODUCT CATEGORY immunological (i.e. vaccines), as only the SPECIFIED SUBSTANCE specifies the active immunological ingredient (antigen), type and/or the strain of the antigen, live status. This information is relevant for the GLOBAL BRAND. The SUSTANCE only specifies antigen and live status and is therefore not sufficient.\n[source: project VERITAS Product - Phase 1, Design & Build phase, Oct 2018 - Oct 2019]",
+                    "items": {
+                        "title": "aiCombination",
+                        "type": "object",
+                        "description": "An ACTIVE INGREDIENT (AI) COMBINATION is a single SUBSTANCE (or SPECIFIED SUBSTANCE) or a combination of more than one SUBSTANCE (or SPECIFIED SUBSTANCEs) with the role active ingredient.\nSUBSTANCEs are used for AI COMBINATIONs of PRODUCT CATEGORY chemical. The SUBSTANCE naming only the Active Pharmaceutical Ingredient (API) moiety is used for definition of an AI COMBINATION, i.e. without salt form and hydrate form. Salt form and hydrate form are provided in the PRODUCT COMPOSITION.\n[Source: Eudralex - The Rules Governing Medicinal Products in the European Union, Volume 2C: Regulatory Guidelines, A GUIDELINE ON SUMMARY OF PRODUCT CHARACTERISTICS (SmPC) Rev. 2, Sep. 2009; http://ec.europa.eu/health/files/eudralex/vol-2/c/smpc_guideline_rev2_en.pdf]\n\nSPECIFIED SUBSTANCEs are used for AI COMBINATIONs of PRODUCT CATEGORY immunological (i.e. vaccines), as only the SPECIFIED SUBSTANCE specifies the active immunological ingredient (antigen), type and/or the strain of the antigen, live status. This information is relevant for the GLOBAL BRAND. The SUSTANCE only specifies antigen and live status and is therefore not sufficient.\n[source: project VERITAS Product - Phase 1, Design & Build phase, Oct 2018 - Oct 2019]",
+                        "properties": {
+                            "namesDescription": {
+                                "title": "aiCombinationNames",
+                                "type": "array",
+                                "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+                                "items": {
+                                    "title": "description",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "documentUnit": {
+                    "title": "documentUnit",
+                    "type": "string",
+                    "description": "Document Unit classifies the Document so a specific Document Type - Document Subtype pair cann be assigned."
+                },
+                "lifecycleName": {
+                    "title": "lifecycleName",
+                    "type": "string",
+                    "description": "Lifecycle Name defines the type of object and the kind of lifecycle the object has."
+                },
+                "subtype": {
+                    "title": "subtype",
+                    "type": "string",
+                    "description": "Document Subunit (based on chosen Document Type and Subtype and Unit)."
+                },
+                "restrictionFlag": {
+                    "title": "restrictionFlag",
+                    "type": "boolean",
+                    "description": "The Restriction Flag indicates if there are specific restrictions that occur for this document."
+                },
+                "legacyInformation": {
+                    "title": "legacyInformation",
+                    "type": "string",
+                    "description": "Legacy Information may include old migration information of a MANAGED DOCUMENT. This can be specific attributes, Identifier, old Document names/titles from the previous system."
+                }
+            }
+        },
+        {
+            "$ref": "../Product/Document.v1.json"
+        }
+    ]
+}

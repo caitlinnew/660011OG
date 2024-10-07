@@ -1,0 +1,60 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ProjectMdgProduct/IntermediateComponentType.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INTERMEDIATE COMPONENT TYPE",
+    "type": "object",
+    "description": "The INTERMEDIATE COMPONENT TYPE specializes a SPECIFIED SUBSTANCE into an intermediate component, which has unique attributes not shared with other SPECIFIED SUBSTANCEs.\nCurrently, specialization into a CAPSULE is implemented. A non-specialized SPECIFIC SUBSTANCE has the Intermediate Component Type Other.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        }
+    }
+}

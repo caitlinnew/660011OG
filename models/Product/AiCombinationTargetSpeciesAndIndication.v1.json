@@ -1,0 +1,69 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/AiCombinationTargetSpeciesAndIndication.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "AiCombinationTargetSpeciesAndIndication",
+    "type": "object",
+    "description": "An ACTIVE INGREDIENT (AI) COMBINATION is developed for at least one INDICATION and at least one TARGET SPECIES. The AI COMBINATION, TARGET SPECIES and INDICATION documents the combinations of TARGET SPECIES and INDICATIONs for an AI COMBINATION.\nTrigger for the definition of this combination is the start of a development project which combines AI COMBINATION, TARGET SPECIES and INDICATION.\nIn BUSINESS UNIT One Human Pharma this occurs at milestone \"Start of Development\" [source: 100-IPMCG-00031 (2.0) Guideline for the Development of New Molecular Entities for Human Pharma].\nIn BUSINESS UNIT Animal Health this occurs at milestone \"Project Agreement\" [source: 085-ACG-000302 (3.0) Corporate Guideline for Project Management].",
+    "properties": {
+        "aiCombinationId": {
+            "title": "aiCombination.id",
+            "type": "string",
+            "description": "Unique identifier of the object AI COMBINATION."
+        },
+        "businessSegments": {
+            "type": "array",
+            "description": "Business Segments are a further segmentation of the Business Unit. They are needed because Business Units themselves are too large to be steered without having data on deeper levels. The Business Segments are BI’s focus areas for which separate data is needed to be able to decide which of these shall be kept/enlarged/discontinued.",
+            "items": {
+                "$ref": "#/definitions/BusinessSegment"
+            }
+        },
+        "indicationRefId": {
+            "title": "indication.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "indicationCode": {
+            "title": "indication.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "targetSpeciesRefId": {
+            "title": "targetSpecies.referenceId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "targetSpeciesCode": {
+            "title": "targetSpecies.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "developmentStatusCode": {
+            "title": "developmentStatus.code",
+            "description": "The Development Status defines the BRAND specific assignment of the valid SPECIES and INDICATIONs applicable to the AI COMBINATION of a GLOBAL BRAND.",
+            "type": "string"
+        },
+        "developmentStatusName": {
+            "title": "developmentStatus.term",
+            "description": "The Development Status defines the BRAND specific assignment of the valid SPECIES and INDICATIONs applicable to the AI COMBINATION of a GLOBAL BRAND.",
+            "type": "string"
+        }
+    },
+    "definitions": {
+        "BusinessSegment": {
+            "type": "object",
+            "description": "Business Segments are a further segmentation of the Business Unit. They are needed because Business Units themselves are too large to be steered without having data on deeper levels. The Business Segments are BI’s focus areas for which separate data is needed to be able to decide which of these shall be kept/enlarged/discontinued.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "code": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        }
+    }
+}

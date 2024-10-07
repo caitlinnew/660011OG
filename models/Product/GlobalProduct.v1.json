@@ -1,0 +1,191 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/GlobalProduct.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GLOBAL PRODUCT",
+    "type": "object",
+    "description": "The GLOBAL PRODUCT is the GLOBAL BRAND Name + Strength + Dose Form. It documents the Strengths and Dose Form combinations that BI has in its portfolio for the referenced GLOBAL BRAND.\nWith this, the GLOBAL PRODUCT is the \"mother in headquarters\" of all LOCAL PRODUCTs referencing (via the LOCAL BRAND) the same GLOBAL BRAND.\nFor GLOBAL BRANDs of PRODUCT CATEGORY immunological the Strength is documented in the GLOBAL PRODUCT, but not displayed in the GLOBAL PRODUCT Name.",
+    "properties": {
+        "id": {
+            "title": "globalProductId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL PRODUCT."
+        },
+        "strength": {
+            "title": "strength",
+            "type": "string",
+            "description": "The Strength is a single string (1) derived from the STRENGTH DECLARATION of each active ingredient (1..*) by concatenating the Quantities and UNIT OF MEASUREs per active ingredient with a \"+\" sign and providing the Target Quantity and its UNIT OF MEASURE."
+        },
+        "targetQuantity": {
+            "title": "targetQuantity",
+            "type": "number",
+            "description": "The Target Quantity of the GLOBAL PRODUCT is the quantity for which the STRENGTH DECLARATION applies (1)\nIn other words: It is the denominator for the STRENGTH DECLARATION.\nIf the GLOBAL PRODUCT has no STRENGTH INFORMATION e.g. for DEVICES or solvents, then there is no Target Quantity (0)."
+        },
+        "valenceProductComposition": {
+            "title": "valenceProductComposition",
+            "type": "boolean",
+            "description": "The Valence Product Composition indicates wether or not a GLOBAL PRODUCT has a VALENCE PRODUCT COMPOSITION.\nIf a GLOBAL PRODUCT has the Valence Product Composition flag set to yes, then it must have a VALENCE PRODUCT COMPOSITION, from which at least one PRODUCT COMPOSITION can be derived.\nIf a GLOBAL PRODUCT has the Valence Product Composition flag set to no, then it must not have a VALENCE PRODUCT COMPOSTION, but at least one PRODUCT COMPOSITION."
+        },
+        "prevailingId": {  
+            "title": "prevailingId",
+            "type": "string",
+            "description": "Reference to the prevailant Object."
+        },
+        "combinedPharmaceuticalDoseFormRefId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "combinedPharmaceuticalDoseFormCode": {
+            "title": "combinedPharmaceuticalDoseForm.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object.\nThe SAP Code contains information whether the DOSE FORM is either a COMBINED PHARMACEUTICAL DOSE FORM (Code starts with C... ) or PHARMACEUTICAL DOSE FORM (Code starts with P...).\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "combinedPharmaceuticalDoseFormSapCode": {
+            "title": "combinedPharmaceuticalDoseForm.sapCode",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object.\nThe SAP Code contains information whether the DOSE FORM is either a COMBINED PHARMACEUTICAL DOSE FORM (Code starts with C... ) or PHARMACEUTICAL DOSE FORM (Code starts with P...)."
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "globalBrandId": {
+            "title": "globalBrand.globalBrandId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL BRAND."
+        },
+        "globalBrandBusinessUnitSapCode": {
+            "title": "globalBrand.businessUnit.sapCode",
+            "type": "string"
+        },
+        "globalBrandBusinessUnitPrismaCode": {
+            "title": "globalBrand.businessUnit.prismaCode",
+            "type": "string",
+            "description": "Identifier of a Business Unit"
+        },
+        "globalBrandBusinessUnitRefId": {
+            "title": "businessUnit.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "ingredientQuantitys": {
+            "title": "ingredientQuantitys",
+            "type": "array",
+            "description": "INGREDIENTs of a GLOBAL PRODUCT may be SUBSTANCEs or SPECIFIED SUBSTANCEs.",
+            "items": {
+                "$ref": "StrengthDeclaration.v1.json"
+            }
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "pharmaceuticalDoseFormRefId": {
+            "title": "pharmaceuticalDoseForm.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "pharmaceuticalDoseFormCode": {
+            "title": "pharmaceuticalDoseForm.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object.\nThe SAP Code contains information whether the DOSE FORM is either a COMBINED PHARMACEUTICAL DOSE FORM (Code starts with C... ) or PHARMACEUTICAL DOSE FORM (Code starts with P...).\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "pharmaceuticalDoseFormSapCode": {
+            "title": "pharmaceuticalDoseForm.sapCode",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object.\nThe SAP Code contains information whether the DOSE FORM is either a COMBINED PHARMACEUTICAL DOSE FORM (Code starts with C... ) or PHARMACEUTICAL DOSE FORM (Code starts with P...)."
+        },
+        "productStageCode": {
+            "title": "productStage.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use *sapCode instead."
+        },
+        "productStageSapCode": {
+            "title": "productStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "productStageRefId": {
+            "title": "productStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "targetQuantityUomSapCode": {
+            "title": "targetQuantityUom.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "targetQuantityUomCode": {
+            "title": "targetQuantityUom.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "targetQuantityUomRefId": {
+            "title": "targetQuantityUom.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageIso2Code": {
+                    "title": "language.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 Code according to Iso 639."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "languageCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        }
+    }
+}

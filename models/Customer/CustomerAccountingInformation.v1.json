@@ -1,0 +1,104 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/CustomerAccountingInformation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CUSTOMER ACCOUNTING INFORMATION",
+    "type": "object",
+    "description": "Set of information relevant to a CUSTOMER and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Recievable, Accounting to Reporting, Treasury.",
+    "properties": {
+        "allowedPaymentMethods": {
+            "title": "allowedPaymentMethodsEnum",
+            "type": "array",
+            "items": {
+                "title": "allowedPaymentMethodsEnum",
+                "type": "string",
+                "enum": [
+                    "ONLINE PAYMENT",
+                    "CREDIT CARD",
+                    "DIRECT DEBIT",
+                    "LETTER OF CREDIT",
+                    "BANK TRANSFER",
+                    "DOMESTIC PAYMENT",
+                    "FOREIGN PAYMENT",
+                    "MANUAL PAYMENT",
+                    "ON BEHALF PAYMENT",
+                    "IN HOUSE CASH NETTING",
+                    "CHEQUE FILE BANK"
+                ]
+            }
+        },
+        "accountingClerkName": {
+            "title": "accountingClerk.accountingClerkName",
+            "type": "string",
+            "description": "Accounting Clerk. Identification code for the accounting clerk assigned to the BP. The accounting clerk assigned can be used in correspondences such as the account statement or reports"
+        },
+        "accountingClerkCode": {
+            "title": "accountingClerk.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for ACCOUNTING CLERK."
+        },
+        "paymentTermCode": {
+            "title": "paymentTerm.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for PAYMENT TERM."
+        },
+        "companyCode": {
+            "title": "companyCode.code",
+            "type": "string",
+            "description": "unique identifier of legal entity (originally generated in AMI)"
+        },
+        "companyName": {
+            "title": "companyCode.term",
+            "type": "string",
+            "description": "name of legal entity (originally generated in CIM - in the past AMI)"
+        },
+        "lockboxPostingRule": {
+            "title": "lockboxPostingRule",
+            "type": "string",
+            "description": "The Lockbox Posting Rule is used to improve the automatic clearing rate by incoming lockbox payments.\nIt helps to detemine the open item against which the incoming payment is matched.\nThe rule is only relevant if a Customer uses Lockbox as Payment Method. These Customers often pay by balance and not open item.\nThese Rules apply after the application of incoming payments with the Lockbox Processing in the case that the customer account (by number, or bank details) is identified but no corresponding open item (value, invoice number) is found on the customer account. For this case, a program is executed to apply the cash on the customer account to an open item. This is agreed by the customer as information is printed on the account statement.",
+            "enum": [
+                "MATCH PAYMENT TO INVOICE",
+                "MATCH BY RUNNING BALANCE"
+            ]
+        },
+        "paperlessStatements": {
+            "title": "paperlessStatements",
+            "type": "string",
+            "description": "The Paperless Statements field  defines if printed statements shall (not) be sent to the customer.",
+            "enum": [
+                "NOT PAPERLESS",
+                "PAPERLESS",
+                "SEND NO STATEMENT"
+            ]
+        },
+        "buyingGroup": {
+            "$ref": "#/definitions/BuyingGroup"
+        }
+    },
+    "definitions": {
+        "BuyingGroup": {
+            "title": "buyingGroup",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "title": "businessPartner.identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "title": "businessPartner.defaultName.name",
+                    "type": "string",
+                    "description": "The name of the referenced Business Partner."
+                },
+                "salesPriceListsId": {
+                    "title": "salesPriceLists",
+                    "type": "array",
+                    "description": "A SALES PRICE LIST comprises one (list) price per orderable product for a set of products; e.g. revenue generating materials. For each (revenue generating) materila there might be several sales price lists comprising different prices. Sales price lists might be customer specific.",
+                    "items": {
+                        "title": "identifier",
+                        "type": "string",
+                        "description": "(Unique) identifier of the sales price list."
+                    }
+                }
+            }
+        }
+    }
+}

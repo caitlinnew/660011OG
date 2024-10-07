@@ -1,0 +1,18 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/CustomerStatement.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CustomerStatement",
+    "type": "object",
+    "description": "A Customer Statement is a summary of transactions like orders, payments, credits, which have been generated and / or applied during the previous billing period for a certain customer.",
+    "properties": {
+        "issuedDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date when the statement was issued."
+        },
+        "statementNumber": {
+            "type": "string",
+            "description": "Unique Identifier of statement. Consists of account number (Customer), location id (bill-to location of Customer), month and year (billing period)."
+        }
+    }
+}

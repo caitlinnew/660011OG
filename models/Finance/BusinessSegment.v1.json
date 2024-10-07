@@ -1,0 +1,101 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Finance/BusinessSegment.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BUSINESS SEGMENT",
+    "type": "object",
+    "description": "BUSINESS SEGMENTs are a further segmentation of the BUSINESS UNIT. They are needed because BUSINESS UNITs themselves are too large to be steered without having data on deeper levels. The BUSINESS SEGMENTs are BI’s focus areas for which separate data is needed to be able to decide which of these shall be kept/enlarged/discontinued.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "activeFlag": {
+            "title": "activeFlag",
+            "type": "boolean",
+            "description": "marked with TRUE, if available in Financial Reporting"
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for BUSINESS SEGMENT."
+        },
+        "affiliationFlag": {
+            "title": "affiliationFlag",
+            "type": "boolean",
+            "description": "marked with TRUE, if Segment is affiliated business"
+        },
+        "businessUnitRefId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "prismaCode": {
+            "title": "prismaCode",
+            "deprecated": true,
+            "type": "string",
+            "description": "Identifier of business segment (first digit = code of according business unit)"
+        },
+        "validFrom": {
+            "title": "validFrom",
+            "type": "string",
+            "description": "Valid From indicates the first day of the reporting period in which the BUSINESS SEGMENT is valid."
+        },
+        "validTo": {
+            "title": "validTo",
+            "type": "string",
+            "description": "Valid To indicates the last day of the reporting period in which the BUSINESS SEGMENT is valid."
+        }
+    }
+}

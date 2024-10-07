@@ -1,0 +1,120 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/PrimaryPackedDrugProductForConfiguration.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PRIMARY PACKED DRUG PRODUCT FOR CONFIGURATION",
+    "type": "object",
+    "description": "The PRIMARY PACKED DRUG PRODUCT specifies the quantity of DRUG PRODUCT FOR CONFIGURATION per PRIMARY PACKAGING or of DEVICE. It has no Identifier as it is defined within one PRODUCT CONFIGURATION.",
+    "properties": {
+        "uomOrUopPacksizeDrugProductSapCode": {
+            "title": "uomOrUopPacksizeDrugProductSapCode",
+            "type": "string",
+            "description": "The \"Pack Size Drug Product or Device UoP\", if that is available or the \"quantity Drug Product Per Primary Packaging UoM\" otherwise.\nThe SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "uomOrUopPacksizeDrugProductRefId": {
+            "title": "uomOrUopPacksizeDrugProductReferenceDataId",
+            "type": "string",
+            "description": "The \"Pack Size Drug Product or Device UoP\", if that is available or the \"quantity Drug Product Per Primary Packaging UoM\" otherwise.\nThe Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "totalPackSize": {
+            "title": "totalPackSize",
+            "type": "number"
+        },
+        "quantityDrugProductPerPrimaryPackaging": {
+            "title": "quantityDrugProductPerPrimaryPackaging",
+            "type": "number",
+            "description": "The Quantity Drug Product per Primary Packaging is the Quantity of DRUG PRODUCT FOR CONFIGURATIOIN FOR CONFIGURATION in a PRODUCT CONFIGURATION.\nThe relationship to DRUG PRODUCT FOR CONFIGURATION and DEVICE FOR CONFIGURATION, respectively has a cardinality of 0..1 as a PRODUCT CONFIGURATION may include DRUG PRODUCT and/or DEVICE. As every PRODUCT CONFIGURATION must have either a DRUG PRODUCT or an DEVICE, the Quantity Drug Product per Primary Packaging or Device always has to be provided."
+        },
+        "quantityPrimaryPackedDrugProductPerSecondaryPackaging": {
+            "title": "quantityPrimaryPackedDrugProductPerSecondaryPackaging",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Quantity of Primary Packed Drug Product per Secondary Packaging is the amount of PRIMARY PACKAGING FOR CONFIGURATION (filled with DRUG PRODUCT as quantified in Drug Product Quantity) per Secondary Packaging. \nThis quantity may be present in an INTERMEDIATE PACKAGING FOR CONFIGURATION.\nIf the PRODUCT CONFIGURATION only contains a DEVICE, then there is no Quantity of Primary Packed Drug Product per Secondary Packaging."
+        },
+        "deviceId": {
+            "title": "deviceForConfiguration.productId",
+            "type": "string",
+            "description": "Unique identifier of the object DEVICE FOR CONFIGURATION."
+        },
+        "emptyDeviceId": {
+            "title": "deviceForConfiguration.productId",
+            "type": "string",
+            "deprecated": true,
+            "description": "This element is deprecated and will be removed soon. Please use deviceId instead.\n Unique identifier of the object DEVICE FOR CONFIGURATION."
+        },
+        "packsizeDrugProduct": {
+            "title": "packsizeDrugProduct",
+            "type": "number",
+            "description": "The Pack Size Drug Product or Device is the Pack Size based on the amount of DRUG PRODUCT or DEVICE in a PRODUCT CONFIGURATION in a Secondary Packaging.\nIt may be a calculated value:\n(a) The Pack Size Drug Product or Device for one DRUG PRODUCT in a PRODUCT CONFIGURATION is \nQuantity Drug Product per Primary Packaging *\nQuantity Primary Packed Drug Product per Secondary Packaging.\n(b) In case of INTERMEDIATE PACKAGING, the Pack Size Drug Product or Device in a PRODUCT CONFIGURATION is still \nQuantity Drug Product per Primary Packaging *\nQuantity Primary Packed Drug Product per Secondary Packaging (which includes the Intermediate Packaging).\n(c) The Pack Size Drug Product or Device for a DEVICE FOR CONFIGURATION is\nQuantity Drug Product or Device per Secondary Packaging. Primary Packaging of DEVICEs is not maintained.\n(d) The Pack Size Drug Product or Device may be entered manually if the configuration is not known:\nWhen registering a product, the Total Packsize of Drug Product (e.g. 180 tablets) may be registered but not how the tablet packaging is configured (e.g. as 60 tablets x 3 blisters).\nThis means only the Pack Size of the Drug Product is known at the time of registration and no further Product Configuration data is available."
+        },
+        "packSizePrimaryPackaging": {
+            "title": "packSizePrimaryPackaging",
+            "type": "number",
+            "description": "The Pack Size Primary Packaging is the Pack Size based on the amount of filled PRIMARY PACKAGING FOR CONFIGURATION per Secondary Packaging.\nThe Pack Size Primary Packaging only applies for DRUG PRODUCTs FOR CONFIGURATION (1). It does not apply for DEVICEs FOR CONFIGURATION, as primary packaging for DEVICES is not maintained in Product Layer 2 (0).\nIt is only provided in UNIT OF PRESENTATION, not in UNIT OF MEASUREMENT, which always has the value Piece. That UoP is maintained at the PRIMARY PACKAGING FOR CONFIGURATION."
+        },
+        "quantityDrugProductPerPrimaryPackagingUomCode": {
+            "title": "uomOfDrugProductQuantity.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "This field is decprecated and will be removed in the next version. Please use quantityDrugProductPerPrimaryPackagingUomSapCode instead."
+        },
+        "quantityDrugProductPerPrimaryPackagingUomSapCode": {
+            "title": "uomOfDrugProductQuantity.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "quantityDrugProductPerPrimaryPackagingUomRefId": {
+            "title": "uomOfDrugProductQuantity.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "primaryPackedDrugProductPerSecondaryPackagingUomCode": {
+            "title": "uomOfPrimaryPackedDrugProductPerSecondaryPackaging.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "This field is decprecated and will be removed in the next version. Please use primaryPackedDrugProductPerSecondaryPackagingUomSapCode instead."
+        },
+        "primaryPackedDrugProductPerSecondaryPackagingUomSapCode": {
+            "title": "uomOfPrimaryPackedDrugProductPerSecondaryPackaging.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "primaryPackedDrugProductPerSecondaryPackagingUomRefId": {
+            "title": "uomOfPrimaryPackedDrugProductPerSecondaryPackaging.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "packSizeDrugProductOrDeviceUopSapCode": {
+            "title": "uopOfPackSizeDrugProductOrDevice.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "packSizeDrugProductOrDeviceUopRefId": {
+            "title": "uopOfPackSizeDrugProductOrDevice.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "drugProductId": {
+            "title": "drugProduct.productId",
+            "type": "string",
+            "description": "Unique identifier of the object DRUG PRODUCT FOR CONFIGURATION."
+        },
+        "primaryPackagingId": {
+            "title": "primaryPackaging.packagingId",
+            "type": "string",
+            "description": "Unique identifier of the object PRIMARY PACKAGING FOR CONFIGURATION."
+        },
+        "intermediatePackedDrugProduct": {
+            "title": "intermediatePackedDrugProductForConfiguration",
+            "type": "array",
+            "deprecated": true,
+            "description": "This field is decprecated and will be removed in the next version. Please use intermediatePackedProduct instead.\n The INTERMEDIATE PACKED DRUG PRODUCT FOR CONFIGURATION is the PRIMARY PACKED DRUG PRODUCT FOR CONFIGURATION in an INTERMEDIATE PACKAGING FOR CONFIGURATION.\nIn the application MDG one INTERMEDIATE PACKED DRUG PRODUCT FOR CONFIGURATION is defined within one PRODUCT CONFIGURATION. Therefore it has no ID an it is assigned to only one PRODUCT CONFIGURATION (1).",
+            "items": {
+                "$ref": "IntermediatePackedDrugProductForConfiguration.v1.json"
+            }
+        },
+        "intermediatePacked": {
+            "$ref": "IntermediatePackedDrugProductForConfiguration.v1.json"
+    
+        }
+    }
+}

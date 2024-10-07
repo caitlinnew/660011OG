@@ -1,0 +1,20 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ImportantDevelopmentProjectDate.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "IMPORTANT Development Project DATE",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "developmentProjectImpactId": {
+                    "title": "developmentProject.impactProjectId",
+                    "type": "string",
+                    "description": "Unique ID of the development project given automatically by the CTMS"
+                }
+            }
+        },
+        {
+            "$ref": "ImportantDate.v1.json"
+        }
+    ]
+}

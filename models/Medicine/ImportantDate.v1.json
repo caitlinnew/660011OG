@@ -1,0 +1,36 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ImportantDate.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "IMPORTANT DATE",
+    "type": "object",
+    "description": "An IMPORTANT DATE is a milestone or a planned event which will be specialized for the different scopes of IMPORTANT DATE; e.g. IMPORTANT DATE FOR STUDY, IMPORTANT DATE FOR STUDY COUNTRY, IMPORTANT DATE FOR STUDY SITE., ....\nAn IMPORTANT DATE is typificated by IMPORTANT DATE TYPE.",
+    "properties": {
+        "actualDate": {
+            "title": "actualDate",
+            "type": "string",
+            "format": "date",
+            "description": "The actual date the important date got effective / valid"
+        },
+        "plannedDate": {
+            "title": "plannedDate",
+            "type": "string",
+            "format": "date",
+            "description": "The date the important date is planned to go valid."
+        },
+        "typeCode": {
+            "title": "importantDateType.code",
+            "type": "string",
+            "description": "Provides the code of important date type"
+        },
+        "typeName": {
+            "title": "importantDateType.term",
+            "type": "string",
+            "description": "provides the term of the important date type"
+        },
+        "typeStatusDescription": {
+            "title": "importantDateType.statusDescription",
+            "type": "string",
+            "description": "For some important date types a study / study country / study site will get into the status named in status description when an important date (associated to the study / study country / study site) is actually reached."
+        }
+    }
+}

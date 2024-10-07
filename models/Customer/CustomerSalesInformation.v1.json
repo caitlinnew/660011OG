@@ -1,0 +1,123 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/CustomerSalesInformation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CUSTOMER SALES INFORMATION",
+    "type": "object",
+    "description": "The CUSTOMER SALES INFORMATION is defined for each SALES AREA, where a FINANCIAL CUSTOMER may place an order.",
+    "properties": {
+        "salesArea": {
+            "$ref": "SalesArea.v1.json"
+        },
+        "advanceShippingNotice": {
+            "title": "sendAdvanceShippingNotice",
+            "type": "boolean",
+            "description": "The send ASN flag determines if an Advance Shipping Notification shall be sent to the 3PL Partner."
+        },
+        "agencyBusinessRelevance": {
+            "title": "agencyBusinessRelevance",
+            "type": "boolean",
+            "description": "Indicator: Relevant for agency business.Indicates that this business partner is relevant for certain financial processes within Settlement Management."
+        },
+        "paperlessInvoices": {
+            "title": "paperlessInvoices",
+            "type": "string",
+            "description": "The Paperless Invoice field  defines if printed invoices shall (not) be sent to the customer.",
+            "enum": [
+                "DATAMEDIA",
+                "MAGENTO",
+                "MAIL",
+                "NO INVOICE GENERATION"
+            ]
+        },
+        "functionAssignments": {
+            "title": "assignedBusinessPartnerFunctions",
+            "type": "array",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.",
+            "items": {
+                "$ref": "#/definitions/BusinessPartnerFunctionAssignment"
+            }
+        },
+        "customerGroups": {
+            "title": "customerGroupAssignments",
+            "type": "array",
+            "description": "A CUSTOMER GROUP can be assigned to a CUSTOMER. The assignments per CUSTOMER are ordered by a Ranking.",
+            "items": {
+                "$ref": "#/definitions/CustomerGroupAssignment"
+            }
+        },
+        "customerCategoryCode": {
+            "title": "customerCategory",
+            "type": "string",
+            "description": "The Customer Category is a flag to indicate that the customer is relevant for a specific IT system for example \"Touchpoint\"."
+        },
+        "preferredId": {
+            "title": "preferredIdentifier.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "preferredIdTypeCode": {
+            "title": "preferredIdentifier.identifierType.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "salesCurrencyIso3Code": {
+            "title": "salesCurrency.isoAlpha-3Code",
+            "type": "string",
+            "description": "The ISO Alpha Code is defined in the ISO 4217 standard as alphabetic character code with three letters.\nThe first two letters of the code are the two letters of the ISO 3166-1 alpha-2 country codes (which are also used as the basis for national top-level domains on the Internet) and the third is usually the initial of the currency itself."
+        }
+        
+    },
+    "definitions": {
+        "BusinessPartnerFunctionAssignment": {
+            "title": "businessPartnerFunctionAssignment",
+            "type": "object",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.",
+            "properties": {
+                "defaultPartner": {
+                    "title": "defaultPartner",
+                    "type": "boolean",
+                    "description": "A Business Partner Function Assignment may be assigned from one BP to multiple BPs.\nOne of these BPs must be the Default Partner for this function."
+                },
+                "businessPartnerId": {
+                    "title": "businessPartnerIdentifier.identifier",
+                    "type": "string",
+                    "description": "Internal or External (alternative) Identifier of the Business Partner."
+                },
+                "businessPartnerIdTypeCode": {
+                    "title": "businessPartnerIdentifier.identifierType.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for BUSINESS PARTNER IDENTIFIER TYPE."
+                },
+                "referencedFunctionSapCode": {
+                    "title": "referencedBusinessPartnerFunction.sapCode",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for BUSINESS PARTNER FUNCTION."
+                }
+            }
+        },
+        "CustomerGroupAssignment": {
+            "title": "customerGroupAssignment",
+            "type": "object",
+            "description": "A CUSTOMER GROUP can be assigned to a CUSTOMER. The assignments per CUSTOMER are ordered by a Ranking.",
+            "properties": {
+                "ranking": {
+                    "title": "ranking",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Ranking describes which Customer Group is assigned to a CUSTOMER (for a SALES AREA)"
+                },
+                "groupCode": {
+                    "title": "customerGroup.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for CUSTOMER GROUP."
+                },
+                "groupName": {
+                    "title": "customerGroup.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        }
+        
+    }
+}

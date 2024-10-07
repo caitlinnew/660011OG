@@ -1,0 +1,51 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/BusinessPartnerAffiliation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BUSINESS PARTNER AFFILIATION",
+    "type": "object",
+    "description": "Business Partner to Business Partner Affiliation describes the relationship between two Business Partners.",
+    "properties": {
+        "defaultRelationship": {
+            "title": "defaultRelationship",
+            "type": "boolean",
+            "description": "If you have a relationship of the same kind multiple times (e.g. more then 1 ship to partners) this flag defines the Default Partner for this dedicated Business Partner Affiliation Type."
+        },
+        "positionName": {
+            "title": "positionName",
+            "type": "string",
+            "description": "BP Affiliation with an affiliation type like employment or contact person may have the Position Name as additional information."
+        },
+        "startDate": {
+            "title": "startDate",
+            "type": "string",
+            "format": "date",
+            "description": "The Start Date indicates when the Business Partner Affiliation begins."
+        },
+        "endDate": {
+            "title": "endDate",
+            "type": "string",
+            "format": "date",
+            "description": "The End Date indicates when the Business Partner Affiliation finishes."
+        },
+        "typeCode": {
+            "title": "affiliationType.code",
+            "type": "string",
+            "description": "The Code identifies the type of a relationship but not the direction of that relationship."
+        },
+        "typeDescription": {
+            "title": "affiliationType.description",
+            "type": "string",
+            "description": "The description text for a specific AFFILIATION TYPE including additional information about the direction of the relation."
+        },
+        "sourceBusinessPartnerId": {
+            "title": "sourceBusinessPartnerId.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "targetBusinessPartnerId": {
+            "title": "targetBusinessPartnerId.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        }
+    }
+}

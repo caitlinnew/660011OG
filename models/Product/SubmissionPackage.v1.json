@@ -1,0 +1,32 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/SubmissionPackage.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SUBMISSION PACKAGE",
+    "type": "object",
+    "description": "A SUBMISSION PACKAGE consists of an ASSMBLY and a SUBMISSION SEQUENCE. For Animal Health it is possible that it can contain only an ASSEMBLY without a SUBMISSION SEQUENCE, since this is required for eCTD submission which is not always applicable for Animal Health. An ASSEMBLY consists of at least one document.",
+    "properties": {
+        "regulatoryEventDescription": {
+            "title": "regulatoryEvent.description",
+            "type": "string",
+            "description": "Short description of the actual REGULATORY EVENT."
+        },
+        "regulatoryEventRegulatoryActivityApplicationIdentifier": {
+            "title": "regulatoryEvent.regulatoryActivity.applicationIdentifier",
+            "type": "string",
+            "description": "The number assigned to the marketing authorisation application (including \npost-authorisation procedure applications such as variations, renewals and \nother regulatory procedure applications) by the regulatory agency shall be \ndescribed in text. \nNote 1: In some member states a regulatory applications \nidentifier/number is not assigned for medicinal products approved through \nnational procedure route. In these cases, this field should be left blank. \nThis section is to be completed when the information is available. \nNote 2: only the regulatory application procedures affecting attributes \nincluded in the PMS data model will trigger the need to update this section. \nRegulatory application procedures information not affecting attributes in \nthe PMS data model do not need to be recorded.\n[Source: Description IDMP IG v2.1, Section 2.10.5.1. Regulatory application Identifier/Number]"
+        },
+        "submissionPackageId": {
+            "title": "submissionPackageId",
+            "type": "string",
+            "description": "Unique identifier for a SUBMISSION PACKAGE."
+        },
+        "documentSubmissionSetRegulatoryDocument": {
+            "title": "documentSubmissionSet.regulatoryDocument",
+            "type": "array",
+            "description": "This class represents a logical document, like a Study Protocol for a particular study or a safety report for a certain substance. Apart from the general attributes and relationships that are defined for the document entity, each special document type defines its own characteristics and content information.\nThe most important connection is the one to the document's Document Instances, each representing a physical realization of the document, be it as a file on a hard-drive or an actual paper copy.",
+            "items": {
+                "$ref": "../Medicine/RegulatoryDocument.v1.json"
+            }
+        }
+    }
+}

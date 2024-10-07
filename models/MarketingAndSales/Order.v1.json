@@ -1,0 +1,151 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/Order.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ORDER",
+    "type": "object",
+    "description": "Order is a request from a buyer towards a seller about purchasing some product (tangible goods or service) the seller is offering.\nSo from the buyer's perspective it may be called a \"purchase order\", from the seller's perspective it may be called a \"sales order\".",
+    "properties": {
+        "orderId": {
+            "title": "orderId",
+            "type": "string",
+            "description": "Unique identifier of the order."
+        },
+        "customerSuppliedOrderNumber": {
+            "title": "customerSuppliedOrderNumber",
+            "type": "string",
+            "description": "A number or string provided by the customer as a reference for the customer's order."
+        },
+        "orderNumber": {
+            "title": "orderNumber",
+            "type": "string",
+            "description": "ERP generated value assigned to order"
+        },
+        "errorMessage": {
+            "title": "errorMessage",
+            "type": "array",
+            "description": "Describes error messages that are applied even though the order was allowed to be submitted.",
+            "items": {
+                "title": "errorMessage",
+                "type": "string",
+                "description": "Describes error messages that are applied even though the order was allowed to be submitted."
+            }
+        },
+        "orderCreated": {
+            "title": "orderCreated",
+            "type": "string",
+            "format": "date-time",
+            "description": "The date/time this order was created.  Order Date/Time."
+        },
+        "orderDiscountAmount": {
+            "title": "orderDiscountAmount",
+            "type": "number",
+            "description": "Total discounts applied to the order."
+        },
+        "orderFreightAmount": {
+            "title": "orderFreightAmount",
+            "type": "number",
+            "description": "Cost of freight for the total order."
+        },
+        "orderLastUpdated": {
+            "title": "orderLastUpdated",
+            "type": "string",
+            "format": "date-time",
+            "description": "The date/time this order was last updated/modified."
+        },
+        "orderPlacingCustomerIdentifier": {
+            "title": "orderPlacingCustomerIdentifier",
+            "type": "string",
+            "description": "customer provided identification like an email address or user id."
+        },
+        "orderSubtotalAmount": {
+            "title": "orderSubtotalAmount",
+            "type": "number",
+            "description": "Sum of the price of individual line items before any tax, freight or discounts."
+        },
+        "orderTaxAmount": {
+            "title": "orderTaxAmount",
+            "type": "number",
+            "description": "Tax applied to the total order."
+        },
+        "orderTotalAmount": {
+            "title": "orderTotalAmount",
+            "type": "number",
+            "description": "Total cost of all goods/services ordered after applied discounts, tax and freight."
+        },
+        "creditCard": {
+            "$ref": "#/definitions/CreditCard"
+        },
+        "currency": {
+            "$ref": "../ReferenceData/Currency.v1.json"
+        },
+        "orderLine": {
+            "title": "orderLine",
+            "type": "array",
+            "description": "An order line is a part of an order that orders a certain item (the orderable product) in a certain quantity.\nAn order line might be splitted, for example if the ordered quantity is not immediately available.",
+            "items": {
+                "$ref": "OrderLine.v1.json"
+            }
+        },
+        "orderShippingDetail": {
+            "title": "orderShippingDetail",
+            "type": "array",
+            "description": "Details about the shipment of one or more order lines",
+            "items": {
+                "$ref": "OrderShippingDetail.v1.json"
+            }
+        },
+        "orderSourceName": {
+            "title": "orderSource.term",
+            "type": "string",
+            "description": "a name for this source"
+        },
+        "orderStatusCode": {
+            "title": "orderStatusCode",
+            "type": "string",
+            "description": "Defines the possible current states of an order.\n\nDEPRECATED: please use orderStatus"
+        },
+        "orderTypeCode": {
+            "title": "orderType.code",
+            "type": "string",
+            "description": "Code of the order type"
+        },
+        "paymentTermCode": {
+            "title": "paymentTerm.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "paymentTermName": {
+            "title": "paymentTerm.term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        },
+        "promotionCode": {
+            "title": "sell-InPromotion.promotionCode",
+            "type": "string",
+            "description": "In some cases a sell-in promotion is triggered by a code."
+        },
+        "ship-ToCustomer": {
+            "$ref": "../Customer/CustomerFunctionAssignment.v1.json"
+        },
+        "plannedDelivery": {
+            "title": "plannedDelivery",
+            "type": "string",
+            "format": "date",
+            "description": "The day when the is planned to be delivered"
+        }
+    },
+    "definitions": {
+        "CreditCard": {
+            "title": "creditCard",
+            "type": "object",
+            "description": "A credit card is a payment card issued to users (cardholders) to enable the cardholder to pay a merchant for goods and services based on the cardholder's promise to the card issuer to pay them for the amounts plus the other agreed charges. The card issuer (usually a bank) creates a revolving account and grants a line of credit to the cardholder, from which the cardholder can borrow money for payment to a merchant or as a cash advance. (Source: Wikipedia)",
+            "properties": {
+                "creditCardToken": {
+                    "title": "creditCardToken",
+                    "type": "string",
+                    "description": "A credit card token is a key / code for an actual credit card number. The translation / mapping of this code to the actual credit card number is known only to the credit card issuing organization or its trusted transaction processing organization. \nUsually Boehringer only holds a credit card token for any credit card, instead of the actual credit card number (for data security reasons)."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/AuxiliaryGood.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Auxiliary Good",
+    "type": "object",
+    "description": "AUXILIARY GOODs are items that are not part of any SECONDARY PACKED DRUG PRODUCT nor SECONDARY PACKED DEVICE, but complementary to them and as such shipped to customers. [source: 028-OCS-00283-RD01 (3.0) Product Stages, Global SKU Stages and Material Types; Chapter 3.13] AUXILIARY GOOD is an item that [a] is considered relevant to the Boehringer Ingelheim (BI) business, but is not part of the BI value chain, [b] is shipped internationally, generally with finished product, and [c] may have PRINT information, but that PRINT information is not managed via GLOBAL SKU in BI.",
+    "properties": {
+        "id": {
+            "title": "globalSku.globalSkuId",
+            "type": "string",
+            "description": "The Global SKU ID is the globally unique identifier for the GLOBAL SKU. It is a six digit integer."
+        },
+        "updateTimeStamp": {
+            "title": "globalSku.updateTimeStamp",
+            "type": "string",
+            "format": "date-time"
+        }
+    }
+}

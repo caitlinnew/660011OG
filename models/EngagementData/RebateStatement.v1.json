@@ -1,0 +1,104 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/EngagementData/RebateStatement.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "REBATE STATEMENT",
+    "type": "object",
+    "description": "REBATE STATEMENT says what total amount of rebates a customer has achieved \n•\taccording to a certain REBATE AGREEMENT from his SALES CONTRACT with BI\n•\tin a certain period of time\n .-.",
+    "properties": {
+        "periodStart": {
+            "title": "periodStart",
+            "type": "string",
+            "format": "date",
+            "description": "First day of the period"
+        },
+        "actualSales": {
+            "title": "actualSales",
+            "type": "integer",
+            "format": "int32",
+            "description": "Total amount of sales included in the period"
+        },
+        "rebateAmount": {
+            "title": "rebateAmount",
+            "type": "integer",
+            "format": "int32",
+            "description": "Total amount of rebates achieved period"
+        },
+        "rebateRate": {
+            "title": "rebateRate",
+            "type": "number",
+            "description": "Rebate percentage applied"
+        },
+        "rebateAgreement": {
+            "$ref": "#/definitions/PricingAgreement"
+        },
+        "rebateStatementDetail": {
+            "title": "rebateStatementDetail",
+            "type": "array",
+            "description": "details the rebates achieved according to the chosen criteria, which are\n•\tthe period of time (from Period Start until Period End),\n•\tthe (retail) CUSTOMER who paid for a sale in that period of time,\n•\tand (optional, depending on local rules) the (wholesaler) CUSTOMER having processed a sale (i.e. being the seller).\nAdditional criteria for selecting the sales to be regarded are \n•\tthe product sold (has to meet the specification in REBATE AGREEMENT / PRODUCT CONDITION, respectively in PROMOTION PROGRAM / PROMOTION PROGRAM COMPONENT / SELL-IN PROMOTION (tbc.))\n•\tthe (retail) CUSTOMER's participation in a PROMOTION PROGRAM / PROMOTION PROGRAM COMPONENT / SELL-IN PROMOTION (tbc.)\nNote about the period of time: It has to be part of the period of time of the REBATE STATEMENT - but it may be smaller: \nWhile the period of time of the REBATE STATEMENT may be Year-to date or a complete year, the period of time of the REBATE STATEMENT DETAIL might be a quarter or a month.",
+            "items": {
+                "$ref": "#/definitions/RebateStatementDetail"
+            }
+        }
+    },
+    "definitions": {
+        "PricingAgreement": {
+            "title": "pricingAgreement",
+            "type": "object",
+            "description": "A rebate agreement is an agreement between BI and a customer about BI granting rebates to the customer depending on certain terms and conditions (which are put down in the Description).",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string",
+                    "description": "contains a short description of the agreement"
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "Name of Rebate Agreement"
+                },
+                "accountableBusinessSegmentName": {
+                    "title": "businessSegment.term",
+                    "type": "string",
+                    "description": "name of business segment"
+                },
+                "customer": {
+                    "$ref": "../Customer/Customer.v1.json"
+                }
+            }
+        },
+        "RebateStatementDetail": {
+            "title": "rebateStatementDetail",
+            "type": "object",
+            "description": "details the rebates achieved according to the chosen criteria, which are\n•\tthe period of time (from Period Start until Period End),\n•\tthe (retail) CUSTOMER who paid for a sale in that period of time,\n•\tand (optional, depending on local rules) the (wholesaler) CUSTOMER having processed a sale (i.e. being the seller).\nAdditional criteria for selecting the sales to be regarded are \n•\tthe product sold (has to meet the specification in REBATE AGREEMENT / PRODUCT CONDITION, respectively in PROMOTION PROGRAM / PROMOTION PROGRAM COMPONENT / SELL-IN PROMOTION (tbc.))\n•\tthe (retail) CUSTOMER's participation in a PROMOTION PROGRAM / PROMOTION PROGRAM COMPONENT / SELL-IN PROMOTION (tbc.)\nNote about the period of time: It has to be part of the period of time of the REBATE STATEMENT - but it may be smaller: \nWhile the period of time of the REBATE STATEMENT may be Year-to date or a complete year, the period of time of the REBATE STATEMENT DETAIL might be a quarter or a month.",
+            "properties": {
+                "periodEnd": {
+                    "title": "periodEnd",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Last day of the period"
+                },
+                "periodStart": {
+                    "title": "periodStart",
+                    "type": "string",
+                    "format": "date",
+                    "description": "First day of the period"
+                },
+                "rebateAmount": {
+                    "title": "rebateAmount",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The day when the REBATE STATEMENT DETAIL has been posted to the payment receiver"
+                },
+                "postingDate": {
+                    "title": "postingDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date the payment was posted to the receiving party (e.g. wholesaler, clinic)"
+                },
+                "wholesaler": {
+                    "$ref": "../Customer/OrganizationalCustomer.v1.json"
+                }
+            }
+        }
+    }
+}

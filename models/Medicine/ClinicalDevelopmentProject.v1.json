@@ -1,0 +1,227 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalDevelopmentProject.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL DEVELOPMENT PROJECT",
+    "type": "object",
+    "description": "A CLINICAL DEVELOPMENT PROJECT \n- is a project for cost reporting in controlling,\n- covers the clinical part of drug development",
+    "properties": {
+        "ctmsCode": {
+            "title": "ctmsCode",
+            "type": "string",
+            "description": "The Project Code given to the project by a process involving Project and Clinical Development Team."
+        },
+        "id": {
+            "title": "impactProjectId",
+            "type": "string",
+            "description": "Unique ID of the development project given automatically by the CTMS"
+        },
+        "impactId": {
+            "deprecated": true,
+            "title": "impactProjectId",
+            "type": "string",
+            "description": "Unique ID of the development project given automatically by the CTMS"
+        },
+        "title": {
+            "title": "projectTitle",
+            "type": "string",
+            "description": "The Project Title describes the Development Project."
+        },        
+        "shortTitle": {
+            "title": "shortTitle",
+            "type": "string",
+            "description": "Gives the short title of the project"
+        },
+        "businessSegmentShortTerm": {
+            "title": "businessSegment.shortTerm",
+            "type": "string",
+            "description": "short name of business segment"
+        },
+        "type": {
+            "title": "projectType",
+            "type": "string",
+            "enum": [
+                "DEVELOPMENT",
+                "NON DEVELOPMENT"
+            ]
+        },
+        "importantDates": {
+            "deprecated": true,
+            "title": "importantDate",
+            "type": "array",
+            "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+            "items": {
+                "$ref": "ImportantDate.v1.json"
+            }
+        },
+        "milestones": {
+            "title": "Milestones",
+            "type": "array",
+            "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+            "items": {
+                "$ref": "Milestone.v1.json"
+            }
+        },
+        "aiCombinationId": {
+            "title": "indicationAiCombinationAssignment.aiCombination.aiCombinationId",
+            "type": "string",
+            "description": "Unique identifier of the object AI COMBINATION."
+        },
+        "aiCombinationName": {
+            "title": "indicationAiCombinationAssignment.aiCombination.name",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "meddraIndicationName": {
+            "title": "indicationMeddra.term",
+            "type": "string",
+            "description": "The Term inherits the description of the INDICATION as provided by the specific Code Type used to code Indications as disease/symtom/procedure and Comorbidities."
+        },
+        "personnel": {
+            "title": "individualClinicalDevelopmentFunction",
+            "type": "array",
+            "description": "INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION defines the role executed by an employee of Boehringer or a CRO in the context of clinical operations. \nINDIVIDUAL CLINICAL DEVELOPMENT FUNCTION is specialized in INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL COUNTRY, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL SITE. \nThe values (roles types) are defined by INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION TYPE.",
+            "items": {
+                "$ref": "IndividualClinicalDevelopmentFunction.v1.json"
+            }
+        },
+        "meddraOrganClassSocName": {
+            "title": "meddraSystemOrganClass.meddraSocName",
+            "type": "string",
+            "description": "The name of the System Organ Class"
+        },
+        "meddraOrganClassSocCode": {
+            "title": "meddraSystemOrganClass.socCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "SOC Code as provided by MedDRA."
+        },
+        "therapeuticAreaCode": {
+            "title": "therapeuticArea.therapeuticAreaCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "Therapeutic Area Code is the code used to abbreviate the description of a CTM (CLINICAL TRIAL MANAGEMENT) THERAPEUTIC AREA."
+        },
+        "therapeuticAreaName": {
+            "title": "therapeuticArea.name",
+            "type": "string",
+            "description": "Is the description indicating the CTM THERAPEUTIC AREA's Code name"
+        },
+        "therapeuticAreaDescription": {
+            "title": "therapeuticArea.description",
+            "type": "string",
+            "description": "Describes this CTM THERAPEUTIC AREA."
+        },
+        "statusEffectiveDate": {
+            "title": "status.effectiveDate",
+            "type": "string",
+            "format": "date",
+            "description": "Gives the Effective Date of this DEVELOPMENT PROJECT STATUS."
+        },
+        "statusType": {
+            "title": "status.statusType",
+            "type": "string",
+            "enum": [
+                "I",
+                "I-II",
+                "II",
+                "II-III",
+                "III",
+                "IV",
+                "NA",
+                "CANCELLED",
+                "DISCONTINUED",
+                "ENDED"
+            ]
+        },
+        "projectPhase": {
+            "title": "projectPhase",
+            "type": "string",
+            "description": "Describes the project phase."
+        },
+        "projectCode": {
+            "deprecated": true,
+            "title": "projectCode",
+            "type": "string",
+            "description": "The unique identifier of a Development Project."
+        },
+        "technicalIdentifier": {
+            "title": "technicalIdentifier",
+            "type": "array",
+            "description": "A TECHNICAL IDENTIFIER can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+            "items": {
+                "$ref": "#/definitions/TechnicalIdentifier"
+            }
+        },
+        "activeSubstanceCode": {
+            "title": "activeSubstance.code",
+            "type": "integer",
+            "format": "int32",
+            "description": "Active Substance Code is the Impact Legacy Active Substance Code as also maintained in MDG as CTMS Substance Number.\nWill also contain codes from other sources."
+        },
+        "activeSubstanceName": {
+            "title": "activeSubstance.name",
+            "type": "string",
+            "description": "Active Substance Name is Impact legacy Active Substance Name as maintained in Impact CTMS System."
+        },
+        "metricsActualNumberOfTrials": {
+            "title": "metrics.actualNumberOfTrials",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Actual Number of Studies captured by this DEVELOPMENT PROJECT COUNTS."
+        },
+        "indications": {
+            "title": "indications",
+            "type": "array",
+            "description": "The INDICATION CLUSTER defines a cluster of indications consisting of not more than one high level INDICATION GROUP and up to several low level INDICATIONs which belongs to INDICATION GROUP. \nAn INDICATION GROUP is associated whith exactly one CLINICAL DEVELOPMENT PROJECT.",
+            "items": {
+                "$ref": "#/definitions/IndicationCluster"
+            }
+        }
+    },
+    "definitions": {
+        "TechnicalIdentifier": {
+            "title": "technicalIdentifier",
+            "type": "object",
+            "description": "A TECHNICAL IDENTIFIER can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "The code sequence of the identifier."
+                },
+                "providingSource": {
+                    "title": "providingSource",
+                    "type": "string",
+                    "description": "The source where this identifier is valid."
+                }
+            }
+        },
+        "IndicationCluster": {
+            "title": "indicationCluster",
+            "type": "object",
+            "description": "The INDICATION CLUSTER defines a cluster of indications consisting of not more than one high level INDICATION GROUP and up to several low level INDICATIONs which belongs to INDICATION GROUP. \nAn INDICATION GROUP is associated whith exactly one CLINICAL DEVELOPMENT PROJECT.",
+            "properties": {
+                "indication": {
+                    "title": "indication",
+                    "type": "array",
+                    "description": "In medicine, an INDICATION is a reason to take therapeutic or diagnostic measurements, which are reasonable for a certain clinical picture. \nThe INDICATION is the minimal THERAPEUTIC INDICATION information available at the Start of Development of an AI COMBINATION. It defines the target disease or condition for which an AI COMBINATION or a DEVICE is under investigation.\nWhich Coding System and which of its Hierarchy Levels is used to code an INDICATION is defined in the INDICATION TYPE.\nThe INDICATION is used to assign an AI COMBINATION to a BUSINESS SEGMENT in BUSINESS UNIT Human Pharmaceutical and to BUSINESS SEGMENT Veterinary Public Health in BUSINESS UNIT Animal Health. For such assignment, only the two of the five attributes of the THERAPEUTIC INDICATION are required. Also, the other three attributes are not necessarily known at the Start of Development.\nDepending on its INDICATION TYPE, the INDICATION may be used for two Attributes of the THERAPEUTIC INDICATION: Indication as disease/symptom/procedure\nComorbidity.",
+                    "items": {
+                        "$ref": "#/definitions/Indication"
+                    }
+                }
+            }
+        },
+        "Indication": {
+            "title": "indication",
+            "type": "object",
+            "description": "In medicine, an INDICATION is a reason to take therapeutic or diagnostic measurements, which are reasonable for a certain clinical picture. \nThe INDICATION is the minimal THERAPEUTIC INDICATION information available at the Start of Development of an AI COMBINATION. It defines the target disease or condition for which an AI COMBINATION or a DEVICE is under investigation.\nWhich Coding System and which of its Hierarchy Levels is used to code an INDICATION is defined in the INDICATION TYPE.\nThe INDICATION is used to assign an AI COMBINATION to a BUSINESS SEGMENT in BUSINESS UNIT Human Pharmaceutical and to BUSINESS SEGMENT Veterinary Public Health in BUSINESS UNIT Animal Health. For such assignment, only the two of the five attributes of the THERAPEUTIC INDICATION are required. Also, the other three attributes are not necessarily known at the Start of Development.\nDepending on its INDICATION TYPE, the INDICATION may be used for two Attributes of the THERAPEUTIC INDICATION: Indication as disease/symptom/procedure\nComorbidity.",
+            "properties": {
+                "name": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "The Term inherits the description of the INDICATION as provided by the specific Code Type used to code Indications as disease/symtom/procedure and Comorbidities."
+                }
+            }
+        }
+    }
+}

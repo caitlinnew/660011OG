@@ -1,0 +1,51 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/CustomerFunctionAssignment.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Customer Function Assignment",
+    "type": "object",
+    "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner himself. Otherwise, it is the address of another partner who takes over the function for him.",
+    "properties": {
+        "party": {
+            "$ref": "#/definitions/FinancialCustomer"
+        },
+        "address": {
+            "$ref": "Address.v2.json"
+        },
+        "salesArea": {
+            "$ref": "SalesArea.v1.json"
+        }
+    },
+    "definitions": {
+        "FinancialCustomer": {
+            "title": "financialCustomer",
+            "type": "object",
+            "description": "FINANCIAL CUSTOMER is a type of CUSTOMER maintained in ERP Systems.",
+            "properties": {
+                "id": {
+                    "title": "businessPartner.identifier",
+                    "type": "string"
+                },
+                "name": {
+                    "title": "businessPartner.defaultName.name",
+                    "type": "string"
+                },
+                "status": {
+                    "title": "businessPartner.status",
+                    "type": "string",
+                    "enum": [
+                        "ACTIVE",
+                        "INACTIVE"
+                    ]
+                },
+                "accountingInformation": {
+                    "title": "companySpecificAccountingInformation",
+                    "type": "array",
+                    "description": "Set of information relevant to a CUSTOMER and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Recievable, Accounting to Reporting, Treasury.",
+                    "items": {
+                        "$ref": "CustomerAccountingInformation.v1.json"
+                    }
+                }
+            }
+        }
+    }
+}

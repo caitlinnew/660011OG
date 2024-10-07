@@ -1,0 +1,15 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/HcpPurchasingSupplier.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HCP Purchasing Supplier",
+    "type": "object",
+    "description": "A HEALTHCARE PROFESSIONAL (“HCP”) is a natural person that is a member of the medical, dental, pharmacy or nursing professions or any other person who, in the course of his or her professional activities, may prescribe, purchase, supply, recommend or administer a medicinal product.\n(See 100-BIP-00415 and HCCApp for additional local requirements: https://shareroom1.eu.boehringer.com/de/hccapp/SitePages/Home.aspx)",
+    "allOf": [
+        {
+            "$ref": "PurchasingSupplier.v1.json"
+        },
+        {
+            "$ref": "../Customer/HealthCareProfessional.v1.json"
+        }
+    ]
+}

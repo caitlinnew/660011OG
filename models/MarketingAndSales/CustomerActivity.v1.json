@@ -1,0 +1,163 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/CustomerActivity.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CUSTOMER ACTIVITY",
+    "type": "object",
+    "description": "A CUSTOMER ACTIVITY is any activity of / with / for a Customer (mainly HCP, HCO) which is of interest for M+S or Medicine purposes.\nIf more than one Customer is participating in an activity (e.g. Sales Rep call (INTERACTION) with several customers), then this activity will be divided into several CUSTOMER ACTIVITYs: one for each Customer. (The connection between the many-customer activity and the one-customer activities is rendered by the “is part of” relationship between customer activities.) \nAn CUSTOMER ACTIVITY may be about several topics, but not about more than one topic from the TOPIC TYPEs (e.g GLOBAL BRAND, LOCAL PRODUCT). If an activity is about more than one topic out of these (e.g. a Sales Rep call about several Products or Brands), then this activity will be divided into several CUSTOMER ACTIVITYs: one for each Brand / Product. (The connection between the many-product activity and the one-product activities is rendered by the “is part of” relationship between customer activities.) \nA CUSTOMER ACTIVITY may contain a number of single steps: this is rendered by the \"is step of\" relationship between CUSTOMER ACTIVITYs. For example, if a customer visits a BI website (this visit being an INTERACTION), he may click different pieces of that website - reading an article, watching a video, reading another article, looking at a slide deck, ... each of these being an INTERACTION of their own. Thus the \"customer's journey\" can be tracked.\nSimilar to the \"is step of\" relationship between CUSTOMER ACTIVITYs is the \"triggers\" relationship: While the first is rendering just the sequence of steps, the latter says that the \"triggering\" activity leads to / implies the \"triggered\" activity. (E.g. an approved email (INTERACTION) sent to a customer leads to a REQUEST from customer to be visited (INTERACTION) by an MSL, which then produces a FEEDBACK from the customer as well as a REQUEST to have a number of patient brochures. \nA CUSTOMER ACTIVITY may be about a GLOBAL BRAND as well as about a SECONDARY PACKED DRUG PRODUCT / GLOBAL SKU: e.g. a CUSTOMER ACTIVITY of the type REQUEST might be about the GLOBAL BRAND Trajenta and the (requested) SECONDARY PACKED DRUG PRODUCT / GLOBAL SKU could be the \"Patient Brochure Trajenta\".",
+    "properties": {
+        "ids": {
+            "title": "customerActivityIdentifiers",
+            "type": "array",
+            "description": "a term which uniquely identifies a customer activity within a certain information system.",
+            "items": {
+                "$ref": "#/definitions/CustomerActivityIdentifier"
+            }
+        },
+        "description": {
+            "title": "description",
+            "type": "string"
+        },
+        "start": {
+            "title": "start",
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and Time the activity started (or happened, if the duration is not relevant: for example a click on an email fragment, or sending time of an email).\nThe timezone offset has to be regarded (e.g. 2015-04-05 13:00:00 UTC +0200)"
+        },
+        "communicationChannelCode": {
+            "title": "communicationChannel.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "customerActivityTypeCode": {
+            "title": "customerActivityType.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "rolesInActivity": {
+            "title": "rolesInActivity",
+            "type": "array",
+            "description": "The role a customer or a BI agent actually has in a customer activity.",
+            "items": {
+                "$ref": "#/definitions/RoleInActivity"
+            }
+        }
+    },
+    "definitions": {
+        "CustomerActivityIdentifier": {
+            "title": "customerActivityIdentifier",
+            "type": "object",
+            "description": "a term which uniquely identifies a customer activity within a certain information system.",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "Identifier for a Customer Activity"
+                }
+            }
+        },
+        "RoleInActivity": {
+            "title": "roleInActivity",
+            "type": "object",
+            "description": "The role a customer or a BI agent actually has in a customer activity.",
+            "properties": {
+                "customerConsents": {
+                    "title": "customer.consents",
+                    "type": "array",
+                    "description": "The CUSTOMER CONSENT describes the state whether it is allowed to communicate with the respective customer using the associated communication channel or channel detail.",
+                    "items": {
+                        "$ref": "#/definitions/CustomerConsent"
+                    }
+                },
+                "customerIndividual": {
+                    "title": "customer.individual",
+                    "type": "array",
+                    "description": "The business object INDIVIDUAL is meant to characterize a given Business Partner as an individual, in opposite to an Organization.\nINDIVIDUAL describe a human being and is linked to all the characteristics and engagements that are relevant for the different steps in the master data as well as the downstream processes.",
+                    "items": {
+                        "$ref": "#/definitions/IndividualForApi"
+                    }
+                },
+                "customerFacingEmployeeActor": {
+                    "$ref": "#/definitions/IndividualForApi"
+                },
+                "type": {
+                    "title": "type",
+                    "type": "string",
+                    "description": "Type is the role or function a certain individual is taking within an activity."
+                }
+            }
+        },
+        "CustomerConsent": {
+            "title": "customerConsent",
+            "description": "The CUSTOMER CONSENT describes the state whether it is allowed to communicate with the respective customer using the associated communication channel or channel detail.",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "consentTypeCode": {
+                            "title": "consentType.code",
+                            "type": "string",
+                            "description": "The Unique Identifier for a CONSENT TYPE."
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/Email"
+                }
+            ]
+        },
+        "Email": {
+            "title": "email",
+            "type": "object",
+            "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+            "properties": {
+                "emailAddress": {
+                    "title": "emailAddress",
+                    "type": "string"
+                }
+            }
+        },
+        "IndividualForApi": {
+            "title": "individualForApi",
+            "type": "object",
+            "description": "The business object INDIVIDUAL is meant to characterize a given Business Partner as an individual, in opposite to an Organization.\nINDIVIDUAL describe a human being and is linked to all the characteristics and engagements that are relevant for the different steps in the master data as well as the downstream processes.",
+            "properties": {
+                "ids": {
+                    "title": "businessPartnerIdentifiers",
+                    "type": "array",
+                    "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+                    "items": {
+                        "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+                    }
+                },
+                "names": {
+                    "title": "individualName",
+                    "type": "array",
+                    "description": "Individual Name is the first name and last name of an individual. For example a Chinese individual can have two names, one in Chinese and one in English.",
+                    "items": {
+                        "$ref": "#/definitions/IndividualName"
+                    }
+                }
+            }
+        },
+        "IndividualName": {
+            "title": "individualName",
+            "type": "object",
+            "description": "Individual Name is the first name and last name of an individual. For example a Chinese individual can have two names, one in Chinese and one in English.",
+            "properties": {
+                "firstName": {
+                    "title": "firstName",
+                    "type": "string"
+                },
+                "lastName": {
+                    "title": "lastName",
+                    "type": "string"
+                },
+                "title": {
+                    "title": "title",
+                    "type": "string",
+                    "description": "The \"everybodies title\" (or address) used in front of a name resp. academic title preceding the name"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Finance/CreditCard.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CREDIT CARD",
+    "type": "object",
+    "description": "A credit card is a payment card issued to users (cardholders) to enable the cardholder to pay a merchant for goods and services based on the cardholder's promise to the card issuer to pay them for the amounts plus the other agreed charges. The card issuer (usually a bank) creates a revolving account and grants a line of credit to the cardholder, from which the cardholder can borrow money for payment to a merchant or as a cash advance. (Source: Wikipedia)",
+    "properties": {
+        "active": {
+            "title": "active",
+            "type": "boolean",
+            "description": "Indicates whether a financial instrument is active or inactive. true=Active, false=Inactive."
+        },
+        "paymentAlias": {
+            "title": "paymentAlias",
+            "type": "string",
+            "description": "Name used to identify the payment method.\nDEPRECATED: Use name instead."
+        },
+        "paymentType": {
+            "title": "paymentType",
+            "type": "string",
+            "description": "Type of payment."
+        },
+        "cardCategory": {
+            "title": "cardCategory",
+            "type": "string",
+            "description": "Card category of the payment card.",
+            "enum": [
+            	"CREDIT CARD",
+            	"PROCUREMENT CARD"
+            ]
+        },
+        "id": {
+            "title": "creditCardId",
+            "type": "string",
+            "description": "Unique Identifier of Credit Card as created by ERP system"
+        },
+        "cardVerificationValue": {
+            "title": "cardVerificationValue",
+            "type": "integer",
+            "format": "int32",
+            "description": "Card Verification Value (CVV) is a 3- or 4-digit number used to verify that the card is physically there. Thus it's meant to make it less easy to abuse stolen or faked credit card infos.\nOther names:\nCard Validation Code (CVC), Card Verification Number (CVN), Card Security Code (CSC), Card Code Verification (CCV)"
+        },
+        "creditCardNumberLastFourDigits": {
+            "title": "creditCardNumberLastFourDigits",
+            "type": "string",
+            "description": "The last 4 digits of the number imprinted on a credit card. \nBoehringer does not store a complete credit card number of any business partner, but a credit card token instead."
+        },
+        "cardNumber": {
+            "title": "cardNumber",
+            "type": "string",
+            "description": "The Credit Card Number.\nFor Credit Cards either Credit Card Number with additional information needs to be maintained or the Credit Card Token shared with the Token Processing Organization."
+        },
+        "creditCardToken": {
+            "title": "creditCardToken",
+            "type": "string",
+            "description": "A credit card token is a key / code for an actual credit card number. The translation / mapping of this code to the actual credit card number is known only to the credit card issuing organization or its trusted transaction processing organization. \nUsually Boehringer only holds a credit card token for any credit card, instead of the actual credit card number (for data security reasons)."
+        },
+        "expirationDate": {
+            "title": "expirationDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date on which the payment card becomes invalid.\nThis means the last month the credit card is valid to be used."
+        },
+        "nameOfCardholder": {
+            "title": "nameOfCardholder",
+            "type": "string",
+            "description": "The (first and last) name of the person or company embossed on the payment card."
+        },
+        "paymentCardType": {
+            "title": "paymentCardType",
+            "type": "string",
+            "description": "Name of a payment card.",
+            "enum": [
+                "AMERICAN EXPRESS",
+                "VISA CARD",
+                "MASTERCARD",
+                "CHECK",
+                "SAVINGS"
+            ]
+        },
+        "reasonForPaymentCardLock": {
+            "title": "reasonForPaymentCardLock",
+            "type": "string",
+            "description": "Indicates whether a payment card is blocked and for what reason.\nThis block only applies to one particular payment card. If the client has several payment cards, another card can still be used.\n[Source: SAP field help]"
+        },
+        "standardPaymentCard": {
+            "title": "standardPaymentCard",
+            "type": "boolean",
+            "description": "Indicates that this is the standard payment card of a business partner, should there be more than one set of payment card details.\n[Source: SAP field help]"
+        },
+        "validFromDate": {
+            "title": "validFromDate",
+            "type": "string",
+            "format": "date",
+            "description": "Start of validity of the payment card."
+        },
+        "issuingOrganization": {
+            "$ref": "#/definitions/Organization"
+        }
+    },
+    "definitions": {
+        "Organization": {
+            "title": "organization",
+            "type": "object",
+            "description": "A NON-INDIVIDUAL PARTY or ORGANIZATION describes a non-individual BUSINESS PARTNER. \nIt may specialize, for example, in LEGAL ENTITY, NON-LEGAL ASSOCIATION, …",
+            "properties": {
+                "organizationName": {
+                    "title": "preferedOrganizationName.name",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

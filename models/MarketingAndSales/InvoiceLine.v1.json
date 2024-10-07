@@ -1,0 +1,161 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/InvoiceLine.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INVOICE LINE",
+    "type": "object",
+    "description": "An invoice line is a line within an invoice. It explains what a detail amount contributing to the invoice's total amount is about.",
+    "properties": {
+        "invoiceLineNumber": {
+            "title": "invoiceLineNumber",
+            "type": "integer",
+            "format": "int32",
+            "description": "Invoice Line Number"
+        },
+        "quantity": {
+            "title": "quantity",
+            "type": "integer",
+            "format": "int32",
+            "description": "The quantity of delivered goods / services / ... being invoiced for in this invoice line."
+        },
+        "invoicedUnitPrice": {
+            "title": "invoicedUnitPrice",
+            "type": "number",
+            "description": "The price per unit used in the invoice line."
+        },
+        "invoicedAmount": {
+            "title": "invoicedAmount",
+            "type": "number",
+            "description": "The amount of money for this line (may be debit or credit). If applicable, will be equal to \nQuantity (times) Invoiced Unit Price."
+        },
+        "invoiceId": {
+            "title": "invoice.invoiceId",
+            "type": "string",
+            "description": "unique identifier of an invoice"
+        },
+        "invoiceInvoiceNumber": {
+            "title": "invoice.invoiceNumber",
+            "type": "string",
+            "description": "Invoice number issued by the seller."
+        },
+        "invoiceDateCreated": {
+            "title": "invoice.dateCreated",
+            "type": "string",
+            "format": "date",
+            "description": "date the invoice has been issued"
+        },
+        "invoiceAmountApplied": {
+            "title": "invoice.amountApplied",
+            "type": "number",
+            "description": "How much $ applied to the invoice. CM and PMT will have negative values."
+        },
+        "materialNumber": {
+            "title": "materialNumber",
+            "type": "string",
+            "description": "The Material Number (also called Local SKU Number) is the unique identifier for the MATERIAL within the Enterprise Resource Planning (ERP) System GBS, to become GBS S/4 HANA in 2020, which shall be the corporate-wide ERP system in 2025.\nFor CPHRM shipped internationally, the Local SKU Number must be identical to the Identifier of its CPHRO in the scientific product description. For CPHRM not shipped internationally, the Local SKU Number may be different, but the MATERIAL data set must referenced the Identifier of its CPHRO.\n[source: 028-OCS-00283 (3.0), Chapter 5.4]"
+        },
+        "orderLine": {
+            "$ref": "#/definitions/OrderLine"
+        }
+    },
+    "definitions": {
+        "OrderLine": {
+            "title": "orderLine",
+            "type": "object",
+            "description": "An order line is a part of an order that orders a certain item (the orderable product) in a certain quantity.\nAn order line might be splitted, for example if the ordered quantity is not immediately available.",
+            "properties": {
+                "number": {
+                    "title": "orderLineNumber",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "the number of the line within the order"
+                },
+                "unitPrice": {
+                    "title": "unitPrice",
+                    "type": "number",
+                    "description": "The price for 1 unit"
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "description": "current status of order line"
+                },
+                "shipToCustomerIds": {
+                    "title": "shipToCustomer.businessPartnerIdentifiers",
+                    "type": "array",
+                    "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+                    "items": {
+                        "$ref": "#/definitions/BusinessPartnerIdentifier"
+                    }
+                },
+                "shippingDetailTrackingNumber": {
+                    "title": "shippingDetail",
+                    "type": "array",
+                    "description": "Details about the shipment of one or more order lines",
+                    "items": {
+                        "title": "packageTrackingNumber",
+                        "type": "string",
+                        "description": "A key for the shipment / transport of a single parcel. This key is provided by the logistics organization running the transportation and allows for tracking of the transportation process. (e.g. when / where handed over, where is it now, when is delivery to receiver expected, when delivered to receiver)."
+                    }
+                },
+                "order": {
+                    "$ref": "#/definitions/Order"
+                }
+            }
+        },
+        "BusinessPartnerIdentifier": {
+            "title": "businessPartnerIdentifier",
+            "type": "object",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "Internal or External (alternative) Identifier of the Business Partner."
+                },
+                "idTypeCode": {
+                    "title": "identifierType.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                }
+            }
+        },
+        "Order": {
+            "title": "order",
+            "type": "object",
+            "description": "Order is a request from a buyer towards a seller about purchasing some product (tangible goods or service) the seller is offering.\nSo from the buyer's perspective it may be called a \"purchase order\", from the seller's perspective it may be called a \"sales order\".",
+            "properties": {
+                "orderId": {
+                    "title": "orderId",
+                    "type": "string",
+                    "description": "Unique identifier of the order."
+                },
+                "customerSuppliedOrderReference": {
+                    "title": "customerSuppliedOrderReference",
+                    "type": "string",
+                    "description": "A number or string provided by the customer as a reference for the customer's order."
+                },
+                "billToCustomerIds": {
+                    "title": "billToCustomer.businessPartnerIdentifiers",
+                    "type": "array",
+                    "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+                    "items": {
+                        "$ref": "#/definitions/BusinessPartnerIdentifier"
+                    }
+                },
+                "orderingCustomerIds": {
+                    "title": "orderingCustomer.businessPartnerIdentifiers",
+                    "type": "array",
+                    "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+                    "items": {
+                        "$ref": "#/definitions/BusinessPartnerIdentifier"
+                    }
+                },
+                "orderTypeCode": {
+                    "title": "orderType.code",
+                    "type": "string",
+                    "description": "Code of the order type"
+                }
+            }
+        }
+    }
+}

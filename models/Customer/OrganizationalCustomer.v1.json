@@ -1,0 +1,15 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/OrganizationalCustomer.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Organizational Customer",
+    "type": "object",
+    "description": "A CUSTOMER is any person, legal entity or authority with which Boehringer Ingelheim is doing business, that ...\n\n•\treceives goods or services from Boehringer Ingelheim, or\n•\tpays BI for goods or services according to agreed terms and conditions or applicable laws, or\n•\tinteracts with BI as part of any selling or information gathering or distributing activity such as quotations, offers, rebates, ...",
+    "allOf": [
+        {
+            "$ref": "Customer.v1.json"
+        },
+        {
+            "$ref": "../Vendor/Organization.v1.json"
+        }
+    ]
+}

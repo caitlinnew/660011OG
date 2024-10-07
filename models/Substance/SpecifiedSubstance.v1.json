@@ -1,0 +1,163 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Substance/SpecifiedSubstance.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SPECIFIED SUBSTANCE",
+    "type": "object",
+    "description": "A specified substance is described by its unchangeable scientific properties plus high level attributes which are describing a high level quality of the substance e.g. \"according to pharmacopeia standard\" or \"killed virus\".",
+    "properties": {
+        "id": {
+            "title": "specifiedSubstanceId",
+            "type": "string",
+            "description": "Identifier of the Specified Substance."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "capsuleHalf": {
+            "$ref": "CapsuleHalf.v1.json"
+        },
+        "componentStageCode": {
+            "title": "componentStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "componentStageRefId": {
+            "title": "componentStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "ingredients": {
+            "title": "ingredients",
+            "type": "array",
+            "description": "PRODUCT INGREDIENT is a SPECIFIED SUBSTANCE which plays a role in the PRODUCT COMPOSITION of a DRUG PRODUCT. This role may be Active Pharmaceutical Ingredient, Excipient, Adjuvant, Inactivant, Preservative, Impurity etc.",
+            "items": {
+                "$ref": "../Product/Ingredient.v1.json"
+            }
+        },
+        "intermediateSapCode": {
+            "title": "intermediateComponentType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "intermediateRefId": {
+            "title": "intermediateComponentType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "specifiedSubstanceClassifications": {
+            "title": "specifiedSubstanceClassificationAssignments",
+            "type": "array",
+            "description": "This class assignes the structured quality attributes to a specifed substance and allows to add an additional classification as free text with the purpose to make a Specified Substance distinguishable for regulatory purposes.",
+            "items": {
+                "$ref": "#/definitions/SpecifiedSubstanceClassificationAssignment"
+            }
+        },
+        "specifiedSubstanceName": {
+            "title": "specifiedSubstanceName",
+            "type": "array",
+            "description": "A SUBSTANCE may have multiple SUBSTANCE NAMEs given by the naming system described in the SUBSTANCE NAME TYPE.\nEach SUBSTANCE NAME is written in a LANGUAGE and encoded in a WRITING SYSTEM.\nThe SUBSTANCE NAME has no code, just a term.\nThe SUBSTANCE NAME TYPE acts almost like a code for this SUBSTANCE NAME used for this SUBSTANCE.",
+            "items": {
+                "$ref": "#/definitions/SubstanceName"
+            }
+        },
+        "substanceId": {
+            "title": "substance.substanceId",
+            "type": "string",
+            "description": "An ID with no business meaning"
+        },
+        "sortKey": {
+            "title": "sortKey",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Sort Key is a positive integer assigned to each INGREDIENT of a PRODUCT COMPOSITION, VALENCE PRODUCT COMPOSITION and SPECIFIED SUBSTANCE. This allows to display the INGREDIENTs in the sequence of the Sort Key.\nFor (VALENCE) PRODUCT COMPOSITIONs, the sequence shall be the same as in the regulatory document P100 Description and Composition of the Drug Product. This shall help humans to compare this structured data with data in the P100 document.\nFor SPECIFIED SUBSTANCEs for which their INGREDIENTs are listed in the P100 document, the sequence of their INGREDIENTs shall be the same as in the P100 document.\nFor SPECIFIED SUBSTANCEs for which their INGREDIENTs are not listed in the P100 document, there is no requirement to sort the INGREDIENT sequence."
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One SPECIFIED SUBSTANCE must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing SPECIFIED SUBSTANCE."
+        }
+    },
+    "definitions": {
+        "SpecifiedSubstanceClassificationAssignment": {
+            "title": "specifiedSubstanceClassificationAssignment",
+            "type": "object",
+            "description": "This class assignes the structured quality attributes to a specifed substance and allows to add an additional classification as free text with the purpose to make a Specified Substance distinguishable for regulatory purposes.",
+            "properties": {
+                "additionalClassification": {
+                    "title": "additionalClassification.text",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "classificationCode": {
+                    "title": "specifiedSubstanceClassification.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "classificationRefId": {
+                    "title": "specifiedSubstanceClassification.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "SubstanceName": {
+            "title": "substanceName",
+            "type": "object",
+            "description": "A SUBSTANCE may have multiple SUBSTANCE NAMEs given by the naming system described in the SUBSTANCE NAME TYPE.\nEach SUBSTANCE NAME is written in a LANGUAGE and encoded in a WRITING SYSTEM.\nThe SUBSTANCE NAME has no code, just a term.\nThe SUBSTANCE NAME TYPE acts almost like a code for this SUBSTANCE NAME used for this SUBSTANCE.",
+            "properties": {
+                "abbreviation": {
+                    "title": "abbreviation",
+                    "type": "string",
+                    "description": "A SUBSTANCE NAME may be abbreviated (0..1)."
+                },
+                "preferredName": {
+                    "title": "preferredName",
+                    "type": "boolean",
+                    "description": "The preferred name is to be used for the Specified Substance in unstructured Documentation and in internal communication. It is unique but may change over time. Therefore it should not be used for technical referencing purpose. \nThe preferred name is always derived out of one of the other fields containing naming conventions including the other names. The change of the preferred name over time is triggered by setting the the preferred name flag rather than changing the content of a specific field. E.g. a development substance will be identified the BI Reporting Code early in development. It will change in clinical trial phase 2 to the INN or the INN modified name."
+                },
+                "languageSapCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "sourceSapCode": {
+                    "title": "substanceNameType.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "sourceRefId": {
+                    "title": "substanceNameType.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

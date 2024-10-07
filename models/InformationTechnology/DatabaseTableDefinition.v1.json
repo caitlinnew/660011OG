@@ -1,0 +1,48 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/DatabaseTableDefinition.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DATABASE TABLE DEFINITION",
+    "type": "object",
+    "description": "An DATABASE TABLE DEFINITION represents a table based data structure. The meaning of the Table might be explained by one or more INFORMATION OBJECTs.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "purpose": {
+                    "title": "purpose",
+                    "type": "string",
+                    "enum": [
+                        "Application",
+                        "Clean",
+                        "Curated",
+                        "Usecase"
+                    ]
+                },
+                "domainName": {
+                    "title": "domain.name",
+                    "type": "string",
+                    "description": "The name of the DATA DOMAIN is the way how it is called typically."
+                },
+                "columns": {
+                    "title": "columns",
+                    "type": "array",
+                    "description": "An DATABASE COLUMN DEFINITION represents a field or attribute as column in a DATABASE TABLE DEFINITION. It defines the technical storage of Information needed by Business defined in an INFORMATION ATTRIBUTE.",
+                    "items": {
+                        "$ref": "DatabaseColumnDefinition.v1.json"
+                    }
+                },
+                "explainingLogicalModel": {
+                    "title": "explainingLogicalModel",
+                    "type": "array",
+                    "description": "The INFORMATION OBJECT is a representation of a piece of information whithin Boehringer Ingelheim. It may contain more detailed information (INFORMATION ATTRIBUTE).\nDepending on the layer of the Boehringer Information Model where the INFORMATION OBJECT is used, it is also known as \"conceptual object\" (conceptual model layer).",
+                    "items": {
+                        "$ref": "InformationObject.v1.json"
+                    }
+                }
+            }
+        },
+        {
+            "$ref": "InformationModelElement.v1.json"
+        }
+    ]
+}

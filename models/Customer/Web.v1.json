@@ -1,0 +1,39 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Web.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "WEB",
+    "type": "object",
+    "description": "COMMUNICATION CHANNEL WEB reflects the WEB-Sites that a customer has and where we can find information about him. This can be his private WEB-Site, the official Company Homepage of a HCO or even a dedicated page of a HCO where is information about a HCP is available (e.g. as a kind of staff member profile).",
+    "properties": {
+        "isStandardUrl": {
+            "title": "isStandardUrl",
+            "type": "boolean",
+            "description": "This field indicates that this Web ULR Is the Standard URL for a defined use."
+        },
+        "urlName": {
+            "title": "urlName",
+            "type": "string"
+        },
+
+
+
+        "doNotUseFlag": {
+            "title": "doNotUseFlag",
+            "type": "boolean",
+            "description": "The Do not Use Flag indicates that a particular Communication Number is Not Used."
+        },
+        "sequenceNumber": {
+            "title": "sequenceNumber",
+            "type": "integer",
+            "format": "int32"
+        },
+        "urlTypeCode": {
+            "title": "urlType.code",
+            "type": "string"
+        },
+        "urlTypeName": {
+            "title": "urlType.term",
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/DataDomain.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DATA DOMAIN",
+    "type": "object",
+    "description": "The DATA DOMAIN separates the data by Business Responsibilities.",
+    "properties": {
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The name of the DATA DOMAIN is the way how it is called typically."
+        },
+        "key": {
+            "title": "key",
+            "type": "string",
+            "description": "Described the code which is used to identify the Data-Domain in Datahub or Collibra."
+        },
+        "identifyingConfigItemName": {
+            "title": "identifyingConfigItem.name",
+            "type": "string",
+            "description": "The standardized name of the CONFIG ITEM as defined in CMDB."
+        },
+        "dataDomainOwner": {
+            "$ref": "../HumanRessources/Employee.v1.json"
+        }
+    }
+}

@@ -1,0 +1,196 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/Sale.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SALE",
+    "type": "object",
+    "description": "A sale is a transaction between a seller and a buyer in which the seller provides tangible or intangible assets to the buyer and in exchange the buyer provides tangible or intangible assets to the seller. The most frequent version in short: The seller provides goods, and the buyer pays money. \nThe sale is meant to also include returns. In this case the directions of both goods and money flow are reversed, also meaning that the numbers are turned to be negative: E.g. if 2,000 units are returned, the Quantity will be \"-2,000\", and the Amounts will be negative, too.",
+    "properties": {
+        "contractIndicator": {
+            "title": "contractIndicator",
+            "type": "boolean",
+            "description": "Indicates if the sale was for contract rate (TRUE) or non contract rate (FALSE]"
+        },
+        "date": {
+            "title": "date",
+            "type": "string",
+            "format": "date-time",
+            "description": "The date (possibly also time (in online sale)) when the sale was done"
+        },
+        "grossAmount": {
+            "title": "grossAmount",
+            "type": "number",
+            "description": "total amount of money (including tax) to be paid for the sale"
+        },
+        "quantity": {
+            "title": "quantity",
+            "type": "integer",
+            "format": "int32",
+            "description": "The quantity of sold goods / services / ... in this sale."
+        },
+        "saleType": {
+            "title": "saleType",
+            "type": "string",
+            "description": "says if the sale is a Direct Sale (from Boehringer to Customer), an Indirect Sale (from Customer to Customer (e.g. wholesaler to retailer), or a Final Sale (from Customer to Consumer (e.g. Pharmacy to Patient, or Clinic to Pet Owner)."
+        },
+        "shippedFromBusinessPartnerIds": {
+            "title": "shippedFromBusinessPartner.businessPartnerIdentifiers",
+            "type": "array",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "items": {
+                "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+            }
+        },
+        "billToCustomerIds": {
+            "title": "billToCustomer.businessPartnerIdentifiers",
+            "type": "array",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "items": {
+                "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+            }
+        },
+        "payerIds": {
+            "title": "payer.businessPartnerIdentifiers",
+            "type": "array",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "items": {
+                "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+            }
+        },
+        "shipToCustomerIds": {
+            "title": "shipToCustomer.businessPartnerIdentifiers",
+            "type": "array",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "items": {
+                "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+            }
+        },
+        "invoiceLine": {
+            "$ref": "#/definitions/InvoiceLine"
+        },
+        "buyingCustomerIds": {
+            "title": "buyingCustomer.businessPartnerIdentifiers",
+            "type": "array",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "items": {
+                "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+            }
+        },
+        "orderableProduct": {
+            "$ref": "#/definitions/OrderableProduct"
+        },
+        "resellingCustomerIds": {
+            "title": "buyingCustomer.businessPartnerIdentifiers",
+            "type": "array",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "items": {
+                "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+            }
+        },
+        "salesChannelUsAhCode": {
+            "title": "salesChannelUsAh.code",
+            "type": "string",
+            "description": "A code for the sales channel [US AH]"
+        }
+    },
+    "definitions": {
+        "Customer": {
+            "title": "customer",
+            "type": "object",
+            "description": "A CUSTOMER is any person, legal entity or authority with which Boehringer Ingelheim is doing business, that ...\n\n•\treceives goods or services from Boehringer Ingelheim, or\n•\tpays BI for goods or services according to agreed terms and conditions or applicable laws, or\n•\tinteracts with BI as part of any selling or information gathering or distributing activity such as quotations, offers, rebates, ...",
+            "properties": {
+                "ids": {
+                    "title": "businessPartnerIdentifiers",
+                    "type": "array",
+                    "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+                    "items": {
+                        "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+                    }
+                }
+            }
+        },
+        "InvoiceLine": {
+            "title": "invoiceLine",
+            "type": "object",
+            "description": "An invoice line is a line within an invoice. It explains what a detail amount contributing to the invoice's total amount is about.",
+            "properties": {
+                "invoiceLineNumber": {
+                    "title": "invoiceLineNumber",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Invoice Line Number"
+                },
+                "invoicedUnitPrice": {
+                    "title": "invoicedUnitPrice",
+                    "type": "number",
+                    "description": "The price per unit used in the invoice line."
+                },
+                "invoiceInvoiceNumber": {
+                    "title": "invoice.invoiceNumber",
+                    "type": "string",
+                    "description": "Invoice number issued by the seller."
+                },
+                "invoiceDateCreated": {
+                    "title": "invoice.dateCreated",
+                    "type": "string",
+                    "format": "date",
+                    "description": "date the invoice has been issued"
+                },
+                "orderLine": {
+                    "$ref": "#/definitions/OrderLine"
+                },
+                "unitListPrice": {
+                    "title": "unitListPrice",
+                    "type": "number",
+                    "description": "The list price of a unit sold at the time of purchase / sale"
+                }
+            }
+        },
+        "OrderLine": {
+            "title": "orderLine",
+            "type": "object",
+            "description": "An order line is a part of an order that orders a certain item (the orderable product) in a certain quantity.\nAn order line might be splitted, for example if the ordered quantity is not immediately available.",
+            "properties": {
+                "order": {
+                    "$ref": "#/definitions/Order"
+                }
+            }
+        },
+        "Order": {
+            "title": "order",
+            "type": "object",
+            "description": "Order is a request from a buyer towards a seller about purchasing some product (tangible goods or service) the seller is offering.\nSo from the buyer's perspective it may be called a \"purchase order\", from the seller's perspective it may be called a \"sales order\".",
+            "properties": {
+                "orderNumber": {
+                    "title": "orderNumber",
+                    "type": "string",
+                    "description": "ERP generated value assigned to order"
+                },
+                "orderCreated": {
+                    "title": "orderCreated",
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date/time this order was created.  Order Date/Time."
+                }
+            }
+        },
+        "OrderableProduct": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/RevenueGeneratingMaterial"
+                }
+            ]
+        },
+        "RevenueGeneratingMaterial": {
+            "title": "revenueGeneratingMaterial",
+            "type": "object",
+            "description": "REVENUE GENERATING MATERIAL is a MATERIAL with MATERIAL TYPE \"Revenue Generating Material\" (YREV in SAP-GBS-ERP).",
+            "properties": {
+                "materialNumber": {
+                    "title": "materialNumber",
+                    "type": "string",
+                    "description": "The Material Number (also called Local SKU Number) is the unique identifier for the MATERIAL within the Enterprise Resource Planning (ERP) System GBS, to become GBS S/4 HANA in 2020, which shall be the corporate-wide ERP system in 2025.\nFor CPHRM shipped internationally, the Local SKU Number must be identical to the Identifier of its CPHRO in the scientific product description. For CPHRM not shipped internationally, the Local SKU Number may be different, but the MATERIAL data set must referenced the Identifier of its CPHRO.\n[source: 028-OCS-00283 (3.0), Chapter 5.4]"
+                }
+            }
+        }
+    }
+}

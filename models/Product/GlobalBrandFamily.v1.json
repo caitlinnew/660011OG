@@ -1,0 +1,133 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/GlobalBrandFamily.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GlobalBrandFamily",
+    "type": "object",
+    "description": "A GLOBAL BRAND FAMILY contains GLOBAL BRANDs with a common (trade-mark protected) name.",
+    "properties": {
+        "id": {
+            "title": "brandFamilyId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL BRAND FAMILY."
+        },
+        "name": {
+            "title": "term",
+            "type": "string",
+            "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "brandStageRefDataId": {
+            "title": "brandStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "brandStageCode": {
+            "title": "brandStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalBrandSubfamilyIds": {
+            "type": "array",
+            "description": "A GLOBAL BRAND SUBFAMILY groups GLOBAL BRANDs of one BRAND FAMILY according to any customer-perceived value.",
+            "items": {
+                "title": "globalBrandSubfamily.brandFamilyId",
+                "type": "string",
+                "description": "Unique identifier of the object GLOBAL BRAND SUBFAMILY."
+            }
+        },
+        "globalBrandIds": {
+            "type": "array",
+            "description": "The BRAND is the proprietary name under which an AI COMBINATION [in BUSINESS UNIT Human Pharma: for at least one INDICATION, in BUSINESS UNIT Animal Health: for at least one TARGET SPECIES] or a branded DEVICE is marketed by Boehringer Ingelheim. Generall",
+            "items": {
+                "title": "globalBrand.globalBrandId",
+                "type": "string",
+                "description": "Unique identifier of the object GLOBAL BRAND."
+            }
+        },
+        "routingGlobalFamily": {
+            "title": "routingGlobalBrandFamily",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/RoutingInformationGlobalBrandFamily"
+            }
+        }
+    },
+    "definitions": {
+        "RoutingInformationGlobalBrandFamily": {
+            "title": "routingInformationGlobalBrandFamily",
+            "type": "object",
+            "properties": {
+                "routingGlobalBrands": {
+                    "title": "routingGlobalBrand",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RoutingGlobalBrand"
+                    }
+                },
+                "routingGlobalSubFamilies": {
+                    "$ref": "#/definitions/RoutingInformationGlobalSubFamily"
+                }
+            }
+        },
+        "RoutingGlobalBrand": {
+            "title": "routingGlobalBrand",
+            "type": "object",
+            "description": "This information will not be provieded in future version. The information is already available by accessing the related Global Brand information.",
+            "deprecated" : true,
+            "properties": {
+                "globalBrandId": {
+                    "title": "globalBrandId",
+                    "type": "string",
+                    "description": "Unique identifier of the object LOCAL BRAND."
+                },
+                "businessUnitCode": {
+                    "title": "businessUnit.code",
+                    "type": "string",
+                    "description": "Identifier of a Business Unit"
+                },
+                "businessUnitSapCode": {
+                    "title": "businessUnit.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "businessUnitRefId": {
+                    "title": "businessUnit.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "RoutingInformationGlobalSubFamily": {
+            "title": "routingInformationGlobalSubFamily",
+            "type": "object",
+            "properties": {
+                "routingGlobalBrand": {
+                    "title": "routingGlobalBrand",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/RoutingGlobalBrand"
+                    }
+                },
+                "globalBrandSubfamilyId": {
+                    "title": "globalBrandSubfamilyId",
+                    "type": "string",
+                    "description": "Unique identifier of the object LOCAL BRAND."
+                }
+            }
+        }
+    }
+}

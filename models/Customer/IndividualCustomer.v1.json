@@ -1,0 +1,14 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/IndividualCustomer.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INDIVIDUAL CUSTOMER",
+    "type": "object",
+    "allOf": [
+        {
+            "$ref": "Customer.v1.json"
+        },
+        {
+            "$ref": "Individual.v2.json"
+        }
+    ]
+}

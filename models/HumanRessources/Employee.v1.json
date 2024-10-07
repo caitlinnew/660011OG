@@ -1,0 +1,616 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/HumanRessources/Employee.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "EMPLOYEE",
+    "type": "object",
+    "description": "A person describes an individual holding a specific position and working for BI. This might be a regular BI employee with a working contract or comparable agreement or an External who is maintained in the HR system (agency personnel).",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "employeeType": {
+                    "title": "employeeType",
+                    "type": "string",
+                    "description": "The employee type defines the employee class further. E.g. a regular employee (employee class) can be an employee, expatriate, impatriate or semi-retiree (active)."
+                },
+                "nationalId": {
+                    "title": "nationalId",
+                    "type": "string",
+                    "description": "The national ID is a unique country-specific personal identifier of an employee. An employee can have multiple National ID types."
+                },
+                "personId": {
+                    "title": "personId",
+                    "type": "string",
+                    "description": "The Person ID of an Employee is modeled as a BUSINESS PARTNER IDENTIFIER with BP IDENTIFIER TYPE Employee."
+                },
+                "employment": {
+                    "$ref": "#/definitions/Employment"
+                },
+                "employmentHistory": {
+                    "title": "employmentHistory",
+                    "type": "array",
+                    "description": "Employment is a relationship between two parties, usually based on a contract where work is paid for, where one party is the employer and the other is the employee/contingent worker. The employment holds relevant information for this working relationship (e.g. capacity, payment)",
+                    "items": {
+                        "$ref": "#/definitions/Employment"
+                    }
+                },
+                "identity": {
+                    "$ref": "#/definitions/Identity"
+                },
+                "talentCard": {
+                    "$ref": "#/definitions/TalentCard"
+                },
+                "modificationDate": {
+                    "title": "modificationDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date when the master data of the EMPLOYEE changed for the last time."
+                }
+            }
+        },
+        {
+            "$ref": "../Customer/Individual.v2.json"
+        }
+    ],
+    "definitions": {
+        "Employment": {
+            "title": "employment",
+            "type": "object",
+            "description": "Employment is a relationship between two parties, usually based on a contract where work is paid for, where one party is the employer and the other is the employee/contingent worker. The employment holds relevant information for this working relationship (e.g. capacity, payment)",
+            "properties": {
+                "actualCapacity": {
+                    "title": "actualCapacity",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The ACTUAL CAPACITY is the working percentage related to an employment."
+                },
+                "effectiveDate": {
+                    "title": "effectiveDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "An effective date describes the start date of any change within the employment."
+                },
+                "contractPaymentCycle": {
+                    "title": "contract.paymentCycle",
+                    "type": "string",
+                    "description": "Payment Cycle is a defined, recurring period when a payment is due."
+                },
+                "contractProbationaryPeriod": {
+                    "title": "contract.probationaryPeriod",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Probationary Period is a predefined period at the beginning of the EMPLOYMENT where certain employment clauses are not applicable."
+                },
+                "hrPosition": {
+                    "$ref": "#/definitions/HrPosition"
+                },
+                "legalEntity": {
+                    "$ref": "#/definitions/BiLegalEntity"
+                }
+            }
+        },
+        "HrPosition": {
+            "title": "hrPosition",
+            "type": "object",
+            "description": "A position describes the concrete responsibilities of a position holder. The hierarchical interrelationship between positions represents the enterprise structure. In addition it defines what position reports into whom (employee - manager relationship).\nGerman: \"Planstelle\"",
+            "properties": {
+                "id": {
+                    "title": "positionId",
+                    "type": "string",
+                    "description": "The Position ID is the unique identifier of an HR POSITION."
+                },
+                "businessUnitId": {
+                    "title": "hrBusinessUnit.identifier",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The identifier of the HR BUSINESS UNIT."
+                },
+                "businessUnitAreaId": {
+                        "title": "hrBusinessUnitArea.identifier",
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "The identifier of the HR BUSINESS UNIT AREA."
+                },
+                "businessUnitSubareaId": {
+                    "title": "hrBusinessUnitSubarea.identifier",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The identifier of the HR BUSINESS UNIT SUBAREA."
+                },
+                "businessUnitSubareaName": {
+                    "title": "hrBusinessUnitSubarea.name",
+                    "type": "string",
+                    "description": "The human readable name of the HR BUSINESS UNIT SUBAREA."
+                },
+                "businessUnitSubareaAbbreviation": {
+                    "title": "hrBusinessUnitSubarea.abbreviation",
+                    "type": "string",
+                    "description": "The ABBREVIATION is a short form of the name of the HR BUSINESS UNIT SUBAREA"
+                },
+                "locationId": {
+                    "title": "location.Id",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "A Location ID identifies one unique Location/adress.\n\nFor OMOP this is the unique key given to a unique Location. In this case Location references ADRESS adressline(s), ZIP code, and adress information."
+                },
+                "locationCountryIso2Code": {
+                    "title": "location.country.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                },
+                "locationCountryName": {
+                    "title": "location.country.countryNameIsoEnShort",
+                    "type": "string"
+                },
+                "administrativeManagerEmailAddress": {
+                    "title": "superiorHrPositionInMatrixRef.emailAddress",
+                    "type": "string"
+                },
+                "administrativeManagerId": {
+                    "title": "superiorHrPositionInMatrixRef.positionId",
+                    "type": "string",
+                    "description": "The Position ID is the unique identifier of an HR POSITION."
+                },
+                "functionalManagerEmailAddress": {
+                    "title": "superiorHrPosition_Ref.emailAddress",
+                    "type": "string"
+                },
+                "functionalManagerId": {
+                    "title": "superiorHrPosition_Ref.positionId",
+                    "type": "string",
+                    "description": "The Position ID is the unique identifier of an HR POSITION."
+                }
+            }
+        },
+        "BiLegalEntity": {
+            "title": "biLegalEntity",
+            "type": "object",
+            "description": "A legal entity is defined as a company. There is a differentiation between affiliated BI companies (sometimes called Operating Unit), special purpose companies and 3rd party companies. Affiliated BI companies belonging to the worldwide BI group are part of the general corporate reporting. For some specific financial reasons it may be necessary to consider also special purpose companies (e.g. Parallel Trade Import.) 3rd party companies are only used in case they are to be consider as producer within the financial logistic in the Standard Cost Reporting.",
+            "properties": {
+                "isActive": {
+                    "title": "activeFlag",
+                    "type": "boolean",
+                    "description": "marked with TRUE, if available in Financial Reporting"
+                },
+                "code": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "unique identifier of legal entity (originally generated in AMI)"
+                },
+                "isOnlyHistory": {
+                    "title": "onlyHistoryFlag",
+                    "type": "boolean",
+                    "description": "marked with TRUE, if Company is closed for data entry, but historic data still get displayed in Financial Reporting"
+                },
+                "shortName": {
+                    "title": "shortTerm",
+                    "type": "string",
+                    "description": "short name of legal entity (originally generated in AMI)"
+                },
+                "name": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "name of legal entity (originally generated in AMI)"
+                }
+            }
+        },
+        "Identity": {
+            "title": "identity",
+            "type": "object",
+            "description": "Identity is a collection of information on the employee and his access rights.",
+            "properties": {
+                "globalId": {
+                    "title": "globalIdentifier",
+                    "type": "string",
+                    "description": "The Global Identifier also known as BIDS-ID is the global unique identifier of an Identity It is also the only one-to-one identifier of an Identity. Example: \"GI00001234\""
+                },
+                "adUserName": {
+                    "title": "directoryServiceAccount.userName",
+                    "type": "string",
+                    "description": "The name of the DIRECTORY SERVICE ACCOUNT."
+                },
+                "adUsers": {
+                    "title": "directoryServiceAccount.user",
+                    "type": "array",
+                    "description": "A USER is an account in an INFORMATION SYSTEM which allows ACCESS to that INFORMATION SYSTEM. \nCreating a user in a certain information system automatically includes creating a USER PERMISSION for the basic access to the information system which we assume to be of ACCESS TYPE \"Login\" - though a real login (\"enter username and password\") has not to be necessary: Users like \"Guest\" or \"Anonymous\" or \"<void>\" are well possible - especially in web based information systems (e.g. search engines). Therefore, propositions for a better name for \"Login\" are welcome!.\nA user may be assigned to e.g. a single person, a working group, or a batch job (which has to be run within the information system) - or it may be not assigned at all.",
+                    "items": {
+                        "$ref": "#/definitions/User"
+                    }
+                },
+                "adDisplayName": {
+                    "title": "directoryServiceAccount.displayName",
+                    "type": "string",
+                    "description": "The name of the DIRECTORY SERVICE ACCOUNT describes a Person and its position at BI. It is used to as display of the name of a user in different applications (as MS Teams and MS Outlook)."
+                },
+                "adEntitlementAssignments": {
+                    "title": "directoryServiceAccount.entitlementAssignments",
+                    "type": "array",
+                    "description": "ENTITLEMENT ASSIGNMENT is the assignment of a certain permission set to either to a user.",
+                    "items": {
+                        "$ref": "../InformationTechnology/EntitlementAssignment.v1.json"
+                    }
+                },
+                "userType": {
+                    "title": "userType",
+                    "type": "string",
+                    "description": "The User Type classifies an Identity into external an internal (employed) users.",
+                    "enum": [
+                        "INTERNAL",
+                        "EXTERNAL"
+                    ]
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "description": "The Status of an IDENTITY is derived from the EMPLOYMENT situation of an EMPLOYEE at BI.",
+                    "enum": [
+                        "PREACTIVE",
+                        "ACTIVE",
+                        "INACTIVE",
+                        "TERMINATED"
+                    ]
+                },
+                "identityType": {
+                    "title": "identityType",
+                    "description": "An IDENTITY has a Type to distinguish the purpose for which it is used.",
+                    "type": "string",
+                    "enum": [
+                        "PRIMARY",
+                        "SECONDARY",
+                        "SPECIAL",
+                        "APPLICATION"
+                    ]    
+                }
+            }
+        },
+        "User": {
+            "title": "user",
+            "type": "object",
+            "description": "A USER is an account in an INFORMATION SYSTEM which allows ACCESS to that INFORMATION SYSTEM. \nCreating a user in a certain information system automatically includes creating a USER PERMISSION for the basic access to the information system which we assume to be of ACCESS TYPE \"Login\" - though a real login (\"enter username and password\") has not to be necessary: Users like \"Guest\" or \"Anonymous\" or \"<void>\" are well possible - especially in web based information systems (e.g. search engines). Therefore, propositions for a better name for \"Login\" are welcome!.\nA user may be assigned to e.g. a single person, a working group, or a batch job (which has to be run within the information system) - or it may be not assigned at all.",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "Unique Identifier for the user within the information system"
+                },
+                "permissions": {
+                    "title": "permissionSetAssignment",
+                    "type": "array",
+                    "description": "PERMISSION SET ASSIGNMENT is the assignment of a certain permission set to either a user type or to a user",
+                    "items": {
+                        "$ref": "#/definitions/PermissionSetAssignment"
+                    }
+                }
+            }
+        },
+        "PermissionSetAssignment": {
+            "title": "permissionSetAssignment",
+            "type": "object",
+            "description": "PERMISSION SET ASSIGNMENT is the assignment of a certain permission set to either a user type or to a user",
+            "properties": {
+                "permissionSetName": {
+                    "title": "permissionSet.name",
+                    "type": "string",
+                    "description": "Name of the PERMISSION SET."
+                },
+                "permissionSetType": {
+                    "title": "permissionSet.type",
+                    "description": "Permission Set Type is used to organize and classify Permission sets.",
+                    "type": "string",
+                    "enum": [
+                        "ROLE",
+                        "GROUP"
+                    ]
+                },
+                "permissionSetRequestType": {
+                    "title": "permissionSetAssignmentRequest.requestType",
+                    "description": "An ENTITLEMENT REQUEST has a type that triggers assignment or revocation of an ENTITLEMENT.",
+                    "type": "string",                    
+                    "enum": [
+                        "ASSIGN",
+                        "REVOKE"
+                    ]
+                }
+            }
+        },
+        "TalentCard": {
+            "title": "talentCard",
+            "type": "object",
+            "description": "The TALENT CARD contains talent related information like skills, accomplishments, career aspirations at a glance.The Talent Card helps managers to make performance related decisions and talent tracking of an employee over a period of time",
+            "properties": {
+                "careerAspirations": {
+                    "title": "careerAspirations",
+                    "type": "array",
+                    "description": "A CAREER ASPIRATION is a path that the employee want his career to follow.",
+                    "items": {
+                        "$ref": "#/definitions/CareerAspirations"
+                    }
+                },
+                "education": {
+                    "title": "education",
+                    "type": "array",
+                    "description": "EDUCATION is the academic career of an EMPLOYEE.",
+                    "items": {
+                        "$ref": "#/definitions/Education"
+                    }
+                },
+                "globalLeadershipPrograms": {
+                    "title": "globalLeadershipPrograms",
+                    "type": "array",
+                    "description": "The GLOBAL LEADERSHIP PROGRAM is a collection of information on the programmes for global leadership that an EMPLOYEE has participated.",
+                    "items": {
+                        "$ref": "#/definitions/GlobalLeadershipProgram"
+                    }
+                },
+                "languageSkills": {
+                    "title": "languageSkills",
+                    "type": "array",
+                    "description": "LANGUAGE SKILLS show a persons proficiency to speak and understand a language.",
+                    "items": {
+                        "$ref": "#/definitions/LanguageSkills"
+                    }
+                },
+                "leadershipAndInternationalExperiences": {
+                    "title": "leadershipAndInternationalExperiences",
+                    "type": "array",
+                    "description": "LEADERSHIP or INTERNATIONAL EXPERIENCE lists the relevant skills an employee has aquired during his/her job history.",
+                    "items": {
+                        "$ref": "#/definitions/LeadershipOrInternationalExperience"
+                    }
+                },
+                "mobilityInformation": {
+                    "title": "mobilityInformation",
+                    "type": "array",
+                    "description": "MOBILITY INFORMATION describes the willingness of an employee to change location for performing a job.",
+                    "items": {
+                        "$ref": "#/definitions/MobilityInformation"
+                    }
+                },
+                "performanceEvaluations": {
+                    "title": "performanceEvaluations",
+                    "type": "array",
+                    "description": "A PERFORMANCE EVALUATION is performed to assess the performance of an employee. The outcome feeds compensation planning.",
+                    "items": {
+                        "$ref": "#/definitions/PerformanceEvaluation"
+                    }
+                },
+                "workExperiences": {
+                    "title": "workExperiences",
+                    "type": "array",
+                    "description": "WORK EXPERIENCE is the experience an employee already has of working. This includes the current and preceded jobs.",
+                    "items": {
+                        "$ref": "#/definitions/WorkExperience"
+                    }
+                }
+            }
+        },
+        "CareerAspirations": {
+            "title": "careerAspirations",
+            "type": "object",
+            "description": "A CAREER ASPIRATION is a path that the employee want his career to follow.",
+            "properties": {
+                "function": {
+                    "title": "function",
+                    "type": "array",
+                    "description": "READINESS states if an EMPLOYEE is ready to reach a higher job level.",
+                    "items": {
+                        "title": "function",
+                        "type": "string",
+                        "description": "READINESS states if an EMPLOYEE is ready to reach a higher job level."
+                    }
+                },
+                "level": {
+                    "title": "level",
+                    "type": "array",
+                    "description": "The Job LEVEL an EMPLOYEE wants to reach.",
+                    "items": {
+                        "title": "level",
+                        "type": "string",
+                        "description": "The Job LEVEL an EMPLOYEE wants to reach."
+                    }
+                },
+                "readiness": {
+                    "title": "readiness",
+                    "type": "array",
+                    "description": "READINESS states if an EMPLOYEE is ready to reach a higher job level.",
+                    "items": {
+                        "title": "readiness",
+                        "type": "string",
+                        "description": "READINESS states if an EMPLOYEE is ready to reach a higher job level."
+                    }
+                },
+                "title": {
+                    "title": "title",
+                    "type": "array",
+                    "description": "The Job TITLE an EMPLOYEE wants to reach.",
+                    "items": {
+                        "title": "title",
+                        "type": "string",
+                        "description": "The Job TITLE an EMPLOYEE wants to reach."
+                    }
+                }
+            }
+        },
+        "Education": {
+            "title": "education",
+            "type": "object",
+            "description": "EDUCATION is the academic career of an EMPLOYEE.",
+            "properties": {
+                "degree": {
+                    "title": "degree",
+                    "type": "string",
+                    "description": "A DEGREE shows which type of graduation an EMPLOYEE has after his EDUCATION ended."
+                },
+                "endDate": {
+                    "title": "endDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The END DATE indicates when the EDUCATION ended."
+                },
+                "major": {
+                    "title": "major",
+                    "type": "string",
+                    "description": "The MAJOR defines the major subject of study."
+                },
+                "startDate": {
+                    "title": "startDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The START DATE indicates when the EDUCATION began."
+                }
+            }
+        },
+        "GlobalLeadershipProgram": {
+            "title": "globalLeadershipProgram",
+            "type": "object",
+            "description": "The GLOBAL LEADERSHIP PROGRAM is a collection of information on the programmes for global leadership that an EMPLOYEE has participated.",
+            "properties": {
+                "globalLeadershipProgram": {
+                    "title": "globalLeadershipProgram",
+                    "type": "string",
+                    "description": "The GLOBAL LEADERSHIP PROGRAM equips employees with the skills they need to have when working in a leadership position."
+                },
+                "graduationDate": {
+                    "title": "graduationDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The Graduation Date is the date, when an diploma or certification has been awarded."
+                }
+            }
+        },
+        "LanguageSkills": {
+            "title": "languageSkills",
+            "type": "object",
+            "description": "LANGUAGE SKILLS show a persons proficiency to speak and understand a language.",
+            "properties": {
+                "language": {
+                    "title": "language",
+                    "type": "string",
+                    "description": "An EMPLOYEE may speak different LANGUAGES, which are summarized in his LANGUAGE SKILLS."
+                },
+                "languageVariant": {
+                    "title": "languageVariant",
+                    "type": "string",
+                    "description": "LANGUAGE VARIANT shows regional, social or contextual differences in the way a particular LANGUAGE is used."
+                },
+                "proficiency": {
+                    "title": "proficiency",
+                    "type": "string",
+                    "description": "The PROFICIENCY shows how fluent an EMPLOYEE is in a particular LANGUAGE."
+                }
+            }
+        },
+        "LeadershipOrInternationalExperience": {
+            "title": "leadershipOrInternationalExperience",
+            "type": "object",
+            "description": "LEADERSHIP or INTERNATIONAL EXPERIENCE lists the relevant skills an employee has aquired during his/her job history.",
+            "properties": {
+                "comment": {
+                    "title": "comment",
+                    "type": "string",
+                    "description": "An EMPLOYEE may leave a comment regarding his EXPERIENCE as a leader."
+                },
+                "leadershipInternationalExperience": {
+                    "title": "leadershipInternationalExperience",
+                    "type": "string",
+                    "description": "An EMPLOYEE may have EXPERIENCE as a leader or in working in international environments."
+                },
+                "numberOfPeopleManaged": {
+                    "title": "numberOfPeopleManaged",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Defines usually the span of control a manager has in his/her position. It may also apply for project leads in matrix organizations where no formal reporting line exists."
+                },
+                "yearsOfExperience": {
+                    "title": "yearsOfExperience",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "YEARS OF EXPERIENCE states how many years an EMPLOYEE has LEADERSHIP INTERNATIONAL EXPERIENCE."
+                }
+            }
+        },
+        "MobilityInformation": {
+            "title": "mobilityInformation",
+            "type": "object",
+            "description": "MOBILITY INFORMATION describes the willingness of an employee to change location for performing a job.",
+            "properties": {
+                "desiredLocation": {
+                    "title": "desiredLocation",
+                    "type": "string",
+                    "description": "An EMPLOYEE may declare a DESIRED LOCATION where he/she wishs to move to."
+                },
+                "region": {
+                    "title": "region",
+                    "type": "string",
+                    "description": "REGION defines in which REGION an EMPLOYEE is willing to move to."
+                },
+                "willingnessToTravel": {
+                    "title": "willingnessToTravel",
+                    "type": "boolean",
+                    "description": "The WILLINGNESS TO TRAVEL indicates if an EMPLOYEE is willing to move to another Location for his job."
+                }
+            }
+        },
+        "PerformanceEvaluation": {
+            "title": "performanceEvaluation",
+            "type": "object",
+            "description": "A PERFORMANCE EVALUATION is performed to assess the performance of an employee. The outcome feeds compensation planning.",
+            "properties": {
+                "performanceFormExpactation": {
+                    "title": "performanceForm.performanceExpactation",
+                    "type": "array",
+                    "description": "The PERFORMANCE EXPECTATION (PEIYR) document the mutual agreement between manager and employee on the focus areas within a defined time period. The objective is based on the job profile. (e.g. sales KPIs, production KPIs, project achievements, continous improvements).",
+                    "items": {
+                        "$ref": "#/definitions/PerformanceExpactation"
+                    }
+                }
+            }
+        },
+        "PerformanceExpactation": {
+            "title": "performanceExpactation",
+            "type": "object",
+            "description": "The PERFORMANCE EXPECTATION (PEIYR) document the mutual agreement between manager and employee on the focus areas within a defined time period. The objective is based on the job profile. (e.g. sales KPIs, production KPIs, project achievements, continous improvements).",
+            "properties": {
+                "content": {
+                    "title": "content",
+                    "type": "string",
+                    "description": "The CONTENT specifies which tasks the employee needs to complete to fulfill his PERFORMANCE OBJECTIVE."
+                },
+                "timeperiod": {
+                    "title": "timeperiod",
+                    "type": "string",
+                    "description": "The TIMEPERIOD defines the time in which the PERFORMANCE OBJECTIVE should be reached."
+                }
+            }
+        },
+        "WorkExperience": {
+            "title": "workExperience",
+            "type": "object",
+            "description": "WORK EXPERIENCE is the experience an employee already has of working. This includes the current and preceded jobs.",
+            "properties": {
+                "companyName": {
+                    "title": "companyName",
+                    "type": "string",
+                    "description": "The COMPANY NAME shoes for which company the EMPLOYEE worked before."
+                },
+                "endDate": {
+                    "title": "endDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The END DATE indicates when the EMPLOYEE stopped to work for a specific company."
+                },
+                "startDate": {
+                    "title": "startDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The START DATE indicates when the EMPLOYEE began to work for a specific company."
+                },
+                "typeOfBusiness": {
+                    "title": "typeOfBusiness",
+                    "type": "string",
+                    "description": "Every company has a TYPE OF BUSINESS, similar to industry branch."
+                }
+            }
+        }
+    }
+}

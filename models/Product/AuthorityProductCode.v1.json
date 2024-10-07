@@ -1,0 +1,24 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/AuthorityProductCode.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "AUTHORITY PRODUCT CODE",
+    "type": "object",
+    "description": "The AUTHORITY PRODUCT CODE is a product code provided by a HEALTH AUTHORITY for the identification of a medicinal product in the respective JURISDICTION. The AUTHORITY PRODUCT CODE may be used for identification of a medicinal product during (partial) manufacturing in a JURISDICTION and therefore is generally independent of any MAKETING AUTHORIZATION Number.\nThe AUHORITY PRODUCT CODE is provided by a HEALTH AUTHORITY and therefore maintained in the Registration Information Management (RIM) system. It is maintained at the PRODUCT COMPOSITION, COMBINED PRODUCT COMPOSITION and/or VALENCE PRODUCT COMPOSITION, respectively.",
+    "properties": {
+        "code": {
+            "title": "productCode",
+            "type": "string",
+            "description": "The Authority Product Code is the code that is provided by a HEALTH AUTHORITY to identify a medicinal product that is relevant to its JURISDICTION."
+        },
+        "authorityAbbreviationSapCode": {
+            "title": "authority.sapCode",
+            "type": "string",
+            "description": "The SAP Code is a reference to the MDG Business Partner Identifier of the corresponding HEALTH AUTHORITY."
+        },
+        "authorityAbbreviationId": {
+            "title": "authority.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    }
+}

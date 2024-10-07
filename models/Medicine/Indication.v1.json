@@ -1,0 +1,39 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/Indication.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Indication",
+    "type": "object",
+    "description": "In medicine, an INDICATION is a reason to take therapeutic or diagnostic measurements, which are reasonable for a certain clinical picture. \nThe INDICATION is the minimal THERAPEUTIC INDICATION information available at the Start of Development of an AI COMBINATION. It defines the target disease or condition for which an AI COMBINATION or a DEVICE is under investigation.\nIt contains two Attributes of the THERAPEUTIC INDICATION, Indication as disease/symptom/procedure and Comorbidity. Both are coded by an INDICATION CODE of one Code Type and one Hierarchy Level.\nIt is used to assign an AI COMBINATION to a BUSINESS SEGMENT. For such assignment, only the two of the five attributes of the THERAPEUTIC INDICATION are required. Also, the other three attributes are not necessarily known at the Start of Development.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "code": {
+            "type": "string",
+            "description": "The underlying disease, symptom or procedure that is the indication for treatment can be specified (...) using an appropriate controlled vocabulary. The controlled term and the controlled term identifier shall be specified.\n[Source: ISO 11615:2017; 9.9.2.2.3 Indication as \"disease/symptom/procedure\"]"
+        },
+        "businessSegments": {
+            "$ref": "../Finance/BusinessSegment.v1.json"
+        },
+        "indicationType": {
+            "$ref": "#/definitions/IndicationType"
+        },
+        "comorbidity": {
+            "$ref": "../Generic/ListOfValues.v1.json"
+        }
+    },
+    "definitions": {
+        "IndicationType": {
+            "type": "object",
+            "description": "The INDICATION TYPE describes to which subset of INDICATIONs a specific INDICATION belongs.",
+            "properties": {
+                "term": {
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                }
+            }
+        }
+    }
+}

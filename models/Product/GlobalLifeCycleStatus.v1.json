@@ -1,0 +1,70 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/GlobalLifeCycleStatus.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GLOBAL LIFE CYCLE STATUS",
+    "type": "object",
+    "description": "The GLOBAL LIFE CYCLE STATUS is the status of objects managed in the first three levels of the Logical Data Model for Product, i.e. Strategic -, Regulatory - and Scientific Product Description. At these levels, no OPU-specific Life Cycle Status is maintained, thus it is called GLOBAL LIFE CYCLE STATUS. At the fourth level of the Logical Data Model for Product, i.e. Material and Batch Management, SAP standard functionality has Plant-specific status (POPU) and Distribution Channel-specific status (BOPU).",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Term then it is identical to the Short Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        }
+    }
+}

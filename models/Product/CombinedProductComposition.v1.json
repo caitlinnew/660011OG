@@ -1,0 +1,148 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/CombinedProductComposition.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "COMBINED PRODUCT COMPOSITION",
+    "type": "object",
+    "description": "The COMBINED PRODUCT COMPOSITION contains at least two PRODUCT COMPOSITIONs. COMBINED PRODUCT COMPOSITIONs apply to GLOBAL PRODUCTs with at least two DRUG PRODUCTs.\nThis allows the re-use of the PRODUCT COMPOSITION of GLOBAL PRODUCTs that contain only one DRUG PRODUCT.",
+    "properties": {
+        "id": {
+            "title": "combinedProductCompositionId",
+            "type": "string",
+            "description": "Unique identifier of the object COMBINED PRODUCT COMPOSITION."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "applicationCriteriums": {
+            "title": "applicationCriteriums",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "componentStageCode": {
+            "title": "componentStage.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "componentStageSapCode": {
+            "title": "componentStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "componentStageRefId": {
+            "title": "componentStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalProductId": {
+            "title": "globalProduct.globalProductId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL PRODUCT."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productCompositions": {
+            "title": "productCompositions",
+            "type": "array",
+            "description": "The PRODUCT COMPOSITION SORTING defines the sequence of PRODUCT COMPOSITIONs listed in a COMBINED PRODUCT COMPOSITION. \nIt is used to display the PRODUCT COMPOSITION in the same sequence as in the corresponding P100 document.",
+            "items": {
+                "$ref": "#/definitions/ProductCompositionSorting"
+            }
+        },
+        "authorityProduct": {
+            "title": "authorityProductCode",
+            "type": "array",
+            "description": "The AUTHORITY PRODUCT CODE is a product code provided by a HEALTH AUTHORITY for the identification of a medicinal product in the respective JURISDICTION. The AUTHORITY PRODUCT CODE may be used for identification of a medicinal product during (partial) manufacturing in a JURISDICTION and therefore is generally independent of any MAKETING AUTHORIZATION Number.\nThe AUHORITY PRODUCT CODE is provided by a HEALTH AUTHORITY and therefore maintained in the Registration Information Management (RIM) system. It is maintained at the PRODUCT COMPOSITION, COMBINED PRODUCT COMPOSITION and/or VALENCE PRODUCT COMPOSITION, respectively.",
+            "items": {
+                "$ref": "AuthorityProductCode.v1.json"
+            }
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One COMBINED PRODUCT COMPOSITION must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing COMBINED PRODUCT COMPOSITION."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageCode": {
+                    "title": "language.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+                },
+                "languageSapCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "ProductCompositionSorting": {
+            "title": "productCompositionSorting",
+            "type": "object",
+            "description": "The PRODUCT COMPOSITION SORTING defines the sequence of PRODUCT COMPOSITIONs listed in a COMBINED PRODUCT COMPOSITION. \nIt is used to display the PRODUCT COMPOSITION in the same sequence as in the corresponding P100 document.",
+            "properties": {
+                "sortKey": {
+                    "title": "sortKey",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Sort Key is a positive integer assigned to each PRODUCT COMPOSITION contained in a COMBINED PRODUCT COMPOSITION.\nThis allows to display the PRODUCT COMPOSITIONs in the sequence of the Sort Key.\nFor COMBINED PRODUCT COMPOSITIONs for which their PRODUCT COMPOSITIONs are listed in the P100 document, the sequence shall be the same as in the P100 document."
+                },
+                "productCompositionId": {
+                    "title": "productComposition.productCompositionId",
+                    "type": "string",
+                    "description": "Unique identifier of the object PRODUCT COMPOSITION. Often called PCID."
+                }
+            }
+        }
+    }
+}

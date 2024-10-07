@@ -1,0 +1,207 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/ProductComposition.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PRODUCT COMPOSITION",
+    "type": "object",
+    "description": "PRODUCT COMPOSITION contains minimal and/or maximal measurable amounts of INGREDIENTs of a DRUG PRODUCT FOR CONFIGURATION.\nThe PRODUCT COMPOSITION has an Intended DOSE FORM, but it lacks any PHYSICAL APPEARANCE description. The PHYSICAL APPEARANCE is provided for the fully formulated DRUG PRODUCT FOR CONFIGURATION.\n------\nA PRODUCT COMPOSITION is the qualitative and quantitative composition of a DRUG PRODUCT. \n[Source: CPD3 Training Lesson D05: Product Information - Product Compositions]",
+    "properties": {
+        "id": {
+            "title": "productCompositionId",
+            "type": "string",
+            "description": "Unique identifier of the object PRODUCT COMPOSITION. Often called PCID."
+        },
+        "targetQuantity": {
+            "title": "targetQuantity",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Target Quantity is the amount of DRUG PRODUCT FOR CONFIGURATION for which the PRODUCT COMPOSITION is defined. The Target Quantity UoM is a separate attribute."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "alternateMeasureQuantities": {
+            "title": "alternateTargetQuantitiesOfMeasure",
+            "type": "array",
+            "description": "An ALTERNATE TARGET QUANTITY measured in the Alternate UNIT OF MEASURE (UoM) or Alternate UNIT OF PRESENTATION (UoP) specifies the same amount as the Target Quantity measured in the UNIT OF MEASURE: Quantity 1 [UoM] = Quantity 2 [Alternate UoM].\nOne ALTERNATE TARGET QUANTITY has either an Alternate UoM or an Alternate UoP (see constraint XOR):\n1.\tThe ALTERNATE TARGET QUANTITY has a UoM, if the ALTERNATE TARGET QUANTITY is not countable, but only measurable by weight (e.g. powder) or volume (e.g. liquid). \n2.\tIf the ALTERNATE TARGET QUANTITY is countable, it may use the UoM Eaches (or Pieces) or it may specify this UoM in a UoP (e.g. tablet, suppository).\n\nThis object should have been more generally named ALTERNATE UoM CONVERSION. The conversion rule Quantity 1 [UoM] = Quantity 2 [Alternate UoM] can be rearranged to calculate a conversion factor: 1 [UoM] = (Quantity 2 / Quantity 1) [Alternate UoM].\nQuantity 2 is the conversion factor numerator; here called Alternate Target Quantity.\nQuantity 1 is the conversion factor denominator; here called denominator, not Target Quantity.\nThe Alternate Target Quantity UoM or UoP are attributes of this object.\nThe Target Quantity UoM is an attribute of the object \"PRODUCT COMPOSITION\".",
+            "items": {
+                "$ref": "AlternateTargetQuantityOfMeasure.v1.json"
+            }
+        },
+        "alternatePresentationQuantities": {
+            "title": "alternateTargetQuantitiesOfPresentation",
+            "type": "array",
+            "description": "An ALTERNATE TARGET QUANTITY measured in the Alternate UNIT OF MEASURE (UoM) or Alternate UNIT OF PRESENTATION (UoP) specifies the same amount as the Target Quantity measured in the UNIT OF MEASURE: Quantity 1 [UoM] = Quantity 2 [Alternate UoM].\nOne ALTERNATE TARGET QUANTITY has either an Alternate UoM or an Alternate UoP (see constraint XOR):\n1.\tThe ALTERNATE TARGET QUANTITY has a UoM, if the ALTERNATE TARGET QUANTITY is not countable, but only measurable by weight (e.g. powder) or volume (e.g. liquid). \n2.\tIf the ALTERNATE TARGET QUANTITY is countable, it may use the UoM Eaches (or Pieces) or it may specify this UoM in a UoP (e.g. tablet, suppository).\n\nThis object should have been more generally named ALTERNATE UoM CONVERSION. The conversion rule Quantity 1 [UoM] = Quantity 2 [Alternate UoM] can be rearranged to calculate a conversion factor: 1 [UoM] = (Quantity 2 / Quantity 1) [Alternate UoM].\nQuantity 2 is the conversion factor numerator; here called Alternate Target Quantity.\nQuantity 1 is the conversion factor denominator; here called denominator, not Target Quantity.\nThe Alternate Target Quantity UoM or UoP are attributes of this object.\nThe Target Quantity UoM is an attribute of the object \"PRODUCT COMPOSITION\".",
+            "items": {
+                "$ref": "AlternateTargetQuantityOfPresentation.v1.json"
+            }
+        },
+        "globalProductIds": {
+            "title": "globalProducts",
+            "type": "array",
+            "description": "The GLOBAL PRODUCT is the GLOBAL BRAND Name + Strength + Dose Form. It documents the Strengths and Dose Form combinations that BI has in its portfolio for the referenced GLOBAL BRAND.\nWith this, the GLOBAL PRODUCT is the \"mother in headquarters\" of all LOCAL PRODUCTs referencing (via the LOCAL BRAND) the same GLOBAL BRAND.\nFor GLOBAL BRANDs of PRODUCT CATEGORY immunological the Strength is documented in the GLOBAL PRODUCT, but not displayed in the GLOBAL PRODUCT Name.",
+            "items": {
+                "title": "globalProductId",
+                "type": "string",
+                "description": "Unique identifier of the object GLOBAL PRODUCT."
+            }
+        },
+        "applicationCriteriums": {
+            "title": "applicationCriteriums",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "combinedPharmaceuticalDoseFormCode": {
+            "title": "combinedPharmaceuticalDoseForm.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "combinedPharmaceuticalDoseFormSapCode": {
+            "title": "combinedPharmaceuticalDoseForm.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "combinedPharmaceuticalDoseFormRefId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "componentStageCode": {
+            "title": "componentStage.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "componentStageSapCode": {
+            "title": "componentStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "componentStageRefId": {
+            "title": "componentStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "ingredients": {
+            "title": "ingredients",
+            "type": "array",
+            "description": "INGREDIENT is a SPECIFIED SUBSTANCE which plays a role in the PRODUCT COMPOSITION of a DRUG PRODUCT. This role may be Active Ingredient, Excipient, Adjuvant, Inactivant, Preservative, Impurity etc. \nThe strength of the INGREDIENT is provided, and for active ingredients a strength of the REFERENCE SUBSTANCE may be provided.",
+            "items": {
+                "$ref": "Ingredient.v1.json"
+            }
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "pharmaceuticalDoseFormCode": {
+            "title": "pharmaceuticalDoseForm.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "pharmaceuticalDoseFormSapCode": {
+            "title": "pharmaceuticalDoseForm.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "pharmaceuticalDoseFormRefId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "targetQuantityUnitOfMeasureSapCode": {
+            "title": "targetQuantityUom.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "targetQuantityUnitOfMeasureCode": {
+            "title": "targetQuantityUom.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "targetQuantityUnitOfMeasureRefId": {
+            "title": "targetQuantityUom.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "authorityProduct": {
+            "title": "authorityProductCode",
+            "type": "array",
+            "description": "The AUTHORITY PRODUCT CODE is a product code provided by a HEALTH AUTHORITY for the identification of a medicinal product in the respective JURISDICTION. The AUTHORITY PRODUCT CODE may be used for identification of a medicinal product during (partial) manufacturing in a JURISDICTION and therefore is generally independent of any MAKETING AUTHORIZATION Number.\nThe AUHORITY PRODUCT CODE is provided by a HEALTH AUTHORITY and therefore maintained in the Registration Information Management (RIM) system. It is maintained at the PRODUCT COMPOSITION, COMBINED PRODUCT COMPOSITION and/or VALENCE PRODUCT COMPOSITION, respectively.",
+            "items": {
+                "$ref": "AuthorityProductCode.v1.json"
+            }
+        },
+        "globalProductId": {
+            "title": "globalProduct.globalProductId",
+            "type": "string",
+            "description": "This field is deprecated and will be removed soon.\nUse productCompositionGlobalProductIDs instead.\n\nUnique identifier of the object GLOBAL PRODUCT."
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One PRODUCT COMPOSITION must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing PRODUCT COMPOSITION."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageCode": {
+                    "title": "language.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+                },
+                "languageSapCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

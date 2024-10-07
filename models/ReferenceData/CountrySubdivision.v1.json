@@ -1,0 +1,123 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/CountrySubdivision.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "COUNTRY SUBDIVISION",
+    "type": "object",
+    "description": "COUNTRY SUBDIVISIONs represent the relevant administrative divisions and dependent territories of a COUNTRY.\nA COUNTRY SUBDIVISION therefore is more granular than a COUNTRY but less granular than the detail componentes of an ADDRESS.\nThe primary SUBDIVISIONs of a COUNTRY are defined according to ISO 3166-2. This is an international standard of short and unique alphanumeric codes.\nThere may be regional standards like FIPS (US) and NUTS (EU) which are (mostly) compatible with the existing SUBDIVISIONs defined in the ISO standard. These standards may extend the subdivision hierarchy with additional levels (for which ISO has no codes defined)\nBI specific extensions of COUNTRY SUBDIVISION are possible but they should adhere as much as possible to the official definitions of administrative units of the respective COUNTRYs.\nCountry subdivision by ISO-3166-2\nsee https://unece.org/trade/uncefact/unlocode-country-subdivisions-iso-3166-2",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the name.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "A Country Subdivision is usually indentified in SAP MDG by the code for the country together with the code for the country subdivision (SAP name: region)."
+        },  
+        "isoCode": {
+            "title": "isoCode",
+            "type": "string",
+            "description": "The Code according to ISO 3166-2."
+        },
+        "subdivisionParentCode": {
+            "title": "subdivisionParentCode",
+            "type": "string",
+            "description": "superior subdivision of a record within list-internal hierarchy"
+        },
+        "countrySapCode": {
+            "title": "country.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for COUNTRY."
+        },
+        "countryRefId": {
+            "title": "country.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "subdivisionCategory": {
+            "title": "subdivisionCategory",
+            "type": "string",
+            "description": "Each COUNTRY SUBDIVISION belongs to a Subdivision Category."
+        },
+        "subdivisionLevel": {
+            "title": "subdivisionLevel",
+            "type": "string",
+            "enum": [
+                "1",
+                "2",
+                "3"
+            ]
+        }
+    }, 
+    "parentCountrySubdivisionRefId": {
+        "title": "parentCountrySubdivision.referenceDataId",
+        "type": "string",
+        "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+    },
+    "definitions": {
+        "CountryRef": {
+            "title": "countryRef",
+            "type": "object",
+            "description": "The COUNTRY object is based on the ISO 3166-1 Standard. Boehringer internal extensions are accepted if absolutely needed.\nA country is a political entity with clear geographic boundaries and sovereignity over the territory and the people within. The boundaries are mostly internationally recognized and within them, economic and social activities are under control of the Legislation, Jurisdiction and Executive Power of the country. \nLink: https://www.iso.org/obp/ui/#search",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }     
+}

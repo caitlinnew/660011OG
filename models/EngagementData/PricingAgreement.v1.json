@@ -1,0 +1,47 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/EngagementData/PricingAgreement.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PRICING AGREEMENT",
+    "type": "object",
+    "description": "A pricing agreement is an agreement between BI and a customer about BI granting advantages (like e.g. rebates, discounts) to the customer depending on certain terms and conditions (which are put down in the Description respectively the pricing agreement rules).",
+    "properties": {
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of Rebate Agreement"
+        },
+        "description": {
+            "title": "description",
+            "type": "string",
+            "description": "contains a short description of the agreement"
+        },
+        "validFrom": {
+            "title": "validFrom",
+            "type": "string",
+            "format": "date",
+            "description": "First day the agreement is valid"
+        },
+        "validTo": {
+            "title": "validTo",
+            "type": "string",
+            "format": "date",
+            "description": "Last day the agreement is valid"
+        },
+        "salesPriceList": {
+            "$ref": "../Pricing/SalesPriceList.v1.json"
+        },
+        "rules": {
+            "title": "pricingAgreementRule",
+            "type": "array",
+            "description": "A PRICING AGREEMENT RULE holds the conditions which apply all-over for the PRICING AGREEMENT, i.e. they are not depending on a certain product, but they just say e.g. what sales amount (threshold) has to be met (resp. exceeded) in order to get a certain percentage of rebate or discount.",
+            "items": {
+                "$ref": "PricingAgreementRule.v1.json"
+            }
+        },
+        "accountableBusinessSegmentName": {
+            "title": "businessSegment.term",
+            "type": "string",
+            "description": "name of business segment"
+        }
+    }
+}

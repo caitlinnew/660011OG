@@ -1,0 +1,39 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/EngagementData/SupplyPlan.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SUPPLY PLAN",
+    "type": "object",
+    "description": "A SUPPLY PLAN is a plan of deliveries agreed between the customer facing employee (sales rep) and the customer. Each planned delivery is put down as a (planned) order.",
+    "properties": {
+        "id": {
+            "title": "supplyPlanId",
+            "type": "string",
+            "description": "unique Identifier for the supply plan"
+        },
+        "createdDate": {
+            "title": "created",
+            "type": "string",
+            "format": "date-time",
+            "description": "Date and time when the supply plan was created"
+        },
+        "templateUrl": {
+            "title": "supplyPlanTemplateUrl",
+            "type": "string",
+            "description": "Link (URL) to the template having been used to create the supply plan"
+        },
+        "orderingCustomer": {
+            "$ref": "../Customer/Customer.v1.json"
+        },
+        "orders": {
+            "title": "orders",
+            "type": "array",
+            "description": "Order is a request from a buyer towards a seller about purchasing some product (tangible goods or service) the seller is offering.\nSo from the buyer's perspective it may be called a \"purchase order\", from the seller's perspective it may be called a \"sales order\".",
+            "items": {
+                "$ref": "../MarketingAndSales/Order.v1.json"
+            }
+        },
+        "wholesalerCustomer": {
+            "$ref": "../Customer/OrganizationalCustomer.v1.json"
+        }
+    }
+}

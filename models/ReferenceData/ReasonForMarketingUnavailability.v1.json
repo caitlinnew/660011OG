@@ -1,0 +1,80 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/ReasonForMarketingUnavailability.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "REASON FOR MARKETING UNAVAILABILITY",
+    "type": "object",
+    "description": "The list contains the controlled terms used to describe the reason why an authorised medicinal product is temporarily unavailable (i.e. temporarily cessation) or withdrawn from the market (i.e. nonmarketed).\nThe terms in this list are to be consumed by IRIS Marketing Status and by the Product Management Services (PMS) and can help support the management of risk of supply shortages across the European Union.",
+    "properties": {
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefId": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "enum": [
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        }
+    }
+}

@@ -1,0 +1,198 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/StudySite.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "STUDY SITE",
+    "type": "object",
+    "description": "A Study Site represents the participation of a Health Care Organization and Health Care Professionals at that HCO in a study. It groups all the necessary information to describe the participation, like the needed locations, site staff, recruitment etc.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "number": {
+                    "title": "studySiteNumber",
+                    "type": "string",
+                    "description": "Provides the identifier of the clinical trial site which is unique in the corresponding CLINICAL TRIAL COUNTRY.\nTherefore, for an unique identifying of a CLINICAL TRIAL SITE one can use an aggregation of BI Study Number, Country Code and Site Number"
+                },
+                "progressionStageName": {
+                    "title": "progressionStage.name",
+                    "type": "string",
+                    "description": "Meaningfull name of the PROGRESSION STAGE"
+                },
+                "progressionStageCode": {
+                    "title": "progressionStage.code",
+                    "type": "string",
+                    "description": "Code of the PROGRESSION STAGE, if applicable"
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "description": "The status is the assigned status of the newest assigned Important Dates."
+                },
+                "numberOfSubjectsEffectiveDate": {
+                    "title": "numberOfSubjects.effectiveDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The effective date of the counting"
+                },
+                "numberOfSubjectsPlannedScreened": {
+                    "title": "numberOfSubjects.plannedNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects screened"
+                },
+                "numberOfSubjectsActualScreened": {
+                    "title": "numberOfSubjects.actualNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects screened"
+                },
+                "numberOfSubjectsPlannedRandomised": {
+                    "title": "numberOfSubjects.plannedNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects randomised"
+                },
+                "numberOfSubjectsActualRandomised": {
+                    "title": "numberOfSubjects.actualNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects randomised"
+                },
+                "numberOfSubjectsPlannedTreatmentDropped": {
+                    "title": "numberOfSubjects.plannedNumberOfSubjectsTreatmentDropped",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects treatment dropped"
+                },
+                "numberOfSubjectsActualTreatmentDropped": {
+                    "title": "numberOfSubjects.actualNumberOfSubjectsTreatmentDropped",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects treatment dropped."
+                },
+                "numberOfSubjectsPlannedTreatmentCompleted": {
+                    "title": "numberOfSubjects.plannedNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects treatment completed"
+                },
+                "numberOfSubjectsActualTreatmentCompleted": {
+                    "title": "numberOfSubjects.actualNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects treatment completed"
+                },
+                "historicalNumbersOfSubjects": {
+                    "title": "numbersOfSubjects",
+                    "type": "array",
+                    "description": "... provides planned and actual numbers of subjects in different states included in a study site.",
+                    "items": {
+                        "$ref": "#/definitions/ClinicalTrialSiteSubjectFigures"
+                    }
+                },
+                "importantDates": {
+                    "title": "importantDates",
+                    "type": "array",
+                    "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+                    "items": {
+                        "$ref": "ImportantStudySiteDate.v1.json"
+                    }
+                },
+                "studyCountryCountryIso3Code": {
+                    "title": "studyCountry.country.alpha-3Code",
+                    "type": "string",
+                    "description": "The Alpha-3 code according to ISO 3166-1"
+                },
+                "studyCountryCountryEnglishShortName": {
+                    "title": "studyCountry.country.englishShortName",
+                    "type": "string",
+                    "description": "English short name according to ISO 3166-1"
+                },
+                "studyCountryStudyImpactId": {
+                    "title": "studyCountry.study.impactClinicalTrialId",
+                    "type": "string",
+                    "description": "The system generated clinical trial identifier."
+                },
+                "primaryInvestigator": {
+                    "$ref": "HealthCareProfessionalForCtm.v1.json"
+                },
+                "currentClinicalTrialSiteStatusCode": {
+                    "title": "currentClinicalTrialSiteStatus.code",
+                    "type": "string",
+                    "description": "Provides the code of important date type."
+                },
+                "currentClinicalTrialSiteStatusName": {
+                    "title": "currentClinicalTrialSiteStatus.term",
+                    "type": "string",
+                    "description": "Specifies the description of an MILESTONE DATE"
+                }
+            }
+        },
+        {
+            "$ref": "../Vendor/Organization.v1.json"
+        }
+    ],
+    "definitions": {
+        "ClinicalTrialSiteSubjectFigures": {
+            "title": "clinicalTrialSiteSubjectFigures",
+            "type": "object",
+            "description": "... provides planned and actual numbers of subjects in different states included in a study site.",
+            "properties": {
+                "effectiveDate": {
+                    "title": "effectiveDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The effective date of the counting"
+                },
+                "plannedScreened": {
+                    "title": "plannedNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects screened"
+                },
+                "actualScreened": {
+                    "title": "actualNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects screened"
+                },
+                "plannedRandomised": {
+                    "title": "plannedNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects randomised"
+                },
+                "actualRandomised": {
+                    "title": "actualNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects randomised"
+                },
+                "plannedTreatmentDropped": {
+                    "title": "plannedNumberOfSubjectsTreatmentDropped",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects treatment dropped"
+                },
+                "actualTreatmentDropped": {
+                    "title": "actualNumberOfSubjectsTreatmentDropped",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects treatment dropped."
+                },
+                "plannedTreatmentCompleted": {
+                    "title": "plannedNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the planned number of subjects treatment completed"
+                },
+                "actualTreatmentCompleted": {
+                    "title": "actualNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "... provides the actual number of subjects treatment completed"
+                }
+            }
+        }
+    }
+}

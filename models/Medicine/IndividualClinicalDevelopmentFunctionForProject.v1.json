@@ -1,0 +1,21 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/IndividualClinicalDevelopmentFunctionForProject.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Individual Clinical Development Function for PROJECT",
+    "description": "INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION defines the role executed by an employee of Boehringer or a CRO in the context of clinical operations. \nINDIVIDUAL CLINICAL DEVELOPMENT FUNCTION is specialized in INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR STUDY, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR STUDY COUNTRY, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR STUDY SITE. \nThe values (roles types) are defined by INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION TYPE.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "developmentProjectImpactId": {
+                    "title": "developmentProject.impactProjectId",
+                    "type": "string",
+                    "description": "Unique ID of the development project given automatically by the CTMS"
+                }
+            }
+        },
+        {
+            "$ref": "IndividualClinicalDevelopmentFunction.v1.json"
+        }
+    ]
+}

@@ -1,0 +1,605 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/BusinessPartner.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BUSINESS PARTNER",
+    "description": "ORGANIZATION (firm, branch office), individual or a group of individuals or organizations in which your company has a business interest.\nA BUSINESS PARTNER is a generalization for the roles CUSTOMER, VENDOR, and EMPLOYEE, holding all the attributes and relationships / associations which are common for all of these.",
+    "type": "object",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "The main identifier of this Business Partner in a specific IT system."
+                },
+                "activeInHealthcare": {
+                    "title": "activeInHealthcare",
+                    "type": "boolean",
+                    "description": "Indicates if the Business Partner is active in the healthcare sector:\n* if type = ORGANISZATION it is a Health Care Organization (HCO)\n* if type = INDIVIDUAL it is a Health Care Professional (HCP)"
+                },
+                "centralBlock": {
+                    "title": "centralBlockForBusinessPartner",
+                    "type": "string",
+                    "description": "The Central Block for Business Partner indicates that the BP is blocked for usage (no payments, no purchase orders) for all company codes and purchasing organizations."
+                },
+                "createdDate": {
+                    "title": "createdDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date of creation of a BUSINESS PARTY in a specific IT System."
+                },
+                "updateTimestamp": {
+                    "title": "updateTimestamp",
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time of the last modification of this Business Partner in a specific IT system."
+                },
+                "contractManagementRelevance": {
+                    "title": "contractManagementRelevance",
+                    "type": "boolean",
+                    "description": "Flag is set when a Business Partner only is created for the purposes of fulfilling CorA the BI Contract Management System. The Business Partner record must be created in the master data management tool of BI as the leading system, data is subsequently transferred to CorA."
+                },
+                "accountGroup": {
+                    "title": "accountGroup",
+                    "type": "string",
+                    "description": "The Account Group assigned to a Business Partner."
+                },
+                "dunsNumber": {
+                    "title": "dunsNumber",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The DUNS number issued by Duns and Bradstreet for a Business Partner."
+                },
+                "riskAssesmentStatus": {
+                    "title": "riskAssesmentStatus",
+                    "description": "The Risk Assesment Status field documents the process status of a SUPPLIER record in the Risk Assesment process during creation of the SUPPLIER record.",
+                    "type": "string",
+                    "enum": [
+                        "NONE",
+                        "PENDING",
+                        "APPROVED",
+                        "NOT APPROVED",
+                        "APPROVED BY LEGACY ASSESSMENT"
+                    ]
+                },
+                "riskAssesmentResponsibleId": {
+                    "title": "riskAssesmentResponsible.id",
+                    "type": "string",
+                    "description": "The Risk Assessment Responsible person assigned to this Business Partner."
+                },
+                "riskAssesmentResponsibleEmail": {
+                    "title": "riskAssesmentResponsible.email",
+                    "type": "string",
+                    "description": "The Risk Assessment Responsible person assigned to this Business Partner.\n\nEmail Address"
+                },
+                "screeningStatus": {
+                    "title": "screeningStatus",
+                    "type": "string",
+                    "description": "The Screening Status documents the  status of a SUPPLIER record regarding screening proess to check if a potential new external Business Partner (vendor & customer) is listed on an official sanctions- and/or blacklist.\nBusiness Partners with Screening Status blocked are not distributed to any other system.",
+                    "enum": [
+                        "RELEASED",
+                        "BLOCKED",
+                        "TECHNICAL ERROR"
+                    ]
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "enum": [
+                        "ACTIVE",
+                        "INACTIVE"
+                    ]
+                },
+                "type": {
+                    "title": "businessPartnerType",
+                    "type": "string",
+                    "description": "The BUSINESS PARTNER TYPE describes if the Business Partner is a natural person (individual, e.g. HCP, Contact, Vet) an organization (corporation, e.g. Hospital) or an animal.",
+                    "enum": [
+                        "INDIVIDUAL",
+                        "ORGANIZATION",
+                        "ANIMAL",
+                        "GROUP"
+                    ]
+                },
+                "targetTemplate": {
+                    "title": "targetTemplate",
+                    "type": "string",
+                    "description": "A choice of country specific templates are available for customer and supplier extentions of existing records to additional company codes, sales areas, purchasing organisations. These templates are designed to reflect different customer and supplier types containing relevant prepopulated data. Please chose the appropriate template for your change process.\nOnly requestor of a Change Request of type \"Know Your Business Partner\", Create or Change are allowed to maintain a template value, which is later used as Extension Template."
+                },
+                "ultimateParentDunsNumber": {
+                    "title": "ultimateParent.dunsGlobalUltimateParent",
+                    "type": "string",
+                    "description": "DUNS Global Ultimate Parent (GUP) is the DUNS number of the root parent node in company corporate structure. It is a nine digit number."
+                },
+                "ultimateParentDunsName": {
+                    "title": "ultimateParent.dunsGlobalUltimateParentName",
+                    "type": "string",
+                    "description": "DUNS Global Ultimate Parent (GUP) is the DUNS name of the root parent node in company corporate structure."
+                },
+                "addresses": {
+                    "title": "addressUsage",
+                    "type": "array",
+                    "description": "ADDRESS USAGE says that a certain BUSINESS PARTNER is using a certain ADDRESS (which is (usually) independent of a BUSINESS PARTNER). Via the relationship to ADDRESS TYPE it also tells the purpose which the address is used for, e.g. Sold-To, Bill-To, Ship-To, Private, Office, ... (see Examples tab of ADDRESS TYPE).",
+                    "items": {
+                        "$ref": "../Customer/AddressUsage.v2.json"
+                    }
+                },
+                "affiliations": {
+                    "title": "affiliationsToBusinessPartner",
+                    "type": "array",
+                    "description": "Business Partner to Business Partner Affiliation describes the relationship between two Business Partners.",
+                    "items": {
+                        "$ref": "../Customer/BusinessPartnerAffiliation.v1.json"
+                    }
+                },
+                "alternateIds": {
+                    "title": "businessPartnerIdentifiers",
+                    "type": "array",
+                    "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+                    "items": {
+                        "$ref": "BusinessPartnerIdentifier.v1.json"
+                    }
+                },
+                "bankAccounts": {
+                    "title": "bankAccounts",
+                    "type": "array",
+                    "description": "BANK ACCOUNT is containing all the information needed to uniquely and correctly identify the bank coordinates of a BUSINESS PARTY to be used for payment processes. This can be needed both for creditors (Customers) and for debitors (Vendor, Employee).\nBANK ACCOUNT is including the bank account number, a reference to the bank branch managing the bank account, an IBAN code when relevant, information about the bank account currency, etc...\nA BUSINESS PARTY may own multiple Bank Accounts.",
+                    "items": {
+                        "$ref": "BankAccount.v1.json"
+                    }
+                },
+                "creditCards": {
+                    "title": "creditCards",
+                    "type": "array",
+                    "description": "A credit card is a payment card issued to users (cardholders) to enable the cardholder to pay a merchant for goods and services based on the cardholder's promise to the card issuer to pay them for the amounts plus the other agreed charges. The card issuer (usually a bank) creates a revolving account and grants a line of credit to the cardholder, from which the cardholder can borrow money for payment to a merchant or as a cash advance. (Source: Wikipedia)",
+                    "items": {
+                        "$ref": "../Finance/CreditCard.v1.json"
+                    }
+                },
+                "doingBusinessAs": {
+                    "title": "doingBusinessAs",
+                    "type": "array",
+                    "description": "A BUSINESS PARTY may have additional business names if the name used for business is a different name than the (registered) BUSINESS PARTY NAME.\nIn the U.S., a DOING BUSINESS AS (DBA) NAME lets the public know who the real owner of a business is. The DOING BUSINESS AS (DBA) is also called a fictitious business name or assumed business name. It got its origins as a form of consumer protection, so dishonest business owners couldn’t try to avoid legal trouble by operating under a different name.",
+                    "items": {
+                        "$ref": "#/definitions/DoingBusinessAsName"
+                    }
+                },
+                "roles": {
+                    "title": "roles",
+                    "type": "array",
+                    "description": "A BUSINESS PARTNER may have different BUSINESS PARTNER ROLES assigned.",
+                    "items": {
+                        "$ref": "#/definitions/BusinessPartnerRoleAffiliation"
+                    }
+                },
+                "screeningPerEclassAndCountry": {
+                    "title": "screeningPerEclassAndCountry",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ScreeningPerEclassAndCountry"
+                    }
+                },
+                "taxNumbers": {
+                    "title": "taxNumbers",
+                    "type": "array",
+                    "description": "A Tax Number usually is an identifying number issued by the particular responsible institution for tax purposes.",
+                    "items": {
+                        "$ref": "#/definitions/TaxNumber"
+                    }
+                },
+                "name": {
+                    "title": "defaultName.name",
+                    "type": "string"
+                },
+                "searchTerms": {
+                    "title": "defaultName.searchTerms",
+                    "type": "array",
+                    "description": "SEARCH TERM is a non mandatory, non governed grouping which can be syndicated across systems.",
+                    "items": {
+                        "$ref": "#/definitions/SearchTerm"
+                    }
+                },
+                "defaultLanguageIso2code": {
+                    "title": "defaultLanguage.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 Code according to Iso 639."
+                },
+                "defaultLanguageRefId": {
+                    "title": "defaultLanguage.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "standardCommunicationType": {
+                    "title": "standardCommunicationType",
+                    "type": "string",
+                    "enum": [
+                        "TELEPHONE",
+                        "SMS",
+                        "EMAIL",
+                        "FAX",
+                        "LETTER",
+                        "URL"
+                    ]
+                },
+                "emails": {
+                    "title": "emails",
+                    "type": "array",
+                    "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+                    "items": {
+                        "$ref": "../Customer/Email.v1.json"
+                    }
+                },
+                "faxes": {
+                    "title": "faxes",
+                    "type": "array",
+                    "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+                    "items": {
+                        "$ref": "../Customer/Fax.v1.json"
+                    }
+                },
+                "telephones": {
+                    "title": "telephones",
+                    "type": "array",
+                    "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+                    "items": {
+                        "$ref": "../Customer/Telephone.v1.json"
+                    }
+                },
+                "users": {
+                    "title": "users",
+                    "type": "array",
+                    "description": "A USER is an account in an INFORMATION SYSTEM which allows ACCESS to that INFORMATION SYSTEM. \nCreating a user in a certain information system automatically includes creating a USER PERMISSION for the basic access to the information system which we assume to be of ACCESS TYPE \"Login\" - though a real login (\"enter username and password\") has not to be necessary: Users like \"Guest\" or \"Anonymous\" or \"<void>\" are well possible - especially in web based information systems (e.g. search engines). Therefore, propositions for a better name for \"Login\" are welcome!.\nA user may be assigned to e.g. a single person, a working group, or a batch job (which has to be run within the information system) - or it may be not assigned at all.",
+                    "items": {
+                        "$ref": "#/definitions/User"
+                    }
+                },
+                "ownedCompanies": {
+                    "title": "ownedCompanies",
+                    "type": "array",
+                    "description": "Business Partner to Business Partner Affiliation describes the relationship between two Business Partners.",
+                    "items": {
+                        "$ref": "../Customer/CompanyOwnership.v1.json"
+                    }
+                },
+                "ultimateBeneficialOwner": {
+                    "title": "ultimateBeneficialOwner",
+                    "type": "array",
+                    "description": "The ULTIMATE BENEFICIAL OWNER (UBO) refers to the person or entity ultimately benefiting from the business relationship. I.e. it is the person which is the ultimate beneficiary person when an institution initiates a transaction.\n\nThe definition of who constitutes a UBO varies between jurisdiction, but generally a UBO is defined as an individual who holds a minimum of 10-25% (dependent on jurisdiction) of capital, voting rights or is the beneficiary of the capital in the underlying entity.",
+                    "items": {
+                        "$ref": "#/definitions/UltimateBeneficialOwner"
+                    }
+                },
+                "telephoneNumber": {
+                    "title": "defaultTelephone.telephoneNumber",
+                    "type": "string"
+                },
+                "telephoneNumberComplete": {
+                    "title": "defaultTelephone.telephoneNumberComplete",
+                    "type": "string",
+                    "description": "Telephone Number with Country Prefix, Dialling Code and with Extension"
+                },
+                "telephoneCountryIso3Code": {
+                    "title": "defaultTelephone.phoneCountry.alpha-3Code",
+                    "type": "string",
+                    "description": "The Alpha-3 code according to ISO 3166-1"
+                },
+                "emailAddress": {
+                    "title": "defaultEmail.emailAddress",
+                    "type": "string"
+                },
+                "faxNumberComplete": {
+                    "title": "defaultFax.faxNumberComplete",
+                    "type": "string",
+                    "description": "The Complete Fax Number. That means dialing code + number + extension."
+                },
+                "addressCity": {
+                    "title": "defaultAddress.address.city",
+                    "type": "string",
+                    "description": "Name of the City for the postal ADDRESS"
+                },
+                "addressLine1": {
+                    "title": "defaultAddress.address.addressLine1",
+                    "type": "string",
+                    "description": "May be used as alternative to Street Name and House Number or in addition to these attributes."
+                },
+                "addressLine2": {
+                    "title": "defaultAddress.address.addressLine2",
+                    "type": "string",
+                    "description": "May be used as altrernative to Street Name and House Number or in addition to these attributes."
+                },
+                "addressLine3": {
+                    "title": "defaultAddress.address.addressLine3",
+                    "type": "string",
+                    "description": "May be used as altrernative to Street Name and House Number or in addition to these attributes."
+                },
+                "addressLine4": {
+                    "title": "defaultAddress.address.addressLine4",
+                    "type": "string",
+                    "description": "May be used as altrernative to Street Name and House Number or in addition to these attributes."
+                },
+                "addressCountryIso2Code": {
+                    "title": "address.country.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                },
+                "addressCountryIso3Code": {
+                    "title": "address.country.alpha-3Code",
+                    "type": "string",
+                    "description": "The Alpha-3 code according to ISO 3166-1"
+                },
+                "addressCountrySapCode": {
+                    "title": "address.country.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "addressCountryRefId": {
+                    "title": "country.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "addressCountrySubdivisionIsoCode": {
+                    "title": "address.countrySubdivision.isoCode",
+                    "type": "string",
+                    "description": "The Code according to ISO 3166-2.\nIf a COUNTRY SUBDIVISION is defined for a level not provided by ISO, then this Code remains empty (0). Instead an Alternate National Code has to be provided."
+                },
+                "addressCountrySubdivisionName": {
+                    "title": "address.countrySubdivision.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language.\nThe name of a coutry subdivision. This might by a state (e.g. US), an province (e.g. CA), a deparement (e.g. F) and so on."
+                },
+                "addressCountrySubdivisionAlternateNationalCode": {
+                    "title": "address.countrySubdivision.alternateNationalCode",
+                    "type": "string",
+                    "description": "A COUNTRY may specify it's own Codes to identify COUNTRY SUBDIVISIONs.\nE.g. in the US this Alternate National Code is the so called FIPS-Code."
+                },
+                "addressCountrySubdivisionRefId": {
+                    "title": "countrySubdivision.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "addressZip": {
+                    "title": "defaultAddress.address.zipOrPostalCode",
+                    "type": "string"
+                },
+                "duplicateClassification": {
+                    "title": "duplicateClassification",
+                    "type": "array",
+                    "description": "The BUSINESS PARTY DUPLICATE CLASSIFICATION is used to identify and mark duplicate BPs to enable higher automated processes and lower disruption in those processes.\nA set of BPs in a duplicate cluster is the sum of BPs classified to belong together including undesired duplicates which should be removed from the data.",
+                    "items": {
+                        "$ref": "#/definitions/BusinessPartyDuplicateClassification"
+                    }
+                }
+            }
+        },
+        {
+            "$ref": "#/definitions/BusinessPartnerName"
+        }
+    ],
+    "definitions": {
+        "BusinessPartnerRoleAffiliation": {
+            "title": "businessPartnerRoleAffiliation",
+            "type": "object",
+            "description": "BUSINESS PARTNER TYPE AFFILIATION is the resolution of the many to many relationship between BUSINESS PARTNER and BUSINESS PARTNER TYPE.",
+            "properties": {
+                "code": {
+                    "title": "role.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for BUSINESS PARTY ROLE TYPE."
+                },
+                "typeCode": {
+                    "title": "role.typeCode",
+                    "type": "string",
+                    "description": "The Code to classify the type of the BUSINESS PARTNER ROLE."
+                },
+                "validFrom": {
+                    "title": "validFrom",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date on which the role was assigned to a Business Party."
+                },
+                "validTo": {
+                    "title": "validTo",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date on which a role was deactivated for a Business Party."
+                }
+            }
+        },
+        "DoingBusinessAsName": {
+            "title": "doingBusinessAsName",
+            "type": "object",
+            "description": "A BUSINESS PARTNER may have additional business names if the name used for business is a different name than the (registered) BUSINESS PARTNER NAME.\nIn the U.S., a DOING BUSINESS AS (DBA) NAME lets the public know who the real owner of a business is. The DOING BUSINESS AS (DBA) is also called a fictitious business name or assumed business name. It got its origins as a form of consumer protection, so dishonest business owners couldn’t try to avoid legal trouble by operating under a different name.",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "The name with which a BUSINESS PARTNER is doing business as."
+                },
+                "priority": {
+                    "title": "priority",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "If a BUSINESS PARTNER has more than one DBA name, then the list of names is ordered by a priority."
+                }
+            }
+        },
+        "ScreeningPerEclassAndCountry": {
+            "title": "screeningPerEclassAndCountry",
+            "type": "object",
+            "properties": {
+                "countrySapCode": {
+                    "title": "country.sapCode",
+                    "type": "string",
+                    "description": "The Screening properties refer to a specific combination of a COUNTRY & ECLASS.\n\nThe SAP Code is the unique identifier from SAP to identify the data record for COUNTRY."
+                },
+                "eclassId": {
+                    "title": "eclass.id",
+                    "type": "string",
+                    "description": "The Screening properties refer to a specific combination of a COUNTRY & ECLASS.\n\nThe identifier of the ECLASS."
+                },
+                "lifecycleAndPerformanceStatus": {
+                    "title": "lifecycleAndPerformanceStatus",
+                    "type": "string",
+                    "description": "Supplier Lifecycle and Performance Status during onboarding process.",
+                    "enum": [
+                        "NOT RELEVANT",
+                        "RELEVANT",
+                        "QUALIFIED",
+                        "DISQUALIFIED"
+                    ]
+                },
+                "riskAssessmentStatus": {
+                    "title": "riskAssesmentStatus",
+                    "type": "string",
+                    "description": "The Risk Assesment Status field documents the process status of a SUPPLIER record in the Risk Assesment process during creation of the SUPPLIER record.",
+                    "enum": [
+                        "NONE",
+                        "PENDING",
+                        "APPROVED",
+                        "NOT APPROVED",
+                        "APPROVED BY LEGACY ASSESSMENT"
+                    ]
+                }
+                
+                }
+            },
+        "TaxNumber": {
+                "title": "taxNumber",
+                "type": "object",
+                "description": "A Tax Number usually is an identifying number issued by the particular responsible institution for tax purposes.",
+                "properties": {
+                    "number": {
+                        "title": "taxNumber",
+                        "type": "string",
+                        "description": "Specifies the Tax Number at a Responsible Tax Authority.\nThe taxnumber is the tax number independent from the lenght."
+                    },
+                    "typeCode": {
+                        "title": "taxNumberType.code",
+                        "type": "string",
+                        "description": "The Code of a Tax Number Category contains the Country Key in its string."
+                    },
+                    "typeName": {
+                        "title": "taxNumberType.term",
+                        "type": "string",
+                        "description": "Term is a human readable designator of the data record for this object."
+                    },
+                    "typeCountrySapCode": {
+                        "title": "taxNumberType.country.sapCode",
+                        "type": "string",
+                        "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                    }
+                }
+            },
+            "User": {
+                "title": "user",
+                "type": "object",
+                "description": "A USER is an account in an INFORMATION SYSTEM which allows ACCESS to that INFORMATION SYSTEM. \nCreating a user in a certain information system automatically includes creating a USER PERMISSION for the basic access to the information system which we assume to be of ACCESS TYPE \"Login\" - though a real login (\"enter username and password\") has not to be necessary: Users like \"Guest\" or \"Anonymous\" or \"<void>\" are well possible - especially in web based information systems (e.g. search engines). Therefore, propositions for a better name for \"Login\" are welcome!.\nA user may be assigned to e.g. a single person, a working group, or a batch job (which has to be run within the information system) - or it may be not assigned at all.",
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "type": "string",
+                        "description": "Name of User (First Name, (Middle Name), Last name)"
+                    },
+                    "isActive": {
+                        "title": "isActiveFlag",
+                        "type": "boolean",
+                        "description": "shows if the user is active. i.e. able to use the information system"
+                    },
+                    "validSystemsName": {
+                        "title": "informationSystems",
+                        "type": "array",
+                        "description": "An INFORMATION SYSTEM is a software system (or application system) which allows for processing data in certain well-defined ways.",
+                        "items": {
+                            "title": "name",
+                            "type": "string",
+                            "description": "The name is a user-friendly identifier for the information system. If the information system is run by a 3rd party, the name should point to that 3rd party."
+                        }
+                    }
+                }
+            },
+            "UltimateBeneficialOwner": {
+                "title": "ultimateBeneficialOwner",
+                "type": "object",
+                "description": "The ULTIMATE BENEFICIAL OWNER (UBO) refers to the person or entity ultimately benefiting from the business relationship. I.e. it is the person which is the ultimate beneficiary person when an institution initiates a transaction.",
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "type": "string",
+                        "description": "The name of the ULTIMATE BENEFICIAL OWNER is provided by D&B web service."
+                    },
+                    "shareInPercentage": {
+                        "title": "shareInPercentage",
+                        "type": "number",
+                        "description": "The owner's actual shareholding percentage.\nThe Percentage is the result of direct & indirect ownership percentage and the percentage from a beneficial ownership."
+                    }
+                }
+            },
+            "BusinessPartyDuplicateClassification": {
+                "title": "businessPartyDuplicateClassification",
+                "type": "object",
+                "description": "The BUSINESS PARTY DUPLICATE CLASSIFICATION is used to identify and mark duplicate BPs to enable higher automated processes and lower disruption in those processes.\nA set of BPs in a duplicate cluster is the sum of BPs classified to belong together including undesired duplicates which should be removed from the data.",
+                "properties": {
+                    "clusterId": {
+                        "title": "clusterId",
+                        "type": "string",
+                        "description": "The Cluster ID is the ID to identify a cluster of BUSINESS PARTYs belonging together including undesired duplicates."
+                    },
+                    "classification": {
+                        "title": "classification",
+                        "type": "string",
+                        "description": "The Classification result is based on different criteria like spend volume and open purchase orders. There may be a primary and many secondary BPs belonging together and also undesired duplicate records."
+                    },
+                    "classificationRationale": {
+                        "title": "classificationRationale",
+                        "type": "string",
+                        "description": "The Classification Rationale is used to document the reasons for classification and to validate the classification result."
+                    },
+                    "businessPartnerId": {
+                        "title": "businessPartner.identifier",
+                    "type": "string",
+                    "description": "Identifier of the Business Party which belongs to the cluster of Business Parties.\n\nInternal or External (alternative) Identifier of the Business Party."
+                }
+            }
+        },
+        
+            "BusinessPartnerName": {
+                "title": "businessPartnerName",
+                "type": "object",
+                "description": "A BUSINESS PARTNER may have several different NAMES, e.g. a legal name, different abbreviations, a name used in marketing / communication, etc.",
+                "properties": {
+                    "formattedName": {
+                        "title": "fullName",
+                        "type": "string",
+                        "description": "The Formatted Name contains the name parts which are used for written communication.\nThere may exist country specific rules to concatenate the name parts to this full name (MDG).\n\nThe formattedName or fullName is a calculated field containing the Organisation name or the concatenation of the first and last name. In the most Systems this field is read only because the properties are stored separately (e.g. firstName and lastName)."
+                    },
+                    "searchTerms": {
+                        "title": "searchTerms",
+                        "type": "array",
+                        "description": "SEARCH TERM is a non mandatory, non governed grouping which can be syndicated across systems.",
+                        "items": {
+                            "$ref": "#/definitions/SearchTerm"
+                        }
+                    }
+                }
+            },
+            "SearchTerm": {
+                "title": "searchTerm",
+                "type": "object",
+                "description": "SEARCH TERM is a non mandatory, non governed grouping which can be syndicated across systems.",
+                "properties": {
+                    "searchTerm": {
+                        "title": "searchTerm",
+                        "type": "string",
+                        "description": "Search Term 1 and Search Term 2"
+                    },
+                    "orderNumber": {
+                        "title": "searchTermOrderingNumber",
+                        "type": "integer",
+                        "format": "int32",
+                        "description": "The Number of the Search Term: 1 for \"Search Term 1\", 2 for \"Search Term 2\""
+                    }
+                }
+            }
+    }
+}

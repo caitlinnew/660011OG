@@ -1,0 +1,84 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/OrderLine.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OrderLine",
+    "type": "object",
+    "description": "An order line is a part of an order that orders a certain item (the orderable product) in a certain quantity.\nAn order line might be splitted, for example if the ordered quantity is not immediately available.",
+    "properties": {
+        "orderLineNumber": {
+            "type": "string",
+            "description": "the number of the line within the order"
+        },
+        "orderedQuantity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "the number of items ordered"
+        },
+        "freeGoodsQuantity": {
+            "title": "freeGoodsQuantity",
+            "type": "integer",
+            "format": "int32",
+            "description": "Free Goods Quantity says how many items are added for free"
+        },
+        "totalQuantity": {
+            "title": "totalQuantity",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Total Quantity or Delivered Quantity is the sum of the Ordered Quantity and the Free Goods Quantity."
+        },
+        "discountedUnitPrice": {
+            "type": "number",
+            "description": "price per unit after applying discount(s)"
+        },
+        "unitPrice": {
+            "type": "number",
+            "description": "The price for 1 unit"
+        },
+        "status": {
+            "$ref": "../Generic/ListOfValues.v1.json"
+        },
+        "orderedProduct": {
+            "$ref": "#/definitions/OrderableProduct"
+        },
+        "masterOrderLine": {
+            "$ref": "OrderLine.v1.json"
+        },
+        "splitOrderLine": {
+            "type": "array",
+            "description": "An order line is a part of an order that orders a certain item (the orderable product) in a certain quantity.\nAn order line might be splitted, for example if the ordered quantity is not immediately available.",
+            "items": {
+                "$ref": "OrderLine.v1.json"
+            }
+        },
+        "shippingDetail": {
+            "type": "array",
+            "description": "Details about the shipment of one or more order lines",
+            "items": {
+                "$ref": "OrderShippingDetail.v1.json"
+            }
+        },
+        "rewards": {
+            "type": "array",
+            "description": "An item of value that we give to a customer upon fulfillment of a promotion offer.",
+            "items": {
+                "$ref": "Reward.v1.json"
+            }
+        },
+        "expectedArrivalDate": {
+            "type": "string",
+            "format": "date",
+            "description": "the date when the to-be-delivered item is expected to be received by the recipient"
+        }
+    },
+    "definitions": {
+        "OrderableProduct": {
+            "description": "Orderable Product is anything that can be ordered from Boehringer, e.g. a revenue generating material, an education support, or a sales service.",
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "../Product/RevenueGeneratingMaterial.v1.json"
+                }
+            ]
+        }
+    }
+}

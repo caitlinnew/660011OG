@@ -1,0 +1,45 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/PackagingComponent.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PACKAGING COMPONENT",
+    "type": "object",
+    "description": "The PACKAGING COMPONENT specifies the PACKAGING TYPE, COLOR and MATERIAL CLASS of the components of the PRIMARY PACKAGING FOR CONFIGURATION and of the INTERMEDIATE PACKAGING FOR CONFIGURATION. It has no Identifier as it is defined within one PRIMARY PACKAGING FOR CONFIGURATION or one INTERMEDIATE PACKAGING FOR CONFIGURATION.",
+    "properties": {
+        "sortKey": {
+            "title": "sortKey",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Sort Key defines the sequence of PACKAGING COMPONENTs.\nAt BI Packaging is described from the outside to the inside (e.g. foils) or from the bottom to the top (e.g. bottles, vials, blister).\nThis ensures consistent packaging descriptions.\nThe Sort Key is a key to allow a component to be listed twice. Example: Foil may be a A-B-A"
+        },
+        "colorSapCode": {
+            "title": "packagingColor.sapCode",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "colorRefId": {
+            "title": "packagingColor.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "typeSapCode": {
+            "title": "packagingComponentType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "typeRefId": {
+            "title": "packagingComponentType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "materialSapCode": {
+            "title": "packagingMaterial.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "materialRefId": {
+            "title": "packagingMaterial.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    }
+}

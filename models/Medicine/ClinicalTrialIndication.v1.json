@@ -1,0 +1,19 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalTrialIndication.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL TRIAL INDICATION",
+    "type": "object",
+    "description": "The CLINICAL TRIAL INDICATION defines for an CLINICAL TRIAL with which combination of INDICATION MEDDRA (Low Level Term) and MEDRY SYSTEM ORGAN CLASS the trial handles.\nThere might be more than one CLINICAL TRIAL INDICATION for on CINICAL TRIAL.",
+    "properties": {
+        "indicationBiSimplifiedTerm": {
+            "title": "indication.biSimplifiedTerm",
+            "type": "string",
+            "description": "defines a shorter or clearer version of the indication."
+        },
+        "indicationRefId": {
+            "title": "indication.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    }
+}

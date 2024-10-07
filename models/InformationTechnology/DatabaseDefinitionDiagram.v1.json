@@ -1,0 +1,70 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/DatabaseDefinitionDiagram.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DATABASE DEFINITION DIAGRAM",
+    "type": "object",
+    "description": "The DATABASE DEFINITION DIAGRAM is a visualisation of one ore mulitple DATABASE TABLE DEFINITION with their DATABASE COLUMN DEFINITION and their Relations.",
+    "properties": {
+        "superClass": {
+            "$ref": "InformationModelElement.v1.json"
+        },
+        "graphic": {
+            "title": "graphic",
+            "type": "string",
+            "description": "The Graphic is the picture of the DATABASE DEFINITION DIAGRAM."
+        },
+        "domain": {
+            "$ref": "#/definitions/DataDomain"
+        },
+        "containedTable": {
+            "type": "array",
+            "description": "An DATABASE TABLE DEFINITION represents a table based data structure. The meaning of the Table might be explained by one or more INFORMATION OBJECTs.",
+            "items": {
+                "$ref": "#/definitions/DatabaseTableDefinition"
+            }
+        },
+        "containedColumns": {
+            "type": "array",
+            "description": "An DATABASE COLUMN DEFINITION represents a field or attribute as column in a DATABASE TABLE DEFINITION. It defines the technical storage of Information needed by Business defined in an INFORMATION ATTRIBUTE.",
+            "items": {
+                "$ref": "#/definitions/DatabaseColumnDefinition"
+            }
+        }
+    },
+    "definitions": {
+        "DataDomain": {
+            "title": "dataDomain",
+            "type": "object",
+            "description": "The DATA DOMAIN separates the data by Business Responsibilities.",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "The name of the DATA DOMAIN is the way how it is called typically."
+                }
+            }
+        },
+        "DatabaseTableDefinition": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        },
+        "DatabaseColumnDefinition": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        }
+    }
+}

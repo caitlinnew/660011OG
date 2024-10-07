@@ -1,0 +1,72 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/EntitlementRequest.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ENTITLEMENT REQUEST",
+    "type": "object",
+    "description": "Request performed by an BI Employee or a Contractor to assign, create, modify or revoke an entitlement.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "reason": {
+                    "title": "reason",
+                    "type": "string",
+                    "description": "Please specify a reference to your Source System Documentation e.g.: Change Control Number, Change Number, SLC DocumentID"
+                },
+                "status": {
+                    "title": "requestStatus",
+                    "type": "string",
+                    "enum": [
+                        "CREATED",
+                        "PROCESSING",
+                        "FINISHED",
+                        "ERROR"
+                    ]
+                },
+                "approverAdIdentity": {
+                    "$ref": "#/definitions/Identity"
+                },
+                "approverAdUserName": {
+                    "title": "approver.userName",
+                    "type": "string",
+                    "description": "The name of the DIRECTORY SERVICE ACCOUNT."
+                },
+                "requestorAdIdentity": {
+                    "$ref": "#/definitions/Identity"
+                },
+                "requestorAdUserName": {
+                    "title": "requestor.userName",
+                    "type": "string",
+                    "description": "The name of the DIRECTORY SERVICE ACCOUNT."
+                },
+                "documentationConformity": {
+                    "title": "documentationConformity",
+                    "type": "boolean",
+                    "description": "Confirmation that the specified Entitlement and its parameters are according to the SLC-documents (e.g. AAP, Configuration Specification) of the system and can be created and set for general usage. \nNote: this is a formal step to confirm conformity to system documentation!"
+                },
+                "adGroupNeeded": {
+                    "title": "directoryServiceGroupNeeded",
+                    "type": "boolean",
+                    "description": "Provides the information if an group should be created for this entitlement to manage it via directory service (X.500-standard such as LDAP or Active Directory)."
+                }
+            }
+        },
+        {
+            "$ref": "Entitlement.v1.json"
+        }
+    ],
+    "definitions": {
+        "Identity": {
+            "title": "identity",
+            "type": "object",
+            "description": "Identity is a collection of information on the employee and his access rights.",
+            "properties": {
+                "globalId": {
+                    "title": "globalIdentifier",
+                    "type": "string",
+                    "description": "The Global Identifier also known as BIDS-ID is the global unique identifier of an Identity It is also the only one-to-one identifier of an Identity. Example: \"GI00001234\""
+                }
+            }
+        }
+    }
+}

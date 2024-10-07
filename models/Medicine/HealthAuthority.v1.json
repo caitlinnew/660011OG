@@ -1,0 +1,14 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/HealthAuthority.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HEALTH AUTHORITY",
+    "type": "object",
+    "description": "Health Authorities are supranational, national or local governmental entities which administer health laws, regulating or otherwise having legal authority with respect to the development, manufacture, use or commercialization of a licensed product in its territory.\nIt is the governmental body responsible for the granting of MARKETING AUTHORIZATION approvals. The review may be delegated to a separate authority.",
+    "properties": {
+        "name": {
+            "title": "healthAuthorityName",
+            "type": "string",
+            "description": "Name of a HEALTH AUTHORITY."
+        }
+    }
+}

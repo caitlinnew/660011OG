@@ -1,0 +1,42 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalParticipatingLocation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL PARTICIPATING LOCATION",
+    "type": "object",
+    "description": "CLINICAL PARTICIPATING INSTITUTION represents any organization which particpates in a study.\nIt is specialized for the different levels. E.g.; STUDY SITE PARTICIPATING INSTITUTION, STUDY COUNTRY PARTICIPATING INSTITUTION.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "locationNumber": {
+                    "title": "locationNumber",
+                    "type": "string",
+                    "description": "The CLINICAL PARTICIPATING LOCATION has a number."
+                },
+                "center": {
+                    "$ref": "ClinicalParticipatingCenter.v1.json"
+                },
+                "originId": {
+                    "title": "originId",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The origin ID of the CLINICAL PARTICIPATING LOCATION."
+                },
+                "locationId": {
+                    "title": "locationId",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The ID of the CLINICAL PARTICIPATING LOCATION."
+                },
+                "departmentName": {
+                    "title": "departmentName",
+                    "type": "string",
+                    "description": "The CLINICAL PARTICIPATING LOCATION has a department name."
+                }
+            }
+        },
+        {
+            "$ref": "../Vendor/Organization.v1.json"
+        }
+    ]
+}

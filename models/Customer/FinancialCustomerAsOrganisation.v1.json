@@ -1,0 +1,15 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/FinancialCustomerAsOrganisation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "FINANCIAL CUSTOMER as Organisation",
+    "type": "object",
+    "description": "FINANCIAL CUSTOMER is a type of CUSTOMER maintained in ERP Systems.",
+    "allOf": [
+        {
+            "$ref": "FinancialCustomer.v2.json"
+        },
+        {
+            "$ref": "../Vendor/Organization.v1.json"
+        }
+    ]
+}

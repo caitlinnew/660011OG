@@ -1,0 +1,43 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Generic/Paging.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Paging",
+    "type": "object",
+    "properties": {
+        "offset": {
+            "title": "offset",
+            "type": "integer",
+            "format": "int64",
+            "description": "Start position of the cursor."
+        },
+        "limit": {
+            "title": "limit",
+            "type": "integer",
+            "format": "int64",
+            "description": "The maximum number of results starting from offset."
+        },
+        "hasMore": {
+            "title": "hasMore",
+            "type": "boolean",
+            "description": "Indicates if there are additional results with an higher offset."
+        },
+        "nextOffset": {
+            "title": "nextOffset",
+            "type": "integer",
+            "format": "int64",
+            "description": "The next offset to load the next chunk of data."
+        },
+        "prevOffset": {
+            "title": "prevOffset",
+            "type": "integer",
+            "format": "int64",
+            "description": "The previous offset to load the previous chunk of data."
+        },
+        "total": {
+            "title": "total",
+            "type": "integer",
+            "format": "int64",
+            "description": "The total number of results."
+        }
+    }
+}

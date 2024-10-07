@@ -1,0 +1,49 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/HealthCareProfessionalClinicalTrialFunction.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HEALTH CARE PROFESSIONAL CLINICAL TRIAL FUNCTION",
+    "type": "object",
+    "description": "HEALTH CARE PROFESSIONALs can be involved in one or more CLINICAL TRIALs at one given time. Their involvement always covers a specific role or function and the period of time for which the appointment to a given CLINICAL TRIAL is valid (the period of time for this role assignment is inherited from INDIVIDUAL ROLE/FUNCTION).",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "functionTypeCode": {
+                    "title": "functionType.code",
+                    "type": "string",
+                    "description": "The Code for this Health Care Professional Study Function Type."
+                },
+                "functionTypeName": {
+                    "title": "functionType.term",
+                    "type": "string",
+                    "description": "The Term for this Health Care Professional Study Function Type."
+                },
+                "clinicalTrialSite": {
+                    "$ref": "#/definitions/ClinicalTrialSite"
+                }
+            }
+        },
+        {
+            "$ref": "HealthCareProfessionalForCtm.v1.json"
+        }
+    ],
+    "definitions": {
+        "ClinicalTrialSite": {
+            "title": "clinicalTrialSite",
+            "type": "object",
+            "description": "A clinical trial Site represents the participation of a Health Care Organization and Health Care Professionals at that HCO in a clinical trial. It groups all the necessary information to describe the participation, like the needed locations, site staff, recruitment etc.",
+            "properties": {
+                "number": {
+                    "title": "siteNumber",
+                    "type": "string",
+                    "description": "Provides the identifier of the clinical trial site which is unique in the corresponding CLINICAL TRIAL COUNTRY.\nTherefore, for an unique identifying of a CLINICAL TRIAL SITE one can use an aggregation of BI Study Number, Country Code and Site Number"
+                },
+                "aggregatedNumber": {
+                    "title": "aggregatedNumber",
+                    "type": "string",
+                    "description": "Combination of\nCTMS Substance Code (1743)\nClinical Trial Number (0004)\nCountry Code - Alpha3 (JPN)\nSite Number (1)"
+                }
+            }
+        }
+    }
+}

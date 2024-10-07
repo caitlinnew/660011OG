@@ -1,0 +1,138 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/IndicationMeddra.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INDICATION MEDDRA",
+    "type": "object",
+    "description": "INDICATION MEDDRA is the subset of all INDICATIONs coded with the MedDRA and used in the area of Human Pharma which are relevant for BI Medicinal Products.\nThe MedDra System is organized in a hierarchy of 5 levels of which the loweset level is called Lower Level Term (LLT) and the level 4 is called Preferred Term (PT). \nThe other levels are not implemented in the Reference Data Management System (2023)",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "biSimplifiedTerm": {
+            "title": "biSimplifiedTerm",
+            "type": "string",
+            "description": "defines a shorter or clearer version of the indication."
+        },
+        "meddraCode": {
+            "title": "meddraCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "The MedDRA Code is the unique identifier from the MedDRA-System. At BI the Lowest Level Term (MedDRA Level 5) or the Preferred Term (MEdDRA Level 4) is used to identity the data record."
+        },
+        "meddraLltCode": {
+            "title": "meddraLltCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "The MedDRA Code is the unique identifier from the MedDRA-System. At BI the Lowest Level Term (MedDRA Level 5) or the Preferred Term (MEdDRA Level 4) is used to identity the data record.",
+            "deprecated":"true"
+        },
+        "meddraCurrency": {
+            "title": "meddraCurrency",
+            "type": "string",
+            "description": "Defines if an entry is part of the current MedDRA Release (Y/N)"
+        },
+        "meddraLevel": {
+            "title": "meddraLevel",
+            "type": "string",
+            "enum": [
+                "PT",
+                "LLT"
+            ]
+        },
+        "meddraPtCode": {
+            "title": "meddraPtCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "The PT Code is the MedDRA Code for the related MedDRA Preferred Term.\nIf the MedDRA Code contains the Lowest Level Term, then the MedDRA PT SOC Code contains the Preferred Term.\nIn case the MedDRA Code contains the Preferred Term, then the MedDRA PT SOC Code contains the same value.\nExample: Acute diarrhea\nMedDRA Code 10000706 (LLT)\nMedDRA PT Code 10012735 (PT)"
+        },
+        "meddraPtSocCode": {
+            "title": "meddraPtSocCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "The PT SOC Code is the MedDRA Code for the related MedDRA Preferred Term.",
+            "deprecated":"true"
+        },
+        "medicalSegmentsRefIds": {
+            "title": "medicalSegments",
+            "type": "array",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "meddraVersion": {
+            "title": "meddraVersion",
+            "type": "string",
+            "description": "Latest version of MedDRA used for autocoding of LLT/PT/SOC."
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "enum": [
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        }
+    }
+}

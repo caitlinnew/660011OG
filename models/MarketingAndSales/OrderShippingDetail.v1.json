@@ -1,0 +1,13 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/OrderShippingDetail.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "OrderShippingDetail",
+    "type": "object",
+    "description": "Details about the shipment of one or more order lines",
+    "properties": {
+        "specialShippingInstruction": {
+            "type": "string",
+            "description": "Instructions added by the user which are shared with the shipping agency"
+        }
+    }
+}

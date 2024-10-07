@@ -1,0 +1,194 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Ecommerce/PromotionCoupon.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PromotionCoupon",
+    "type": "object",
+    "description": "A PROMOTION COUPON is a template (for a number of to-be distributed digital or tangible documents), which contains a promise to customers / consumers about receiving a certain reward / advantage for purchasing a certain quantity of one or more BI products or local brands (the promoted products / brands) within a certain timeframe via using such a digital or tangible document. \n\n1.\tIt’s based on conditions about the consumer purchasing a certain quantity of one or more certain products (Secondary Packed Drug Product / Revenue Generating Material / “SKU”) or Local Brands \n1.\tIt has a reward / advantage like Free Good, credit voucher (check) \n1.\tIt is valid within a certain timeframe only. \nWithin this timeframe, a consumer may use this coupon only once. \nThe use of a promotion coupon is allowed to each customer who has been distributed this document.",
+    "properties": {
+        "codeId": {
+            "title": "PromotionCoupon.couponCodeId",
+            "type": "string",
+            "description": "Primary Unique Key to identify the promotion code."
+        },
+        "codeDescription": {
+            "title": "PromotionCoupon.couponCodeDescription",
+            "type": "string",
+            "description": "Description of Coupon Promotion"
+        },
+        "comboOperator": {
+            "type": "string",
+            "description": "... defines - in case of a combination coupon - whether all associated COUPON BRAND FAMILY REQUIREMTs have to be fulfilled (and) or only one (or)."
+        },
+        "approvedBy": {
+            "title": "PromotionCoupon.couponApprovedBy",
+            "type": "string",
+            "description": "Name of the person that approves the promotion coupon."
+        },
+        "approvedDate": {
+            "title": "PromotionCoupon.couponApprovedDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date the promotion coupon was approved."
+        },
+        "createdBy": {
+            "title": "PromotionCoupon.couponCreatedBy",
+            "type": "string",
+            "description": "Name of the person that creates the promotion coupon."
+        },
+        "creationDate": {
+            "title": "couponCreationDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date the promotion coupon was created."
+        },
+        "expirationDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Expiration date of promotion"
+        },
+        "honorThroughDate": {
+            "type": "string",
+            "format": "date",
+            "description": ".Last date that promotion will be honored (needs to be processed by)."
+        },
+        "minimumNumberOfItemsOfFirstBrand": {
+            "type": "integer",
+            "format": "int32",
+            "description": "... defines the minimum number of purchased items to fullfill the requirements."
+        },
+        "valueCode": {
+            "title": "code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "exclusiveCouponUsageFlag": {
+            "type": "boolean",
+            "description": "Indicates whether this coupon can be combined with another coupon or not"
+        },
+        "minimumNumberOfItemsOfSecondBrand": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum Number of Measure Types required for validation of Secondary Brand"
+        },
+        "numberOfFreeDoses": {
+            "type": "integer",
+            "format": "int32",
+            "description": "... defines in the case of a reimbursement type Free Doses the number of free doses."
+        },
+        "campaign": {
+            "$ref": "#/definitions/Campaign"
+        },
+        "rebateCheckAmount": {
+            "type": "number",
+            "description": "The amount of rebate check associated to offer."
+        },
+        "startDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Start date of promotion"
+        },
+        "promotedBrandCombinations": {
+            "type": "array",
+            "description": "Promoted Brand Combination collects the Local Brands which are - in this combination - promoted (e.g. by a Promotion Coupon).",
+            "items": {
+                "$ref": "#/definitions/PromotedBrandCombination"
+            }
+        },
+        "typeOfFirstBrandItems": {
+            "type": "string",
+            "description": "Type of measure to be validated for Primary Brand"
+        },
+        "typeOfSecondBrandItems": {
+            "type": "string",
+            "description": "Type of measure to be validated for Secondary Brand 2"
+        },
+        "defaultFirstAnimalSizeCategoryCode": {
+            "title": "defaultFirstAnimalSizeCategory.code",
+            "type": "string",
+            "description": "Defines (for some species) size categories of animals. The Code is the unique identifier of the data record for this object."
+        },
+        "defaultSecondAnimalSizeCategoryCode": {
+            "title": "defaultSecondAnimalSizeCategory.code",
+            "type": "string",
+            "description": "Defines (for some species) size categories of animals. The Code is the unique identifier of the data record for this object."
+        },
+        "targetSpeciesNames": {
+            "title": "targetSpecies",
+            "type": "array",
+            "description": "The list of SPECIES attempts to provide species aligned with taxonomic classifications, grouping animals into genus or subgenus and consisting of related organisms capable of interbreeding.",
+            "items": {
+                "title": "term",
+                "type": "string",
+                "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+            }
+        },
+        "currencyIso3Code": {
+            "title": "currency.alpha-3Code",
+            "type": "string",
+            "description": "The first two letters of the code are the two letters of the ISO 3166-1 alpha-2 country codes (which are also used as the basis for national top-level domains on the Internet) and the third is usually the initial of the currency itself."
+        },
+        "valueCategoryName": {
+            "title": "valueCategory.term",
+            "type": "string"
+        },
+        "distributionMethodName": {
+            "title": "distributionMethod.term",
+            "type": "string"
+        },
+        "reimbursementTypeName": {
+            "title": "reimbursementType.term",
+            "type": "string"
+        },
+        "couponOfferTypeName": {
+            "title": "couponOfferType.term",
+            "type": "string"
+        }
+    },
+    "definitions": {
+        "Campaign": {
+            "type": "object",
+            "description": "A campaign is a marketing / advertizing initiative usually aiming at promoting a certain BI product or brand to a dedicated group of recipients / customers. These recipients will usually be health care professionals or health care organizations like hospitals, but the campaign might be supported by end-user (patient) oriented advertising activities (like TV spots).",
+            "properties": {
+                "campaignId": {
+                    "type": "string"
+                },
+                "campaignCategoryCode": {
+                    "title": "campaignCategory.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                }
+            }
+        },
+        "PromotedBrandCombination": {
+            "type": "object",
+            "description": "Promoted Brand Combination collects the Local Brands which are - in this combination - promoted (e.g. by a Promotion Coupon).",
+            "properties": {
+                "secondaryLocalBrandIds": {
+                    "title": "secondaryLocalBrand",
+                    "type": "array",
+                    "description": "The LOCAL BRAND is the representation of a GLOBAL BRAND in a certain COUNTRY. \nIn this COUNTRY, the LOCAL BRAND is named by the Local Brand Name, which may differ from the preferred GLOBAL BRAND Name.\nLOCAL BRAND does not refer to geographical reach or fo",
+                    "items": {
+                        "title": "localBrandId",
+                        "type": "string",
+                        "description": "Unique identifier of the object LOCAL BRAND."
+                    }
+                },
+                "defaultLocalBrandId": {
+                    "title": "defaultLocalBrand.localBrandId",
+                    "type": "string",
+                    "description": "Unique identifier of the object LOCAL BRAND."
+                },
+                "primaryLocalBrandIds": {
+                    "title": "primaryLocalBrand",
+                    "type": "array",
+                    "description": "The LOCAL BRAND is the representation of a GLOBAL BRAND in a certain COUNTRY. \nIn this COUNTRY, the LOCAL BRAND is named by the Local Brand Name, which may differ from the preferred GLOBAL BRAND Name.\nLOCAL BRAND does not refer to geographical reach or fo",
+                    "items": {
+                        "title": "localBrandId",
+                        "type": "string",
+                        "description": "Unique identifier of the object LOCAL BRAND."
+                    }
+                }
+            }
+        }
+    }
+}

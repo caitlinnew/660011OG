@@ -1,0 +1,96 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/EmptyDeviceForConfiguration.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "EmptyDeviceForConfiguration",
+    "type": "object",
+    "description": "The DEVICE FOR CONFIGURATION is the minimal description of the DEVICE for use in the PRODUCT CONFIGURATION.",
+    "properties": {
+        "id": {
+            "title": "productId",
+            "type": "string",
+            "description": "Unique identifier of the object DEVICE FOR CONFIGURATION."
+        },
+        "brandedDevice": {
+            "title": "brandedDevice",
+            "type": "string",
+            "description": "The attribute Branded Device specifices whether\n1. the DEVICE is unbranded, thus has no Brand Name and thus does not add to the GLOBAL or LOCAL BRAND Name or\n2. the DEVICE is branded, but uses the GLOBAL or LOCAL BRAND Name of the DRUG PRODUCT (this is called \"cross-labelling\") or\n3. the DEVICE is branded and brings an own GLOBAL or LOCAL BRAND Name which adds to the GLOBAL or LOCAL BRAND Name"
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "deviceTypeCode": {
+            "title": "deviceType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "deviceTypeRefId": {
+            "title": "deviceType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalBrandId": {
+            "title": "globalBrand.globalBrandId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL BRAND."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "productStageRefId": {
+            "title": "productStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productStageCode": {
+            "title": "productStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "shortdescription": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "languageCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        }
+    }
+}

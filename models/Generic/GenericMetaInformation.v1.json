@@ -1,0 +1,29 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Generic/GenericMetaInformation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Generic Meta Information",
+    "type": "object",
+    "properties": {
+        "deleted": {
+            "title": "deleted",
+            "type": "boolean",
+            "description": "A flag that indicates if the Object is deleted or not."
+        },
+        "hashKey": {
+            "title": "hashKey",
+            "type": "string",
+            "description": "A technical hash key as an artificial UUID of the object."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date-time",
+            "description": "Technical date of the last change."
+        },
+        "seqNo": {
+            "title": "sequenceNumber",
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

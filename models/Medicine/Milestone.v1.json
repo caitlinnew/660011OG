@@ -1,0 +1,38 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/Milestone.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MILESTONE",
+    "type": "object",
+    "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+    "properties": {
+        "actualDate": {
+            "title": "actualDate",
+            "type": "string",
+            "format": "date",
+            "description": "The actual date the milestone got effective / valid."
+        },
+        "plannedDate": {
+            "title": "plannedDate",
+            "type": "string",
+            "format": "date",
+            "description": "The date the milestone is planned to go valid."
+        },
+        "baselineDate": {
+            "title": "baselineDate",
+            "type": "string",
+            "format": "date",
+            "description": "CTMS Impact specific date generad in the process of Milestone (event) baselining. It inherits the first date given for a first Planned Date as Planned Date can still be changed where Baseline Date will be preserved and Original Date cannot be changed anymore. The first given date for Planned Date will be copied to Baseline Date and Original Date. The Original Date cannot be changed and will always show the original Baseline even if the process of Re-Baselining occurs. \nRe-Baselining\nExternal factors that may significantly impact trial timelines after baselining completed, such as new version of the Trial Design Outline (TDO), major amendments to the trial design, IMP is delayed by more than a month, etc."
+        },
+        "originalDate": {
+            "title": "originalDate",
+            "type": "string",
+            "format": "date",
+            "description": "CTMS Impact specific date generad in the process of Milestone (event) baselining. It preserves the first date given for a first Planned Date as Planned Date can still be changed but Baseline Date will be preserved. The first given date for Planned Date will be copied to Baseline Date and Original Date. The Baseline Date can be changed again in a process called Re-Baselining wheras the Original Date cannot be changed and will always show the original Baseline. \nRe-Baselining\nExternal factors that may significantly impact trial timelines after baselining completed, such as new version of the Trial Design Outline (TDO), major amendments to the trial design, IMP is delayed by more than a month, etc."
+        },
+        "milestoneTypeName": {
+            "title": "importantDateType.term",
+            "type": "string",
+            "description": "Specifies the description of an MILESTONE DATE"
+        }
+    }
+}

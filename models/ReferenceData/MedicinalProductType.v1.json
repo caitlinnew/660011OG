@@ -1,0 +1,109 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/MedicinalProductType.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MEDICINAL PRODUCT TYPE",
+    "type": "object",
+    "description": "ISO IDMP distinguishes between Authorised Medicinal Product and Investigational Medicinal Product.\nIn the context of the implementation of PMS iteration 1, only Authorised Medicinal product is supported.\n    - Authorised Medicinal Product covers Medicinal products for which a marketing authorisation in EU/EEA was requested or granted, including those for which the marketing authorisation is no longer valid. The product itself does not need to be authorised/approved and this information should be reflected in 2.4 Authorisation status (medicinal product level) and in 4.6.4. Authorisation status (package level), when applicable.\n    \n- Authorised Medicinal Product also covers:\n- traditional use registration for herbal medicinal products (Article 16a of Directive 2001/83/EC);\n- simplified registration for homeopathic medicinal products (Article 14 of Directive 2001/83/EC);\n- medicinal products within the scope of Article 5 of Directive 2001/83/EC i.e. 'Named patient use' falling under Article 5(1) and 'EU Distribution Procedure' under Article 5(2);\n- parallel distribution/parallel import of medicinal products (Article 76(3) and (4) of Directive 2001/83/EC);\n- medicinal products authorised outside the European Economic Area (EEA) or following a non-EU procedure;\n- extemporaneous Medicinal products (e.g. medicinal products prepared in a pharmacy based on a medical prescription such as pharmacy preparations);\n- intermediate products intended for subsequent processing by an authorised manufacturer.\n\nInvestigational medicinal products are not covered in PMS iteration 1.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sources": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": 
+                {
+                    "$ref": "#/definitions/SourceOfInformationRef"
+                }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "description": "Status of the EMA RMS Identifier.",
+            "enum": [
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        },
+        "xevmpdCode": {
+            "title": "xevmpdCode",
+            "type": "string",
+            "description": "The XEVMPD Code is an Identifier based on the Extended EudraVigilance Medicinal Product Dicationary maintained by the European Medicines Agency (EMA)."
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "This list contains the controlled terms used for describing medicinal product types in xEVMPD submissions."
+        },
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    },
+    "definitions": {
+        "SourceOfInformationRef": {
+            "title": "sourceOfInformationRef",
+            "type": "object",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

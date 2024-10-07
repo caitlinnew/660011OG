@@ -1,0 +1,22 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/StudyProtocol.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "STUDY PROTOCOL",
+    "type": "object",
+    "description": "The STUDY PROTOCOL is the document which defines objectives and design of a STUDY.\nA discrete, structured plan (that persists over time) of a formal investigation to assess the utility, impact, pharmacological, physiological, and/or psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic.",
+    "properties": {
+        "studyImpactId": {
+            "title": "study.impactStudyId",
+            "type": "string",
+            "description": "the system generated study identifier"
+        },
+        "amendment": {
+            "title": "studyProtocolAmendment",
+            "type": "array",
+            "description": "A amendment to a study protocol describes a globally or locally implemented change to a given clinical study protocol.\n\nAmendments to a study protocol can result from simpler administrative or logistical changes, but also from more complex changes in the study design (e.g. to remove potential safety hazards). Depending on the nature of the change, the amendment may be implemented right away or after obtaining all necessary approvals from the responsible regulatory authorities.",
+            "items": {
+                "$ref": "StudyProtocolAmendment.v1.json"
+            }
+        }
+    }
+}

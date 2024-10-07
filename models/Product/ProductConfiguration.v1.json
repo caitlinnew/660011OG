@@ -1,0 +1,188 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/ProductConfiguration.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PRODUCT CONFIGURATION",
+    "type": "object",
+    "description": "The PRODUCT CONFIGURATION is the minimal description of one packaging configuration of a GLOBAL PRODUCT. It defines how much of which DEVICE FOR CONFIGURATION is packed into a secondary packaging and/or how much of which DRUG PRODUCT FOR CONFIGURATION is packed into which PRIMARY PACKAGING FOR CONFIGURATION, how many of those are - if at all - put into an INTERMEDIATE PACKAGING FOR CONFIGURATION, and how many of those are put into a secondary packaging.\nThe PRODUCT CONFIGURATION information is limited by the limited information of the DRUG PRODUCT FOR CONFIGURATION, the PRIMARY PACKAGING FOR CONFIGURATION, the INTERMEDIATE PACKAGING FOR CONFIGURATION, and DEVICE FOR CONFIGURATION. The secondary packaging is specified within the PRODUCT CONFIGURATION, not as an own object in Layer 2.\nThe different PRODUCT CONFIGURATIONs define the \"design space\" which was developed for a GLOBAL PRODUCT, without all the details of a PRIMARY PACKED DRUG PRODUCT and a SECONDARY PACKED DRUG PRODUCT.",
+    "properties": {
+        "id": {
+            "title": "productId",
+            "type": "string",
+            "description": "Unique identifier of the object PRODUCT CONFIGURATION."
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "packedDrugProducts": {
+            "title": "packedDrugProducts",
+            "type": "array",
+            "description": "The PRIMARY PACKED DRUG PRODUCT specifies the quantity of DRUG PRODUCT FOR CONFIGURATION per PRIMARY PACKAGING or of DEVICE. It has no Identifier as it is defined within one PRODUCT CONFIGURATION.",
+            "items": {
+                "$ref": "PrimaryPackedDrugProductForConfiguration.v1.json"
+            }
+        },
+        "administrationLimit": {
+            "title": "administrationLimit",
+            "type": "number",
+            "description": "Administration Limit is the limit of a DEVICE FOR CONFIGURATION administering a DRUG PRODUCT FOR CONFIGURATION."
+        },
+        "administrationLimitUopSapCode": {
+            "title": "administrationLimitUop.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "administrationLimitUopRefId": {
+            "title": "administrationLimitUop.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "secondPackagingQuantity": {
+            "title": "quantitySecondaryPackaging",
+            "type": "integer",
+            "format": "int32",
+            "description": "The number of the package item containers shall be specified. Because the package item class may contain recursive relationships to describe containers within containers, the first container (top-level package item/outer-most packaging) will always have a quantity of one (i.e. '1').\n\nDescription IDMP IG V2.1F (Section 4.7.5.)"
+        },
+        "secondPackagingMaterialSapCode": {
+            "title": "materialClassOfSecondaryPackaging.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "secondPackagingMaterialRefId": {
+            "title": "materialClassOfSecondaryPackaging.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalProductId": {
+            "title": "globalProduct.globalProductId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL PRODUCT."
+        },
+        "secondPackagingTypeSapCode": {
+            "title": "packagingTypeOfSecondaryPackaging.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "secondPackagingTypeRefId": {
+            "title": "packagingTypeOfSecondaryPackaging.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "secondPackagingUopSapCode": {
+            "title": "uopOfQuantitySecondaryPackaging.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "secondPackagingUopRefId": {
+            "title": "uopOfQuantitySecondaryPackaging.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productStageCode": {
+            "title": "productStage.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use *sapCode instead."
+        },
+        "productStageSapCode": {
+            "title": "productStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "productStageRefId": {
+            "title": "productStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "daysOfTreatment": {
+            "title": "daysOfTreatment",
+            "type": "number",
+            "description": "DAYS OF TREATMENT states the number of days that a given amount of a medicinal product lasts for the maintenance treatment of a human adult. It is independent of price, currencies, and pack size. Pack size independent amounts of medicinal product are used by supply chain, finance and pharmacovigilance. The UNIT OF MEASURE for DAYS OF TREATMENT is day (d).\nThe calculation of DAYS OF TREATMENT are calculated from DAILY DOSE and Amount of administrable active ingredient per PRODUCT CONFIGURATION:\n<DAYS OF TREATMENT> [d] = <Amount of administrable active ingredient per PRODUCT CONFIGURATION> [mg] / <DAILY DOSE> [mg/d]\nFor details, see IO Business Rule on Days or Treatment."
+        },
+        "quantityAdministrableActiveIngredient": {
+            "title": "quantityAdministrableActiveIngredient",
+            "type": "number",
+            "description": "The Quantity Adminstrable Active Ingredient quantifies the amount of active ingredient that can be administered to the patient from PRIMARY PACKED DRUG PRODUCT in a given PRODUCT CONFIGURATION."
+        },
+        "daysOfTreatmentDrugProductForConfigurationId": {
+            "title": "daysOfTreatmentDrugProductForConfigurationId",
+            "type": "string",
+            "description": "Unique identifier of the object DRUG PRODUCT FOR CONFIGURATION.\nTechnical Link to ID of DrugProdForConfig"
+        },
+        "globalBrandId": {
+            "title": "globalBrand.globalBrandId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL BRAND."
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One PRODUCT CONFIGURATION must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing PRODUCT CONFIGURATION."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageCode": {
+                    "title": "language.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+                },
+                "languageSapCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

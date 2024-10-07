@@ -1,0 +1,186 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Ecommerce/CouponSubmission.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CouponSubmission",
+    "type": "object",
+    "description": "A coupon submission is the action of submitting a single specimen of the digital or tangible documents which have been produced according to the promotion coupon.\nIt has been used with the purchase of promoted goods (by a consumer / at a customer) in order to receive the reward / advantage promised.",
+    "properties": {
+        "checkCashDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date check was cashed"
+        },
+        "checkNumber": {
+            "type": "string",
+            "description": "check number for reward, if check was sent to consumer"
+        },
+        "activityNumber": {
+            "title": "couponSubmissionActivityNumber",
+            "type": "string",
+            "description": "Unique number of a coupon submission activity."
+        },
+        "creditDocumentId": {
+            "type": "string",
+            "description": "Represents “Free Dose Credit Number” shown on monthly clinic statements to help clinics reconcile coupons with credits."
+        },
+        "ecouponRedemptionId": {
+            "type": "string",
+            "description": "GUID that uniquely identifies an electronic coupon"
+        },
+        "firstTimePurchaseFlag": {
+            "type": "boolean",
+            "description": "A flag to indicate that this coupon was used for a first time buyer for a particular product"
+        },
+        "insertDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the coupon submission has been entered"
+        },
+        "rewardIssueDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the reward has been issued"
+        },
+        "source": {
+            "type": "string",
+            "description": "represents where the coupon was accepted to the BI system"
+        },
+        "status": {
+            "type": "string",
+            "description": "Current status of coupon submission."
+        },
+        "clinic": {
+            "$ref": "../Vendor/BusinessPartner.v1.json"
+        },
+        "tClinicVerified": {
+            "type": "boolean"
+        },
+        "animalSizeCategoryCode": {
+            "title": "code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "couponRedemptionRejectReasonCode": {
+            "title": "couponRedemptionRejectReason.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "couponRedemptionRejectReasonName": {
+            "title": "couponRedemptionRejectReason.term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        },
+        "envelopeId": {
+            "type": "string",
+            "description": "Identifier of COUPON SUBMISSION ENVELOPE"
+        },
+        "pet": {
+            "$ref": "#/definitions/Pet"
+        },
+        "promotionCouponCode": {
+            "title": "couponCodeId",
+            "type": "string",
+            "description": "Primary Unique Key to identify the promotion code."
+        },
+        "couponRedemptionGuid": {
+            "type": "string",
+            "description": "Unique identifier of the coupon record as per BI's Data Repository"
+        },
+        "invoice": {
+            "$ref": "#/definitions/Invoice"
+        },
+        "finalSales": {
+            "type": "array",
+            "description": "A final sale is a sale of a BI product to a retail customer like a consumer (pet owner) or a patient.",
+            "items": {
+                "$ref": "#/definitions/FinalSale"
+            }
+        }
+    },
+    "definitions": {
+        "Pet": {
+            "type": "object",
+            "description": "A PET is an animal that is owned by a Consumer. Both, Pet and Consumer are Customers.",
+            "properties": {
+                "aliveIndicator": {
+                    "type": "boolean",
+                    "description": "The Alive Indicator displays if a PET is still alive."
+                },
+                "birthDay": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The day of the PET's Birth Date (1-31)."
+                },
+                "birthMonth": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The month of the Pet's Birth Date (1-12)."
+                },
+                "birthYear": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Year of the PET's Birth Date."
+                }
+            }
+        },
+        "FinalSale": {
+            "type": "object",
+            "description": "A final sale is a sale of a BI product to a retail customer like a consumer (pet owner) or a patient.",
+            "properties": {
+                "date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date of Sale"
+                },
+                "grossSalesAmount": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The amount of money the buyer has to pay to the seller out of this sale"
+                },
+                "soldMaterial": {
+                    "title": "revenueGeneratingMaterial",
+                    "$ref": "#/definitions/RevenueGeneratingMaterial"
+                }
+            }
+        },
+        "Invoice": {
+            "type": "object",
+            "description": "AN INVOICE is a document that indicates a demand for payment, associated e. g. with the delivery of goods or services, claim of fees or reimbursements, etc.\nThis Information Object is not under Governance of MDM.",
+            "properties": {
+                "invoiceNumber": {
+                    "type": "string",
+                    "description": "Invoice number issued by the seller."
+                },
+                "consumer": {
+                    "$ref": "../Vendor/BusinessPartner.v1.json"
+                },
+                "invoiceImageLink": {
+                    "type": "string",
+                    "description": "The invoice image link points to a \"place\" (like an URL, a file, ...) where an image of the invoice is stored."
+                }
+            }
+        },
+        "RevenueGeneratingMaterial": {
+            "type": "object",
+            "description": "REVENUE GENERATING MATERIAL is a MATERIAL with MATERIAL TYPE \"Revenue Generating Material\" (YREV in SAP-GBS-ERP).",
+            "properties": {
+                "legacyBundlingFactor": {
+                    "title": "legacyFinishedProduct.bundlingFactor",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Bundling Factor quantifies the factor by which instances of a secondary packed LEGACY FINISHED PRODUCT are optionally bundled with a transparent wrapping material containing no label information. This multiplies the amount of secondary packed LEGACY FINISHED PRODUCT by the Bundling Factor resulting in the Bundling Amount.\nBundling requires no specific SECONDARY PACKAGING as it has no label information.\nNo Bundling is achieved with Bundling Factor 1."
+                },
+                "localProductLocalBrandNames": {
+                    "title": "localProduct.localBrand.localBrandNames",
+                    "type": "array",
+                    "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+                    "items": {
+                        "title": "text",
+                        "type": "string",
+                        "description": "The text string itself."
+                    }
+                }
+            }
+        }
+    }
+}

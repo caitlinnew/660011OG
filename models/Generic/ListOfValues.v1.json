@@ -1,0 +1,15 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Generic/ListOfValues.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ListOfValues",
+    "type": "object",
+    "description": "Whenever an Information Object Attribute is a (controlled) List of Values in a system:\n- If there shall be governance on the allowed values, then a class for these values is created.\n- If no governance on the allowed values is required, then this List of Values Class is used as data type for the attribute.",
+    "properties": {
+        "code": {
+            "type": "string"
+        },
+        "term": {
+            "type": "string"
+        }
+    }
+}

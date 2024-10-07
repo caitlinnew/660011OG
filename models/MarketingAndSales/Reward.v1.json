@@ -1,0 +1,63 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/Reward.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Reward",
+    "description": "An item of value that we give to a customer upon fulfillment of a promotion offer.",
+    "allOf": [
+        {
+            "$ref": "#/definitions/Sell-InPromotion"
+        },
+        {
+            "$ref": "#/definitions/Sell-InPromotionType"
+        },
+        {
+            "type": "object",
+            "properties": {
+                "discountPercentage": {
+                    "type": "number",
+                    "description": "Percent off of whatever is specified by the offer."
+                },
+                "rebateAmount": {
+                    "type": "number",
+                    "description": "For Rebates, the amount of money being offered to the customer"
+                },
+                "rewardsRatio": {
+                    "type": "number",
+                    "description": "How much of the item will be received as the reward (dependent from the number of purchased items)."
+                },
+                "freeGood": {
+                    "$ref": "../Product/RevenueGeneratingMaterial.v1.json"
+                }
+            }
+        }
+    ],
+    "definitions": {
+        "Sell-InPromotion": {
+            "type": "object",
+            "description": "A PROMOTION OFFER is a promise to customers about receiving a certain reward / advantage for purchasing a certain  quantity of a single BI product or local brand (the promoted product / brand) within a certain timeframe.  \n1.\tIt’s based on conditions about the customer purchasing a certain quantity of one certain product (Secondary Packed Drug Product / Revenue Generating Material / “SKU”) or Local Brand \n1.\tIt has a reward like Free Good, Discount, Rebate (the type of reward is also used as the Offer Type)\n1.\tIt is valid within a certain timeframe. \nWithin this timeframe, a customer may use this offer as often as he wants. \nA promotion offer is available only to a certain set of customers. The eligibility of a certain customer may be influenced by the customer class he belongs to, but is nonetheless put down for each single customer.",
+            "properties": {
+                "PromotionCode": {
+                    "title": "promotionCode",
+                    "type": "string",
+                    "description": "In some cases a sell-in promotion is triggered by a code."
+                },
+                "PromotionName": {
+                    "title": "sell-InPromotionName",
+                    "type": "string",
+                    "description": "Friendly label of the promotion offer"
+                }
+            }
+        },
+        "Sell-InPromotionType": {
+            "type": "object",
+            "description": "Classifies the type of the promotion offer like Free Good, Discount or Rebate.",
+            "properties": {
+                "PromotionType": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term / Name of the promotion type"
+                }
+            }
+        }
+    }
+}

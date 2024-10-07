@@ -1,0 +1,140 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/VendorBlocking.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Vendor Blocking",
+    "type": "object",
+    "properties": {
+        "blockedProcurementFunction": {
+            "title": "blockedProcurementFunction",
+            "type": "string",
+            "description": "Key that determines which procurement functions (for example, request for quotation, purchase order or goods receipt) should be blocked for quality reasons.",
+            "enum": [
+                "REQUEST FOR QUOTATION",
+                "PURCHASE ORDER",
+                "GOODS RECEIPT"
+            ]
+        },
+        "centralDeletionBlock": {
+            "title": "centralDeletionBlock",
+            "type": "boolean",
+            "description": "This indicator specifies that the general data in the master record may not be deleted."
+        },
+        "centralPostingBlock": {
+            "title": "centralPostingBlock",
+            "type": "boolean",
+            "description": "No (financial) postings can be performed for the specific Vendor as long as the blocking is active. The blocking is valid for all BI LEGAL ENTITIES."
+        },
+        "companySpecificAccountingBlocks": {
+            "title": "companySpecificAccountingBlocks",
+            "type": "array",
+            "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Payable, Accounting to Reporting, Treasury.\nExamples are Reconciliation Account, Payment Methods (bank transfer, cheque, ...), Payment Term (30 days due net, immediate payment, ...)",
+            "items": {
+                "$ref": "#/definitions/VendorAccountingInformation"
+            }
+        },
+        "centralPurchasingOrderBlock": {
+            "title": "centralPurchasingOrderBlock",
+            "type": "boolean",
+            "description": "No Purchase Order can be created for the specific Vendor as long as the blocking is active. The blocking is valid for all PURCHASING ORGANIZATIONs."
+        },
+        "purchasingBlocks": {
+            "title": "purchasingBlocks",
+            "type": "array",
+            "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim purchasing organization meant to drive and contribute to processes in the area of Purchase to procure. Data are used to drive automation and provide default values when creating a purchase requisition or a purchase order.\nExamples are Payment Term (30 days due net, immediate payment, ...), currency, Incoterms.",
+            "items": {
+                "$ref": "#/definitions/PurchasingInformation"
+            }
+        }
+    },
+    "definitions": {
+        "VendorAccountingInformation": {
+            "title": "vendorAccountingInformation",
+            "type": "object",
+            "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Payable, Accounting to Reporting, Treasury.\nExamples are Reconciliation Account, Payment Methods (bank transfer, cheque, ...), Payment Term (30 days due net, immediate payment, ...)",
+            "properties": {
+                "deletionFlagOnCompanyLevel": {
+                    "title": "deletionFlagOnCompanyLevel",
+                    "type": "boolean",
+                    "description": "The supplier is disabled for any activity (Postings and Payments) on the level of a BI LEGAL ENTITY as long as the flag is set."
+                },
+                "paymentBlock": {
+                    "title": "paymentBlock",
+                    "type": "boolean",
+                    "description": "No payments can be performed for the specific Vendor and the selected BI LEGAL ENTITY as long as the blocking is active."
+                },
+                "postingBlock": {
+                    "title": "postingBlock",
+                    "type": "boolean",
+                    "description": "No (financial) postings can be performed for the specific Vendor and the selected BI LEGAL ENTITY as long as the blocking is active."
+                },
+                "dunning": {
+                    "title": "dunningData",
+                    "type": "array",
+                    "description": "The DUNNING PROCESS is a reminder to a customer or vendor to make payment on outstanding invoices. Example: typically consists of a letter that summarizes the invoices that are past due and politely requests payment to be made.",
+                    "items": {
+                        "$ref": "#/definitions/DunningData"
+                    }
+                },
+                "companyCode": {
+                    "title": "companyCode.code",
+                    "type": "string",
+                    "description": "unique identifier of legal entity (originally generated in AMI)"
+                },
+                "companyName": {
+                    "title": "companyCode.term",
+                    "type": "string",
+                    "description": "name of legal entity (originally generated in CIM - in the past AMI)"
+                }
+            }
+        },
+        "DunningData": {
+            "title": "dunningData",
+            "type": "object",
+            "description": "The DUNNING PROCESS is a reminder to a customer or vendor to make payment on outstanding invoices. Example: typically consists of a letter that summarizes the invoices that are past due and politely requests payment to be made.",
+            "properties": {
+                "dunningBlockReason": {
+                    "title": "dunningBlockReason",
+                    "type": "string",
+                    "description": "The DUNNING BLOCK is set if a customer is to be blocked from dunning.\nIndividual items can also be blocked for dunning at the A/R line item level.",
+                    "enum": [
+                        "GENERAL DUNNING BLOCK",
+                        "CUSTOMER BANKRUPTCY",
+                        "LEGAL ACTION ONGOING"
+                    ]
+                },
+                "dunningBlock": {
+                    "title": "dunningBlock",
+                    "type": "boolean",
+                    "description": "The DUNNING BLOCK is set if a customer is to be blocked from dunning.\nIndividual items can also be blocked for dunning at the A/R line item level."
+                }
+            }
+        },
+        "PurchasingInformation": {
+            "title": "purchasingInformation",
+            "type": "object",
+            "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim purchasing organization meant to drive and contribute to processes in the area of Purchase to procure. Data are used to drive automation and provide default values when creating a purchase requisition or a purchase order.\nExamples are Payment Term (30 days due net, immediate payment, ...), currency, Incoterms.",
+            "properties": {
+                "deletionFlagOnPurchasingOrganizationLevel": {
+                    "title": "deletionFlagOnPurchasingOrganizationLevel",
+                    "type": "boolean",
+                    "description": "The supplier is disabled for creation of new purchase orders on the level of a PURCHASING ORGANIZATION as long as the flag is set."
+                },
+                "purchasingOrderBlock": {
+                    "title": "purchasingOrderBlock",
+                    "type": "boolean",
+                    "description": "No Purchase Order can be created for the specific Vendor and the selected PURCHASING ORGANIZATION as long as the blocking is active. The PURCHASING ORDER BLOCK is purchasing Org specific."
+                },
+                "purchasingOrganizationCode": {
+                    "title": "purchasingOrganization.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for PURCHASING ORGANIZATION."
+                },
+                "purchasingOrganizationName": {
+                    "title": "purchasingOrganization.term",
+                    "type": "string",
+                    "description": "The Term is the PURCHASING ORGANISATION name. See description of object PURCHASING ORGANISATION for details."
+                }
+            }
+        }
+    }
+}

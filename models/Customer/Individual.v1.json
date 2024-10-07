@@ -1,0 +1,121 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Individual.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INDIVIDUAL",
+    "type": "object",
+    "description": "The business object INDIVIDUAL is meant to characterize a given Business Partner as an individual, in opposite to an Organization.\nINDIVIDUAL describe a human being and is linked to all the characteristics and engagements that are relevant for the different steps in the master data as well as the downstream processes.",
+    "properties": {
+        "academicTitle": {
+            "title": "academicTitle",
+            "type": "string",
+            "description": "The Academic Title of a person which has the Role HEALTH CARE PROFESSIONAL."
+        },
+        "birthDate": {
+            "title": "birthDate",
+            "type": "string",
+            "format": "date",
+            "description": "Birthdate of a Person. \nIt could also be only year or year month, if exact date is not known"
+        },
+        "individualNames": {
+            "title": "individualNames",
+            "type": "array",
+            "description": "Individual Name is the first name and last name of an individual. For example a Chinese individual can have two names, one in Chinese and one in English.",
+            "items": {
+                "$ref": "#/definitions/IndividualName"
+            }
+        },
+        "genderCode": {
+            "title": "code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "genderName": {
+            "title": "term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        },
+        "photoUrl": {
+            "title": "photoUrl",
+            "type": "string",
+            "description": "Public URL to an image of the individual"
+        },
+        "roleAsCustomerFacingEmployee": {
+            "$ref": "../MarketingAndSales/CustomerFacingEmployee.v1.json"
+        },
+        "roleAsHealthCareProfessional": {
+            "$ref": "#/definitions/HealthCareProfessional"
+        }
+    },
+    "definitions": {
+        "IndividualName": {
+            "title": "individualNames",
+            "type": "object",
+            "description": "Individual Name is the first name and last name of an individual. For example a Chinese individual can have two names, one in Chinese and one in English.",
+            "properties": {
+                "firstName": {
+                    "title": "firstName",
+                    "type": "string"
+                },
+                "lastName": {
+                    "title": "lastName",
+                    "type": "string"
+                },
+                "middleName": {
+                    "title": "middleName",
+                    "type": "string"
+                },
+                "namePrefix": {
+                    "title": "namePrefix",
+                    "type": "string",
+                    "description": "Name prefix is used as an addition to the last name that is usually a title of nobility.\n\nIn MDG the prefix is displayed in the screen field in text form. The associated key is stored in the database.\n\n[Source: SAP field help]"
+                },
+                "nameSuffix": {
+                    "title": "nameSuffix",
+                    "type": "string"
+                },
+                "title": {
+                    "title": "title",
+                    "type": "string",
+                    "description": "The \"everybodies title\" (or address) used in front of a name resp. academic title preceding the name"
+                }
+            }
+        },
+        "HealthCareProfessional": {
+            "title": "healthCareProfessional",
+            "type": "object",
+            "description": "A HEALTHCARE PROFESSIONAL (“HCP”) is a natural person that is a member of the medical, dental, pharmacy or nursing professions or any other person who, in the course of his or her professional activities, may prescribe, purchase, supply, recommend or administer a medicinal product.\n(See 100-BIP-00415 and HCCApp for additional local requirements: https://shareroom1.eu.boehringer.com/de/hccapp/SitePages/Home.aspx)",
+            "properties": {
+                "specialtyRankings": {
+                    "title": "specialtyRankings",
+                    "type": "array",
+                    "description": "A HCO / HCP can have one or more specialties. The HCO / HCP can also have a ranking of specialties, meaning that it has a number one specialty and a second specialty. The number of specialties is not restricted.",
+                    "items": {
+                        "$ref": "#/definitions/SpecialtyRanking"
+                    }
+                }
+            }
+        },
+        "SpecialtyRanking": {
+            "title": "specialtyRankings",
+            "type": "object",
+            "description": "A HCO / HCP can have one or more specialties. The HCO / HCP can also have a ranking of specialties, meaning that it has a number one specialty and a second specialty. The number of specialties is not restricted.",
+            "properties": {
+                "specialtyCode": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "specialtyName": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Name of a Specialty\nExamples for Human Pharma:\n Diabetes\n Family Medicine\n Cardiovascular Diseases"
+                },
+                "primarySpecialty": {
+                    "title": "primarySpecialty",
+                    "type": "boolean",
+                    "description": "The Primary Specialty is the Specialty with the highest Rank."
+                }
+            }
+        }
+    }
+}

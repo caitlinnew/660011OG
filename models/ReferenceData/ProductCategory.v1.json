@@ -1,0 +1,97 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/ProductCategory.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PRODUCT CATEGORY",
+    "type": "object",
+    "description": "According to EMA RMS: Product Category\nThis Controlled Term List is used to indicate the overall category of a (human) medicinal product based on its active ingredients, e.g., chemical, herbal or biotech product.\nAt BI, Product Category is used for medicinal products for veterinary and human use.\nLegacy System:\nIn Legacy System WWPPS the PRODUCT CATEGORY distinguished Pharma from Bio and added the TARGET SPECIES.\nExample: Bio (Avian), Pharma (Dog/Cat)",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "description": "Status of the EMA RMS Identifier."
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for PRODUCT CATEGORY."
+        },
+        "validityBusinessUnit": {
+            "title": "validityHumanOrVeterinary",
+            "type": "string",
+            "enum": [
+                "HP",
+                "AH",
+                "HP + AH"
+            ]
+        },
+        "stageOfReferencedObject": {
+            "title": "stageOfReferencedObject",
+            "type": "string",
+            "enum": [
+                "Substance",
+                "Specified Substance"
+            ]
+        }
+    }
+}

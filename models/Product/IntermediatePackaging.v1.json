@@ -1,0 +1,223 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/IntermediatePackaging.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INTERMEDIATE PACKAGING",
+    "type": "object",
+    "description": "The INTERMEDIATE PACKAGING is packaging between the PRIMARY PACKAGING and the SECONDARY PACKAGING. It adds to the stability of the DRUG PRODUCT. [ISO 11615: 3.1.26 intermediate packaging].\n\"Adding to the stability of the DRUG PRODUCT\" may include protection from humidity, light and shock.",
+    "properties": {
+        "additionalInformationText": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "additionalInformationLanguageIso2Code": {
+            "title": "additionalInformation.language.isoAlpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 Code according to Iso 639."
+        },
+        "additionalInformationLanguageRefId": {
+            "title": "language.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "baseUomSapCode": {
+            "title": "baseUom.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "baseUomRefId": {
+            "title": "baseUom.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "id": {
+            "title": "globalSkuId",
+            "type": "string",
+            "description": "The Global SKU ID is the globally unique identifier for the GLOBAL SKU. It is a six digit integer."
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Text"
+            }
+        },
+        "purposeSapCode": {
+            "title": "globalSkuPurpose.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for GLOBAL SKU PURPOSE."
+        },
+        "stageSapCode": {
+            "title": "globalSkuStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL SKU STAGE."
+        },
+        "stageName": {
+            "title": "globalSkuStage.name",
+            "type": "object"
+        },
+        "updateTimeStamp": {
+            "title": "updateTimeStamp",
+            "type": "string",
+            "format": "date-time",
+            "description": "The date, when the GLOBAL SKU has been updated for the last time."
+        },
+        "globalSkuTypeSapCode": {
+            "title": "globalSkuType.sapCode",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for GLOBAL SKU TYPE."
+        },
+        "globalLifecycleStatusSapCode": {
+            "title": "globalLifecycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL LIFE CYCLE STATUS."
+        },
+        "globalLifecycleStatusRefId": {
+            "title": "globalLifecycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productSubgroupSapCode": {
+            "title": "productSubgroup.sapCode",
+            "type": "string"
+        },
+        "productGroupSapCode": {
+            "title": "productGroup.sapCode",
+            "type": "string"
+        },
+        "skuStructure": {
+            "title": "stockKeepingUnitStructure",
+            "type": "array",
+            "description": "The Stock Keeping Unit Structure connects all Stock Keeping Units to be sold into the market with the Business Field Structure. This refers only to 3rd Party Business Field Structures.",
+            "items": {
+                "$ref": "#/definitions/StockKeepingUnitStructure"
+            }
+        },
+        "incomeTypePrismaCode": {
+            "title": "incomeType.prismaCode",
+            "type": "string",
+            "description": "unique identifier for income type"
+        },
+        "packagingTechnologySapCode": {
+            "title": "packagingTechnology.sapCode",
+            "type": "string",
+            "description": "The code of the PACKAGING TECHNOLOGY"
+        },
+        "manufacturingTechnologySapCode": {
+            "title": "manufacturingTechnology.sapCode",
+            "type": "string",
+            "description": "the code of the MANUFACTURING TECHNOLOGY"
+        },
+        "newFormCodeName": {
+            "title": "newFormCode.name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "newFormCodeSapCode": {
+            "title": "newFormCode.sapCode",
+            "type": "string",
+            "description": "The SAP code to identify a NEW FORM CODE."
+        },
+        "referenceExemptionSapCode": {
+            "title": "referenceExemption.sapCode",
+            "type": "string",
+            "description": "The code of the REFERENCE EXEMPTION. May be 1-4"
+        },
+        "referenceExemptionName": {
+            "title": "referenceExemption.name",
+            "type": "string"
+        },
+        "printedPackagingTypeSapCode": {
+            "title": "printedPackagingType.sapCode",
+            "type": "string",
+            "description": "The Code of the PRINTED PACKAGING MATERIAL (PPM) Type specifies which kind of PRINTED PACKAGING MATERIAL is managed with this LEGACY GLOBAL SKU."
+        },
+        "printedPackagingTypeName": {
+            "title": "printedPackagingType.name",
+            "type": "string",
+            "description": "The name of the PRINTED PACKAGING MATERIAL (PPM) Type specifies which kind of PRINTED PACKAGING MATERIAL is managed with this LEGACY GLOBAL SKU."
+        },
+        "printAssignmentSapCode": {
+            "title": "printAssignment.sapCode",
+            "type": "string",
+            "description": "The Code of the PRINT ASSIGNMENT. The code indicates whether the packaging has a PRINT (artwork) or not"
+        },
+        "printAssignmentName": {
+            "title": "printAssignment.name",
+            "type": "string",
+            "description": "The name of the PRINT ASSIGNMENT. This indicates whether the packaging has a PRINT (artwork) or not"
+        }
+    },
+    "definitions": {
+        "Text": {
+            "title": "text",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "text": {
+                    "title": "text",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "description": {
+                    "title": "description",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "languageIso2Code": {
+                    "title": "language.isoAlpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 Code according to Iso 639."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "StockKeepingUnitStructure": {
+            "title": "stockKeepingUnitStructure",
+            "type": "object",
+            "description": "The Stock Keeping Unit Structure connects all Stock Keeping Units to be sold into the market with the Business Field Structure. This refers only to 3rd Party Business Field Structures.",
+            "properties": {
+                "businessFieldStructureBusinessFieldSapCode": {
+                    "title": "businessFieldStructure.businessField.sapCode",
+                    "type": "string",
+                    "description": "Code of the Business Field."
+                },
+                "businessFieldStructureBusinessSegmentSapCode": {
+                    "title": "businessFieldStructure.businessSegment.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for BUSINESS SEGMENT."
+                },
+                "businessFieldStructureBusinessSegmentRefId": {
+                    "title": "businessSegment.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "businessFieldStructureBusinessUnitSapCode": {
+                    "title": "businessFieldStructure.businessUnit.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for BUSINESS UNIT."
+                },
+                "businessFieldStructureBusinessUnitRefId": {
+                    "title": "businessUnit.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "businessFieldStructureOperatingUnitSapCode": {
+                    "title": "businessFieldStructure.biLegalEntity.sapCode",
+                    "type": "string",
+                    "description": "unique identifier of legal entity (originally generated in CIM system)"
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "description": "The status of the combination of the GLOBAL SKU and the BUSINESS FIELD STRUCTURE. It may be active, inactive or only-history"
+                }
+            }
+        }
+    }
+}

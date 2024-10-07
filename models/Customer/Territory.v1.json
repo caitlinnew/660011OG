@@ -1,0 +1,101 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Territory.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "TERRITORY",
+    "type": "object",
+    "description": "A Territory is an “area of responsibility” in the customer relationship management field, i.e. a number of tasks within a field force team. Usually it takes place in a geographical area and has rules e.g. to specify which customers (HCP, HCO) are belonging to it, which products (one or more Local Brands) it is about, and it has assigned some Customer Facing Employee (aka Roster Member) to it who is “in charge”.",
+    "properties": {
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of territory, used as an identifier (naming conventions are in place, like Country - Business Unit - Business Segment - Territory Code"
+        },
+        "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of Territory"
+        },
+        "startDate": {
+            "title": "startDate",
+            "type": "string",
+            "format": "date",
+            "description": "First day the territory exists"
+        },
+        "endDate": {
+            "title": "endDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last day the territory exists"
+        },
+        "globalPositionType": {
+            "title": "globalPositionType",
+            "type": "string",
+            "description": "Objective\nTo support reporting, local and global, a new territory attribute in Veeva Align will be introduced to define the type of position that the territory is for. This will be a globally harmonized field. \nSource: Email from Robert Oey, Sept 27, 2020"
+        },
+        "hierarchyLevel": {
+            "title": "hierarchyLevel",
+            "type": "string",
+            "description": "the level of Territory in the Territory hierarchy"
+        },
+        "fieldForceName": {
+            "title": "fieldForce.name",
+            "type": "string",
+            "description": "Name of Field Force, which is used as an Identifier. There are naming conventions including Country, Business Unit, Field Force Type or similar"
+        },
+        "fieldForceType": {
+            "title": "fieldForce.type",
+            "type": "string",
+            "description": "Type of Field Force"
+        },
+        "fieldForceBusinessSegments": {
+            "title": "fieldForce.businessSegments",
+            "type": "array",
+            "description": "BUSINESS SEGMENTs are a further segmentation of the BUSINESS UNIT. They are needed because BUSINESS UNITs themselves are too large to be steered without having data on deeper levels. The BUSINESS SEGMENTs are BI’s focus areas for which separate data is needed to be able to decide which of these shall be kept/enlarged/discontinued.",
+            "items": {
+                "$ref": "#/definitions/BusinessSegment"
+            }
+        },
+        "fieldForceCountryIso2Code": {
+            "title": "fieldForce.country.alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 code according to ISO 3166-1"
+        },
+        "fieldForceCountryName": {
+            "title": "country.name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "fieldForceCountryRefId": {
+            "title": "country.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "parent": {
+            "$ref": "Territory.v1.json"
+        }
+    },
+    "definitions": {
+        "BusinessSegment": {
+            "title": "businessSegment",
+            "type": "object",
+            "description": "BUSINESS SEGMENTs are a further segmentation of the BUSINESS UNIT. They are needed because BUSINESS UNITs themselves are too large to be steered without having data on deeper levels. The BUSINESS SEGMENTs are BI’s focus areas for which separate data is needed to be able to decide which of these shall be kept/enlarged/discontinued.",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                },
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "prismaCode": {
+                    "title": "prismaCode",
+                    "type": "string",
+                    "description": "Identifier of business segment (first digit = code of according business unit)"
+                }
+            }
+        }
+    }
+}

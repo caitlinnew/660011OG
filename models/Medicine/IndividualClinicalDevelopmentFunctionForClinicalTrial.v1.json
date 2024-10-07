@@ -1,0 +1,21 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/IndividualClinicalDevelopmentFunctionForClinicalTrial.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION for Clinical Trial",
+    "type": "object",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "clinicalTrialImpactId": {
+                    "title": "clinicalTrial.impactClinicalTrialId",
+                    "type": "string",
+                    "description": "The system generated clinical trial identifier."
+                }
+            }
+        },
+        {
+            "$ref": "IndividualClinicalDevelopmentFunction.v1.json"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Generic/Text.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Text",
+    "type": "object",
+    "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+    "properties": {
+        "text": {
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "textType": {
+            "$ref": "ListOfValues.v1.json"
+        },
+        "language": {
+            "$ref": "../ReferenceData/Language.v1.json"
+        },
+        "writingSystem": {
+            "$ref": "../ReferenceData/WritingSystem.v1.json"
+        }
+    }
+}

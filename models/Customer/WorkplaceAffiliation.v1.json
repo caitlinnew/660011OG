@@ -1,0 +1,30 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/WorkplaceAffiliation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Workplace Affiliation",
+    "type": "object",
+    "description": "Business Partner to Business Partner Affiliation describes the relationship between two Business Partners.",
+    "properties": {
+        "employingOrganizationId": {
+            "title": "employingOrganization.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "employingOrganizationName": {
+            "title": "employingOrganization.name",
+            "type": "string",
+            "description": "The (Organisation) Name of the BUSINESS PARTNER."
+        },
+        "id": {
+            "title": "identifier",
+            "type": "string",
+            "deprecated": true,
+            "description": "Deprecated: use employingOrganizationId instead."
+        },
+        "positionName": {
+            "title": "positionName",
+            "type": "string",
+            "description": "BP Affiliation with an affiliation type like employment or contact person may have the Position Name as additional information."
+        }
+    }
+}

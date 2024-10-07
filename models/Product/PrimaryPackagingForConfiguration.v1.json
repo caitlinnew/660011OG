@@ -1,0 +1,160 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/PrimaryPackagingForConfiguration.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PRIMARY PACKAGING FOR CONFIGURATION",
+    "type": "object",
+    "description": "The PRIMARY PACKAGING FOR CONFIGURATION is a minimal description of the PRIMARY PACKAGING of a DRUG PRODUCT. This minimal description is used in the PRODUCT CONFIGURATION.\n\nThe PRIMARY PACKAGING FOR CONFIGURATION also includes primary packaging with only one component, such as Types sachets or ampoules.",
+    "properties": {
+        "id": {
+            "title": "packagingId",
+            "type": "string",
+            "description": "Unique identifier of the object PRIMARY PACKAGING FOR CONFIGURATION."
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "components": {
+            "title": "packagingComponents",
+            "type": "array",
+            "description": "The PACKAGING COMPONENT specifies the PACKAGING TYPE, COLOR and MATERIAL CLASS of the components of the PRIMARY PACKAGING FOR CONFIGURATION and of the INTERMEDIATE PACKAGING FOR CONFIGURATION. It has no Identifier as it is defined within one PRIMARY PACKAGING FOR CONFIGURATION or one INTERMEDIATE PACKAGING FOR CONFIGURATION.",
+            "items": {
+                "$ref": "PackagingComponent.v1.json"
+            }
+        },
+        "administrationLimit": {
+            "title": "administrationLimit",
+            "type": "number",
+            "description": "Administration Limit is the limit of a PRIMARY PACKAGING FOR CONFIGURATION releasing its contained DRUG PRODUCT FOR CONFIGURATION."
+        },
+        "administrationLimitUopSapCode": {
+            "title": "administrationLimitUop.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "administrationLimitUopRefId": {
+            "title": "administrationLimitUop.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "nominalVolume": {
+            "title": "nominalVolume.nominalVolume",
+            "type": "number",
+            "description": "The Nominal Volume is the volume that a container is designed to hold, leaving a defined volume of headspace in the container. With that, the Nominal Volume is smaller than the Maximum Volume, which is the maximum volume a container can hold, leaving no headspace volume."
+        },
+        "nominalVolumeUomSapCode": {
+            "title": "nominalVolume.unitOfMeasure.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "nominalVolumeUomRefId": {
+            "title": "unitOfMeasure.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "stageSapCode": {
+            "title": "packagingStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "stageRefId": {
+            "title": "packagingStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "typeSapCode": {
+            "title": "packagingType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "typeRefId": {
+            "title": "packagingType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "uopSapCode": {
+            "title": "unitOfPresentation.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "uopRefId": {
+            "title": "unitOfPresentation.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "additionalInformationLanguageIso2": {
+            "title": "additionalInformation.language.alpha-2Code",
+            "type": "string"
+        },
+        "additionalInformationLanguageRefId": {
+            "title": "language.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "updateTimestamp": {
+            "title": "updateTimestamp",
+            "type": "string",
+            "format": "date-time"
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One PRIMARY PACKAGING FOR CONFIGURATION must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing PRIMARY PACKAGING FOR CONFIGURATION."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageIso2": {
+                    "title": "language.alpha-2Code",
+                    "type": "string"
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

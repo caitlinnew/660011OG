@@ -1,0 +1,103 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/SpecialPrecautionForStorage.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SPECIAL PRECAUTION FOR STORAGE",
+    "type": "object",
+    "description": "This list contains the description of the possible storage and/or transport conditions for a medicinal product under which it can be kept during its shelf life.\nThese are based on evaluation of the stability studies undertaken on the finished product. Details of the conditions recommended for these stability studies are included in the relevant CHMP/ICH Guidelines. The storage conditions must be possible for the user to follow and the statements are therefore restricted to those achievable in practice.\nThis list is used to describe the conditions under which the shelf life was established and guaranteed. The information is used in product information (SPC, PIL, labelling).",
+    "properties": {
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": 
+                {
+                    "title": "disabledAttributes",
+                    "type": "string",
+                    "description": "a list of disabled misc attributes in this dataset"
+                }
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "sources": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": 
+                {
+                    "$ref": "#/definitions/SourceOfInformationRef"
+                }
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "enum":[
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        },
+        "validityBusinessUnit": {
+            "title": "validityHumanOrVeterinary",
+            "type": "string",
+            "enum": [
+                "HP",
+                "AH",
+                "HP + AH"
+            ]
+        }
+    },
+    "definitions": {
+        "SourceOfInformationRef": {
+            "title": "sourceOfInformationRef",
+            "type": "object",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

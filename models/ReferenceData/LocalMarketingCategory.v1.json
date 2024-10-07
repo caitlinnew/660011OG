@@ -1,0 +1,107 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/LocalMarketingCategory.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "LOCAL MARKETING CATEGORY",
+    "type": "object",
+    "description": "The local marketing category is used in order to group multiple SKUs. It needs to be aligned across the entire customer engagement process, from the market mix planning to the sales execution. This information is also required for analysis after sales campaigns are completed.\nThe local marketing category is required to appropriately create and manage pricelists, promotions and rebate contracts. It is also required to calculate promotions and rebates on product group level. It is used as part of the revenue management processes for the Vistex Add On in the GBS united system. The ability to categorize products prevents us from creating promotions and/or rebates at the individual SKU level.",
+    "properties": {
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "sources": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "$ref": "#/definitions/SourceOfInformationRef"
+            }
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is one of the unique identifiers of the data record for this object."
+        },
+        "country": {
+            "$ref": "#/definitions/CountryRef"
+        },
+        "businessUnit": {
+            "$ref": "#/definitions/BusinessUnitRef"
+        }
+    },
+    "definitions": {
+        "SourceOfInformationRef": {
+            "title": "sourceOfInformationRef",
+            "type": "object",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "CountryRef": {
+            "title": "countryRef",
+            "type": "object",
+            "description": "The COUNTRY object is based on the ISO 3166-1 Standard. Boehringer internal extensions are accepted if absolutely needed.\nA country is a political entity with clear geographic boundaries and sovereignity over the territory and the people within. The boundaries are mostly internationally recognized and within them, economic and social activities are under control of the Legislation, Jurisdiction and Executive Power of the country. \nLink: https://www.iso.org/obp/ui/#search",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "BusinessUnitRef": {
+            "title": "businessUnitRef",
+            "type": "object",
+            "description": "A BUSINESS UNIT is a subsection of company's business operations that generates separate income and costs.\nIt is responsible for a group of products or customers.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/PerformedMedicalVisit.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PERFORMED MEDICAL VISIT",
+    "type": "object",
+    "description": "The visit for subject, designates one specific visit instance for a CLINICAL TRIAL SUBJECT or a subject recruited for other study types. It acts as a controlling object to check whether the subject visit has been completed or missed (status), when it has been completed and, if applicable, the delay in the visit's execution for the subject.",
+    "properties": {
+        "studySubjectUniqueSubjectNumber": {
+            "title": "studySubject.uniqueSubjectNumber",
+            "type": "string",
+            "description": "Unique identifier of the CLINICAL TRIAL SUBJECT enrolled at the associated CLINICAL TRIAL SITE.\nThe ID builds from the BI Clinical Trial Number, Clinical Trial Site ID together with the Subject Identifier given by the CTMS.\n\nDerivation is coming from Site Number from CLINICAL TRIAL SITE."
+        },
+        "actualDate": {
+            "title": "actualDate",
+            "type": "string",
+            "format": "date",
+            "description": "The actual date of the MEDICAL SUBJECT VISIT."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of PERFORMED MEDICAL VISIT."
+        },
+        "subjectVisitStatus": {
+            "title": "subjectVisitStatus",
+            "type": "string",
+            "description": "Names the subject visit status of this MEDICAL SUBJECT VISIT."
+        },
+        "plannedDate": {
+            "title": "plannedDate",
+            "type": "string",
+            "format": "date",
+            "description": "The date this PERFORMED MEDICAL VISIT was planned to be conducted.\nDerived from Study Date in associated PLANNED MEDICAL VISIT (superclass PLANNED MEDICAL ACTIVITY)."
+        }
+    }
+}

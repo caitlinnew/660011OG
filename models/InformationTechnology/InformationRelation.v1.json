@@ -1,0 +1,60 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/InformationRelation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INFORMATION RELATION",
+    "type": "object",
+    "description": "An INFORMATION RELATION is the representation of how two pieces of information are connected to each other",
+    "properties": {
+        "uuid": {
+            "title": "uuid",
+            "type": "string",
+            "description": "Identifier of the Element."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the class."
+        },
+        "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the Information Object in business language."
+        },
+        "editingStatus": {
+            "title": "editingStatus",
+            "type": "string",
+            "description": "The Editing Status provides information on the current working status of an INFORMATION MODEL ELEMENT.",
+            "enum": [
+                "DRAFT",
+                "VERIFIED",
+                "SUSPECT",
+                "DEPRECATED"
+            ]
+        },
+        "releaseStatus": {
+            "title": "releaseStatus",
+            "type": "string",
+            "description": "Release Status of the information model element",
+            "enum": [
+                "NOT RELEASED",
+                "RELEASE PLANNED",
+                "CHANGED NOT RELEASED",
+                "RELEASED"
+            ]
+        },
+        "sourceObject": {
+            "$ref": "InformationModelElement.v1.json"
+        },
+        "targetObject": {
+            "$ref": "InformationModelElement.v1.json"
+        },
+        "containedInDiagrams": {
+            "title": "containedInDiagrams",
+            "type": "array",
+            "description": "The INFOMRATION MODEL DIAGRAM is a visualisation of one ore mulitple INFORMATION OBJECT(s), their INFORMATION ATTRIBUTE(s) and the respective INFORMATION RELATION(s) among them.",
+            "items": {
+                "$ref": "InformationModelElement.v1.json"
+            }
+        }
+    }
+}

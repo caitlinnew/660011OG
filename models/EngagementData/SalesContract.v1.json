@@ -1,0 +1,92 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/EngagementData/SalesContract.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SALES CONTRACT",
+    "type": "object",
+    "description": "A sales contract is a contract between BI and a customer (e.g. a wholesaler, a group purchasing organization (GPO), a government organization, ..) which contains terms and conditions valid for the sales of BI products to that customer or his clients / members. Included (per product / SKU / \"revenue generating material\") might be conditions like e.g. prices, chargebacks (for wholesaler) or rebates (for GPO, government) which the contract partner may request BI to apply or refund for indirect sales (to the wholesaler's customers / to the GPO members / to the people covered by the government program).\nThe rules and regulations belonging to a government program are also considered to be a sales contract (which BI has \"signed\" by participating in it).",
+    "properties": {
+        "id": {
+            "title": "contractId",
+            "type": "string",
+            "description": "Contract ID is a unique string which serves as an identifier for the contract."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name"
+        },
+        "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status",
+            "enum": [
+                "DRAFT",
+                "APPROVED",
+                "SIGNED",
+                "ACTIVE",
+                "EXPIRED",
+                "DISCARDED",
+                "ARCHIVED"
+            ]
+        },
+        "validFrom": {
+            "title": "validFrom",
+            "type": "string",
+            "format": "date",
+            "description": "First day the contract is valid"
+        },
+        "validTo": {
+            "title": "validTo",
+            "type": "string",
+            "format": "date",
+            "description": "Last day the contract is valid"
+        },
+        "signedDate": {
+            "title": "signedDate",
+            "type": "string",
+            "format": "date",
+            "description": "The day when the contract was signed"
+        },
+        "fileName": {
+            "title": "fileName",
+            "type": "string",
+            "description": "technical name of the contract document file"
+        },
+        "customer": {
+            "$ref": "../Customer/Customer.v2.json"
+        },
+        "pricingAgreements": {
+            "title": "pricingAgreement",
+            "type": "array",
+            "description": "A pricing agreement is an agreement between BI and a customer about BI granting advantages (like e.g. rebates, discounts) to the customer depending on certain terms and conditions (which are put down in the Description respectively the pricing agreement rules).",
+            "items": {
+                "$ref": "PricingAgreement.v1.json"
+            }
+        },
+        "utilizedTemplate": {
+            "$ref": "SalesContractTemplate.v1.json"
+        },
+        "customerFacingEmployee": {
+            "$ref": "../MarketingAndSales/CustomerFacingEmployee.v1.json"
+        },
+        "signingCustomerContact": {
+            "$ref": "../Customer/Individual.v2.json"
+        },
+        "buyingGroup": {
+            "$ref": "#/definitions/BuyingGroup"
+        }
+    },
+    "definitions": {
+        "BuyingGroup": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "../Vendor/Organization.v1.json"
+                }
+            ]
+        }
+    }
+}

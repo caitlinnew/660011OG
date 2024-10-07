@@ -1,0 +1,86 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Generic/InboundMessageResponse.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INBOUND MESSAGE RESPONSE",
+    "type": "object",
+    "properties": {
+        "client": {
+            "title": "client",
+            "type": "string"
+        },
+        "changeRequest": {
+            "title": "changeRequest",
+            "type": "integer",
+            "format": "int32"
+        },
+        "typeOfChangeRequest": {
+            "title": "typeOfChangeRequest",
+            "type": "string"
+        },
+        "messageId": {
+            "title": "messageId",
+            "type": "string"
+        },
+        "inboundType": {
+            "title": "inboundType",
+            "type": "string",
+            "enum":[
+                "BUSINESS PARTNER",
+                "RELATIONSHIP"
+            ]
+        },
+        "businessPartnerId": {
+            "title": "businessPartnerIdentifier.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "itemNumber": {
+            "title": "itemNumber",
+            "type": "string"
+        },
+        "utcTimeStampShort": {
+            "title": "utcTimeStampShort",
+            "type": "string",
+            "format": "date-time"
+        },
+        "businessSystem": {
+            "title": "businessSystem",
+            "type": "string"
+        },
+        "changeRequestStatus": {
+            "title": "status",
+            "type": "string",
+            "enum": [
+                "ERROR",
+                "CREATED",
+                "IN PROGRESS",
+                "SUCCESS",
+                "ACTIVATION ERROR"
+            ]
+        },
+        "messageType": {
+            "title": "messageType",
+            "type": "string",
+            "enum": [
+                "SUCCESS",
+                "ERROR",
+                "WARNING",
+                "INFO",
+                "ABORT"
+            ]
+        },
+        "messageClassId": {
+            "title": "messageClass.id",
+            "type": "string"
+        },
+        "messageNumber": {
+            "title": "messageNumber",
+            "type": "integer",
+            "format": "int32"
+        },
+        "messageText": {
+            "title": "messageText",
+            "type": "string"
+        }
+    }
+}

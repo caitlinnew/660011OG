@@ -1,0 +1,305 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/AdministeredDrugProduct.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ADMINISTERED DRUG PRODUCT",
+    "type": "object",
+    "description": "The ADMINISTERED DRUG PRODUCT is the qualitative and quantitative composition of a medicinal product in the dose form approved for administration.\n[ISO 11616:2017 IDMP Pharmaceutical Product, 3.1.24 pharmaceutical product]\nIt is the DRUG PRODUCT after transformation, if applicable, for administration to or use by the patient. In many instances, the ADMINISTERED DRUG PRODUCT is equal to the DRUG PRODUCT. However, there are instances where the DRUG PRODUCT must undergo a transformation before being administered to the patient as the ADMINISTERED DRUG PRODUCT and the two are not equal.",
+    "properties": {
+        "id": {
+            "title": "productId",
+            "type": "string",
+            "description": "Unique identifier of the object ADMINISTERED DRUG PRODUCT."
+        },
+        "administeredDoseFormCode": {
+            "title": "administeredDoseForm.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for PHARMACEUTICAL DOSE FORM.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "administeredDoseFormSapCode": {
+            "title": "administeredDoseForm.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for PHARMACEUTICAL DOSE FORM."
+        },
+        "administeredDoseFormRefId": {
+            "title": "administeredDoseForm.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "drugProductIds": {
+            "title": "drugProduct",
+            "type": "array",
+            "deprecated": true,
+            "description": "This element is deprecated and will be removed soon.\nPlease use the list of drug products in the 'transformedDrugs' section instead.",
+            "items": {
+                "title": "productId",
+                "type": "string",
+                "description": "Unique identifier of the object DRUG PRODUCT FOR CONFIGURATION."
+            }
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL LIFE CYCLE STATUS.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL LIFE CYCLE STATUS."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalProductId": {
+            "title": "globalProduct.globalProductId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL PRODUCT."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for MATURITY LEVEL.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for MATURITY LEVEL."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productStageCode": {
+            "title": "productStage.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for PRODUCT STAGE.\nThis element is deprecated and will be removed soon.\nPlease use *sapCode instead."
+        },
+        "productStageSapCode": {
+            "title": "productStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for PRODUCT STAGE."
+        },
+        "productStageRefId": {
+            "title": "productStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "routesOfAdministration": {
+            "title": "routesOfAdministration",
+            "type": "array",
+            "description": "ROUTE OF ADMINISTRATION indicates the part of the body on which, through which or into which the medicinal product is to be introduced. The METHOD OF ADMINISTRATION is used mostly in the veterinary field to indicate the way the medicinal product is to be administered to the animals.\nThe routes and methods of administration terms appear in a simple flat list, with no hierarchy and generally no links to other terms, since they can be considered as independent terms.\nThis list is for Human and Veterinary use. \nUses:\nThis list of Standard Terms, which has 'European Guideline' status, must be used in EU marketing authorisation application dossiers for medicines for human and animal use.",
+            "items": {
+                "$ref": "#/definitions/RouteAndMethodOfAdministration"
+            }
+        },
+        "transformationCode": {
+            "title": "transformation.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for TRANSFORMATION.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "transformationSapCode": {
+            "title": "transformation.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for TRANSFORMATION."
+        },
+        "transformationRefId": {
+            "title": "transformation.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "uopSapCode": {
+            "title": "unitOfPresentation.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for UNIT OF PRESENTATION."
+        },
+        "uopRefId": {
+            "title": "unitOfPresentation.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "deviceForConfigurationId": {
+            "title": "deviceForConfiguration.productId",
+            "type": "string",
+            "description": "Unique identifier of the object DEVICE FOR CONFIGURATION."
+        },
+        "targetQuantity": {
+            "title": "targetQuantity",
+            "type": "number",
+            "description": "The Target Quantity of the ADMINISTERED DRUG PRODUCT is calculated from the Target Quantity Drug Product of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION.\nFor TRANSFORMATION No transformation the Target Quantity is the Target Quantity of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION.\nFor TRANSFORMATION Dilution (liquid + liquid) or Mixing (solid + solid) the Target Quantity is the sum of the Target Quantities of the TRANSFORMED DRUG PRODUCTs FOR CONFIGURATION.\nFor TRANSFORMATION Dissolution (solid + liquid) or Dispersion (solid + liquid or gaseous + liquid) the Target Quantity is the Target Quantity Drug Product of the liquid TRANSFORMED DRUG PRODUCT FOR CONFIGURATION."
+        },
+        "transformedDrugs": {
+            "title": "transformedDrugs",
+            "type": "array",
+            "description": "The TRANSFORMED DRUG PRODUCT FOR CONFIGURATION identifies the DRUG PRODUCT FOR CONFIGURATION that is transformed into a ADMINISTERED DRUG PRODUCT. It is different from the DRUG PRODUCT FOR CONFIGURATION in that it provides a target quantity describing the amount used in the specified ADMINISTERED DRUG PRODUCT. With that, the INGREDIENTS and their quantity of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION can be derived from the PRODUCT COMPOSITION.",
+            "items": {
+                "$ref": "#/definitions/TransformedDrugProductForConfiguration"
+            }
+        },
+        "uomSapCode": {
+            "title": "unitOfMeasure.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "uomRefId": {
+            "title": "unitOfMeasure.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "alternateTargetQuantityValue": {
+            "title": "alternateTargetQuantityOfPresentation.alternateTargetQuantity",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Alternate Target Quantity is the Numerator of the conversion factor that converts a Quantity 1 quantified in a UoM into a Quantity 2 quantified in an Alternate UoM.\nThe conversion rule is: Quantity 1 [UoM] = Quantity 2 [Alternate UoM].\nThis conversion rule can be rearranged to calculate a conversion factor: 1 [UoM] = (Quantity 2 / Quantity 1) [Alternate UoM]. Here, Quantity 2 is the Numerator and Quantity 1 is the Denominator of the conversion factor, respecitively.\nThe Alternate Target Quantity quantified in the Alternate UNIT OF MEASURE is the same amount as the Target Quantity quantified in the UNIT OF MEASURE.\nThe Alternate Target Quantity defined for an UoP of an ADMINISTERED DRUG PRODUCT shall be one."
+        },
+        "alternateTargetQuantityUopSapCode": {
+            "title": "alternateTargetQuantityUop.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for UNIT OF PRESENTATION."
+        },
+        "alternateTargetQuantityUopRefId": {
+            "title": "alternateTargetQuantityUop.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One ADMINISTERED DRUG PRODUCT must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing ADMINISTERED DRUG PRODUCT."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageCode": {
+                    "title": "language.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for LANGUAGE.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+                },
+                "languageSapCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for LANGUAGE."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "RouteAndMethodOfAdministration": {
+            "title": "routeAndMethodOfAdministration",
+            "type": "object",
+            "description": "ROUTE OF ADMINISTRATION indicates the part of the body on which, through which or into which the medicinal product is to be introduced. The METHOD OF ADMINISTRATION is used mostly in the veterinary field to indicate the way the medicinal product is to be administered to the animals.\nThe routes and methods of administration terms appear in a simple flat list, with no hierarchy and generally no links to other terms, since they can be considered as independent terms.\nThis list is for Human and Veterinary use. \nUses:\nThis list of Standard Terms, which has 'European Guideline' status, must be used in EU marketing authorisation application dossiers for medicines for human and animal use.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "code": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for ROUTE AND METHOD OF ADMINISTRATION."
+                },
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for ROUTE AND METHOD OF ADMINISTRATION."
+                }
+            }
+        },
+        "TransformedDrugProductForConfiguration": {
+            "title": "transformedDrugProductForConfiguration",
+            "type": "object",
+            "description": "The TRANSFORMED DRUG PRODUCT FOR CONFIGURATION identifies the DRUG PRODUCT FOR CONFIGURATION that is transformed into a ADMINISTERED DRUG PRODUCT. It is different from the DRUG PRODUCT FOR CONFIGURATION in that it provides a target quantity describing the amount used in the specified ADMINISTERED DRUG PRODUCT. With that, the INGREDIENTS and their quantity of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION can be derived from the PRODUCT COMPOSITION.",
+            "properties": {
+                "drugProductId": {
+                    "title": "drugProductForConfiguration.productId",
+                    "type": "string",
+                    "description": "Unique identifier of the object DRUG PRODUCT FOR CONFIGURATION."
+                },
+                "targetQuantity": {
+                    "title": "targetQuantityDrugProduct",
+                    "type": "number",
+                    "description": "The Target Quantity Drug Product is the Target Quantity of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION used in the TRANSFORMATION into the ADMINISTERED DRUG PRODUCT.\nThe Target Quantity Drug Product is used to derive the Quantities of the INGREDIENTs of the ADMINISTERED DRUG PRODUCT from the INGREDIENTs of the corresponding PRODUCT COMPOSITIONs of the used DRUG PRODUCTs FOR CONFIGURATION.\nIf the target quantity of the ADMINISTERED DRUG PRODUCT is identical to the target quantity of the corresponding PRODUCT COMPOSITION, then the quantities of the INGREDIENTs of the PRODUCT COMPOSITION are the quantities of the INGREDIENTs of the ADMINISTERED DRUG PRODUCT.\nIf the target quantity of the ADMINISTERED DRUG PRODUCT is a multiple of the target quantity of the corresponding PRODUCT COMPOSITION, then the quantities of the INGREDIENTs of the PRODUCT COMPOSITION must be multiplied to derive the quantities of the INGREDIENTs of the ADMINISTERED DRUG PRODUCT."
+                },
+                "transformedIngredients": {
+                    "title": "transformedIngredient",
+                    "type": "array",
+                    "description": "The QUANTITY IN TRANSFORMED DRUG PRODUCT is the quantity of the INGREDIENT listed in a PRODUCT COMPOSITION as used in a ADMINISTERED DRUG PRODUCT.",
+                    "items": {
+                        "$ref": "#/definitions/IngredientQuantityInTransformedDrugProduct"
+                    }
+                }
+            }
+        },
+        "IngredientQuantityInTransformedDrugProduct": {
+            "title": "ingredientQuantityInTransformedDrugProduct",
+            "type": "object",
+            "description": "The QUANTITY IN TRANSFORMED DRUG PRODUCT is the quantity of the INGREDIENT listed in a PRODUCT COMPOSITION as used in a ADMINISTERED DRUG PRODUCT.",
+            "properties": {
+                "specifiedSubstanceId": {
+                    "title": "ingredient.identifier",
+                    "type": "string"
+                },
+                "max": {
+                    "title": "maximumQuantityInTransformedDrugProduct",
+                    "type": "number",
+                    "description": "The Maximum Quantity in Transformed Drug Product is calculated for one INGREDIENT of one TRANSFORMED DRUG PRODUCT in one ADMINISTERED DRUG PRODUCT based on its Maximum Quantity in the PRODUCT COMPOSITION, Target Quantity of that PRODUCT COMPOSITION and the Target Quantity of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION."
+                },
+                "min": {
+                    "title": "minimumQuantityInTransformedDrugProduct",
+                    "type": "number",
+                    "description": "The Minimum Quantity in Transformed Drug Product is calculated for one INGREDIENT of one TRANSFORMED DRUG PRODUCT in one ADMINISTERED DRUG PRODUCT based on its Minimum Quantity in the PRODUCT COMPOSITION, Target Quantity of that PRODUCT COMPOSITION and the Target Quantity of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION."
+                },
+                "quantity": {
+                    "title": "quantityInTransformedDrugProduct",
+                    "type": "number",
+                    "description": "The Quantity in Transformed Drug Product is calculated for one INGREDIENT of one TRANSFORMED DRUG PRODUCT in one ADMINISTERED DRUG PRODUCT based on its Quantity in the PRODUCT COMPOSITION, Target Quantity of that PRODUCT COMPOSITION and the Target Quantity of the TRANSFORMED DRUG PRODUCT FOR CONFIGURATION."
+                },
+                "referenceStrength": {
+                    "title": "referenceStrength.quantity",
+                    "type": "number",
+                    "description": "The Quantity of a REFERENCE SUBSTANCE is the REFERENCE STRENGTH Quantity.\nIt is calculated from the Quantity of the INGREDIENT, if maintained (0..1), multiplied with the REFERENCE STRENGTH CALCULATION Factor."
+                },
+                "referenceStrengthMin": {
+                    "title": "referenceStrength.minimumQuantity",
+                    "type": "number",
+                    "description": "The Minimum Quantity of a REFERENCE SUBSTANCE is the REFERENCE STRENGTH Minimum Quantity.\nIt is calculated from the Minimum Quantity of the INGREDIENT, if maintained (0..1), multiplied with the REFERENCE STRENGTH CALCULATION Factor."
+                },
+                "referenceStrengthMax": {
+                    "title": "referenceStrength.maximumQuantity",
+                    "type": "number",
+                    "description": "The Maximum Quantity of a REFERENCE SUBSTANCE is the REFERENCE STRENGTH Maximum Quantity.\nIt is calculated from the Maximum Quantity of the INGREDIENT, if maintained (0..1), multiplied with the REFERENCE STRENGTH CALCULATION Factor."
+                }
+            }
+        }
+    }
+}

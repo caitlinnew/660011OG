@@ -1,0 +1,114 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/HumanRessources/HrBusinessUnit.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HR BUSINESS UNIT",
+    "type": "object",
+    "description": "An organizational structure such as a department or a team. It may be used to identify accountability. The use of the value is defined by the dependency to the list “Reference Data Intended Use”.\nReference Data Intended Use type \"Content Asset Organizational Ownership\": Used to categorize and classify content assets based on the business department or team to which the content asset owner belongs. In case the content asset owner has left the company, the content asset can still be attributed to a team for accountability of the content asset’s life-cycle. Also used for content asset record organization, search/filter, and reporting purposes, to group content assets and related data for comparison and insight generation.",
+    "properties": {
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": 
+            {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "code": {
+            "title": "sapCode[Deprecated]",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "sources": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "deprecated": true,
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": 
+                {
+                    "$ref": "#/definitions/SourceOfInformationRef"
+                }
+        },
+        "sourcesRefId": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "referenceDataIntendedUse": {
+            "title": "referenceDataIntendedUse",
+            "type": "array",
+            "description": "Definition of a use case or a user group that uses a selection of the reference values listed in another reference list.\nIn some cases, a tailored subset of values of another reference list needs to be displayed as reference information. To differentiate these use cases and enable filtering of relevant values for the specific case, this list is used.",
+            "items": {
+                "$ref": "../ReferenceData/ReferenceDataIntendedUse.v1.json"
+            }
+        },
+        "unitType": {
+            "title": "unitType",
+            "type": "string",
+            "description": "Unit Type describes the type of organizational unit."
+        },
+        "hrBusinessUnitRefRefId": {
+            "title": "hrBusinessUnitRef.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "definitions": {
+            "SourceOfInformationRef": {
+                "title": "sourceOfInformationRef",
+                "type": "object",
+                "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+                "properties": {
+                    "refId": {
+                        "title": "referenceDataId",
+                        "type": "string",
+                        "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                    }
+                }
+            }
+        }        
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Finance/BiLegalEntity.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BI LEGAL ENTITY",
+    "type": "object",
+    "description": "A legal entity is defined as a company. There is a differentiation between affiliated BI companies (sometimes called Operating Unit), special purpose companies and 3rd party companies. Affiliated BI companies belonging to the worldwide BI group are part of the general corporate reporting. For some specific financial reasons it may be necessary to consider also special purpose companies (e.g. Parallel Trade Import.) 3rd party companies are only used in case they are to be consider as producer within the financial logistic in the Standard Cost Reporting.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "countryIso2Code": {
+                    "title": "country.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                },
+                "countryIso3Code": {
+                    "title": "country.alpha-3Code",
+                    "type": "string",
+                    "description": "The Alpha-3 code according to ISO 3166-1"
+                }
+            }
+        },
+        {
+            "$ref": "#/definitions/Organization"
+        }
+    ],
+    "definitions": {
+        "Organization": {
+            "title": "organization",
+            "type": "object",
+            "description": "A NON-INDIVIDUAL PARTY or ORGANIZATION describes a non-individual BUSINESS PARTNER. \nIt may specialize, for example, in LEGAL ENTITY, NON-LEGAL ASSOCIATION, …",
+            "properties": {
+                "organizationName": {
+                    "title": "preferedOrganizationName.name",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

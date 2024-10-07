@@ -1,0 +1,111 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/EngagementData/GlobalStrategicSegment.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GLOBAL STRATEGIC SEGMENT",
+    "type": "object",
+    "description": "A description of criteria about the behaviour of customers which most probably leads to similiar characteristics / needs of those customers, or to similar responses to market action. The potential customers meeting these criteria are assumed to be of high strategic relevance.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "This Term contains an abbreviated version of the complete name maintained in the Short Description.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "validFrom": {
+            "title": "validFrom",
+            "type": "string",
+            "format": "date",
+            "description": "A LoV for GLOBAL STRATEGIC SEGMENTs is valid for one calendar year."
+        },
+        "validTo": {
+            "title": "validTo",
+            "type": "string",
+            "format": "date",
+            "description": "The date until the GLOBAL STRATEGIC SEGMENT may be used."
+        },
+        "strategicTargetGroupsRefIds": {
+            "title": "strategicTargetGroups",
+            "type": "array",
+            "description": "A STRATEGIC TARGET GROUP is a grouping of GLOBAL STRATEGIC SEGMENTs or LOCAL MICROSEGMENTs. \nIt may be put down (but not necessarily so) as a specialty of an HCP (Health Care Professional) (resp. the category of HCPs having that specialty).",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "globalStartegicSegmentPredecessorsRefIds": {
+            "title": "globalStartegicSegmentPredecessors",
+            "type": "array",
+            "description": "A description of criteria about the behaviour of customers which most probably leads to similiar characteristics / needs of those customers, or to similar responses to market action. The potential customers meeting these criteria are assumed to be of high strategic relevance.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "strategicSegmentType": {
+            "title": "strategicSegmentType",
+            "type": "string",
+            "enum": [
+                "Health Care Provider",
+                "Market Access",
+                "Patient"
+            ]
+        }
+    }
+}

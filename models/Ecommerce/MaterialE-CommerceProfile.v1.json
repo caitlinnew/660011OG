@@ -1,0 +1,90 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Ecommerce/MaterialE-CommerceProfile.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MaterialE-CommerceProfile",
+    "type": "object",
+    "properties": {
+        "active": {
+            "title": "activeFlag",
+            "type": "boolean",
+            "description": "Flag to indicate if the product is active (boolean)"
+        },
+        "orderable": {
+            "title": "orderableFlag",
+            "type": "boolean",
+            "description": "Flag to indicate if the product can be ordered through eCommerce (boolean)"
+        },
+        "returnable": {
+            "title": "returnableFlag",
+            "type": "boolean",
+            "description": "Flag to indicate if the product can be returned (boolean)"
+        },
+        "inventoryStatus": {
+            "type": "string",
+            "description": "Shows the current inventory levels for the product displayed on the web page"
+        },
+        "promotionalMultiplier": {
+            "type": "number",
+            "description": "Carton equivalency compared to a standard 3x10 dose carton"
+        },
+        "labelLink": {
+            "type": "string",
+            "description": "URL to Product Insert/Label hosted by a third party"
+        },
+        "materialSafetyDataSheetLink": {
+            "type": "string",
+            "description": "URL to MSDS information hosted by a third party (material safety data sheet)"
+        },
+        "smallImageLink": {
+            "type": "string",
+            "description": "URL to Product Insert/Label hosted by a third party"
+        },
+        "mediumImageLink": {
+            "type": "string",
+            "description": "URL to a medium version of the product image (160x160px)"
+        },
+        "largeImageLink": {
+            "type": "string",
+            "description": "URL to a large version of the product image (600x600px)"
+        },
+        "shippableImageLink": {
+            "type": "string",
+            "description": "URL to an image of what the customer will actually receive."
+        },
+        "minimumOrderableQuantity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum quantity that be ordered at a time"
+        },
+        "maximumOrderableQuantity": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum Orderable Quantity at a time"
+        },
+        "displayValue": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/MaterialE-CommerceProfileDisplayValue"
+            }
+        }
+    },
+    "definitions": {
+        "MaterialE-CommerceProfileDisplayValue": {
+            "type": "object",
+            "description": "... defines an actual descriptive product attribute that will appear on the product detail page or catalog.",
+            "properties": {
+                "attributeType": {
+                    "type": "string",
+                    "description": "Multiple per product. Identifies the bulleted descriptions of the product on the catalog or product detail."
+                },
+                "attributeDisplayOrder": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "attributeValue": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

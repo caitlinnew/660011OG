@@ -1,0 +1,92 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Pet.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Pet",
+    "description": "A PET is an animal that is owned by a Consumer. Both, Pet and Consumer are Customers.",
+    "allOf": [
+        {  
+            "type": "object",
+            "properties": {
+                "aliveIndicator": {
+                    "type": "boolean",
+                    "description": "The Alive Indicator displays if a PET is still alive."
+                },
+                "birthDay": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The day of the PET's Birth Date (1-31)."
+                },
+                "birthMonth": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The month of the Pet's Birth Date (1-12)."
+                },
+                "birthYear": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Year of the PET's Birth Date."
+                },
+                "color": {
+                    "type": "string",
+                    "description": "Color of a pet."
+                },
+                "description": {
+                    "type": "string"
+                },
+                "petWeight": {
+                    "type": "string"
+                },
+                "petWeightUnit": {
+                    "$ref": "../ReferenceData/UnitOfMeasure.v1.json"
+                },
+                "pictureUrl": {
+                    "type": "string",
+                    "description": "URL for uploaded pet picture"
+                },
+                "species": {
+                    "$ref": "../ReferenceData/Species.v1.json"
+                }
+            }
+        },
+        {
+            "$ref": "#/definitions/Gender"
+        },
+        {
+            "$ref": "#/definitions/Breed"
+        }
+    ],
+    "definitions": {
+        "Breed": {
+            "type": "object",
+            "description": "There is no common holistic standard on breeds available. Breed standards exist only on a lower level e.g. for dogs, cats, horses, etc. For dogs exist several standards, the most holistic is from Fédération Cynologique Internationale (FCI), which has 84 member countries.",
+            "properties": {
+                "breedCode": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "breedName": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "Gender": {
+            "type": "object",
+            "description": "Gender is the range of characteristics pertaining to, and differentiating between, masculinity and femininity. The used standard is ISO 5218.",
+            "properties": {
+                "genderCode": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "genderName": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        }
+    }
+}

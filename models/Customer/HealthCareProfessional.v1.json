@@ -1,0 +1,22 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/HealthCareProfessional.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HEALTH CARE PROFESSIONAL",
+    "type": "object",
+    "description": "A HEALTHCARE PROFESSIONAL (“HCP”) is a natural person that is a member of the medical, dental, pharmacy or nursing professions or any other person who, in the course of his or her professional activities, may prescribe, purchase, supply, recommend or administer a medicinal product.\n(See 100-BIP-00415 and HCCApp for additional local requirements: https://shareroom1.eu.boehringer.com/de/hccapp/SitePages/Home.aspx)",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "hcxFlag": {
+                    "title": "hcxFlag",
+                    "type": "boolean",
+                    "description": "The HCx Flag indicates that a Business Partner has spend on BI's behalf. \nIf the flag is set, this Business Partner record will be forwarded to the CCT (Clinical Cost Tracking) modul in BI's CTMS system."
+                }
+            }
+        },
+        {
+            "$ref": "Individual.v2.json"
+        }
+    ]
+}

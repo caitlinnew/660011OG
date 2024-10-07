@@ -1,0 +1,166 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/Country.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "COUNTRY",
+    "type": "object",
+    "description": "The COUNTRY object is based on the ISO 3166-1 Standard. Boehringer internal extensions are accepted if absolutely needed.\nA country is a political entity with clear geographic boundaries and sovereignity over the territory and the people within. The boundaries are mostly internationally recognized and within them, economic and social activities are under control of the Legislation, Jurisdiction and Executive Power of the country. \nLink: https://www.iso.org/obp/ui/#search",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "iso2Code": {
+            "title": "alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 code according to ISO 3166-1"
+        },
+        "iso3Code": {
+            "title": "alpha-3Code",
+            "type": "string",
+            "description": "The Alpha-3 code according to ISO 3166-1"
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "countryCallingCode": {
+            "title": "countryCallingCode",
+            "type": "string",
+            "description": "Country calling codes or country dial in codes are telephone dialing prefixes for the member countries or regions of the International Telecommunication Union (ITU). They are defined by the ITU-T in standards E.123 and E.164. The prefixes enable international direct dialing (IDD), and are also referred to as international subscriber dialing (ISD) codes."
+        },
+        "englishShortName": {
+            "title": "englishShortName",
+            "type": "string",
+            "description": "English short name according to ISO 3166-1"
+        },
+        "numericCode": {
+            "title": "numericCode",
+            "type": "string",
+            "description": "The numeric code of a COUNTRY according to ISO 3166-1"
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "description": "Status of the EMA RMS Identifier."
+        },
+        "countrySubdivisionsRefIds": {
+            "title": "countrySubdivisions",
+            "type": "array",
+            "description": "The SUBDIVISION of a COUNTRY according to ISO 3166-2.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "climaticZoneRefId": {
+            "title": "climaticZone.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "languagesRefIds": {
+            "title": "languages",
+            "type": "array",
+            "description": "Language definitions are based on ISO 639-1.\nISO 639-1 contains much other information about the use of language symbols and registration of new symbols.\nThe language codes of ISO 639-1 are said to be \"devised primarily for use in terminology, lexicograph",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "currenciesRefIds": {
+            "title": "currencies",
+            "type": "array",
+            "description": "The CURRENCY is defined according to the ISO 4217 standard. In general it reprensents the local currency of a country and is allocated on legal entity level.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "regulatoryRegionsRefIds": {
+            "title": "regulatoryRegions",
+            "type": "array",
+            "description": "REGULATORY REGION is a specific kind of COUNTRY GROUPING with the COUNTRY GROUPING TYPE \"Regulatory Region\".\nIt is a specific kind of REGIONAL GROUPING to group together the COUNTRYs of the WORLD from a regulatory perspective.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "ropuRefId": {
+            "title": "ropu.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "prismaCode": {
+            "title": "prismaCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "describes the 3-digit code of the BI system Prisma for a non-virtual COUNTRY."
+        },
+        "isoFullName": {
+            "title": "isoFullName",
+            "type": "string",
+            "description": "the non-abbreviated name of a COUNTRY formatted for postal purposes."
+        }
+    }
+}

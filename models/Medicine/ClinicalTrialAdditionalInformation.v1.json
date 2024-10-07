@@ -1,0 +1,56 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalTrialAdditionalInformation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL TRIAL ADDITIONAL INFORMATION",
+    "type": "object",
+    "description": "Defines various different information concerning a CLINICAL TRIAL. E.g. information about Sponsoring/Funding, Scientific Study Type, ...",
+    "properties": {
+        "displaySequenceNumber": {
+            "title": "displaySequenceNumber",
+            "type": "integer",
+            "format": "int32",
+            "description": "Defining the sequence the different CLINICAL TRIAL ADDITIONAL INFORMATION are displayed."
+        },
+        "name": {
+            "title": "informationName",
+            "type": "string",
+            "description": "Defines the name of the Information"
+        },
+        "valueDate": {
+            "title": "valueDate",
+            "type": "string",
+            "format": "date-time",
+            "description": "The date on which the value (Numeric Value or (Short Text and Long Text) was set."
+        },
+        "valueLongText": {
+            "title": "longText",
+            "type": "string",
+            "description": "The long text or term as value of the information; if applicable. This corresponds usually to the Short Text."
+        },
+        "valueNumeric": {
+            "title": "numericValue",
+            "type": "number",
+            "description": "The numeric value of the information; if applicable"
+        },
+        "valueShortText": {
+            "title": "shortText",
+            "type": "string",
+            "description": "The short text or code as value of the information; if applicable. This corresponds usually to the Long Text."
+        },
+        "clinicalTrialBiNumber": {
+            "title": "clinicalTrial.biClinicalTrialNumber",
+            "type": "string",
+            "description": "BI Clinical Trial Number is the BI internal number of the CLINICAL TRIAL.\n\"Study\" is renamed to \"clinical trial\" therfore all properties are renamed accordingly."
+        },
+        "clinicalTrialImpactId": {
+            "title": "clinicalTrial.impactClinicalTrialId",
+            "type": "string",
+            "description": "The system generated clinical trial identifier."
+        },
+        "clinicalTrialEudractNumber": {
+            "title": "clinicalTrial.eudractNumber",
+            "type": "string",
+            "description": "The EudraCT registry number assigned to the clinical trial, if applicable.\nThe number is composed of three parts: YYYY-NNNNNN-CC\n•\tYYYY - The year\n•\tNNNNNN - A six digit number\n•\tCC - Two control digits"
+        }
+    }
+}

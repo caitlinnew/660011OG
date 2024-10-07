@@ -1,0 +1,19 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/EngagementData/SalesContractTemplate.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SALES CONTRACT TEMPLATE",
+    "type": "object",
+    "description": "Template for Sales Contracts",
+    "properties": {
+        "id": {
+            "title": "salesContractTemplateId",
+            "type": "string",
+            "description": "Unique Identifier of sales contract template"
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of sales contract template"
+        }
+    }
+}

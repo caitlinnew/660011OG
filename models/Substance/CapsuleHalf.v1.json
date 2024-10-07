@@ -1,0 +1,69 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Substance/CapsuleHalf.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CAPSULE HALF",
+    "type": "object",
+    "description": "A CAPSULE is the relatively stable shell encapsulating an INTERMEDIATE DRUG PRODUCT. \nThe two main types of CAPSULEs are: \n(1) Hard-shelled capsules, which contain dry, powdered ingredients or miniature pellets. These CAPSULEs are made in two halves: a smaller-diameter body that is filled and then sealed using a larger-diameter cap. \n(2) Soft-shelled capsules, primarily used for oils and for active ingredients that are dissolved or suspended in oil. These are made during the formulation of the DRUG PRODUCT.\n[Source: https://en.wikipedia.org/wiki/Capsule_(pharmacy); retrieved 04 MAR 2019]\nIn this model, a CAPSULE may be a Capsule body, capsule cap or an entire capsule, as specified by the CAPSULE TYPE. This allows the management of both hard and soft capsules using one object.\nIn contrast to a SPECIFIED SUBSTANCE, a CAPSULE has a defined PHYSICAL APPEARANCE characterized by the CAPSULE SIZE and is therefore maintained as a specialized object. This applies to hard and soft CAPSULEs.",
+    "properties": {
+        "capsuleSizeSapCode": {
+            "title": "capsuleSize.sapCode",
+            "type": "string",
+            "description": "The capsuleSize SAP Code is one of the unique identifiers of the data record for this object."
+        },
+        "capsuleSizeRefId": {
+            "title": "capsuleSize.referenceDataId",
+            "type": "string",
+            "description": "The capsuleSize Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "typeSapCode": {
+            "title": "capsuleType.sapCode",
+            "type": "string",
+            "description": "The capsuleType SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "typeRefId": {
+            "title": "capsuleType.referenceDataId",
+            "type": "string",
+            "description": "The capsuleType Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "appearanceDiameter": {
+            "title": "physicalAppearance.externalDiameter",
+            "type": "integer",
+            "format": "int32",
+            "description": "External diameter is relevant for round tangible items (1), for which dimensions Width and Depth are not maintained, as the calculation of Volume from Hight x Width x Depth would generate wrong values. For rectangulare tangible items, External Diameter is not maintained (0)."
+        },
+        "appearanceLength": {
+            "title": "physicalAppearance.length",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Length of the item."
+        },
+        "appearanceColorSapCode": {
+            "title": "physicalAppearance.color.sapCode",
+            "type": "string",
+            "description": "The appearanceColor Code is the unique identifier of the data record for this object."
+        },
+        "appearanceColorRefId": {
+            "title": "color.referenceDataId",
+            "type": "string",
+            "description": "The appearanceColor Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "appearanceDiameterUomSapCode": {
+            "title": "physicalAppearance.unitOfMeasureForExternalDiameter.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "appearanceDiameterUomRefId": {
+            "title": "physicalAppearance.unitOfMeasureForExternalDiameter.ReferenceId",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "appearanceLengthUomSapCode": {
+            "title": "physicalAppearance.unitOfMeasureForLength.sapCode",
+            "type": "string"
+        },
+        "appearanceLengthUomRefId": {
+            "title": "physicalAppearance.unitOfMeasureForLength.ReferenceId",
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/InformationModelElement.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INFORMATION MODEL ELEMENT",
+    "type": "object",
+    "description": "An INFORMATION MODEL ELEMENT is created in the model in order to establish or visualize knowledge and display specific information characteristics.",
+    "properties": {
+        "uuid": {
+            "title": "uuid",
+            "type": "string",
+            "description": "Identifier of the Element."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the class."
+        },
+        "description": {
+            "title": "description",
+            "type": "string",
+            "description": "Description of the Information Object in business language."
+        },
+        "editingStatus": {
+            "title": "editingStatus",
+            "type": "string",
+            "description": "The Editing Status provides information on the current working status of an INFORMATION MODEL ELEMENT.",
+            "enum": [
+                "DRAFT",
+                "VERIFIED",
+                "SUSPECT",
+                "DEPRECATED"
+            ]
+        },
+        "releaseStatus": {
+            "title": "releaseStatus",
+            "type": "string",
+            "description": "Release Status of the information model element",
+            "enum": [
+                "NOT RELEASED",
+                "RELEASE PLANNED",
+                "CHANGED NOT RELEASED",
+                "RELEASED"
+            ]
+        }
+    }
+}

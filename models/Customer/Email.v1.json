@@ -1,0 +1,40 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Email.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "EMAIL",
+    "type": "object",
+    "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+    "properties": {
+        "address": {
+            "title": "emailAddress",
+            "type": "string"
+        },
+        "isStandardEmail": {
+            "title": "isStandardE-Mail",
+            "type": "boolean",
+            "description": "This field indicates that this Email Is the Standard Email for a defined use."
+        },
+
+
+
+        "doNotUseFlag": {
+            "title": "doNotUseFlag",
+            "type": "boolean",
+            "description": "The Do not Use Flag indicates that a particular Communication Number is Not Used."
+        },
+        "sequenceNumber": {
+            "title": "sequenceNumber",
+            "type": "integer",
+            "format": "int32"
+        },
+        "isStandardE-Mail": {
+            "title": "isStandardE-Mail",
+            "type": "boolean",
+            "description": "DEPRECATED field, use isStandardEmail instead",
+            "deprecated": "true"
+        }
+
+
+
+    }
+}

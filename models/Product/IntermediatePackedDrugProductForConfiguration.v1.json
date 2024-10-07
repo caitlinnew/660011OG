@@ -1,0 +1,76 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/IntermediatePackedDrugProductForConfiguration.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INTERMEDIATE PACKED DRUG PRODUCT FOR CONFIGURATION",
+    "type": "object",
+    "description": "The INTERMEDIATE PACKED DRUG PRODUCT FOR CONFIGURATION is the PRIMARY PACKED DRUG PRODUCT FOR CONFIGURATION in an INTERMEDIATE PACKAGING FOR CONFIGURATION.\nIn the application MDG one INTERMEDIATE PACKED DRUG PRODUCT FOR CONFIGURATION is defined within one PRODUCT CONFIGURATION. Therefore it has no ID an it is assigned to only one PRODUCT CONFIGURATION (1).",
+    "properties": {
+        "quantityIntermediatePackagingPerSecondaryPackaging": {
+            "title": "quantityIntermediatePackagingPerSecondaryPackaging",
+            "type": "integer",
+            "format": "int32",
+            "description": "If applicable, the Quantity Intermediate Packaging per Secondary Packaging describes the number of INTERMEDIATE PACKAGING each containing a number of Primary Packed Drug Product."
+        },
+        "quantityPrimaryPackedDrugProductPerIntermediatePackaging": {
+            "title": "quantityPrimaryPackedDrugProductPerIntermediatePackaging",
+            "type": "integer",
+            "format": "int32",
+            "description": "If applicable, the Quantity Primary Packed Drug Product per Intermediate Packaging describes the number of Primary Packed Drug Product (e.g. 5 blisters) in an INTERMEDIATE PACKAGING (e.g. 1 pouch).\nIn the MDG application the INTERMEDIATE PACKED DRUG PRODUCT FOR CONFIGURATION only quantifies one PRIMARY PACKED DRUG PRODUCT. Therefore, it is not possible to describe mixed intermediate Packaging to many Drug Products (e.g., mixed tray)."
+        },
+        "intermediatePackagingForConfigurationId": {
+            "title": "intermediatePackagingForConfiguration.packagingId",
+            "type": "string",
+            "description": "Unique identifier of the object INTERMEDIATE PACKAGING FOR CONFIGURATION."
+        },
+        "intermediatePackagingPerSecondaryPackagingUomSapCode": {
+            "title": "uomOfIntermediatePackagingPerSecondaryPackaging.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "intermediatePackagingPerSecondaryPackagingUomCode": {
+            "title": "uomOfIntermediatePackagingPerSecondaryPackaging.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "intermediatePackagingPerSecondaryPackagingUomRefId": {
+            "title": "uomOfIntermediatePackagingPerSecondaryPackaging.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "primaryPackedDrugProductPerIntermediatePackagingUomSapCode": {
+            "title": "uomOfPrimaryPackedDrugProductPerIntermediatePackaging.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "primaryPackedDrugProductPerIntermediatePackagingUomCode": {
+            "title": "uomOfPrimaryPackedDrugProductPerIntermediatePackaging.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "primaryPackedDrugProductPerIntermediatePackagingUomRefId": {
+            "title": "uomOfPrimaryPackedDrugProductPerIntermediatePackaging.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "primaryPackedDrugProductPerIntermediatePackagingUopSapCode": {
+            "title": "uopOfPrimaryPackedDrugProductPerIntermediatePackaging.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "primaryPackedDrugProductPerIntermediatePackagingUopRefId": {
+            "title": "uopOfPrimaryPackedDrugProductPerIntermediatePackaging.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "drugProductQuantityUopSapCode": {
+            "title": "uopOfDrugProductQuantity.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "drugProductQuantityUopRefId": {
+            "title": "uopOfDrugProductQuantity.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    }
+}

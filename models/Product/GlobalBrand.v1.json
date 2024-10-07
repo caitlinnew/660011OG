@@ -1,0 +1,324 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/GlobalBrand.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GLOBAL BRAND",
+    "type": "object",
+    "description": "The GLOBAL BRAND is the commercial name under which Boehringer Ingelheim would like to sell an AI COMBINATION or a branded DEVICE for at least one INDICATION [relevant in BUSINESS UNIT Human Pharma] for at least one TARGET SPECIES [relevant in BUSINESS UNIT Animal Health]. With this, it is the preferred Brand Name.\nThe GLOBAL BRAND Name is often a BI-proprietary name, i.e. a trade mark protected name, but trade mark protection is not a prerequisite for a GLOBAL BRAND Name. Often, a GLOBAL BRAND Name is only partly trade mark protected, e.g. in Solo-Jec 10 only the term Solo-Jec may be trade mark protected, but not the 10. Also, as there is no global trade mark authority, trade mark protection only applies locally or regionally and therefore may differ between COUNTRYs.\nThe GLOBAL BRAND does not indicate a large geographical footprint or large revenues. It is just the \"mother in headquarters\" of all corresponding LOCAL BRANDs in the COUNTRYs. It is used to consolidate the many different LOCAL BRAND Names under one Brand Name, the GLOBAL BRAND Name.\nThe GLOBAL BRAND Name as maintained in the object GLOBAL BRAND is never printed. PRINT information (also called Label information, Artwork) is managed as Layer 3 of the BI data model for Product (GLOBAL SKU).",
+    "properties": {
+        "id": {
+            "title": "globalBrandId",
+            "type": "string",
+            "description": "Unique identifier of the object GLOBAL BRAND."
+        },
+        "preferredBrandName": {
+            "title": "preferredBrandName",
+            "type": "string",
+            "description": "The preferred BRAND NAME defined on GLOBAL BRAND level is the preferred one for LOCAL BRAND naming."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "deprecated": true,
+            "description": "The text string itself."
+        },
+        "aiCombinationId": {
+            "title": "aiCombination.aiCombinationId",
+            "type": "string",
+            "description": "Unique identifier of the object AI COMBINATION."
+        },
+        "aiCombinationNames": {
+            "title": "aiCombination.names",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "title": "shortdescription",
+                "type": "string"
+            }
+        },
+        "usagesOfAiCombination": {
+            "title": "aiCombinationTargetSpeciesAndIndications",
+            "type": "array",
+            "description": "An ACTIVE INGREDIENT (AI) COMBINATION is developed for at least one INDICATION and at least one TARGET SPECIES. The AI COMBINATION, TARGET SPECIES and INDICATION documents the combinations of TARGET SPECIES and INDICATIONs for an AI COMBINATION.\nTrigger for the definition of this combination is the start of a development project which combines AI COMBINATION, TARGET SPECIES and INDICATION.\nIn BUSINESS UNIT One Human Pharma this occurs at milestone \"Start of Development\" [source: 100-IPMCG-00031 (2.0) Guideline for the Development of New Molecular Entities for Human Pharma].\nIn BUSINESS UNIT Animal Health this occurs at milestone \"Project Agreement\" [source: 085-ACG-000302 (3.0) Corporate Guideline for Project Management].",
+            "items": {
+                "$ref": "AiCombinationTargetSpeciesAndIndication.v1.json"
+            }
+        },
+        "brandStageCode": {
+            "title": "brandStage.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for BRAND STAGE.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "brandStageSapCode": {
+            "title": "brandStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for BRAND STAGE."
+        },
+        "brandStageRefId": {
+            "title": "brandStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "businessUnitCode": {
+            "title": "businessUnit.prismaCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "Identifier of a Business Unit.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "businessUnitSapCode": {
+            "title": "businessUnit.sapCode",
+            "type": "string",
+            "description": "Identifier of a Business Unit"
+        },
+        "businessUnitRefId": {
+            "title": "businessUnit.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalBrandNameStatusCode": {
+            "title": "globalBrandNameStatus.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for BRAND NAME STATUS.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalBrandNameStatusSapCode": {
+            "title": "globalBrandNameStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for BRAND NAME STATUS."
+        },
+        "globalBrandNameStatusRefId": {
+            "title": "globalBrandNameStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalFranchiseCode": {
+            "title": "globalFranchise.prismaCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The Code is the unique identifier of the data record for this object.\nSynonym for the Prisma Code, by default in sync with the SAP Code (2019)"
+        },
+        "globalFranchiseSapCode": {
+            "title": "globalFranchise.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for PRODUCT FRANCHISE."
+        },
+        "globalFranchiseRefId": {
+            "title": "globalFranchise.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL LIFE CYCLE STATUS.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL LIFE CYCLE STATUS."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalStrategicSegments": {
+            "title": "globalStrategicSegment",
+            "type": "array",
+            "description": "A description of criteria about the behaviour of customers which most probably leads to similiar characteristics / needs of those customers, or to similar responses to market action. The potential customers meeting these criteria are assumed to be of high strategic relevance.",
+            "items": {
+                "$ref": "#/definitions/GlobalStrategicSegment"
+            }
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for MATURITY LEVEL.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for MATURITY LEVEL."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "medicalSegmentCode": {
+            "title": "medicalSegment.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "medicalSegmentSapCode": {
+            "title": "medicalSegment.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for MEDICAL SEGMENT."
+        },
+        "medicalSegmentRefId": {
+            "title": "medicalSegment.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "medicalSegmentName": {
+            "title": "medicalSegment.Name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "prevailingId": {  
+            "title": "prevailingId",
+            "type": "string",
+            "description": "Reference to the prevailant Object."
+        },
+        "criticalSuccessFactor": {
+            "title": "criticalSuccessFactor",
+            "type": "array",
+            "description": "A characteristic, condition, or variable absolutely required to achieve an objective (e. g. cost leadership, supreme customer communication) or a business program or strategy (e. g. brand strategy).",
+            "items": {
+                "$ref": "#/definitions/CriticalSuccessFactor"
+            }
+        },
+        "communicationTheme": {
+            "title": "contentCommunicationTheme",
+            "type": "array",
+            "description": "Main top-level narrative concept to be delivered through content. This may be detailed into Communication Messages. \nBrand teams establish high level themes to guide development of communication messages for end audiences for specific knowledge and behavioral changes. A communication theme is based on multiple scientific statements on a single topic.",
+            "items": {
+                "$ref": "#/definitions/CommunicationTheme"
+            }
+        },
+        "nameAbbreviation": {
+            "title": "globalBrandNameAbbreviation",
+            "type": "string",
+            "description": "The Global Brand Name Abbreviation is the company-wide applicable abbreviation for a Global Brand Name. It is unique accross the entire product portfolio.\nThe Global Brand Name Abbreviation is limited to a maximum length of 15 characters. This is the limit for Brand Names in the GLOBAL SKU Description and thus in the MATERIAL Description. This 15 character limitation is part of the auto text generation rulese for the GLOBAL SKU Description, which has a maximum length of 40 characters.\nThe abbreviations do not change with the total length of the Brand Name. One term is always abbreviated in the same way, independent of the remaining available characters.\nThe Global Brand Name is always maintained in English. Therefore the Global Brand Name Abbreviation is only maintained in English.\nA combination of several immunologically active ingredients cannot be reasonably abbreviated to 15 characters. Therefore, GLOBAL BRANDs in Brand Name Status 10 (Active Ingredient Combination) have no Global Brand Name Abbreviation (0). For these very early Brands, no GLOBAL SKU will be created. For GLOBAL BRANDs in Brand Name Status 20 (Preliminary Brand Name) or higher, a Global Brand Name Abbreviation shall be maintained (1)."
+        },
+        "names": {
+            "title": "globalBrandNameList",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Text"
+            }
+        }
+    },
+    "definitions": {
+        "GlobalStrategicSegment": {
+            "title": "globalStrategicSegment",
+            "type": "object",
+            "description": "A description of criteria about the behaviour of customers which most probably leads to similiar characteristics / needs of those customers, or to similar responses to market action. The potential customers meeting these criteria are assumed to be of high strategic relevance.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL STRATEGIC SEGMENT."
+                }
+            }
+        },
+        "CriticalSuccessFactor": {
+            "title": "criticalSuccessFactor",
+            "type": "object",
+            "description": "A characteristic, condition, or variable absolutely required to achieve an objective (e. g. cost leadership, supreme customer communication) or a business program or strategy (e. g. brand strategy).",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for CRITICAL SUCCESS FACTOR."
+                }
+            }
+        },
+        "CommunicationTheme": {
+            "title": "communicationTheme",
+            "type": "object",
+            "description": "Main top-level narrative concept to be delivered through content. This may be detailed into Communication Messages. \nBrand teams establish high level themes to guide development of communication messages for end audiences for specific knowledge and behavioral changes. A communication theme is based on multiple scientific statements on a single topic.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for COMMUNICATION THEME."
+                }
+            }
+        },
+        "Text": {
+            "title": "text",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "text": {
+                    "title": "text",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "typeName": {
+                    "title": "textType.term",
+                    "type": "string",
+                    "description": "Code, Term, Example Usage in Logical Model:\nMEMO, Memo, VENDOR/CUSTOMER ACCOUNTING INFORMATION;\nNOTE, Notes, BUSINESS PARTNER - Contact Person;\nn/a, 3PS Status Comment;\nUsage for MDG Product:\nDESC, Description, Component Packaging, and Product;\nSDESC, Short Description, Component Packaging, and Product;\nINFO, Additional Information, DRUG PRODUCT FOR CONFIGURATION;\nCL? or AC?, Additional Classification, SPECIFIED SUBSTANCE CLASSIFICATION ASSIGNMENT;"
+                },
+                "languageCode": {
+                    "title": "language.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for LANGUAGE.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+                },
+                "languageSapCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for LANGUAGE."
+                },
+                "languageTerm": {
+                    "title": "language.term",
+                    "type": "string"
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "Timestamp": {
+            "title": "timestamp",
+            "type": "object",
+            "properties": {
+                "changedDate": {
+                    "title": "changedDate",
+                    "type": "string",
+                    "format": "date"
+                },
+                "changedTimestamp": {
+                    "title": "changedTimestamp",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "createdDate": {
+                    "title": "createdDate",
+                    "type": "string",
+                    "format": "date"
+                },
+                "createdTimestamp": {
+                    "title": "createdTimestamp",
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "updateTimestamp": {
+                    "$ref": "#/definitions/Timestamp"
+                }
+            }
+        }
+    }
+}

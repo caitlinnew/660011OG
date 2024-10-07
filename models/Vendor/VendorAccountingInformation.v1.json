@@ -1,0 +1,250 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/VendorAccountingInformation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "VENDOR ACCOUNTING INFORMATION",
+    "type": "object",
+    "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Payable, Accounting to Reporting, Treasury.\nExamples are Reconciliation Account, Payment Methods (bank transfer, cheque, ...), Payment Term (30 days due net, immediate payment, ...)",
+    "properties": {
+        "allowedPaymentMethods": {
+            "title": "allowedPaymentMethods",
+            "type": "array",
+            "description": "The method or means by which a payment is executed.",
+            "items": {
+                "$ref": "#/definitions/PaymentMethod"
+            }
+        },
+        "paymentTermCode": {
+            "title": "paymentTerm.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for PAYMENT TERM."
+        },
+        "companyCode": {
+            "title": "companyCode.code",
+            "type": "string",
+            "description": "unique identifier of legal entity (originally generated in CIM system)"
+        },
+        "companyName": {
+            "title": "companyCode.term",
+            "type": "string",
+            "description": "name of legal entity (originally generated in CIM system)"
+        },
+        "previousMasterRecordNumber": {
+            "title": "previousMasterRecordNumber",
+            "type": "string"
+        },
+        "referenceToCompanySpecificAlternateInvoicingParty": {
+            "title": "referenceToCompanySpecificAlternateInvoicingParty",
+            "type": "string"
+        },
+        "separatePaymentIndicator": {
+            "title": "separatePaymentIndicator",
+            "type": "boolean",
+            "description": "The checkbox for \"Individual Payment\" indicates whether every document falling due on same payment run date will be bundled into one payment or released and send in separate payments. Possible to be used for some scenarios, however this flag generates additional payment admin costs for Boehringer."
+        },
+        "accountingClerks": {
+            "title": "accountingClerks",
+            "type": "array",
+            "description": "The BI Company ACCOUNTING CLERK is the person who is responsible for the accounting (has this role) of one or more customers.",
+            "items": {
+                "$ref": "#/definitions/AccountingClerk"
+            }
+        },
+        "taxWithholdingInformation": {
+            "title": "supplierTaxWithholdingInformation",
+            "type": "array",
+            "description": "Withholding Tax is the Tax that is charged at the beginning of the payment flow in some countries. Usually, the party that is subject to tax does not pay the withholding tax over to the tax authorities himself.\nWhen a customer that is authorized to deduct withholding tax pays invoices from a vendor subject to withholding tax, the customer reduces the payment amount by the withholding tax proportion. The customer then pays the tax withheld directly to the appropriate tax authorities.\nSource: help.sap.com",
+            "items": {
+                "$ref": "#/definitions/SupplierTaxWithholdingInformation"
+            }
+        },
+        "textIdentifier": {
+            "title": "text.identifier",
+            "type": "string"
+        },
+        "textText": {
+            "title": "text.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "textTypeCode": {
+            "title": "text.textType.code",
+            "type": "string"
+        },
+        "textTypeName": {
+            "title": "text.textType.term",
+            "type": "string"
+        },
+        "activityCodeForGrossIncomeTaxCode": {
+            "title": "activityCodeForGrossIncomeTax.code",
+            "type": "string"
+        },
+        "activityCodeForGrossIncomeTaxName": {
+            "title": "activityCodeForGrossIncomeTax.term",
+            "type": "string"
+        },
+        "deletionFlagOnCompanyLevel": {
+            "title": "deletionFlagOnCompanyLevel",
+            "type": "boolean",
+            "description": "The supplier is disabled for any activity (Postings and Payments) on the level of a BI LEGAL ENTITY as long as the flag is set."
+        },
+        "paymentAdvicesByEdi": {
+            "title": "paymentAdvicesByEdi",
+            "type": "boolean",
+            "description": "Indicator: Send Payment Advices by EDI (Electronic Data Interchange).This indicator specifies that the customer/supplier should be sent all payment advice information by EDI."
+        },
+        "paymentBlockCode": {
+            "title": "paymentBlock.code",
+            "type": "string"
+        },
+        "paymentBlockName": {
+            "title": "paymentBlock.term",
+            "type": "string"
+        },
+        "paymentMethodSupplementCode": {
+            "title": "paymentMethodSupplement.code",
+            "type": "string"
+        },
+        "paymentMethodSupplementName": {
+            "title": "paymentMethodSupplement.term",
+            "type": "string"
+        },
+        "postingBlock": {
+            "title": "postingBlock",
+            "type": "boolean",
+            "description": "No (financial) postings can be performed for the specific Vendor and the selected BI LEGAL ENTITY as long as the blocking is active."
+        },
+        "reconciliationAccountInGeneralLedger": {
+            "title": "reconciliationAccountInGeneralLedger",
+            "type": "string",
+            "description": "The Reconciliation Account ensures that the total of all General Ledger account balances is always zero.\nThis is a prerequisite for creating a balance sheet at any time.\nTherefore, it is no longer necessary to transfer account balances from sub-ledger to General Ledger accounts, since the balances are updated automatically in the general ledger."
+        },
+        "dunningData": {
+            "title": "dunningData",
+            "type": "array",
+            "description": "The DUNNING PROCESS is a reminder to a customer or vendor to make payment on outstanding invoices. Example: typically consists of a letter that summarizes the invoices that are past due and politely requests payment to be made.",
+            "items": {
+                "$ref": "#/definitions/DunningData"
+            }
+        }
+    },
+    "definitions": {
+        "PaymentMethod": {
+            "title": "paymentMethod",
+            "type": "object",
+            "description": "The method or means by which a payment is executed.",
+            "properties": {
+                "code": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "name": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "DunningData": {
+            "title": "dunningData",
+            "type": "object",
+            "description": "The DUNNING PROCESS is a reminder to a customer or vendor to make payment on outstanding invoices. Example: typically consists of a letter that summarizes the invoices that are past due and politely requests payment to be made.",
+            "properties": {
+                "dateOfLastDunningNotice": {
+                    "title": "dateOfLastDunningNotice",
+                    "type": "string",
+                    "format": "date"
+                },
+                "dateOfLegalDunningProceedings": {
+                    "title": "dateOfLegalDunningProceedings",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date on which the last legal dunning procedures was made."
+                },
+                "dunningBlockCode": {
+                    "title": "dunningBlock.code",
+                    "type": "string"
+                },
+                "dunningBlockName": {
+                    "title": "dunningBlock.term",
+                    "type": "string"
+                },
+                "dunningClerkCode": {
+                    "title": "dunningClerk.code",
+                    "type": "string"
+                },
+                "dunningClerkName": {
+                    "title": "dunningClerk.term",
+                    "type": "string"
+                },
+                "dunningLevel": {
+                    "title": "dunningLevel",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "dunningProcedureCode": {
+                    "title": "dunningProcedure.code",
+                    "type": "string"
+                },
+                "dunningProcedureName": {
+                    "title": "dunningProcedure.term",
+                    "type": "string"
+                },
+                "referenceToAlternativeDunningRecipient": {
+                    "title": "referenceToAlternativeDunningRecipient",
+                    "type": "string"
+                },
+                "dunningAreaCode": {
+                    "title": "dunningArea.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "dunningAreaName": {
+                    "title": "dunningArea.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "AccountingClerk": {
+            "title": "accountingClerk",
+            "type": "object",
+            "description": "The BI Company ACCOUNTING CLERK is the person who is responsible for the accounting (has this role) of one or more customers.",
+            "properties": {
+                "code": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for ACCOUNTING CLERK."
+                }
+            }
+        },
+        "SupplierTaxWithholdingInformation": {
+            "title": "supplierTaxWithholdingInformation",
+            "type": "object",
+            "description": "Withholding Tax is the Tax that is charged at the beginning of the payment flow in some countries. Usually, the party that is subject to tax does not pay the withholding tax over to the tax authorities himself.\nWhen a customer that is authorized to deduct withholding tax pays invoices from a vendor subject to withholding tax, the customer reduces the payment amount by the withholding tax proportion. The customer then pays the tax withheld directly to the appropriate tax authorities.\nSource: help.sap.com",
+            "properties": {
+                "withholdingTaxCodeCode": {
+                    "title": "withholdingTaxCode.code",
+                    "type": "string"
+                },
+                "withholdingTaxCodeName": {
+                    "title": "withholdingTaxCode.term",
+                    "type": "string"
+                },
+                "withholdingTaxTypeCode": {
+                    "title": "withholdingTaxType.code",
+                    "type": "string"
+                },
+                "withholdingTaxTypeName": {
+                    "title": "withholdingTaxType.term",
+                    "type": "string"
+                },
+                "subjectToWithholdingTax": {
+                    "title": "subjectToWithholdingTax",
+                    "type": "boolean",
+                    "description": "Thie indicator defines if withholding tax is applicable."
+                }
+            }
+        }
+    }
+}

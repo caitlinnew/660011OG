@@ -1,0 +1,70 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Address.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "An ADDRESS is the particulars of the place where a business partner is situated for example the purposes of postal delivery.\nADDRESS contains the non-localized attributes of this place.\nLOCALIZED ADDRESS contains the localized attributes of this place.",
+    "properties": {
+        "addressLine1": {
+            "type": "string",
+            "description": "May be used as alternative to Street Name and House Number or in addition to these attributes."
+        },
+        "addressLine2": {
+            "type": "string",
+            "description": "May be used as altrernative to Street Name and House Number or in addition to these attributes."
+        },
+        "addressLine3": {
+            "type": "string",
+            "description": "May be used as altrernative to Street Name and House Number or in addition to these attributes."
+        },
+        "addressLine4": {
+            "type": "string",
+            "description": "May be used as altrernative to Street Name and House Number or in addition to these attributes."
+        },
+        "city": {
+            "type": "string",
+            "description": "Name of the City for the postal ADDRESS"
+        },
+        "zipOrPostalCode": {
+            "type": "string"
+        },
+        "countryIso2code": {
+            "title": "alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 code according to ISO 3166-1"
+        },
+        "county": {
+            "$ref": "#/definitions/County"
+        },
+        "state": {
+            "$ref": "#/definitions/State"
+        }
+    },
+    "definitions": {
+        "County": {
+            "type": "object",
+            "description": "County is an administrative or political subdivision of a state, which is having specific boundaries and usually some level of governmental authority.\nFor example Cook County is a part of Illinois in the United States of America. There exist 3.142 counties in the USA.\nIn Japan there exist so called Prefectures which divide Japan in the same way as the Counties divide the USA.",
+            "properties": {
+                "code": {
+                    "type": "string"
+                },
+                "term": {
+                    "type": "string"
+                }
+            }
+        },
+        "State": {
+            "type": "object",
+            "description": "State is used to structure a country.\nState is used to structure a country. The standard that is used is ISO 3166-2.",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "Code according to ISO 3166-2"
+                },
+                "term": {
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                }
+            }
+        }
+    }
+}

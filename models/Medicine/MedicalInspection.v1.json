@@ -1,0 +1,97 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/MedicalInspection.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MEDICAL INSPECTION",
+    "type": "object",
+    "description": "Announced or unannounced INSPECTIONs may be conducted by a HEALTH AUTHORITY and may differ in Inspection Location (BI LEGAL ENTITY - Sponsor, MAH Holder, License Partner, SUPPLIER MANAGEMENT - Supplier, clinical investigator site/CLINICAL TRIAL SITE - investigational site), inspection focus (Good Clinical Practice - GCP, Good Pharmacovigilance Practice - GVP, etc.) and Inspection Type (Routine, For-cause, Pre-approval).",
+    "properties": {
+        "id": {
+            "title": "id",
+            "type": "string",
+            "description": "Identifier of an INSPECTION."
+        },
+        "startDate": {
+            "title": "startDate",
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the INSPECTION starts."
+        },
+        "endDate": {
+            "title": "endDate",
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the INSPECTION ends."
+        },
+        "focus": {
+            "title": "focus",
+            "type": "array",
+            "items": {
+                "type": "String",
+                "enum": [
+                    "GCP",
+                    "GLP",
+                    "GCP/GPSP/GPvP",
+                    "GPSP",
+                    "GPvP",
+                    "GPSP/GPvP"
+                ]
+            }
+        },
+        "location": {
+            "title": "location",
+            "type": "array",
+            "items": {
+                "type": "String",
+                "enum": [
+                    "Sponsor",
+                    "Investigational Site",
+                    "Supplier",
+                    "Market Authorization Holder",
+                    "License Partner"
+                ]
+            }
+        },
+        "type": {
+            "title": "type",
+            "type": "String",
+            "enum": [
+                "For-Cause",
+                "Routine",
+                "Pre-Approval"
+            ]
+        },
+        "status": {
+            "title": "status",
+            "type": "string",
+            "description": "Status of the inspection"
+        },
+        "ropuOfInspection": {
+            "$ref": "../ReferenceData/RegionalOperatingUnit.v1.json"
+        },
+        "clinicalTrialSite": {
+            "title": "clinicalTrialSite",
+            "type": "array",
+            "description": "A clinical trial Site represents the participation of a Health Care Organization and Health Care Professionals at that HCO in a clinical trial. It groups all the necessary information to describe the participation, like the needed locations, site staff, recruitment etc.",
+            "items": {
+                "$ref": "ClinicalTrialSite.v1.json"
+            }
+        },
+        "clinicalTrial": {
+            "title": "clinicalTrial",
+            "type": "array",
+            "description": "A CLINICAL TRIAL is a specialization of a study whose objectives are to test or confirm hypotheses concerning the utility, impact, pharmacological, physiological, and/or psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic. In the context of clinical development the terms clinical trial and clinical study as well as study are synonymous",
+            "items": {
+                "$ref": "ClinicalTrial.v1.json"
+            }
+        },
+        "inspectionReport": {
+            "$ref": "InspectionReport.json"
+        },
+        "initiatingHealthAuthority": {
+            "$ref": "HealthAuthority.v1.json"
+        },
+        "countryOfOccurrence": {
+            "$ref": "../ReferenceData/Country.v1.json"
+        }
+    }
+}

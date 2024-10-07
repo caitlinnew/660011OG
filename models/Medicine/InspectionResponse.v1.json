@@ -1,0 +1,34 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/InspectionResponse.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INSPECTION RESPONSE",
+    "type": "object",
+    "description": "An INSPECTION RESPONSE refers to the response provided by BI to the HEALTH AUTHORITY with refernce to the inspection outcome. The response could include the Corrective and Preventive Actions (CAPAs) triggered by the INSPECTION FINDINGs.",
+    "properties": {
+        "firstResponseAcceptedByHealthAuthority": {
+            "title": "firstResponseAcceptedByHealthAuthority",
+            "type": "boolean",
+            "description": "Statement if the first INSPECTION RESPONSE is accepted by the Health Authority."
+        },
+        "dueDate": {
+            "title": "dueDate",
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the INSPECTION RESPONSE is due."
+        },
+        "submissionDate": {
+            "title": "submissionDate",
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the INSPECTION RESPONSE was submitted."
+        },
+        "acceptingHealthAuthority": {
+            "$ref": "HealthAuthority.v1.json"
+        },
+        "reportInspectionId": {
+            "title": "inspectionReport.inspection.id",
+            "type": "string",
+            "description": "Identifier of an INSPECTION."
+        }
+    }
+}

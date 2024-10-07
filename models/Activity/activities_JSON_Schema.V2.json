@@ -1,0 +1,1376 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "activities": {
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string"
+        },
+        "activity": {
+          "type": "object",
+          "properties": {
+            "@channel": {
+              "type": "string"
+            },
+            "@country": {
+              "type": "string"
+            },
+            "@partner": {
+              "type": "string"
+            },
+            "@subChannel": {
+              "type": "string"
+            },
+            "@type": {
+              "type": "string"
+            },
+            "@language": {
+              "type": "string"
+            },
+            "identifier": {
+              "type": "object",
+              "properties": {
+                "@country": {
+                  "type": "string"
+                },
+                "@scheme": {
+                  "type": "string"
+                },
+                "@schemeAgency": {
+                  "type": "string"
+                },
+                "@schemeInstance": {
+                  "type": "string"
+                },
+                "$": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@country",
+                "@scheme",
+                "@schemeAgency",
+                "@schemeInstance",
+                "$"
+              ]
+            },
+            "note": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "$": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "$"
+              ]
+            },
+            "participant": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "@role": {
+                  "type": "string"
+                },
+                "contactInfo": {
+                  "type": "object",
+                  "properties": {
+                    "emailAddress": {
+                      "type": "object",
+                      "properties": {
+                        "@default": {
+                          "type": "string"
+                        },
+                        "@sequenceNumber": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "note": {
+                          "type": "string"
+                        },
+                        "notUsed": {
+                          "type": "string"
+                        },
+                        "period": {
+                          "type": "object",
+                          "properties": {
+                            "@endDate": {
+                              "type": "string"
+                            },
+                            "@startDate": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@endDate",
+                            "@startDate"
+                          ]
+                        },
+                        "tnefEnabled": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@default",
+                        "@sequenceNumber",
+                        "@type",
+                        "address",
+                        "note",
+                        "notUsed",
+                        "period",
+                        "tnefEnabled"
+                      ]
+                    },
+                    "faxNumber": {
+                      "type": "object",
+                      "properties": {
+                        "@primary": {
+                          "type": "string"
+                        },
+                        "@sequenceNumber": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "completeNumber": {
+                          "type": "string"
+                        },
+                        "countryCode": {
+                          "type": "string"
+                        },
+                        "extension": {
+                          "type": "string"
+                        },
+                        "notUsed": {
+                          "type": "string"
+                        },
+                        "number": {
+                          "type": "string"
+                        },
+                        "period": {
+                          "type": "object",
+                          "properties": {
+                            "@endDate": {
+                              "type": "string"
+                            },
+                            "@startDate": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@endDate",
+                            "@startDate"
+                          ]
+                        },
+                        "smsEnabled": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@primary",
+                        "@sequenceNumber",
+                        "@type",
+                        "completeNumber",
+                        "countryCode",
+                        "extension",
+                        "notUsed",
+                        "number",
+                        "period",
+                        "smsEnabled"
+                      ]
+                    },
+                    "phoneNumber": {
+                      "type": "object",
+                      "properties": {
+                        "@primary": {
+                          "type": "string"
+                        },
+                        "@sequenceNumber": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "completeNumber": {
+                          "type": "string"
+                        },
+                        "countryCode": {
+                          "type": "string"
+                        },
+                        "extension": {
+                          "type": "string"
+                        },
+                        "notUsed": {
+                          "type": "string"
+                        },
+                        "number": {
+                          "type": "string"
+                        },
+                        "period": {
+                          "type": "object",
+                          "properties": {
+                            "@endDate": {
+                              "type": "string"
+                            },
+                            "@startDate": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@endDate",
+                            "@startDate"
+                          ]
+                        },
+                        "smsEnabled": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@primary",
+                        "@sequenceNumber",
+                        "@type",
+                        "completeNumber",
+                        "countryCode",
+                        "extension",
+                        "notUsed",
+                        "number",
+                        "period",
+                        "smsEnabled"
+                      ]
+                    },
+                    "standardCommunication": {
+                      "type": "object",
+                      "properties": {
+                        "@code": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@code"
+                      ]
+                    },
+                    "telebox": {
+                      "type": "string"
+                    },
+                    "webAddress": {
+                      "type": "object",
+                      "properties": {
+                        "@primary": {
+                          "type": "string"
+                        },
+                        "@sequenceNumber": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "string"
+                        },
+                        "function": {
+                          "type": "string"
+                        },
+                        "notUsed": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@primary",
+                        "@sequenceNumber",
+                        "@type",
+                        "address",
+                        "function",
+                        "notUsed"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "emailAddress",
+                    "faxNumber",
+                    "phoneNumber",
+                    "standardCommunication",
+                    "telebox",
+                    "webAddress"
+                  ]
+                },
+                "currencies": {
+                  "type": "object",
+                  "properties": {
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "@code": {
+                          "type": "string"
+                        },
+                        "note": {
+                          "type": "string"
+                        },
+                        "period": {
+                          "type": "object",
+                          "properties": {
+                            "@endDate": {
+                              "type": "string"
+                            },
+                            "@startDate": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@endDate",
+                            "@startDate"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@code",
+                        "note",
+                        "period"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "currency"
+                  ]
+                },
+                "flags": {
+                  "type": "object",
+                  "properties": {
+                    "flag": {
+                      "type": "object",
+                      "properties": {
+                        "@type": {
+                          "type": "string"
+                        },
+                        "$": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@type",
+                        "$"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "flag"
+                  ]
+                },
+                "identifiers": {
+                  "type": "object",
+                  "properties": {
+                    "identifier": {
+                      "type": "object",
+                      "properties": {
+                        "@country": {
+                          "type": "string"
+                        },
+                        "@scheme": {
+                          "type": "string"
+                        },
+                        "@schemeAgency": {
+                          "type": "string"
+                        },
+                        "@schemeInstance": {
+                          "type": "string"
+                        },
+                        "$": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@country",
+                        "@scheme",
+                        "@schemeAgency",
+                        "@schemeInstance",
+                        "$"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "identifier"
+                  ]
+                },
+                "languages": {
+                  "type": "object",
+                  "properties": {
+                    "language": {
+                      "type": "object",
+                      "properties": {
+                        "@code": {
+                          "type": "string"
+                        },
+                        "@preferred": {
+                          "type": "string"
+                        },
+                        "note": {
+                          "type": "string"
+                        },
+                        "period": {
+                          "type": "object",
+                          "properties": {
+                            "@endDate": {
+                              "type": "string"
+                            },
+                            "@startDate": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@endDate",
+                            "@startDate"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@code",
+                        "@preferred",
+                        "note",
+                        "period"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "language"
+                  ]
+                },
+                "locations": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "object",
+                      "properties": {
+                        "@fullAddress": {
+                          "type": "string"
+                        },
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "@primary": {
+                          "type": "string"
+                        },
+                        "buildingNumber": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "object",
+                          "properties": {
+                            "@residential": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@residential",
+                            "$"
+                          ]
+                        },
+                        "companyZipOrPostalCode": {
+                          "type": "object",
+                          "properties": {
+                            "@extension": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@extension",
+                            "$"
+                          ]
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "deliveryType": {
+                          "type": "object",
+                          "properties": {
+                            "@code": {
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "@code"
+                          ]
+                        },
+                        "dependency": {
+                          "type": "string"
+                        },
+                        "district": {
+                          "type": "string"
+                        },
+                        "floorNumber": {
+                          "type": "string"
+                        },
+                        "gpsCoordinates": {
+                          "type": "object",
+                          "properties": {
+                            "@latitude": {
+                              "type": "string"
+                            },
+                            "@longitude": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@latitude",
+                            "@longitude"
+                          ]
+                        },
+                        "note": {
+                          "type": "string"
+                        },
+                        "postalDistrict": {
+                          "type": "string"
+                        },
+                        "postOfficeBox": {
+                          "type": "object",
+                          "properties": {
+                            "city": {
+                              "type": "object",
+                              "properties": {
+                                "@residential": {
+                                  "type": "string"
+                                },
+                                "$": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@residential",
+                                "$"
+                              ]
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "deliveryServiceCode": {
+                              "type": "string"
+                            },
+                            "number": {
+                              "type": "object",
+                              "properties": {
+                                "@supplement": {
+                                  "type": "string"
+                                },
+                                "@unspecified": {
+                                  "type": "string"
+                                },
+                                "$": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@supplement",
+                                "@unspecified",
+                                "$"
+                              ]
+                            },
+                            "stateOrProvince": {
+                              "type": "object",
+                              "properties": {
+                                "@countryID": {
+                                  "type": "string"
+                                },
+                                "@regionCode": {
+                                  "type": "string"
+                                },
+                                "@regionName": {
+                                  "type": "string"
+                                },
+                                "$": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@countryID",
+                                "@regionCode",
+                                "@regionName",
+                                "$"
+                              ]
+                            },
+                            "undeliverabilityReason": {
+                              "type": "string"
+                            },
+                            "zipOrPostalCode": {
+                              "type": "object",
+                              "properties": {
+                                "@extension": {
+                                  "type": "string"
+                                },
+                                "$": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "@extension",
+                                "$"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "city",
+                            "country",
+                            "deliveryServiceCode",
+                            "number",
+                            "stateOrProvince",
+                            "undeliverabilityReason",
+                            "zipOrPostalCode"
+                          ]
+                        },
+                        "regionalGrouping": {
+                          "type": "object",
+                          "properties": {
+                            "@name": {
+                              "type": "string"
+                            },
+                            "@type": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@name",
+                            "@type",
+                            "$"
+                          ]
+                        },
+                        "roomNumber": {
+                          "type": "string"
+                        },
+                        "stateOrProvince": {
+                          "type": "object",
+                          "properties": {
+                            "@countryID": {
+                              "type": "string"
+                            },
+                            "@regionCode": {
+                              "type": "string"
+                            },
+                            "@regionName": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@countryID",
+                            "@regionCode",
+                            "@regionName",
+                            "$"
+                          ]
+                        },
+                        "streetName": {
+                          "type": "object",
+                          "properties": {
+                            "@abbreviation": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@abbreviation",
+                            "$"
+                          ]
+                        },
+                        "streetNameExtension": {
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "type": "integer"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "$"
+                          ]
+                        },
+                        "streetNumber": {
+                          "type": "object",
+                          "properties": {
+                            "@range": {
+                              "type": "string"
+                            },
+                            "@supplement": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@range",
+                            "@supplement",
+                            "$"
+                          ]
+                        },
+                        "taxClassification": {
+                          "type": "object",
+                          "properties": {
+                            "@city": {
+                              "type": "string"
+                            },
+                            "@county": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@city",
+                            "@county"
+                          ]
+                        },
+                        "taxJurisdictionCode": {
+                          "type": "string"
+                        },
+                        "timeZone": {
+                          "type": "string"
+                        },
+                        "trainStation": {
+                          "type": "object",
+                          "properties": {
+                            "@express": {
+                              "type": "string"
+                            },
+                            "@standard": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@express",
+                            "@standard"
+                          ]
+                        },
+                        "transportationZone": {
+                          "type": "object",
+                          "properties": {
+                            "code": {
+                              "type": "string"
+                            },
+                            "country": {
+                              "type": "string"
+                            },
+                            "name": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "code",
+                            "country",
+                            "name"
+                          ]
+                        },
+                        "undeliverabilityReason": {
+                          "type": "string"
+                        },
+                        "unloadingPoint": {
+                          "type": "object",
+                          "properties": {
+                            "@default": {
+                              "type": "string"
+                            },
+                            "@name": {
+                              "type": "string"
+                            },
+                            "calendar": {
+                              "type": "string"
+                            },
+                            "unloadingHours": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@default",
+                            "@name",
+                            "calendar",
+                            "unloadingHours"
+                          ]
+                        },
+                        "zipOrPostalCode": {
+                          "type": "object",
+                          "properties": {
+                            "@extension": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@extension",
+                            "$"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "@fullAddress",
+                        "@id",
+                        "@type",
+                        "@primary",
+                        "buildingNumber",
+                        "city",
+                        "companyZipOrPostalCode",
+                        "country",
+                        "deliveryType",
+                        "dependency",
+                        "district",
+                        "floorNumber",
+                        "gpsCoordinates",
+                        "note",
+                        "postalDistrict",
+                        "postOfficeBox",
+                        "regionalGrouping",
+                        "roomNumber",
+                        "stateOrProvince",
+                        "streetName",
+                        "streetNameExtension",
+                        "streetNumber",
+                        "taxClassification",
+                        "taxJurisdictionCode",
+                        "timeZone",
+                        "trainStation",
+                        "transportationZone",
+                        "undeliverabilityReason",
+                        "unloadingPoint",
+                        "zipOrPostalCode"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "location"
+                  ]
+                },
+                "name": {
+                  "type": "object",
+                  "properties": {
+                    "part": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "integer"
+                        },
+                        "@type": {
+                          "type": "string"
+                        },
+                        "$": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@type",
+                        "$"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "part"
+                  ]
+                },
+                "note": {
+                  "type": "string"
+                },
+                "relationships": {
+                  "type": "object",
+                  "properties": {
+                    "relationship": {
+                      "type": "object",
+                      "properties": {
+                        "@country": {
+                          "type": "string"
+                        },
+                        "@scheme": {
+                          "type": "string"
+                        },
+                        "@schemeAgency": {
+                          "type": "string"
+                        },
+                        "@schemeInstance": {
+                          "type": "string"
+                        },
+                        "@role": {
+                          "type": "string"
+                        },
+                        "$": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@country",
+                        "@scheme",
+                        "@schemeAgency",
+                        "@schemeInstance",
+                        "@role",
+                        "$"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "relationship"
+                  ]
+                },
+                "graduationInfo": {
+                  "type": "string"
+                },
+                "hcpInfo": {
+                  "type": "object",
+                  "properties": {
+                    "@type": {
+                      "type": "string"
+                    },
+                    "graduationDate": {
+                      "type": "string"
+                    },
+                    "medicalDegree": {
+                      "type": "string"
+                    },
+                    "organization": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name"
+                      ]
+                    },
+                    "profession": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@language": {
+                          "type": "string"
+                        },
+                        "$": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@language",
+                        "$"
+                      ]
+                    },
+                    "specialty": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@language": {
+                          "type": "string"
+                        },
+                        "$": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@language",
+                        "$"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "@type",
+                    "graduationDate",
+                    "medicalDegree",
+                    "organization",
+                    "profession",
+                    "specialty"
+                  ]
+                },
+                "individualInfo": {
+                  "type": "object",
+                  "properties": {
+                    "alien": {
+                      "type": "object",
+                      "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
+                        "@status": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@id",
+                        "@status"
+                      ]
+                    },
+                    "birthDate": {
+                      "type": "string"
+                    },
+                    "birthPlace": {
+                      "type": "string"
+                    },
+                    "deathDate": {
+                      "type": "string"
+                    },
+                    "disability": {
+                      "type": "string"
+                    },
+                    "ethnicity": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "object",
+                      "properties": {
+                        "part": {
+                          "type": "object",
+                          "properties": {
+                            "@id": {
+                              "type": "integer"
+                            },
+                            "@type": {
+                              "type": "string"
+                            },
+                            "$": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "@id",
+                            "@type",
+                            "$"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "part"
+                      ]
+                    },
+                    "nationality": {
+                      "type": "string"
+                    },
+                    "profession": {
+                      "type": "string"
+                    },
+                    "race": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "alien",
+                    "birthDate",
+                    "birthPlace",
+                    "deathDate",
+                    "disability",
+                    "ethnicity",
+                    "gender",
+                    "name",
+                    "nationality",
+                    "profession",
+                    "race"
+                  ]
+                }
+              },
+              "required": [
+                "@type",
+                "@role",
+                "contactInfo",
+                "currencies",
+                "flags",
+                "identifiers",
+                "languages",
+                "locations",
+                "name",
+                "note",
+                "relationships",
+                "graduationInfo",
+                "hcpInfo",
+                "individualInfo"
+              ]
+            },
+            "relationship": {
+              "type": "object",
+              "properties": {
+                "@country": {
+                  "type": "string"
+                },
+                "@scheme": {
+                  "type": "string"
+                },
+                "@schemeAgency": {
+                  "type": "string"
+                },
+                "@schemeInstance": {
+                  "type": "string"
+                },
+                "@type": {
+                  "type": "string"
+                },
+                "$": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@country",
+                "@scheme",
+                "@schemeAgency",
+                "@schemeInstance",
+                "@type",
+                "$"
+              ]
+            },
+            "timestamp": {
+              "type": "object",
+              "properties": {
+                "@type": {
+                  "type": "string"
+                },
+                "$": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@type",
+                "$"
+              ]
+            },
+            "topic": {
+              "type": "object",
+              "properties": {
+                "@priority": {
+                  "type": "string"
+                },
+                "asset": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "$": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "$"
+                  ]
+                },
+                "brand": {
+                  "type": "object",
+                  "properties": {
+                    "@country": {
+                      "type": "string"
+                    },
+                    "@description": {
+                      "type": "string"
+                    },
+                    "@id": {
+                      "type": "string"
+                    },
+                    "$": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@country",
+                    "@description",
+                    "@id",
+                    "$"
+                  ]
+                },
+                "indication": {
+                  "type": "object",
+                  "properties": {
+                    "@code": {
+                      "type": "string"
+                    },
+                    "@description": {
+                      "type": "string"
+                    },
+                    "@therapeuticArea": {
+                      "type": "string"
+                    },
+                    "$": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@code",
+                    "@description",
+                    "@therapeuticArea",
+                    "$"
+                  ]
+                },
+                "product": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    },
+                    "$": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id",
+                    "$"
+                  ]
+                },
+                "therapeuticArea": {
+                  "type": "object",
+                  "properties": {
+                    "@code": {
+                      "type": "string"
+                    },
+                    "@description": {
+                      "type": "string"
+                    },
+                    "$": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@code",
+                    "@description",
+                    "$"
+                  ]
+                },
+                "project": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@priority",
+                "asset",
+                "brand",
+                "indication",
+                "product",
+                "therapeuticArea",
+                "project"
+              ]
+            },
+            "event": {
+              "type": "object",
+              "properties": {
+                "attendanceStatus": {
+                  "type": "string"
+                },
+                "cost": {
+                  "type": "object",
+                  "properties": {
+                    "@currency": {
+                      "type": "string"
+                    },
+                    "@exchangeRate": {
+                      "type": "integer"
+                    },
+                    "@type": {
+                      "type": "string"
+                    },
+                    "@source": {
+                      "type": "string"
+                    },
+                    "$": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": [
+                    "@currency",
+                    "@exchangeRate",
+                    "@type",
+                    "@source",
+                    "$"
+                  ]
+                },
+                "name": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "subType": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "program": {
+                  "type": "object",
+                  "properties": {
+                    "@id": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@id"
+                  ]
+                }
+              },
+              "required": [
+                "attendanceStatus",
+                "cost",
+                "name",
+                "status",
+                "type",
+                "subType",
+                "description",
+                "program"
+              ]
+            }
+          },
+          "required": [
+            "@channel",
+            "@country",
+            "@partner",
+            "@subChannel",
+            "@type",
+            "@language",
+            "identifier",
+            "note",
+            "participant",
+            "relationship",
+            "timestamp",
+            "topic",
+            "event"
+          ]
+        }
+      },
+      "required": [
+        "@id",
+        "activity"
+      ]
+    }
+  },
+  "required": [
+    "activities"
+  ]
+}

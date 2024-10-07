@@ -1,0 +1,150 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/IntermediatePackagingForConfiguration.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INTERMEDIATE PACKAGING FOR CONFIGURATION",
+    "type": "object",
+    "description": "The INTERMEDIATE PACKAGING is packaging between the PRIMARY PACKAGING and the SECONDARY PACKAGING. It adds to the stability of the DRUG PRODUCT.\n[ISO 11615: 3.1.26 intermediate packaging].\nThe INTERMEDIATE PACKAGING FOR CONFIGURATION is a minimal description of the INTERMEDIATE PACKAGING of a DRUG PRODUCT. This minimal description is used in the PRODUCT CONFIGURATION.",
+    "properties": {
+        "id": {
+            "title": "packagingId",
+            "type": "string",
+            "description": "Unique identifier of the object INTERMEDIATE PACKAGING FOR CONFIGURATION."
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "typeCode": {
+            "title": "intermediatePackagingType.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "typeSapCode": {
+            "title": "intermediatePackagingType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "typeRefId": {
+            "title": "intermediatePackagingType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "maturityLevelSapCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "components": {
+            "title": "packagingComponents",
+            "type": "array",
+            "description": "The PACKAGING COMPONENT specifies the PACKAGING TYPE, COLOR and MATERIAL CLASS of the components of the PRIMARY PACKAGING FOR CONFIGURATION and of the INTERMEDIATE PACKAGING FOR CONFIGURATION. It has no Identifier as it is defined within one PRIMARY PACKAGING FOR CONFIGURATION or one INTERMEDIATE PACKAGING FOR CONFIGURATION.",
+            "items": {
+                "$ref": "PackagingComponent.v1.json"
+            }
+        },
+        "stageCode": {
+            "title": "packagingStage.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "stageSapCode": {
+            "title": "packagingStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "stageRefId": {
+            "title": "packagingStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "uopSapCode": {
+            "title": "unitOfPresentation.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "uopRefId": {
+            "title": "unitOfPresentation.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "additionalInformationLanguageIso2": {
+            "title": "additionalInformation.language.alpha-2Code",
+            "type": "string"
+        },
+        "additionalInformationLanguageRefId": {
+            "title": "language.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "updateTimestamp": {
+            "title": "updateTimestamp",
+            "type": "string",
+            "format": "date-time"
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One INTERMEDIATE PACKAGING FOR CONFIGURATION must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing INTERMEDIATE PACKAGING FOR CONFIGURATION."
+        }
+    },
+    "definitions": {
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "languageIso2": {
+                    "title": "language.alpha-2Code",
+                    "type": "string"
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

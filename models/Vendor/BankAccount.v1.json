@@ -1,0 +1,123 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/BankAccount.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BANK ACCOUNT",
+    "type": "object",
+    "description": "BANK ACCOUNT is containing all the information needed to uniquely and correctly identify the bank coordinates of a business partner to be used for payment processes. This can be needed both for creditors (Customers) and for debitors (Vendor, Employee).\nBANK ACCOUNT is including the bank account number, a reference to the bank branch managing the bank account, an IBAN code when relevant, information about the bank account currency, etc...\nA Business Partner may own multiple Bank Accounts.",
+    "properties": {
+        "active": {
+            "title": "active",
+            "type": "boolean",
+            "description": "Indicates whether a financial instrument is active or inactive. true=Active, false=Inactive."
+        },
+        "paymentAlias": {
+            "title": "paymentAlias",
+            "type": "string",
+            "description": "Name used to identify the payment method.\nDEPRECATED: Use name instead."
+        },
+        "paymentType": {
+            "title": "paymentType",
+            "type": "string",
+            "description": "Type of payment."
+        },
+        "id": {
+            "title": "bankAccountId",
+            "type": "string",
+            "description": "The Bank account ID (called Bank details ID or Partner bank type in MDG) is the SAP internal key that identifies bank details for a given BUSINESS PARTNER."
+        },
+        "name": {
+            "title": "bankAccountName",
+            "type": "string",
+            "description": "An additional name can be used to describe a BANK ACCOUNT."
+        },
+        "accountHolder": {
+            "title": "accountHolder",
+            "type": "string",
+            "description": "If the name of the account holder is not the same as the name of the Business Partner then the name is entered in this field."
+        },
+        "bankAccountNumber": {
+            "title": "bankAccountNumber",
+            "type": "string",
+            "description": "This field contains the number under which the account is managed at the bank."
+        },
+        "bankControlKey": {
+            "title": "bankControlKey",
+            "type": "string",
+            "description": "The field contains a check key for the combination bank number and bank account number.\nThe rules for verification are defined by the respective countries."
+        },
+        "collectionAuthorization": {
+            "title": "collectionAuthorization",
+            "type": "boolean",
+            "description": "States that the bank has collection authorization from the business partner for the account.\nSet this indicator if the bank has collection authorization.\nSource: SAP field help"
+        },
+        "iban": {
+            "title": "iban",
+            "type": "string",
+            "description": "The International Bank Account Number (IBAN) is a uniform standardized ID number for representing a bank account that is in accordance with the ECBS (European Committee for Banking Standards). An IBAN has a maximum of 34 alphanumeric characters and is a combination of the following elements:\n\nCountry key of the bank (ISO code)\nTwo-digit check number\n\nCountry-specific account number (in Germany this consists of the bank number and account number, in France the bank number, account number and check key).\n\nSource: SAP field help"
+        },
+        "bank": {
+            "$ref": "#/definitions/Bank"
+        },
+        "accountType": {
+            "title": "bankAccountType",
+            "type": "string",
+            "description": "A BANK ACCOUNT TYPE describes the purpose of a financial account, e.g., deposit account or savings account.",
+            "enum": [
+                "MAIN BANK ACCOUNT",
+                "TRAVEL EXPENSE"
+            ]
+        },
+        "startDate": {
+            "title": "startDate",
+            "type": "string",
+            "format": "date",
+            "description": "Validity Start of BANK ACCOUNT."
+        },
+        "endDate": {
+            "title": "endDate",
+            "type": "string",
+            "format": "date",
+            "description": "Valid to Date of BANK ACCOUNT.\nTo deactivate the BANK ACCOUNT set this date to the current date."
+        }
+    },
+    "definitions": {
+        "Bank": {
+            "title": "bank",
+            "type": "object",
+            "description": "A BANK is a highly regulated financial institution that provides bank accounts, accepts deposits, and creates credits.\nThe bank data which are currently defined in the data model are not finance specific but only reference data and delivered by an external company.",
+            "properties": {
+                "key": {
+                    "title": "bankKey",
+                    "type": "string",
+                    "description": "SAP internal field which is used only for house banks, i.e. banks where BI has an own account. The id is alphanumeric, and each house bank has a unique key. For other banks the id is left empty."
+                },
+                "bankRoutingNumber": {
+                    "title": "bankRoutingNumber",
+                    "type": "string",
+                    "description": "In Germany this field contains the so called \"Bankleitzahl\" which is unique. In contrast to that he later introduced SWIFT code may be empty for bank branches.\nUnited States:\nThe American Bankers Association since 1910 has used a 9-digit routing transit number to identify American banks, which are used in the automated processing of checks. \nThe bank company is identified in the 5th to 8th digits (the 4 digits before the last checksum digit). The company number assigned to a bank includes a regional prefix indicating the metropolitan area and/or state.\nCanada\nuses codes called routing numbers. They consist of 5 digits identifying the branch and the 3 digits identifying the financial institution.\n\nFor a BANK that use the Business Identifier Code (BIC) it is not necessary to enter a Bank Routing Number."
+                },
+                "bic": {
+                    "title": "businessIdentifierCode",
+                    "type": "string",
+                    "description": "A SWIFT/BIC consists of 8-11 characters used to identify a specific bank in an international transaction, to make sure the money is going to the correct place.\nThe standard format of Business Identifier Code (also formerly called Bank Identifier Code) is defined by ISO 9362."
+                },
+                "bankName": {
+                    "title": "nameOfBank - use name",
+                    "type": "string",
+                    "description": "Official name of the bank. This is filled for all banks, but the name is not unique, e.g. \"Deutsche Bank\" is one example for a bank name but for \"Deutsche Bank Mainz\" the bank name does not contain the city.",
+                    "deprecated": "true"
+                },
+                "name": {
+                    "title": "nameOfBank",
+                    "type": "string",
+                    "description": "Official name of the bank. This is filled for all banks, but the name is not unique, e.g. \"Deutsche Bank\" is one example for a bank name but for \"Deutsche Bank Mainz\" the bank name does not contain the city."
+                },
+                "countryIso2Code": {
+                    "title": "country.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                }
+            }
+        }
+    }
+}

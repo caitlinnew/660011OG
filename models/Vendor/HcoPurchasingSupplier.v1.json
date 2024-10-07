@@ -1,0 +1,15 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/HcoPurchasingSupplier.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HCO Purchasing Supplier",
+    "type": "object",
+    "description": "A HEALTHCARE ORGANIZATION (“HCO”) is a legal person (i) that is a healthcare, medical or scientific association or organisation (irrespective of the legal or organisational form) such as a hospital, clinic, foundation, university or other teaching institution or learned society or (ii) through which one or more HCPs provide services.\n(See 100-BIP-00415 and HCCApp for additional local requirements: https://shareroom1.eu.boehringer.com/de/hccapp/SitePages/Home.aspx)",
+    "allOf": [
+        {
+            "$ref": "PurchasingSupplier.v1.json"
+        },
+        {
+            "$ref": "../Customer/HealthCareOrganization.v1.json"
+        }
+    ]
+}

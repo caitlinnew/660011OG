@@ -1,0 +1,213 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/PhysicalAppearance.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PHYSICAL APPEARANCE",
+    "type": "object",
+    "description": "The PHYSICAL APPEARANCE contains the attributes that describe the appearance of a tangible item.",
+    "properties": {
+        "depth": {
+            "title": "depth",
+            "type": "integer",
+            "format": "int32",
+            "description": "Depth is one dimension of a three dimensional tangible item. It is the dimension describing the distance from the tangible item's front to its back. Generally, tangible items have a depth (1). For some objects, e.g. Lyophilisates, the dimension is not relevant (0)."
+        },
+        "externalDiameter": {
+            "title": "externalDiameter",
+            "type": "integer",
+            "format": "int32",
+            "description": "External diameter is the diameter of the outer boundary of a round item.\nExternal Diameter is relevant for round tangible items (1), for which dimensions Width and Depth are not maintained, as the calculation of Volume from Hight x Width x Depth would generate wrong values. For rectangulare tangible items, External Diameter is not maintained (0)."
+        },
+        "height": {
+            "title": "height",
+            "type": "integer",
+            "format": "int32",
+            "description": "Height is one dimension of a three dimensional tangible item. It is the dimension describing the distance from the tangible item's bottom to its top. Generally, tangible items have a hight (1). For some objects, e.g. Lyophilisates, the dimension is not relevant (0)."
+        },
+        "imprintBottomSide": {
+            "title": "imprintBottomSide",
+            "type": "string",
+            "description": "Some tangible items carry an imprint (1), some do not (0). Imprints may occur at the bottom and/or at the top of the item. This attribute documents the Imprint on the bottom side of the tangible item."
+        },
+        "imprintTopSide": {
+            "title": "imprintTopSide",
+            "type": "string",
+            "description": "Some tangible items carry an imprint (1), some do not (0). Imprints may occur at the bottom and/or at the top of the item. This attribute documents the Imprint on the top side of the tangible item."
+        },
+        "length": {
+            "title": "length",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Length of the item."
+        },
+        "shape": {
+            "title": "shape",
+            "type": "string",
+            "description": "Shape is a values of a basic form describing a tangible item to a limited level of detail."
+        },
+        "weight": {
+            "title": "weight",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Gross Weight is the weight of the item including goods and packaging. A gross weight may also be called just weight.\nIf Weight is maintained in PHYSICAL APPEARANCE, then a UNIT OF MEASURE has to be maintained (1).\nIf Weight is not maintained in PHYSICAL APPEARANCE, then no UNIT OF MEASURE has to be maintained (0)."
+        },
+        "width": {
+            "title": "width",
+            "type": "integer",
+            "format": "int32",
+            "description": "Replaced by Length.\nWidth is one dimension of a three dimensional tangible item. It is the dimension describing the distance from the tangible item's left to its right. Generally, tangible items have a width (1). For some objects, e.g. Lyophilisates, the dimension is not relevant (0)."
+        },
+        "colorBottomSideSapCode": {
+            "title": "colorBottomSide.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for COLOR."
+        },
+        "colorBottomSideCode": {
+            "title": "colorBottomSide.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for COLOR.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "colorBottomSideRefId": {
+            "title": "colorBottomSide.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "colorTopSideSapCode": {
+            "title": "colorTopSide.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for COLOR."
+        },
+        "colorTopSideCode": {
+            "title": "colorTopSide.code",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for COLOR.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "colorTopSideRefId": {
+            "title": "colorTopSide.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "imprintBottomSapCode": {
+            "title": "imprintBottom.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for IMPRINT."
+        },
+        "imprintBottomRefId": {
+            "title": "imprintBottom.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "imprintTopSapCode": {
+            "title": "imprintTop.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for IMPRINT."
+        },
+        "imprintTopRefId": {
+            "title": "imprintTop.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "volumeNominal": {
+            "title": "nominalVolume.nominalVolume",
+            "type": "number",
+            "description": "The Nominal Volume is the volume that a container is designed to hold, leaving a defined volume of headspace in the container. With that, the Nominal Volume is smaller than the Maximum Volume, which is the maximum volume a container can hold, leaving no headspace volume."
+        },
+        "volumeUomCode": {
+            "title": "nominalVolume.unitOfMeasure.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "volumeUomSapCode": {
+            "title": "nominalVolume.unitOfMeasure.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "volumeUomRefId": {
+            "title": "unitOfMeasure.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "depthUomCode": {
+            "title": "unitOfMeasureForDepth.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "depthUomSapCode": {
+            "title": "unitOfMeasureForDepth.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "depthUomRefId": {
+            "title": "unitOfMeasureForDepth.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "externalDiameterUomCode": {
+            "title": "unitOfMeasureForExternalDiameter.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "externalDiameterUomSapCode": {
+            "title": "unitOfMeasureForExternalDiameter.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "externalDiameterUomRefId": {
+            "title": "unitOfMeasureForExternalDiameter.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "heightUomCode": {
+            "title": "unitOfMeasureForHeight.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "heightUomSapCode": {
+            "title": "unitOfMeasureForHeight.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "heightUomRefId": {
+            "title": "unitOfMeasureForHeight.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "weightUomCode": {
+            "title": "unitOfMeasureForWeight.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "weightUomSapCode": {
+            "title": "unitOfMeasureForWeight.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "weightUomRefId": {
+            "title": "unitOfMeasureForWeight.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "widthUomCode": {
+            "title": "unitOfMeasureForWidth.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+        "widthUomSapCode": {
+            "title": "unitOfMeasureForWidth.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "widthUomRefId": {
+            "title": "unitOfMeasureForWidth.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    }
+}

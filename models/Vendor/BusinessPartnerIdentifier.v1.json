@@ -1,0 +1,57 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/BusinessPartnerIdentifier.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BUSINESS PARTNER IDENTIFIER",
+    "type": "object",
+    "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+    "properties": {
+        "createdDate": {
+            "title": "createdDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date of Entry for ID Number i.e. the date when the entry has been created."
+        },
+        "id": {
+            "title": "identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "idTypeCode": {
+            "title": "identifierType.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for BUSINESS PARTNER IDENTIFIER TYPE."
+        },
+        "idTypeName": {
+            "title": "identifierType.term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        },
+        "startDate": {
+            "title": "startDate",
+            "type": "string",
+            "format": "date",
+            "description": "The Start Date indicates by when the Business Partner Identifier becomes valid."
+        },
+        "endDate": {
+            "title": "endDate",
+            "type": "string",
+            "format": "date",
+            "description": "The End Date indicates by when the Business Partner Identifier loses its validity."
+        },
+        "countryIso2Code": {
+            "title": "country.alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 code according to ISO 3166-1"
+        },
+        "countrySubdivisionIsoCode": {
+            "title": "countrySubdivision.isoCode",
+            "type": "string",
+            "description": "The Code according to ISO 3166-2.\nIf a COUNTRY SUBDIVISION is defined for a level not provided by ISO, then this Code remains empty (0). Instead an Alternate National Code has to be provided."
+        },
+        "idOwner": {
+            "title": "hinIdOwner",
+            "type": "string",
+            "description": "This field contains the owner of the identifier.\nIf the BUSINESS PARTNER IDENTIFIER TYPE is \"HIN\" (healthcare industry number) then it contains the owning organization of the \"HIN ID\"."
+        }
+    }
+}

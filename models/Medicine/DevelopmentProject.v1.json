@@ -1,0 +1,96 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/DevelopmentProject.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DEVELOPMENT PROJECT",
+    "type": "object",
+    "description": "A DEVELOPMENT PROJECT \n- is a project for cost reporting in controlling,\n- is maintained in the application system Probase,\n- is owned by development coordination,\n- aims at developing a drug product from start of development beyond launch.",
+    "properties": {
+        "ctmsCode": {
+            "title": "ctmsCode",
+            "type": "string",
+            "description": "The Project Code given to the project by the CTMS"
+        },
+        "impactId": {
+            "title": "impactProjectId",
+            "type": "string",
+            "description": "Unique ID of the development project given automatically by the CTMS"
+        },
+        "title": {
+            "title": "projectTitle",
+            "type": "string",
+            "description": "The Project Title describes the Development Project."
+        },
+        "importantDates": {
+            "title": "importantDate",
+            "type": "array",
+            "description": "An IMPORTANT DATE is a milestone or a planned event which will be specialized for the different scopes of IMPORTANT DATE; e.g. IMPORTANT DATE FOR STUDY, IMPORTANT DATE FOR STUDY COUNTRY, IMPORTANT DATE FOR STUDY SITE., ....\nAn IMPORTANT DATE is typificated by IMPORTANT DATE TYPE.",
+            "items": {
+                "$ref": "ImportantDate.v1.json"
+            }
+        },
+        "aiCombinationId": {
+            "title": "indicationAiCombinationAssignment.aiCombination.aiCombinationId",
+            "type": "string",
+            "description": "Unique identifier of the object AI COMBINATION."
+        },
+        "meddraIndicationName": {
+            "title": "indicationAiCombinationAssignment.indicationMeddra.name",
+            "type": "string",
+            "description": "Name is the MEDDRA Name abbreviated to 40 characters if necessary."
+        },
+        "type": {
+            "title": "projectType",
+            "type": "string",
+            "enum": [
+                "DEVELOPMENT",
+                "NON DEVELOPMENT"
+            ]
+        },
+        "meddraOrganClassSocName": {
+            "title": "meddraSystemOrganClass.meddraSocName",
+            "type": "string",
+            "description": "The name of the System Organ Class"
+        },
+        "meddraOrganClassSocCode": {
+            "title": "meddraSystemOrganClass.socCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "SOC Code as provided by MedDRA."
+        },
+        "businessSegmentShortTerm": {
+            "title": "businessSegment.shortTerm",
+            "type": "string",
+            "description": "short name of business segment"
+        },
+        "statusEffectiveDate": {
+            "title": "status.effectiveDate",
+            "type": "string",
+            "format": "date",
+            "description": "Gives the Effective Date of this DEVELOPMENT PROJECT STATUS."
+        },
+        "statusType": {
+            "title": "status.statusType",
+            "type": "string",
+            "enum": [
+                "I",
+                "I-II",
+                "II",
+                "II-III",
+                "III",
+                "IV",
+                "NA",
+                "CANCELLED",
+                "DISCONTINUED",
+                "ENDED"
+            ]
+        },
+        "personnel": {
+            "title": "individualClinicalDevelopmentFunction",
+            "type": "array",
+            "description": "INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION defines the role executed by an employee of Boehringer or a CRO in the context of clinical operations. \nINDIVIDUAL CLINICAL DEVELOPMENT FUNCTION is specialized in INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR STUDY, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR STUDY COUNTRY, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR STUDY SITE. \nThe values (roles types) are defined by INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION TYPE.",
+            "items": {
+                "$ref": "IndividualClinicalDevelopmentFunction.v1.json"
+            }
+        }
+    }
+}

@@ -1,0 +1,401 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/BusinessPartner.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BusinessPartner",
+    "type": "object",
+    "description": "ORGANIZATION (firm, branch office), individual or a group of individuals or organizations in which your company has a business interest.\nA BUSINESS PARTNER is a generalization for CUSTOMER, VENDOR, and EMPLOYEE, holding all the attributes and relationship",
+    "properties": {
+        "ids": {
+            "title": "businessPartnerIdentifier",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+                "$ref": "BusinessPartnerIdentifier.v1.json"
+            }
+        },
+        "names": {
+            "title": "businessPartnerName",
+            "type": "array",
+            "description": "A BUSINESS PARTNER may have several different NAMES, e.g. a legal name, different abbreviations, a name used in marketing / communication, etc.",
+            "items": {
+                "$ref": "#/definitions/BusinessPartnerName"
+            }
+        },
+        "defaultLanguage": {
+            "$ref": "../ReferenceData/Language.v1.json"
+        },
+        "financialCustomer": {
+            "$ref": "../Customer/FinancialCustomer.v1.json"
+        },
+        "individual": {
+            "$ref": "../Customer/Individual.v1.json"
+        },
+        "status": {
+            "$ref": "#/definitions/BusinessPartnerStatus"
+        },
+        "pet": {
+            "$ref": "../Customer/Pet.v1.json"
+        },
+        "addresses": {
+            "title": "addressUsage",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/AddressUsage"
+            }
+        },
+        "assignedBusinessPartnerFunction": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/BusinessPartnerFunctionAssignment"
+            }
+        },
+        "affiliations": {
+            "title": "affiliationsToBusinessPartner",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/BusinessPartnerAffiliation"
+            }
+        },
+        "license": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/License"
+            }
+        },
+        "telephones": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Telephone"
+            }
+        },
+        "faxs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Fax"
+            }
+        },
+        "emails": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Email"
+            }
+        },
+        "webs": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Web"
+            }
+        },
+        "creditCards": {
+            "title": "creditCards",
+            "type": "array",
+            "description": "A credit card is a payment card issued to users (cardholders) to enable the cardholder to pay a merchant for goods and services based on the cardholder's promise to the card issuer to pay them for the amounts plus the other agreed charges. The card issuer (usually a bank) creates a revolving account and grants a line of credit to the cardholder, from which the cardholder can borrow money for payment to a merchant or as a cash advance. (Source: Wikipedia)",
+            "items": {
+                "$ref": "../Finance/CreditCard.v1.json"
+            }
+        },
+        "bankAccounts": {
+            "type": "array",
+            "items": {
+                "$ref": "BankAccount.v1.json"
+            }
+        }
+    },
+    "definitions": {
+        "BusinessPartnerName": {
+            "title": "businessPartnerName",
+            "type": "object",
+            "description": "A BUSINESS PARTNER may have several different NAMES, e.g. a legal name, different abbreviations, a name used in marketing / communication, etc.",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string"
+                },
+                "nameTypeCode": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                }
+            }
+        },
+        "BusinessPartnerStatus": {
+            "type": "object",
+            "description": "Each BUSINESS PARTNER has a (global) Status. The Status can be defined on its own (BP is active with no active Roles assigned) or it can represent the aggregated status of the different ROLEs a BUSINESS PARTNER's may have.",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "term": {
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "AddressUsage": {
+            "type": "object",
+            "description": "Address usage describes for which purposes a customer address is used, e.g. Sold-To, Billed-To, Shipped-To, private, office, etc. Address usage is the intersection between address (which is independent of a business partner) and address type.\n\nOrdering Address:\nAn Ordering Address can exist only in connection to a PURCHASING SUPPLIER and a PURCHASING ORGANIZATION. It is including only name, address, communication data and the PURCHASING ORGANIZATION that is using it.\nAn ordering address is used when the recipient of the Purchase Order is a different location than the location of the PURCHASING SUPPLIER.\nOrdering Address can be also used to override communication data available in the PURCHASING SUPPLIER. The use case is limited to those communication data that are consumed by automated processes like Communication method, Communication language, email address, fax number.",
+            "allOf": [
+                {
+                    "$ref": "../Customer/Address.v1.json"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "addressTypeCode": {
+                            "title": "addressType.code",
+                            "type": "string"
+                        },
+                        "addressTypeName": {
+                            "title": "addressType.term",
+                            "type": "string",
+                            "description": "Term is a human readable designator of the data record for this object."
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/Location"
+                }
+            ]
+        },
+        "Location": {
+            "description": "LOCATION contains the information related to non-postal information tied to a BUSINESS PARTNER - ADDRESS relationship.\nExample: Site Name, Plant Information, Branch of Company.",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "buildingName": {
+                            "type": "string",
+                            "description": "Building (Number or Code)"
+                        },
+                        "locationGroup": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/LocationGroup"
+                            }
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/GeographicalInformation"
+                },
+                {
+                    "$ref": "#/definitions/LocationType"
+                }
+            ]
+        },
+        "GeographicalInformation": {
+            "type": "object",
+            "description": "GEOGRAPHICAL INFORMATION holds additional Positioning Data for a LOCATION e.g. GPS data.",
+            "properties": {
+                "locationGpsLatitudePosition": {
+                    "type": "string",
+                    "description": "The GPS position expressed in latitude."
+                },
+                "locationGpsLongitudePosition": {
+                    "type": "string",
+                    "description": "The GPS position expressed in longitude."
+                }
+            }
+        },
+        "LocationType": {
+            "type": "object",
+            "description": "Location Type is primarily used in Transportation Management (SAP PM), the location type is used for categorizing locations. Location types are not used for controlling business processes, they are only used as a means of reference. The codes are the standard SAP Codes for Location Type.",
+            "properties": {
+                "locationTypeCode": {
+                    "title": "code",
+                    "type": "string"
+                },
+                "locationTypeName": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "LocationGroup": {
+            "type": "object",
+            "description": "The LOCATION GROUP is a generic class to categorize LOCATIONs.",
+            "properties": {
+                "locationGroupCode": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "locationGroupName": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "BusinessPartnerFunctionAssignment": {
+            "type": "object",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.",
+            "properties": {
+                "referencedBusinessPartnerFunction": {
+                    "$ref": "#/definitions/BusinessPartnerFunction"
+                },
+                "referenceToLocationOfTheSameBusinessPartner": {
+                    "$ref": "#/definitions/Location"
+                }
+            }
+        },
+        "BusinessPartnerFunction": {
+            "type": "object",
+            "description": "A BUSINESS PARTNER holds the information that identifies the partner function. There are BUSINESS PARTNER FUNCTION for Vendor as well as for CUSTOMER.",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "term": {
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "BusinessPartnerAffiliation": {
+            "type": "object",
+            "description": "Business Partner to Business Partner Affiliation describes the relationship between two Business Partners.",
+            "properties": {
+                "positionName": {
+                    "type": "string",
+                    "description": "BP Affiliation with an affiliationtype like employment may have the Position Name as additional information."
+                },
+                "affiliationTypeCode": {
+                    "title": "affiliationType.code",
+                    "type": "string",
+                    "description": "Business Partner to Business Partner Affiliation Type describes relationship between different Business partners. The Code is the unique identifier of the data record for this object."
+                },
+                "affiliationTypeName": {
+                    "title": "affiliationType.term",
+                    "type": "string",
+                    "description": "Business Partner to Business Partner Affiliation Type describes relationship between different Business partners. Term is a human readable designator of the data record for this object."
+                },
+                "targetBusinessPartnerId": {
+                    "$ref": "BusinessPartnerIdentifier.v1.json"
+                },
+                "affiliationSubType": {
+                    "$ref": "#/definitions/AffiliationSubType"
+                }
+            }
+        },
+        "AffiliationType": {
+            "type": "object",
+            "description": "Business Partner to Business Partner Affiliation Type describes relationship between different Business partners.",
+            "properties": {
+                "code": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "Business Partner to Business Partner Affiliation Type describes relationship between different Business partners. The Code is the unique identifier of the data record for this object."
+                },
+                "name": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Business Partner to Business Partner Affiliation Type describes relationship between different Business partners. Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "AffiliationSubType": {
+            "type": "object",
+            "description": "Business Partner can have various affiliation sub types, beyond their affiliation.",
+            "properties": {
+                "code": {
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "term": {
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "License": {
+            "type": "object",
+            "description": "License is is the concrete licence that a customer has. A license is always assigned to a customer and has a dedicated license type.",
+            "properties": {
+                "endDate": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date when a license expires."
+                },
+                "licenseNumber": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "License number that a customer has for a specific licence."
+                }
+            }
+        },
+        "Telephone": {
+            "type": "object",
+            "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+            "properties": {
+                "primaryChannelDetail": {
+                    "type": "boolean"
+                },
+                "isMobilePhoneNumber": {
+                    "type": "boolean",
+                    "description": "Telephone Number blongs to a Mobile Phone"
+                },
+                "isStandardPhoneNumber": {
+                    "type": "boolean",
+                    "description": "This field indicates that this Phone Number Is the Standard Phone Number for a defined use."
+                },
+                "telephoneNumberComplete": {
+                    "type": "string",
+                    "description": "Telephone Number with Country Prefix, Dialling Code and with Extension"
+                }
+            }
+        },
+        "Fax": {
+            "type": "object",
+            "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+            "properties": {
+                "primaryChannelDetail": {
+                    "type": "boolean"
+                },
+                "faxNumberComplete": {
+                    "type": "string",
+                    "description": "The Complete Fax Number. That means dialing code + number + extension."
+                },
+                "isStandardFaxNumber": {
+                    "type": "boolean",
+                    "description": "This field indicates that this Fax Number is the Standard Phone Number for a defined use."
+                }
+            }
+        },
+        "Email": {
+            "type": "object",
+            "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+            "properties": {
+                "primaryChannelDetail": {
+                    "type": "boolean"
+                },
+                "emailAddress": {
+                    "type": "string"
+                },
+                "isStandardE-Mail": {
+                    "type": "boolean",
+                    "description": "This field indicates that this Email Is the Standard Email for a defined use."
+                }
+            }
+        },
+        "Web": {
+            "type": "object",
+            "description": "COMMUNICATION CHANNEL WEB reflects the WEB-Sites that a customer has and where we can find information about him. This can be his private WEB-Site, the official Company Homepage of a HCO or even a dedicated page of a HCO where is information about a HCP is available (e.g. as a kind of staff member profile).",
+            "properties": {
+                "primaryChannelDetail": {
+                    "type": "boolean"
+                },
+                "isStandardUrl": {
+                    "type": "boolean",
+                    "description": "This field indicates that this Web ULR Is the Standard URL for a defined use."
+                },
+                "urlName": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

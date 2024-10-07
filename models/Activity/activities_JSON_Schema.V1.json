@@ -1,0 +1,9529 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"definitions": {
+		".n1:acknowledgement": {
+			"$ref": "#/definitions/n1:AcknowledgementType"
+		},
+		".n1:activities": {
+			"$ref": "#/definitions/n1:ActivityListType"
+		},
+		".n1:activitiesFlat": {
+			"$ref": "#/definitions/n1:ActivityFlatListType"
+		},
+		".n1:activity": {
+			"$ref": "#/definitions/n1:ActivityType"
+		},
+		".n1:activityTask": {
+			"$ref": "#/definitions/n1:ActivityType"
+		},
+		".n1:activityTaskFlat": {
+			"$ref": "#/definitions/n1:ActivityTaskFlatListType"
+		},
+		".n1:activityTaskLog": {
+			"$ref": "#/definitions/n1:ActivityTaskLogListType"
+		},
+		".n1:activityTaskLogHTML": {
+			"$ref": "#/definitions/n1:HTMLType"
+		},
+		".n1:customer": {
+			"$ref": "#/definitions/n1:IdentifiablePartyType"
+		},
+		".n1:customers": {
+			"$ref": "#/definitions/n1:IdentifiablePartyCustomerListType"
+		},
+		".n1:getActivityTaskLog": {
+			"$ref": "#/definitions/n1:ActivityTaskLogLookupType"
+		},
+		".n1:getActivityTaskLogHTML": {
+			"$ref": "#/definitions/n1:ActivityTaskLogLookupType"
+		},
+		".n1:getCustomer": {
+			"$ref": "#/definitions/n1:IdentifiablePartyLookupType"
+		},
+		".n1:queryCustomers": {
+			"$ref": "#/definitions/n1:IdentifiablePartyLookupType"
+		},
+		".n1:syncCustomer": {
+			"$ref": "#/definitions/n1:IdentifiablePartyLookupType"
+		},
+		"n1:AcknowledgementType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@status": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityCostType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NumericType"
+				},
+				"@currency": {
+					"$ref": "#/definitions/n1:CurrencyCodeType"
+				},
+				"@exchangeRate": {
+					"$ref": "#/definitions/n1:NumericType"
+				},
+				"@source": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:AmountTypeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityEventType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:attendanceStatus": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:cost": {
+					"$ref": "#/definitions/n1:ActivityCostType"
+				},
+				"n1:description": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:name": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:program": {
+					"$ref": "#/definitions/n1:ActivityProgramType"
+				},
+				"n1:status": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:subType": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:type": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityFeedbackElementType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:description": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:possibleResponses": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:response": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityFeedbackType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:duration": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:element": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityFeedbackElementType"
+					},
+					"type": "array"
+				},
+				"n1:name": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityFlatListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@country": {
+					"$ref": "#/definitions/n1:IsoCountryCode2Type"
+				},
+				"@currency": {
+					"$ref": "#/definitions/n1:CurrencyCodeType"
+				},
+				"@language": {
+					"$ref": "#/definitions/n1:IsoLanguageCodeType"
+				},
+				"@partner": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:activity": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityFlatType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityFlatType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:Opt": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:Preferencename": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:Preferencetype": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:Purpose": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:biAgentId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:channel": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:CommunicationChannelType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:channelConsent": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:channelId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:customerId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventAttendanceStatus": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventCost": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventEndDate": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventName": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventStartDate": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventStatus": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventTopic": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:eventType": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:feedbackDuration": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:feedbackElemDesc": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:feedbackElemResponse": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:feedbackElementId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:feedbackName": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:feedbackPossibleResp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionAchieved": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:BooleanType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionCost": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NumericType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionCostStatus": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionDevice": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionDirection": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionDuration": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NumericType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionStatus": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionTitle": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionUrl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:noteVendor": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:relationshipInteraction": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:relationshipParent": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:relationshipSource": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:requestCompletionDate": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:DateTimeType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:requestDescription": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:requestOrderSize": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:requestProduct": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:requestProductId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:subChannel": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:timestamp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:DateTimeType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicAsset": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicAssetId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicBrand": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicIndication": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicPriority": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NumericType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicTherapeuticArea": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"n1:Opt",
+				"n1:Preferencename",
+				"n1:Preferencetype",
+				"n1:Purpose",
+				"n1:biAgentId",
+				"n1:channel",
+				"n1:channelConsent",
+				"n1:channelId",
+				"n1:customerId",
+				"n1:eventAttendanceStatus",
+				"n1:eventCost",
+				"n1:eventEndDate",
+				"n1:eventName",
+				"n1:eventStartDate",
+				"n1:eventStatus",
+				"n1:eventTopic",
+				"n1:eventType",
+				"n1:feedbackDuration",
+				"n1:feedbackElemDesc",
+				"n1:feedbackElemResponse",
+				"n1:feedbackElementId",
+				"n1:feedbackName",
+				"n1:feedbackPossibleResp",
+				"n1:interactionAchieved",
+				"n1:interactionCost",
+				"n1:interactionCostStatus",
+				"n1:interactionDevice",
+				"n1:interactionDirection",
+				"n1:interactionDuration",
+				"n1:interactionId",
+				"n1:interactionStatus",
+				"n1:interactionTitle",
+				"n1:interactionUrl",
+				"n1:noteVendor",
+				"n1:relationshipInteraction",
+				"n1:relationshipParent",
+				"n1:relationshipSource",
+				"n1:requestCompletionDate",
+				"n1:requestDescription",
+				"n1:requestOrderSize",
+				"n1:requestProduct",
+				"n1:requestProductId",
+				"n1:subChannel",
+				"n1:timestamp",
+				"n1:topicAsset",
+				"n1:topicAssetId",
+				"n1:topicBrand",
+				"n1:topicIndication",
+				"n1:topicPriority",
+				"n1:topicTherapeuticArea"
+			],
+			"type": "object"
+		},
+		"n1:ActivityIdentifierType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@country": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@scheme": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@schemeAgency": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@schemeInstance": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityInteractionLinesType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:action": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:logtime": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:DateTimeType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:type": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityInteractionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:cost": {
+					"$ref": "#/definitions/n1:ActivityCostType"
+				},
+				"n1:count": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:device": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:direction": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:duration": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:intendedContactAchieved": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:BooleanType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:lines": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityInteractionLinesType"
+					},
+					"type": "array"
+				},
+				"n1:name": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:status": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:InteractionStatusType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:title": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:url": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"n1:direction",
+				"n1:title"
+			],
+			"type": "object"
+		},
+		"n1:ActivityListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@count": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@errorDescription": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@id": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@syncId": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"n1:activity": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:activity"
+			],
+			"type": "object"
+		},
+		"n1:ActivityNoteType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityOptConsentType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@channel": {
+					"$ref": "#/definitions/n1:CommunicationChannelType"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@product": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@purpose": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@subChannel": {
+					"$ref": "#/definitions/n1:SubCommunicationChannelType"
+				},
+				"@timestamp": {
+					"$ref": "#/definitions/xsd:string"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityOptPreferenceType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@name": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@timestamp": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityOptType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:consent": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityOptConsentType"
+					},
+					"type": "array"
+				},
+				"n1:preference": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityOptPreferenceType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityParticipantRoleEnum": {
+			"description": "Enumeration of Activity Participant Roles",
+			"enum": [
+				"Customer",
+				"BI Agent"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:ActivityParticipantType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@role": {
+					"$ref": "#/definitions/n1:ActivityParticipantRoleEnum"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:contactInfo": {
+					"$ref": "#/definitions/n1:PartyContactInformationType",
+					"description": "Maps to PARTY TELEPHONE NUMBER + PARTY FAX NUMBER + PARTY EMAIL + URL PAGE"
+				},
+				"n1:currencies": {
+					"$ref": "#/definitions/n1:PartyCurrencyListType",
+					"description": "Maps to PARTY CURRENCY USAGE"
+				},
+				"n1:flags": {
+					"$ref": "#/definitions/n1:PartyFlagOrIndicatorListType"
+				},
+				"n1:graduationInfo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpInfo": {
+					"$ref": "#/definitions/n1:HcpInformationType"
+				},
+				"n1:identifiers": {
+					"$ref": "#/definitions/n1:PartyIdentifierListType"
+				},
+				"n1:individualInfo": {
+					"$ref": "#/definitions/n1:IndividualInformationType"
+				},
+				"n1:languages": {
+					"$ref": "#/definitions/n1:PartyLanguageListType",
+					"description": "Maps to PARTY LANGUAGE USAGE"
+				},
+				"n1:locations": {
+					"$ref": "#/definitions/n1:PartyLocationListType",
+					"description": "Maps to PARTY LOCATION"
+				},
+				"n1:name": {
+					"$ref": "#/definitions/n1:NamePartListType"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"description": "Maps to PARTY Party Comment",
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:relationships": {
+					"$ref": "#/definitions/n1:PartyRelationshipListType"
+				}
+			},
+			"required": [
+				"n1:identifiers"
+			],
+			"type": "object"
+		},
+		"n1:ActivityProgramType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityRelationshipType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@country": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@scheme": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@schemeAgency": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@schemeInstance": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:ActivityRelationshipTypeEnum"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityRelationshipTypeEnum": {
+			"enum": [
+				"Parent",
+				"Child",
+				"Source",
+				"Target"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:ActivityRequestType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:deliveryStatus": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:description": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:orderSize": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:product": {
+					"$ref": "#/definitions/n1:LocalProductSimpleType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityTaskFlatListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:activityTask": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityTaskFlatType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityTaskFlatType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:biAgentId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:channel": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:CommunicationChannelType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:country": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoCountryCode2Type"
+						}
+					},
+					"type": "object"
+				},
+				"n1:customerId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpCity": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpCountry": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpEmail": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpFax": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpFirstName": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpHeadAccount": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpLastName": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpMobilePhone": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpPhone": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpPrimaryHcoName": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpSalutation": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpSpecialty": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpState": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpStreet": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpType": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpZipCode": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionDirection": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionStatus": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionTitle": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:interactionUrl": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:language": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoLanguageCodeType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:noteInstructions": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:noteVendorAsset": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:partner": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:relationshipParent": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:relationshipSource": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:subChannel": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:timestamp": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:DateTimeType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicAsset": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicAssetId": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicBrand": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicIndication": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicPriority": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NumericType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:topicTherapeuticArea": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:type": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:StringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"n1:biAgentId",
+				"n1:channel",
+				"n1:country",
+				"n1:customerId",
+				"n1:hcpCity",
+				"n1:hcpCountry",
+				"n1:hcpEmail",
+				"n1:hcpFax",
+				"n1:hcpFirstName",
+				"n1:hcpHeadAccount",
+				"n1:hcpLastName",
+				"n1:hcpMobilePhone",
+				"n1:hcpPhone",
+				"n1:hcpPrimaryHcoName",
+				"n1:hcpSalutation",
+				"n1:hcpSpecialty",
+				"n1:hcpState",
+				"n1:hcpStreet",
+				"n1:hcpType",
+				"n1:hcpZipCode",
+				"n1:interactionDirection",
+				"n1:interactionStatus",
+				"n1:interactionTitle",
+				"n1:interactionUrl",
+				"n1:language",
+				"n1:noteInstructions",
+				"n1:noteVendorAsset",
+				"n1:partner",
+				"n1:relationshipParent",
+				"n1:relationshipSource",
+				"n1:subChannel",
+				"n1:timestamp",
+				"n1:topicAsset",
+				"n1:topicAssetId",
+				"n1:topicBrand",
+				"n1:topicIndication",
+				"n1:topicPriority",
+				"n1:topicTherapeuticArea",
+				"n1:type"
+			],
+			"type": "object"
+		},
+		"n1:ActivityTaskLogListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:activityTask": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityTaskLogType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityTaskLogLookupType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:country": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoCountryCode2Type"
+						}
+					},
+					"type": "object"
+				},
+				"n1:partner": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"n1:country",
+				"n1:partner"
+			],
+			"type": "object"
+		},
+		"n1:ActivityTaskLogType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@filename": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@status": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@timestamp": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityTimestampType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:DateTimeType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:ActivityTimestampTypeEnum"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityTimestampTypeEnum": {
+			"description": "Enumeration of Activity Timestamp types",
+			"enum": [
+				"Modified",
+				"Created",
+				"Completed",
+				"Expired",
+				"Start",
+				"End",
+				"Submitted"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:ActivityTopicType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@priority": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:asset": {
+					"items": {
+						"$ref": "#/definitions/n1:AssetSimpleType"
+					},
+					"type": "array"
+				},
+				"n1:brand": {
+					"$ref": "#/definitions/n1:LocalBrandSimpleType"
+				},
+				"n1:indication": {
+					"$ref": "#/definitions/n1:IndicationSimpleType"
+				},
+				"n1:product": {
+					"$ref": "#/definitions/n1:LocalProductSimpleType"
+				},
+				"n1:project": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:therapeuticArea": {
+					"$ref": "#/definitions/n1:TherapeuticAreaSimpleType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ActivityType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@channel": {
+					"$ref": "#/definitions/n1:CommunicationChannelType"
+				},
+				"@country": {
+					"$ref": "#/definitions/n1:IsoCountryCode2Type"
+				},
+				"@currency": {
+					"$ref": "#/definitions/n1:CurrencyCodeType"
+				},
+				"@language": {
+					"$ref": "#/definitions/n1:IsoLanguageCodeType"
+				},
+				"@log": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@partner": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@subChannel": {
+					"$ref": "#/definitions/n1:SubCommunicationChannelType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:ActivityTypeEnum"
+				},
+				"n1:event": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityEventType"
+					},
+					"type": "array"
+				},
+				"n1:feedback": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityFeedbackType"
+					},
+					"type": "array"
+				},
+				"n1:identifier": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityIdentifierType"
+					},
+					"type": "array"
+				},
+				"n1:interaction": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityInteractionType"
+					},
+					"type": "array"
+				},
+				"n1:note": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityNoteType"
+					},
+					"type": "array"
+				},
+				"n1:opt": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityOptType"
+					},
+					"type": "array"
+				},
+				"n1:participant": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityParticipantType"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"n1:relationship": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityRelationshipType"
+					},
+					"type": "array"
+				},
+				"n1:request": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityRequestType"
+					},
+					"type": "array"
+				},
+				"n1:timestamp": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityTimestampType"
+					},
+					"type": "array"
+				},
+				"n1:topic": {
+					"items": {
+						"$ref": "#/definitions/n1:ActivityTopicType"
+					},
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:participant"
+			],
+			"type": "object"
+		},
+		"n1:ActivityTypeEnum": {
+			"description": "Enumeration of Activity Type",
+			"enum": [
+				"Event",
+				"Feedback",
+				"Interaction",
+				"Request",
+				"Key Conversion",
+				"Opt",
+				"Consent"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:AmountType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NumericType"
+				},
+				"@currency": {
+					"$ref": "#/definitions/n1:CurrencyCodeType"
+				},
+				"@exchangeRate": {
+					"$ref": "#/definitions/n1:NumericType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:AmountTypeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:AmountTypeEnum": {
+			"enum": [
+				"Actual Price",
+				"Adjustment Amount",
+				"Commissions Payable Amount",
+				"Credit Amount",
+				"Debit Amount",
+				"Discount Amount",
+				"Invoiced Amount",
+				"Product List Price",
+				"Product Sales Price",
+				"Retail Price",
+				"Shipping Charge",
+				"Spend Amount",
+				"Subtotal Amount",
+				"Surcharge Amount",
+				"Tax Amount",
+				"Total Amount",
+				"Transaction Amount"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:AmountTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Actual Price",
+						"Adjustment Amount",
+						"Commissions Payable Amount",
+						"Credit Amount",
+						"Debit Amount",
+						"Discount Amount",
+						"Invoiced Amount",
+						"Product List Price",
+						"Product Sales Price",
+						"Retail Price",
+						"Shipping Charge",
+						"Spend Amount",
+						"Subtotal Amount",
+						"Surcharge Amount",
+						"Tax Amount",
+						"Total Amount",
+						"Transaction Amount"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:AssetSimpleType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:BiCompanyCodeEnum": {
+			"enum": [
+				"0001",
+				"0067",
+				"0113",
+				"0170",
+				"0248",
+				"0249",
+				"0265",
+				"0270",
+				"0271",
+				"0272",
+				"0321",
+				"0344",
+				"0345",
+				"0MB1",
+				"1509",
+				"1583",
+				"AR01",
+				"ARG1",
+				"AT01",
+				"AU01",
+				"BE01",
+				"BR01",
+				"CA01",
+				"CH01",
+				"CL01",
+				"CN01",
+				"CO01",
+				"COPY",
+				"CZ01",
+				"DE01",
+				"DE02",
+				"DK01",
+				"ES01",
+				"FI01",
+				"FR01",
+				"GB01",
+				"HK01",
+				"HU01",
+				"ID01",
+				"IE01",
+				"IN01",
+				"IT01",
+				"JP01",
+				"KR01",
+				"KZ01",
+				"LU01",
+				"MX01",
+				"MX03",
+				"MY01",
+				"NL01",
+				"NO01",
+				"NZ01",
+				"PE01",
+				"PH01",
+				"PL01",
+				"PT01",
+				"RECO",
+				"REOB",
+				"RERF",
+				"RU01",
+				"SE01",
+				"SG01",
+				"SK01",
+				"TH01",
+				"TR01",
+				"TW01",
+				"UA01",
+				"US01",
+				"US10",
+				"VE01",
+				"X001",
+				"X002",
+				"X003",
+				"X200",
+				"X300",
+				"ZA01",
+				"0074",
+				"0187",
+				"0260",
+				"1504"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:BiCompanyCodeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"0001",
+						"0067",
+						"0113",
+						"0170",
+						"0248",
+						"0249",
+						"0265",
+						"0270",
+						"0271",
+						"0272",
+						"0321",
+						"0344",
+						"0345",
+						"0MB1",
+						"1509",
+						"1583",
+						"AR01",
+						"ARG1",
+						"AT01",
+						"AU01",
+						"BE01",
+						"BR01",
+						"CA01",
+						"CH01",
+						"CL01",
+						"CN01",
+						"CO01",
+						"COPY",
+						"CZ01",
+						"DE01",
+						"DE02",
+						"DK01",
+						"ES01",
+						"FI01",
+						"FR01",
+						"GB01",
+						"HK01",
+						"HU01",
+						"ID01",
+						"IE01",
+						"IN01",
+						"IT01",
+						"JP01",
+						"KR01",
+						"KZ01",
+						"LU01",
+						"MX01",
+						"MX03",
+						"MY01",
+						"NL01",
+						"NO01",
+						"NZ01",
+						"PE01",
+						"PH01",
+						"PL01",
+						"PT01",
+						"RECO",
+						"REOB",
+						"RERF",
+						"RU01",
+						"SE01",
+						"SG01",
+						"SK01",
+						"TH01",
+						"TR01",
+						"TW01",
+						"UA01",
+						"US01",
+						"US10",
+						"VE01",
+						"X001",
+						"X002",
+						"X003",
+						"X200",
+						"X300",
+						"ZA01",
+						"0074",
+						"0187",
+						"0260",
+						"1504"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:BiSalesOrganizationEnum": {
+			"enum": [
+				"BI Animal Health GB",
+				"BI Animal Health NL",
+				"BI Com. GB Products",
+				"BI OPU CH Products",
+				"BI OPU CH Secondary",
+				"BI Pharma BR",
+				"BI Pharma GB",
+				"BI Pharma IT",
+				"BI POPU CH Products",
+				"BI Services BR",
+				"BI Vetmedica US",
+				"BIAHOCService CN",
+				"BICHC Sales CN",
+				"BICHCService CN",
+				"BICom. GB Second. BU",
+				"BIF Pharma Products",
+				"BIF Services",
+				"BIITSCO Pharma CN",
+				"BIITSCO Service CN",
+				"BIOPHARMA Service CN",
+				"BISPL Pharma CN BOPU",
+				"BISPL Pharma CN POPU",
+				"BISPL Service CN",
+				"BIVCService CN",
+				"BR Country template",
+				"Brazilian localizait",
+				"Sales Org. X001",
+				"Sales Org. X002",
+				"Sales Org. X003",
+				"Serv.Bill. IT 0067",
+				"Serv.Bill. IT 0344",
+				"Service Billing  IE",
+				"Service Billing GB",
+				"Solana Sales BR",
+				"Solana Service BR",
+				"Verkaufsorg. 0001"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:BiSalesOrganizationType": {
+			"anyOf": [
+				{
+					"enum": [
+						"BI Animal Health GB",
+						"BI Animal Health NL",
+						"BI Com. GB Products",
+						"BI OPU CH Products",
+						"BI OPU CH Secondary",
+						"BI Pharma BR",
+						"BI Pharma GB",
+						"BI Pharma IT",
+						"BI POPU CH Products",
+						"BI Services BR",
+						"BI Vetmedica US",
+						"BIAHOCService CN",
+						"BICHC Sales CN",
+						"BICHCService CN",
+						"BICom. GB Second. BU",
+						"BIF Pharma Products",
+						"BIF Services",
+						"BIITSCO Pharma CN",
+						"BIITSCO Service CN",
+						"BIOPHARMA Service CN",
+						"BISPL Pharma CN BOPU",
+						"BISPL Pharma CN POPU",
+						"BISPL Service CN",
+						"BIVCService CN",
+						"BR Country template",
+						"Brazilian localizait",
+						"Sales Org. X001",
+						"Sales Org. X002",
+						"Sales Org. X003",
+						"Serv.Bill. IT 0067",
+						"Serv.Bill. IT 0344",
+						"Service Billing  IE",
+						"Service Billing GB",
+						"Solana Sales BR",
+						"Solana Service BR",
+						"Verkaufsorg. 0001"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:BooleanType": {
+			"type": "boolean"
+		},
+		"n1:BusinessPartnerFlagOrIndicatorEnum": {
+			"enum": [
+				"Account Statement Period Indicator",
+				"Accounts Receivable Pledging Indicator",
+				"Agency Business Relevance Flag",
+				"Central Deletion Flag",
+				"Discount in Kind Granted Flag",
+				"Document Index Compilation active for Purchase Orders Flag",
+				"Higher Level Partner Flag",
+				"Index Compilation for Subsequent Settlement Active Flag",
+				"Insolvency Status Flag",
+				"Order Entry By Vendor Flag",
+				"Payment Notice to Accounting Indicator",
+				"Payment Notice to Customer with CI Indicator",
+				"Payment Notice to Customer without CI Indicator",
+				"Payment Notice to Legal Department Indicator",
+				"Payment Notice to Sales Indicator",
+				"Prepayment Relevance Flag",
+				"Price Determination Relevance Flag",
+				"Purchasing Block Flag",
+				"Purchase Order Always Mandatory Indicator",
+				"Rack-Jobbing Agreement Flag",
+				"Record Payment History Indicator",
+				"Revaluation Allowance Flag",
+				"Service-based Invoice Verification Flag",
+				"Single Payment Indicator",
+				"Subsidy Indicator",
+				"Vendor / Customer Clearing Indicator",
+				"Vendor Is Returns Vendor Flag",
+				"Vendor RMA Number Required Flag",
+				"Vendor subject to Subsequent Settlement Accounting Indicator"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:BusinessPartnerIndicatorTypeEnum": {
+			"enum": [
+				"Alternative Payee In Document Indicator",
+				"Alternative Payer In Document Indicator",
+				"Biochemical Warfare Usage Indicator",
+				"Brazilian Tax Split Indicator",
+				"Business Partner Equalization Tax Indicator",
+				"Business Partner VAT Liability Indicator",
+				"Central Deletion Flag",
+				"Contract Relevance Flag",
+				"Cora Relevance Flag",
+				"Mainly Civilian Usage Indicator",
+				"Missile Technology Indicator",
+				"National Security Flag",
+				"Natural Person",
+				"Nuclear Nonprofilation Indicator"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:BusinessPartnerRelationshipTypeEnum": {
+			"enum": [
+				"Allowed Alternative Payee",
+				"Allowed Alternative Payer",
+				"Business Partner With Credit Limit",
+				"Fiscal Address",
+				"Responsible Tax Authority"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:BusinessPartnerRoleEnum": {
+			"enum": [
+				"Alternative Payee",
+				"Alternative Payee In Document",
+				"Alternative Payer",
+				"Alternative Payer In Document",
+				"BI Company Trading Partner",
+				"Bill To",
+				"Business Partner Template",
+				"Control Corporate Group",
+				"Customer",
+				"Head Office",
+				"Leading BI Company",
+				"Next Payee",
+				"Representative",
+				"Parent Business Partner",
+				"Purchasing Supplier ",
+				"Ship To",
+				"Sold To",
+				"Stock Partner"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:BusinessPartnerRoleType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Allowed Alternative Payee",
+						"Allowed Alternative Payer",
+						"Business Partner With Credit Limit",
+						"Fiscal Address",
+						"Responsible Tax Authority"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"enum": [
+						"Alternative Payee",
+						"Alternative Payee In Document",
+						"Alternative Payer",
+						"Alternative Payer In Document",
+						"BI Company Trading Partner",
+						"Bill To",
+						"Business Partner Template",
+						"Control Corporate Group",
+						"Customer",
+						"Head Office",
+						"Leading BI Company",
+						"Next Payee",
+						"Representative",
+						"Parent Business Partner",
+						"Purchasing Supplier ",
+						"Ship To",
+						"Sold To",
+						"Stock Partner"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:CityType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@residential": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CodeCountryNameType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:code": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:country": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoCountryCode2Type"
+						}
+					},
+					"type": "object"
+				},
+				"n1:name": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:CommunicationChannelType": {
+			"description": "Enumeration of Channels",
+			"enum": [
+				"Rep",
+				"Email",
+				"Web",
+				"Phone",
+				"Direct Mail",
+				"Mobile",
+				"Event",
+				"Print Advertising",
+				"MSL",
+				"Fax",
+				"KAM"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:CurrencyCodeEnum": {
+			"description": "This is NOT the ISO Currency Code, but the MDM Currency Code.",
+			"enum": [
+				"ADP",
+				"AED",
+				"AFA",
+				"AFN",
+				"ALL",
+				"AMD",
+				"ANG",
+				"AOA",
+				"AON",
+				"AOR",
+				"ARS",
+				"ATS",
+				"AUD",
+				"AWG",
+				"AZM",
+				"BAM",
+				"BBD",
+				"BDT",
+				"BEF",
+				"BGN",
+				"BHD",
+				"BIF",
+				"BMD",
+				"BND",
+				"BOB",
+				"BRL",
+				"BSD",
+				"BTN",
+				"BWP",
+				"BYB",
+				"BYR",
+				"BZD",
+				"CAD",
+				"CDF",
+				"CFP",
+				"CHF",
+				"CLP",
+				"CNY",
+				"COP",
+				"CRC",
+				"CSD",
+				"CUP",
+				"CVE",
+				"CYP",
+				"CZK",
+				"DEM",
+				"DEM3",
+				"DJF",
+				"DKK",
+				"DOP",
+				"DZD",
+				"ECS",
+				"EEK",
+				"EGP",
+				"ERN",
+				"ESP",
+				"ETB",
+				"EUR",
+				"FIM",
+				"FJD",
+				"FKP",
+				"FRF",
+				"GBP",
+				"GEL",
+				"GHC",
+				"GIP",
+				"GMD",
+				"GNF",
+				"GRD",
+				"GTQ",
+				"GWP",
+				"GYD",
+				"HKD",
+				"HNL",
+				"HRK",
+				"HTG",
+				"HUF",
+				"IDR",
+				"IEP",
+				"ILS",
+				"INR",
+				"IQD",
+				"IRR",
+				"ISK",
+				"ITL",
+				"JMD",
+				"JOD",
+				"JPY",
+				"KES",
+				"KGS",
+				"KHR",
+				"KMF",
+				"KPW",
+				"KRW",
+				"KWD",
+				"KYD",
+				"KZT",
+				"LAK",
+				"LBP",
+				"LKR",
+				"LRD",
+				"LSL",
+				"LTL",
+				"LUF",
+				"LVL",
+				"LYD",
+				"MAD",
+				"MDL",
+				"MGA",
+				"MGF",
+				"MKD",
+				"MMK",
+				"MNT",
+				"MOP",
+				"MRO",
+				"MTL",
+				"MUR",
+				"MVR",
+				"MWK",
+				"MXN",
+				"MYR",
+				"MZM",
+				"NAD",
+				"NGN",
+				"NIO",
+				"NLG",
+				"NOK",
+				"NPR",
+				"NZD",
+				"NZD5",
+				"OMR",
+				"PAB",
+				"PEN",
+				"PGK",
+				"PHP",
+				"PKR",
+				"PLN",
+				"PTE",
+				"PYG",
+				"QAR",
+				"RMB",
+				"ROL",
+				"RON",
+				"RSD",
+				"RUB",
+				"RWF",
+				"SAR",
+				"SBD",
+				"SCR",
+				"SDD",
+				"SDP",
+				"SEK",
+				"SGD",
+				"SHP",
+				"SIT",
+				"SKK",
+				"SLL",
+				"SOS",
+				"SRD",
+				"SRG",
+				"STD",
+				"SVC",
+				"SYP",
+				"SZL",
+				"THB",
+				"TJR",
+				"TJS",
+				"TMM",
+				"TND",
+				"TOP",
+				"TPE",
+				"TRL",
+				"TRY",
+				"TTD",
+				"TWD",
+				"TZS",
+				"UAH",
+				"UGX",
+				"USD",
+				"USDN",
+				"UYU",
+				"UZS",
+				"VEB",
+				"VEF",
+				"VND",
+				"VUV",
+				"WST",
+				"XAF",
+				"XCD",
+				"XDS",
+				"XEU",
+				"XOF",
+				"XPF",
+				"YER",
+				"YUM",
+				"ZAR",
+				"ZMK",
+				"ZRN",
+				"ZWD"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:CurrencyCodeType": {
+			"maxLength": 3,
+			"minLength": 0,
+			"type": "string"
+		},
+		"n1:CustomerFlagOrIndicatorEnum": {
+			"enum": [
+				"Advertising Material Indicator",
+				"Blocked By Credit Management Flag",
+				"Business Partner Is Template Flag",
+				"Central Deletion Flag",
+				"Complete Delivery Flag",
+				"Customer ICMS Exemption Flag",
+				"Customer IPI Exemption Flag",
+				"Default Manual Invoice Maintenance Indicator",
+				"Default Partner Flag",
+				"Default Unloading Point Flag",
+				"Deletion Flag",
+				"Order Combination Permission Flag",
+				"Price Contract Allowance Flag",
+				"Proof of Delivery Relevance Indicator",
+				"Purchase Order is Required Flag",
+				"Rebate Relevancy Indicator",
+				"Switch Off Rounding Indicator",
+				"Unlimited Overdelivery Allowance Flag",
+				"Use Current Business Partner Flag",
+				"Allow Pricing Contracts Flag",
+				"Direct Customer Flag"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:CustomerRoleEnum": {
+			"enum": [
+				"Allowed Alternative Payee",
+				"Allowed Alternative Payer",
+				"Alternative Payee",
+				"Alternative Payee BI Company",
+				"Alternative Payer",
+				"Alternative Payer BI Company",
+				"Buying Association"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:CustomerRoleType": {
+			"anyOf": [
+				{
+					"anyOf": [
+						{
+							"enum": [
+								"Allowed Alternative Payee",
+								"Allowed Alternative Payer",
+								"Business Partner With Credit Limit",
+								"Fiscal Address",
+								"Responsible Tax Authority"
+							],
+							"minLength": 1,
+							"type": "string"
+						},
+						{
+							"enum": [
+								"Alternative Payee",
+								"Alternative Payee In Document",
+								"Alternative Payer",
+								"Alternative Payer In Document",
+								"BI Company Trading Partner",
+								"Bill To",
+								"Business Partner Template",
+								"Control Corporate Group",
+								"Customer",
+								"Head Office",
+								"Leading BI Company",
+								"Next Payee",
+								"Representative",
+								"Parent Business Partner",
+								"Purchasing Supplier ",
+								"Ship To",
+								"Sold To",
+								"Stock Partner"
+							],
+							"minLength": 1,
+							"type": "string"
+						},
+						{
+							"minLength": 1,
+							"type": "string"
+						}
+					]
+				},
+				{
+					"enum": [
+						"Allowed Alternative Payee",
+						"Allowed Alternative Payer",
+						"Alternative Payee",
+						"Alternative Payee BI Company",
+						"Alternative Payer",
+						"Alternative Payer BI Company",
+						"Buying Association"
+					],
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:DateTimeType": {
+			"type": "string"
+		},
+		"n1:DateType": {
+			"type": "string"
+		},
+		"n1:GenderEnum": {
+			"enum": [
+				"Female",
+				"Male"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:GenderType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Female",
+						"Male"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:GpsCoordinatesType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@latitude": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@longitude": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:HTMLType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:html": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"n1:body": {
+							"$ref": "#/definitions/xsd:anyType"
+						},
+						"n1:head": {
+							"$ref": "#/definitions/xsd:anyType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"required": [
+				"n1:html"
+			],
+			"type": "object"
+		},
+		"n1:HcpInformationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:graduationDate": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:DateType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:medicalDegree": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:organization": {
+					"$ref": "#/definitions/n1:HealthCareOrganizationType"
+				},
+				"n1:profession": {
+					"$ref": "#/definitions/n1:IdentifiableStringType"
+				},
+				"n1:specialty": {
+					"items": {
+						"$ref": "#/definitions/n1:IdentifiableStringType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:HealthCareOrganizationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:name": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:HinVinEnum": {
+			"enum": [
+				"HIN",
+				"VIN"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:HinVinType": {
+			"anyOf": [
+				{
+					"enum": [
+						"HIN",
+						"VIN"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:IdentifiablePartyCustomerListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:customer": {
+					"items": {
+						"$ref": "#/definitions/n1:IdentifiablePartyType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:IdentifiablePartyLookupType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:country": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoCountryCode2Type"
+						}
+					},
+					"type": "object"
+				},
+				"n1:identifier": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyIdentifierType"
+					},
+					"minItems": 1,
+					"type": "array"
+				},
+				"n1:name": {
+					"$ref": "#/definitions/n1:NamePartListType"
+				},
+				"n1:profession": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:zipOrPostalCode": {
+					"$ref": "#/definitions/n1:ZipOrPostalCodeType"
+				}
+			},
+			"required": [
+				"n1:country",
+				"n1:identifier"
+			],
+			"type": "object"
+		},
+		"n1:IdentifiablePartyType": {
+			"additionalProperties": false,
+			"description": "An identifiable party is an abstract classification to describe \"any\" party. An identifiable party can be further classified with specific details depending on the type. INFO MODEL ENTITY: PARTY",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:contactInfo": {
+					"$ref": "#/definitions/n1:PartyContactInformationType",
+					"description": "Maps to PARTY TELEPHONE NUMBER + PARTY FAX NUMBER + PARTY EMAIL + URL PAGE"
+				},
+				"n1:currencies": {
+					"$ref": "#/definitions/n1:PartyCurrencyListType",
+					"description": "Maps to PARTY CURRENCY USAGE"
+				},
+				"n1:flags": {
+					"$ref": "#/definitions/n1:PartyFlagOrIndicatorListType"
+				},
+				"n1:graduationInfo": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:hcpInfo": {
+					"$ref": "#/definitions/n1:HcpInformationType"
+				},
+				"n1:identifiers": {
+					"$ref": "#/definitions/n1:PartyIdentifierListType"
+				},
+				"n1:individualInfo": {
+					"$ref": "#/definitions/n1:IndividualInformationType"
+				},
+				"n1:languages": {
+					"$ref": "#/definitions/n1:PartyLanguageListType",
+					"description": "Maps to PARTY LANGUAGE USAGE"
+				},
+				"n1:locations": {
+					"$ref": "#/definitions/n1:PartyLocationListType",
+					"description": "Maps to PARTY LOCATION"
+				},
+				"n1:name": {
+					"$ref": "#/definitions/n1:NamePartListType"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"description": "Maps to PARTY Party Comment",
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:relationships": {
+					"$ref": "#/definitions/n1:PartyRelationshipListType"
+				}
+			},
+			"required": [
+				"n1:identifiers"
+			],
+			"type": "object"
+		},
+		"n1:IdentifiableStringType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@language": {
+					"$ref": "#/definitions/n1:IsoLanguageCodeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:IdentifierType": {
+			"additionalProperties": false,
+			"description": "Describes an activity identifier, including its restriction to known identification schemes.",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:IndicationSimpleType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@description": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@therapeuticArea": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:IndividualAlienType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@status": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:IndividualInformationType": {
+			"additionalProperties": false,
+			"description": "An individual party is an identifiable party that is a real human being (as opposed to an incorporated party which may not be.) INFO MODEL ENTITY: INDIVIDUAL PARTY",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:alien": {
+					"$ref": "#/definitions/n1:IndividualAlienType"
+				},
+				"n1:birthDate": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:DateType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:birthPlace": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:deathDate": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:DateType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:disability": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:ethnicity": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:gender": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:GenderType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:name": {
+					"$ref": "#/definitions/n1:NamePartListType"
+				},
+				"n1:nationality": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:profession": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:race": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:IntegerType": {
+			"type": "integer"
+		},
+		"n1:InteractionStatusType": {
+			"enum": [
+				"Submitted",
+				"Planned",
+				"Dropped",
+				"Sent",
+				"Failed",
+				"Pending",
+				"Opened",
+				"Clicked",
+				"Unsubscribed",
+				"Delivered",
+				"Viewed",
+				"Downloaded",
+				"Not Completed",
+				"Completed",
+				"Attended",
+				"No Show",
+				"Invited",
+				"Declined",
+				"No Inventory",
+				"Responded",
+				"Complete Service",
+				"Complete Detail",
+				"Complete detail-sample",
+				"Complete service-sample",
+				"Incomplete",
+				"Reply",
+				"Accepted",
+				"Neutral",
+				"Detailed",
+				"Chatted",
+				"Registration Start",
+				"Registered",
+				"Cancel",
+				"Viewed 25%",
+				"Viewed 50%",
+				"Viewed 75%",
+				"Viewed 100%",
+				"Certified"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:IsoCountryCode2Enum": {
+			"description": "Enumeration of ISO country codes.",
+			"enum": [
+				"AD",
+				"AE",
+				"AF",
+				"AG",
+				"AI",
+				"AL",
+				"AM",
+				"AN",
+				"AO",
+				"AQ",
+				"AR",
+				"AS",
+				"AT",
+				"AU",
+				"AW",
+				"AX",
+				"AZ",
+				"BA",
+				"BB",
+				"BD",
+				"BE",
+				"BF",
+				"BG",
+				"BH",
+				"BI",
+				"BJ",
+				"BM",
+				"BN",
+				"BO",
+				"BR",
+				"BS",
+				"BT",
+				"BV",
+				"BW",
+				"BY",
+				"BZ",
+				"CA",
+				"CC",
+				"CD",
+				"CF",
+				"CG",
+				"CH",
+				"CI",
+				"CK",
+				"CL",
+				"CM",
+				"CN",
+				"CO",
+				"CR",
+				"CS",
+				"CU",
+				"CV",
+				"CX",
+				"CY",
+				"CZ",
+				"DE",
+				"DJ",
+				"DK",
+				"DM",
+				"DO",
+				"DZ",
+				"EC",
+				"EE",
+				"EG",
+				"EH",
+				"ER",
+				"ES",
+				"ET",
+				"FI",
+				"FJ",
+				"FK",
+				"FM",
+				"FO",
+				"FR",
+				"GA",
+				"GB",
+				"GD",
+				"GE",
+				"GF",
+				"GH",
+				"GI",
+				"GL",
+				"GM",
+				"GN",
+				"GP",
+				"GQ",
+				"GR",
+				"GS",
+				"GT",
+				"GU",
+				"GW",
+				"GY",
+				"HK",
+				"HM",
+				"HN",
+				"HR",
+				"HT",
+				"HU",
+				"ID",
+				"IE",
+				"IL",
+				"IN",
+				"IO",
+				"IQ",
+				"IR",
+				"IS",
+				"IT",
+				"JM",
+				"JO",
+				"JP",
+				"KE",
+				"KG",
+				"KH",
+				"KI",
+				"KM",
+				"KN",
+				"KP",
+				"KR",
+				"KW",
+				"KY",
+				"KZ",
+				"LA",
+				"LB",
+				"LC",
+				"LI",
+				"LK",
+				"LR",
+				"LS",
+				"LT",
+				"LU",
+				"LV",
+				"LY",
+				"MA",
+				"MC",
+				"MD",
+				"MG",
+				"MH",
+				"MK",
+				"ML",
+				"MM",
+				"MN",
+				"MO",
+				"MP",
+				"MQ",
+				"MR",
+				"MS",
+				"MT",
+				"MU",
+				"MV",
+				"MW",
+				"MX",
+				"MY",
+				"MZ",
+				"NA",
+				"NC",
+				"NE",
+				"NF",
+				"NG",
+				"NI",
+				"NL",
+				"NO",
+				"NP",
+				"NR",
+				"NU",
+				"NZ",
+				"OM",
+				"PA",
+				"PE",
+				"PF",
+				"PG",
+				"PH",
+				"PK",
+				"PL",
+				"PM",
+				"PN",
+				"PR",
+				"PS",
+				"PT",
+				"PW",
+				"PY",
+				"QA",
+				"RE",
+				"RO",
+				"RU",
+				"RW",
+				"SA",
+				"SB",
+				"SC",
+				"SD",
+				"SE",
+				"SG",
+				"SH",
+				"SI",
+				"SJ",
+				"SK",
+				"SL",
+				"SM",
+				"SN",
+				"SO",
+				"SR",
+				"ST",
+				"SV",
+				"SY",
+				"SZ",
+				"TC",
+				"TD",
+				"TF",
+				"TG",
+				"TH",
+				"TJ",
+				"TK",
+				"TL",
+				"TM",
+				"TN",
+				"TO",
+				"TR",
+				"TT",
+				"TV",
+				"TW",
+				"TZ",
+				"UA",
+				"UG",
+				"UM",
+				"US",
+				"UY",
+				"UZ",
+				"VA",
+				"VC",
+				"VE",
+				"VG",
+				"VI",
+				"VN",
+				"VU",
+				"WF",
+				"WS",
+				"YE",
+				"YT",
+				"ZA",
+				"ZM",
+				"ZW"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:IsoCountryCode2Type": {
+			"anyOf": [
+				{
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"description": "Enumeration of ISO country codes.",
+					"enum": [
+						"AD",
+						"AE",
+						"AF",
+						"AG",
+						"AI",
+						"AL",
+						"AM",
+						"AN",
+						"AO",
+						"AQ",
+						"AR",
+						"AS",
+						"AT",
+						"AU",
+						"AW",
+						"AX",
+						"AZ",
+						"BA",
+						"BB",
+						"BD",
+						"BE",
+						"BF",
+						"BG",
+						"BH",
+						"BI",
+						"BJ",
+						"BM",
+						"BN",
+						"BO",
+						"BR",
+						"BS",
+						"BT",
+						"BV",
+						"BW",
+						"BY",
+						"BZ",
+						"CA",
+						"CC",
+						"CD",
+						"CF",
+						"CG",
+						"CH",
+						"CI",
+						"CK",
+						"CL",
+						"CM",
+						"CN",
+						"CO",
+						"CR",
+						"CS",
+						"CU",
+						"CV",
+						"CX",
+						"CY",
+						"CZ",
+						"DE",
+						"DJ",
+						"DK",
+						"DM",
+						"DO",
+						"DZ",
+						"EC",
+						"EE",
+						"EG",
+						"EH",
+						"ER",
+						"ES",
+						"ET",
+						"FI",
+						"FJ",
+						"FK",
+						"FM",
+						"FO",
+						"FR",
+						"GA",
+						"GB",
+						"GD",
+						"GE",
+						"GF",
+						"GH",
+						"GI",
+						"GL",
+						"GM",
+						"GN",
+						"GP",
+						"GQ",
+						"GR",
+						"GS",
+						"GT",
+						"GU",
+						"GW",
+						"GY",
+						"HK",
+						"HM",
+						"HN",
+						"HR",
+						"HT",
+						"HU",
+						"ID",
+						"IE",
+						"IL",
+						"IN",
+						"IO",
+						"IQ",
+						"IR",
+						"IS",
+						"IT",
+						"JM",
+						"JO",
+						"JP",
+						"KE",
+						"KG",
+						"KH",
+						"KI",
+						"KM",
+						"KN",
+						"KP",
+						"KR",
+						"KW",
+						"KY",
+						"KZ",
+						"LA",
+						"LB",
+						"LC",
+						"LI",
+						"LK",
+						"LR",
+						"LS",
+						"LT",
+						"LU",
+						"LV",
+						"LY",
+						"MA",
+						"MC",
+						"MD",
+						"MG",
+						"MH",
+						"MK",
+						"ML",
+						"MM",
+						"MN",
+						"MO",
+						"MP",
+						"MQ",
+						"MR",
+						"MS",
+						"MT",
+						"MU",
+						"MV",
+						"MW",
+						"MX",
+						"MY",
+						"MZ",
+						"NA",
+						"NC",
+						"NE",
+						"NF",
+						"NG",
+						"NI",
+						"NL",
+						"NO",
+						"NP",
+						"NR",
+						"NU",
+						"NZ",
+						"OM",
+						"PA",
+						"PE",
+						"PF",
+						"PG",
+						"PH",
+						"PK",
+						"PL",
+						"PM",
+						"PN",
+						"PR",
+						"PS",
+						"PT",
+						"PW",
+						"PY",
+						"QA",
+						"RE",
+						"RO",
+						"RU",
+						"RW",
+						"SA",
+						"SB",
+						"SC",
+						"SD",
+						"SE",
+						"SG",
+						"SH",
+						"SI",
+						"SJ",
+						"SK",
+						"SL",
+						"SM",
+						"SN",
+						"SO",
+						"SR",
+						"ST",
+						"SV",
+						"SY",
+						"SZ",
+						"TC",
+						"TD",
+						"TF",
+						"TG",
+						"TH",
+						"TJ",
+						"TK",
+						"TL",
+						"TM",
+						"TN",
+						"TO",
+						"TR",
+						"TT",
+						"TV",
+						"TW",
+						"TZ",
+						"UA",
+						"UG",
+						"UM",
+						"US",
+						"UY",
+						"UZ",
+						"VA",
+						"VC",
+						"VE",
+						"VG",
+						"VI",
+						"VN",
+						"VU",
+						"WF",
+						"WS",
+						"YE",
+						"YT",
+						"ZA",
+						"ZM",
+						"ZW"
+					],
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:IsoLanguageCodeEnum": {
+			"enum": [
+				"af",
+				"af-ZA",
+				"ar",
+				"ar-AE",
+				"ar-BH",
+				"ar-DZ",
+				"ar-EG",
+				"ar-IQ",
+				"ar-JO",
+				"ar-KW",
+				"ar-LB",
+				"ar-LY",
+				"ar-MA",
+				"ar-OM",
+				"ar-QA",
+				"ar-SA",
+				"ar-SY",
+				"ar-TN",
+				"ar-YE",
+				"az",
+				"az-AZ",
+				"be",
+				"be-BY",
+				"bg",
+				"bg-BG",
+				"bs-BA",
+				"ca",
+				"ca-ES",
+				"cs",
+				"cs-CZ",
+				"cy",
+				"cy-GB",
+				"da",
+				"da-DK",
+				"de",
+				"de-AT",
+				"de-CH",
+				"de-DE",
+				"de-LI",
+				"de-LU",
+				"dv",
+				"dv-MV",
+				"el",
+				"el-GR",
+				"en",
+				"en-AU",
+				"en-BZ",
+				"en-CA",
+				"en-CB",
+				"en-GB",
+				"en-IE",
+				"en-JM",
+				"en-NZ",
+				"en-PH",
+				"en-TT",
+				"en-US",
+				"en-ZA",
+				"en-ZW",
+				"eo",
+				"es",
+				"es-AR",
+				"es-BO",
+				"es-CL",
+				"es-CO",
+				"es-CR",
+				"es-DO",
+				"es-EC",
+				"es-ES",
+				"es-GT",
+				"es-HN",
+				"es-MX",
+				"es-NI",
+				"es-PA",
+				"es-PE",
+				"es-PR",
+				"es-PY",
+				"es-SV",
+				"es-UY",
+				"es-VE",
+				"et",
+				"et-EE",
+				"eu",
+				"eu-ES",
+				"fa",
+				"fa-IR",
+				"fi",
+				"fi-FI",
+				"fo",
+				"fo-FO",
+				"fr",
+				"fr-BE",
+				"fr-CA",
+				"fr-CH",
+				"fr-FR",
+				"fr-LU",
+				"fr-MC",
+				"gl",
+				"gl-ES",
+				"gu",
+				"gu-IN",
+				"he",
+				"he-IL",
+				"hi",
+				"hi-IN",
+				"hr",
+				"hr-BA",
+				"hr-HR",
+				"hu",
+				"hu-HU",
+				"hy",
+				"hy-AM",
+				"id",
+				"id-ID",
+				"is",
+				"is-IS",
+				"it",
+				"it-CH",
+				"it-IT",
+				"ja",
+				"ja-JP",
+				"ka",
+				"ka-GE",
+				"kk",
+				"kk-KZ",
+				"kn",
+				"kn-IN",
+				"ko",
+				"ko-KR",
+				"kok",
+				"kok-IN",
+				"ky",
+				"ky-KG",
+				"lt",
+				"lt-LT",
+				"lv",
+				"lv-LV",
+				"mi",
+				"mi-NZ",
+				"mk",
+				"mk-MK",
+				"mn",
+				"mn-MN",
+				"mr",
+				"mr-IN",
+				"ms",
+				"ms-BN",
+				"ms-MY",
+				"mt",
+				"mt-MT",
+				"nb",
+				"nb-NO",
+				"nl",
+				"nl-BE",
+				"nl-NL",
+				"nn-NO",
+				"ns",
+				"ns-ZA",
+				"pa",
+				"pa-IN",
+				"pl",
+				"pl-PL",
+				"ps",
+				"ps-AR",
+				"pt",
+				"pt-BR",
+				"pt-PT",
+				"qu",
+				"qu-BO",
+				"qu-EC",
+				"qu-PE",
+				"ro",
+				"ro-RO",
+				"ru",
+				"ru-RU",
+				"sa",
+				"sa-IN",
+				"se",
+				"se-FI",
+				"se-NO",
+				"se-SE",
+				"sk",
+				"sk-SK",
+				"sl",
+				"sl-SI",
+				"sq",
+				"sq-AL",
+				"sr-BA",
+				"sr-SP",
+				"sv",
+				"sv-FI",
+				"sv-SE",
+				"sw",
+				"sw-KE",
+				"syr",
+				"syr-SY",
+				"ta",
+				"ta-IN",
+				"te",
+				"te-IN",
+				"th",
+				"th-TH",
+				"tl",
+				"tl-PH",
+				"tn",
+				"tn-ZA",
+				"tr",
+				"tr-TR",
+				"ts",
+				"tt",
+				"tt-RU",
+				"uk",
+				"uk-UA",
+				"ur",
+				"ur-PK",
+				"uz",
+				"uz-UZ",
+				"vi",
+				"vi-VN",
+				"xh",
+				"xh-ZA",
+				"zh",
+				"zh-CN",
+				"zh-HK",
+				"zh-MO",
+				"zh-SG",
+				"zh-TW",
+				"zu",
+				"zu-ZA"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:IsoLanguageCodeType": {
+			"anyOf": [
+				{
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"enum": [
+						"af",
+						"af-ZA",
+						"ar",
+						"ar-AE",
+						"ar-BH",
+						"ar-DZ",
+						"ar-EG",
+						"ar-IQ",
+						"ar-JO",
+						"ar-KW",
+						"ar-LB",
+						"ar-LY",
+						"ar-MA",
+						"ar-OM",
+						"ar-QA",
+						"ar-SA",
+						"ar-SY",
+						"ar-TN",
+						"ar-YE",
+						"az",
+						"az-AZ",
+						"be",
+						"be-BY",
+						"bg",
+						"bg-BG",
+						"bs-BA",
+						"ca",
+						"ca-ES",
+						"cs",
+						"cs-CZ",
+						"cy",
+						"cy-GB",
+						"da",
+						"da-DK",
+						"de",
+						"de-AT",
+						"de-CH",
+						"de-DE",
+						"de-LI",
+						"de-LU",
+						"dv",
+						"dv-MV",
+						"el",
+						"el-GR",
+						"en",
+						"en-AU",
+						"en-BZ",
+						"en-CA",
+						"en-CB",
+						"en-GB",
+						"en-IE",
+						"en-JM",
+						"en-NZ",
+						"en-PH",
+						"en-TT",
+						"en-US",
+						"en-ZA",
+						"en-ZW",
+						"eo",
+						"es",
+						"es-AR",
+						"es-BO",
+						"es-CL",
+						"es-CO",
+						"es-CR",
+						"es-DO",
+						"es-EC",
+						"es-ES",
+						"es-GT",
+						"es-HN",
+						"es-MX",
+						"es-NI",
+						"es-PA",
+						"es-PE",
+						"es-PR",
+						"es-PY",
+						"es-SV",
+						"es-UY",
+						"es-VE",
+						"et",
+						"et-EE",
+						"eu",
+						"eu-ES",
+						"fa",
+						"fa-IR",
+						"fi",
+						"fi-FI",
+						"fo",
+						"fo-FO",
+						"fr",
+						"fr-BE",
+						"fr-CA",
+						"fr-CH",
+						"fr-FR",
+						"fr-LU",
+						"fr-MC",
+						"gl",
+						"gl-ES",
+						"gu",
+						"gu-IN",
+						"he",
+						"he-IL",
+						"hi",
+						"hi-IN",
+						"hr",
+						"hr-BA",
+						"hr-HR",
+						"hu",
+						"hu-HU",
+						"hy",
+						"hy-AM",
+						"id",
+						"id-ID",
+						"is",
+						"is-IS",
+						"it",
+						"it-CH",
+						"it-IT",
+						"ja",
+						"ja-JP",
+						"ka",
+						"ka-GE",
+						"kk",
+						"kk-KZ",
+						"kn",
+						"kn-IN",
+						"ko",
+						"ko-KR",
+						"kok",
+						"kok-IN",
+						"ky",
+						"ky-KG",
+						"lt",
+						"lt-LT",
+						"lv",
+						"lv-LV",
+						"mi",
+						"mi-NZ",
+						"mk",
+						"mk-MK",
+						"mn",
+						"mn-MN",
+						"mr",
+						"mr-IN",
+						"ms",
+						"ms-BN",
+						"ms-MY",
+						"mt",
+						"mt-MT",
+						"nb",
+						"nb-NO",
+						"nl",
+						"nl-BE",
+						"nl-NL",
+						"nn-NO",
+						"ns",
+						"ns-ZA",
+						"pa",
+						"pa-IN",
+						"pl",
+						"pl-PL",
+						"ps",
+						"ps-AR",
+						"pt",
+						"pt-BR",
+						"pt-PT",
+						"qu",
+						"qu-BO",
+						"qu-EC",
+						"qu-PE",
+						"ro",
+						"ro-RO",
+						"ru",
+						"ru-RU",
+						"sa",
+						"sa-IN",
+						"se",
+						"se-FI",
+						"se-NO",
+						"se-SE",
+						"sk",
+						"sk-SK",
+						"sl",
+						"sl-SI",
+						"sq",
+						"sq-AL",
+						"sr-BA",
+						"sr-SP",
+						"sv",
+						"sv-FI",
+						"sv-SE",
+						"sw",
+						"sw-KE",
+						"syr",
+						"syr-SY",
+						"ta",
+						"ta-IN",
+						"te",
+						"te-IN",
+						"th",
+						"th-TH",
+						"tl",
+						"tl-PH",
+						"tn",
+						"tn-ZA",
+						"tr",
+						"tr-TR",
+						"ts",
+						"tt",
+						"tt-RU",
+						"uk",
+						"uk-UA",
+						"ur",
+						"ur-PK",
+						"uz",
+						"uz-UZ",
+						"vi",
+						"vi-VN",
+						"xh",
+						"xh-ZA",
+						"zh",
+						"zh-CN",
+						"zh-HK",
+						"zh-MO",
+						"zh-SG",
+						"zh-TW",
+						"zu",
+						"zu-ZA"
+					],
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:LicenceTypeEnum": {
+			"enum": [
+				"D",
+				"IDC",
+				"OFC",
+				"P",
+				"RPPS",
+				"T",
+				"V"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:LicenseTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"D",
+						"IDC",
+						"OFC",
+						"P",
+						"RPPS",
+						"T",
+						"V"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:LocalBrandSimpleType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@country": {
+					"$ref": "#/definitions/n1:IsoCountryCode2Type"
+				},
+				"@description": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:LocalProductSimpleType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:LocationDeliveryType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:LocationDeliveryTypeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:LocationDeliveryTypeEnum": {
+			"enum": [
+				"1",
+				"2",
+				"3",
+				"4",
+				"5",
+				"6",
+				"7"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:LocationDeliveryTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"1",
+						"2",
+						"3",
+						"4",
+						"5",
+						"6",
+						"7"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:LocationType": {
+			"additionalProperties": false,
+			"description": "Describes a postal location",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@fullAddress": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:buildingNumber": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:city": {
+					"$ref": "#/definitions/n1:CityType"
+				},
+				"n1:companyZipOrPostalCode": {
+					"$ref": "#/definitions/n1:ZipOrPostalCodeType"
+				},
+				"n1:country": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoCountryCode2Type"
+						}
+					},
+					"type": "object"
+				},
+				"n1:deliveryType": {
+					"$ref": "#/definitions/n1:LocationDeliveryType"
+				},
+				"n1:dependency": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:district": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:floorNumber": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:gpsCoordinates": {
+					"$ref": "#/definitions/n1:GpsCoordinatesType"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:postOfficeBox": {
+					"$ref": "#/definitions/n1:PostOfficeBoxType"
+				},
+				"n1:postalDistrict": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:regionalGrouping": {
+					"$ref": "#/definitions/n1:RegionalGroupingType"
+				},
+				"n1:roomNumber": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:stateOrProvince": {
+					"$ref": "#/definitions/n1:StateOrProvinceType"
+				},
+				"n1:streetName": {
+					"$ref": "#/definitions/n1:StreetNameType"
+				},
+				"n1:streetNameExtension": {
+					"items": {
+						"$ref": "#/definitions/n1:StreetNameExtensionType"
+					},
+					"type": "array"
+				},
+				"n1:streetNumber": {
+					"$ref": "#/definitions/n1:StreetNumberType"
+				},
+				"n1:taxClassification": {
+					"$ref": "#/definitions/n1:PartyTaxClassificationType"
+				},
+				"n1:taxJurisdictionCode": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:timeZone": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:trainStation": {
+					"$ref": "#/definitions/n1:TrainStationType"
+				},
+				"n1:transportationZone": {
+					"$ref": "#/definitions/n1:CodeCountryNameType"
+				},
+				"n1:undeliverabilityReason": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:unloadingPoint": {
+					"$ref": "#/definitions/n1:UnloadingPointType"
+				},
+				"n1:zipOrPostalCode": {
+					"$ref": "#/definitions/n1:ZipOrPostalCodeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:NamePartListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:part": {
+					"items": {
+						"$ref": "#/definitions/n1:NamePartType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:part"
+			],
+			"type": "object"
+		},
+		"n1:NamePartType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:IntegerType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NamePartTypeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:NamePartTypeEnum": {
+			"enum": [
+				"First Name",
+				"Full Name",
+				"Full Name Short",
+				"Last Name",
+				"Middle Name",
+				"Prefix",
+				"Salutation",
+				"Salutation Code",
+				"Suffix",
+				"Title"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:NamePartTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"First Name",
+						"Full Name",
+						"Full Name Short",
+						"Last Name",
+						"Middle Name",
+						"Prefix",
+						"Salutation",
+						"Salutation Code",
+						"Suffix",
+						"Title"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:NonNullStringType": {
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:NumericType": {
+			"type": "number"
+		},
+		"n1:PartyContactInformationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:emailAddress": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyEmailType"
+					},
+					"type": "array"
+				},
+				"n1:faxNumber": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyPhoneType"
+					},
+					"type": "array"
+				},
+				"n1:phoneNumber": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyPhoneType"
+					},
+					"type": "array"
+				},
+				"n1:standardCommunication": {
+					"$ref": "#/definitions/n1:StandardCommunicationMethodType"
+				},
+				"n1:telebox": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:webAddress": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyWebPageType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyCountryListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:country": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyCountryType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:country"
+			],
+			"type": "object"
+		},
+		"n1:PartyCountryType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:IsoCountryCode2Type"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:period": {
+					"$ref": "#/definitions/n1:PartyPeriodType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyCurrencyListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:currency": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyCurrencyType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:currency"
+			],
+			"type": "object"
+		},
+		"n1:PartyCurrencyType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:CurrencyCodeType"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:period": {
+					"$ref": "#/definitions/n1:PartyPeriodType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyEmailType": {
+			"additionalProperties": false,
+			"description": "Maps to the info model PARTY EMAIL ADDRESS",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@default": {
+					"$ref": "#/definitions/n1:BooleanType"
+				},
+				"@sequenceNumber": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:PartyEmailTypeType"
+				},
+				"n1:address": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:notUsed": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:BooleanType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:period": {
+					"$ref": "#/definitions/n1:PartyPeriodType"
+				},
+				"n1:tnefEnabled": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:BooleanType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyEmailTypeEnum": {
+			"enum": [
+				"Home",
+				"Main",
+				"Work"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyEmailTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Home",
+						"Main",
+						"Work"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PartyFlagOrIndicatorListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:flag": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyFlagOrIndicatorType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:flag"
+			],
+			"type": "object"
+		},
+		"n1:PartyFlagOrIndicatorType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:BooleanType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:PartyFlagOrIndicatorTypeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyFlagOrIndicatorTypeEnum": {
+			"enum": [
+				"Central Deletion Flag",
+				"Cora Relevance Flag",
+				"Deletion Flag",
+				"Double Invoices Or Credit Memos Flag",
+				"Economically Disadvantaged Area Indicator",
+				"Goods receipt confirmation expected Flag",
+				"Health Care Professional",
+				"Higher Level Partner Flag",
+				"Inactive Flag",
+				"Insolvency Status Flag",
+				"Local Processing Flag",
+				"Mainly Civilian Usage Indicator",
+				"Missile Technology Indicator",
+				"National Security Flag",
+				"Nuclear Nonprofiltration Indicator",
+				"Prepayment Relevance Flag",
+				"Purchasing order response expected Flag",
+				"Shipping notification expeced",
+				"Small Business Indicator",
+				"Targeted Group Indicator"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyFlagOrIndicatorTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Central Deletion Flag",
+						"Cora Relevance Flag",
+						"Deletion Flag",
+						"Double Invoices Or Credit Memos Flag",
+						"Economically Disadvantaged Area Indicator",
+						"Goods receipt confirmation expected Flag",
+						"Health Care Professional",
+						"Higher Level Partner Flag",
+						"Inactive Flag",
+						"Insolvency Status Flag",
+						"Local Processing Flag",
+						"Mainly Civilian Usage Indicator",
+						"Missile Technology Indicator",
+						"National Security Flag",
+						"Nuclear Nonprofiltration Indicator",
+						"Prepayment Relevance Flag",
+						"Purchasing order response expected Flag",
+						"Shipping notification expeced",
+						"Small Business Indicator",
+						"Targeted Group Indicator"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PartyIdentifierListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:identifier": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyIdentifierType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:identifier"
+			],
+			"type": "object"
+		},
+		"n1:PartyIdentifierSchemeAgencyEnum": {
+			"enum": [
+				"CIP6",
+				"CIP7",
+				"DEA",
+				"DUNS Number",
+				"HIN",
+				"ID Card",
+				"Officer Card",
+				"Robot ID",
+				"RPPS",
+				"Tax Excemption",
+				"VET License",
+				"VIN",
+				"National Identification Number",
+				"VAT Identification Number",
+				"Axapta ERP",
+				"Axis",
+				"BIDS",
+				"GBS ERP",
+				"GBS MDM",
+				"IBIS ERP",
+				"Local HR",
+				"Siebel CRM",
+				"Symphony ERP",
+				"Veeva CRM"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyIdentifierSchemeAgencyType": {
+			"anyOf": [
+				{
+					"enum": [
+						"CIP6",
+						"CIP7",
+						"DEA",
+						"DUNS Number",
+						"HIN",
+						"ID Card",
+						"Officer Card",
+						"Robot ID",
+						"RPPS",
+						"Tax Excemption",
+						"VET License",
+						"VIN",
+						"National Identification Number",
+						"VAT Identification Number",
+						"Axapta ERP",
+						"Axis",
+						"BIDS",
+						"GBS ERP",
+						"GBS MDM",
+						"IBIS ERP",
+						"Local HR",
+						"Siebel CRM",
+						"Symphony ERP",
+						"Veeva CRM"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PartyIdentifierSchemeEnum": {
+			"description": "Describes the enumeration of known party types (schemes) available.",
+			"enum": [
+				"BI Company",
+				"Employee",
+				"Business Partner",
+				"Customer",
+				"Vendor"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyIdentifierSchemeInstanceEnum": {
+			"enum": [
+				"GBS"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyIdentifierSchemeInstanceType": {
+			"anyOf": [
+				{
+					"enum": [
+						"GBS"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PartyIdentifierSchemeType": {
+			"anyOf": [
+				{
+					"description": "Describes the enumeration of known party types (schemes) available.",
+					"enum": [
+						"BI Company",
+						"Employee",
+						"Business Partner",
+						"Customer",
+						"Vendor"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PartyIdentifierType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@country": {
+					"$ref": "#/definitions/n1:IsoCountryCode2Type"
+				},
+				"@scheme": {
+					"$ref": "#/definitions/n1:PartyIdentifierSchemeType"
+				},
+				"@schemeAgency": {
+					"$ref": "#/definitions/n1:PartyIdentifierSchemeAgencyType"
+				},
+				"@schemeInstance": {
+					"$ref": "#/definitions/n1:PartyIdentifierSchemeInstanceType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyLanguageListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:language": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyLanguageType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:language"
+			],
+			"type": "object"
+		},
+		"n1:PartyLanguageType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:IsoLanguageCodeType"
+				},
+				"@preferred": {
+					"$ref": "#/definitions/n1:BooleanType"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:period": {
+					"$ref": "#/definitions/n1:PartyPeriodType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyLocationListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:location": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyLocationType"
+					},
+					"minItems": 1,
+					"type": "array"
+				}
+			},
+			"required": [
+				"n1:location"
+			],
+			"type": "object"
+		},
+		"n1:PartyLocationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@fullAddress": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@primary": {
+					"$ref": "#/definitions/n1:BooleanType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:PartyLocationTypeType"
+				},
+				"n1:buildingNumber": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:city": {
+					"$ref": "#/definitions/n1:CityType"
+				},
+				"n1:companyZipOrPostalCode": {
+					"$ref": "#/definitions/n1:ZipOrPostalCodeType"
+				},
+				"n1:country": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoCountryCode2Type"
+						}
+					},
+					"type": "object"
+				},
+				"n1:deliveryType": {
+					"$ref": "#/definitions/n1:LocationDeliveryType"
+				},
+				"n1:dependency": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:district": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:floorNumber": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:gpsCoordinates": {
+					"$ref": "#/definitions/n1:GpsCoordinatesType"
+				},
+				"n1:note": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:postOfficeBox": {
+					"$ref": "#/definitions/n1:PostOfficeBoxType"
+				},
+				"n1:postalDistrict": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:regionalGrouping": {
+					"$ref": "#/definitions/n1:RegionalGroupingType"
+				},
+				"n1:roomNumber": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:stateOrProvince": {
+					"$ref": "#/definitions/n1:StateOrProvinceType"
+				},
+				"n1:streetName": {
+					"$ref": "#/definitions/n1:StreetNameType"
+				},
+				"n1:streetNameExtension": {
+					"items": {
+						"$ref": "#/definitions/n1:StreetNameExtensionType"
+					},
+					"type": "array"
+				},
+				"n1:streetNumber": {
+					"$ref": "#/definitions/n1:StreetNumberType"
+				},
+				"n1:taxClassification": {
+					"$ref": "#/definitions/n1:PartyTaxClassificationType"
+				},
+				"n1:taxJurisdictionCode": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:timeZone": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:trainStation": {
+					"$ref": "#/definitions/n1:TrainStationType"
+				},
+				"n1:transportationZone": {
+					"$ref": "#/definitions/n1:CodeCountryNameType"
+				},
+				"n1:undeliverabilityReason": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:unloadingPoint": {
+					"$ref": "#/definitions/n1:UnloadingPointType"
+				},
+				"n1:zipOrPostalCode": {
+					"$ref": "#/definitions/n1:ZipOrPostalCodeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyLocationTypeEnum": {
+			"enum": [
+				"Home",
+				"Main",
+				"Work"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyLocationTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Home",
+						"Main",
+						"Work"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PartyPeriodType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@endDate": {
+					"$ref": "#/definitions/n1:DateType"
+				},
+				"@startDate": {
+					"$ref": "#/definitions/n1:DateType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyPhoneType": {
+			"additionalProperties": false,
+			"description": "Maps to the info model PARTY TELEPHONE NUMBER PARTY FAX NUMBER",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@primary": {
+					"$ref": "#/definitions/n1:BooleanType"
+				},
+				"@sequenceNumber": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:PartyPhoneTypeType"
+				},
+				"n1:completeNumber": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:countryCode": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:extension": {
+					"additionalProperties": false,
+					"description": "for fax this is sometimes called note",
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:notUsed": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:BooleanType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:number": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:period": {
+					"$ref": "#/definitions/n1:PartyPeriodType"
+				},
+				"n1:smsEnabled": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:BooleanType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyPhoneTypeEnum": {
+			"enum": [
+				"Fax",
+				"Home",
+				"Main",
+				"Mobile",
+				"Work"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyPhoneTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"Fax",
+						"Home",
+						"Main",
+						"Mobile",
+						"Work"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PartyRelationshipListType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:relationship": {
+					"items": {
+						"$ref": "#/definitions/n1:PartyRelationshipType"
+					},
+					"type": "array"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyRelationshipType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@country": {
+					"$ref": "#/definitions/n1:IsoCountryCode2Type"
+				},
+				"@role": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@scheme": {
+					"$ref": "#/definitions/n1:PartyIdentifierSchemeType"
+				},
+				"@schemeAgency": {
+					"$ref": "#/definitions/n1:PartyIdentifierSchemeAgencyType"
+				},
+				"@schemeInstance": {
+					"$ref": "#/definitions/n1:PartyIdentifierSchemeInstanceType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyTaxClassificationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@city": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@county": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyWebPageType": {
+			"additionalProperties": false,
+			"description": "Maps to the info model URL PAGE",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@primary": {
+					"$ref": "#/definitions/n1:BooleanType"
+				},
+				"@sequenceNumber": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:PartyWebPageTypeType"
+				},
+				"n1:address": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:function": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:notUsed": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:BooleanType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PartyWebPageTypeEnum": {
+			"enum": [
+				"ACC",
+				"FTP",
+				"HPG",
+				"INT",
+				"LOG",
+				"PFB",
+				"ROU",
+				"STK"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:PartyWebPageTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"ACC",
+						"FTP",
+						"HPG",
+						"INT",
+						"LOG",
+						"PFB",
+						"ROU",
+						"STK"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:PercentType": {
+			"type": "number"
+		},
+		"n1:PostOfficeBoxNumberType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@supplement": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@unspecified": {
+					"$ref": "#/definitions/n1:BooleanType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:PostOfficeBoxType": {
+			"additionalProperties": false,
+			"description": "Post office box information",
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"n1:city": {
+					"$ref": "#/definitions/n1:CityType"
+				},
+				"n1:country": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:IsoCountryCode2Type"
+						}
+					},
+					"type": "object"
+				},
+				"n1:deliveryServiceCode": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:number": {
+					"$ref": "#/definitions/n1:PostOfficeBoxNumberType"
+				},
+				"n1:stateOrProvince": {
+					"$ref": "#/definitions/n1:StateOrProvinceType"
+				},
+				"n1:undeliverabilityReason": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:zipOrPostalCode": {
+					"$ref": "#/definitions/n1:ZipOrPostalCodeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:RegionalGroupingType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@name": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@type": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:StandardCommunicationMethodType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:StandardCommunicationMethodTypeType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:StandardCommunicationMethodTypeEnum": {
+			"enum": [
+				"FAX",
+				"INT",
+				"LET",
+				"PAG",
+				"PRT",
+				"RFC",
+				"RML",
+				"SSF",
+				"TEL",
+				"TLX",
+				"TTX",
+				"URI",
+				"VIS",
+				"X40"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:StandardCommunicationMethodTypeType": {
+			"anyOf": [
+				{
+					"enum": [
+						"FAX",
+						"INT",
+						"LET",
+						"PAG",
+						"PRT",
+						"RFC",
+						"RML",
+						"SSF",
+						"TEL",
+						"TLX",
+						"TTX",
+						"URI",
+						"VIS",
+						"X40"
+					],
+					"minLength": 1,
+					"type": "string"
+				},
+				{
+					"minLength": 1,
+					"type": "string"
+				}
+			]
+		},
+		"n1:StateOrProvinceType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@countryID": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@regionCode": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@regionName": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:StreetNameExtensionType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@id": {
+					"$ref": "#/definitions/n1:IntegerType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:StreetNameType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@abbreviation": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:StreetNumberType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@range": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@supplement": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:StringType": {
+			"type": "string"
+		},
+		"n1:SubCommunicationChannelType": {
+			"description": "Enumeration of SubChannels",
+			"enum": [
+				"CLM/ edetail",
+				"Detail Only",
+				"Detail With Sample",
+				"Sample",
+				"Group Detail",
+				"Group Detail With Sample",
+				"Survey",
+				"Event Detail",
+				"Call Only",
+				"Customer Connect Call",
+				"Home Office Initiated Email or System Initiated Email",
+				"Approved Email",
+				"Third Party Initiated Email",
+				"Banner",
+				"Alert",
+				"eDetail",
+				"Video",
+				"Direct Mail",
+				"Microsite",
+				"Phone",
+				"Landing Page",
+				"Speaker Program-Venue Based",
+				"Speaker Program-Office Based",
+				"Speaker Program-Teleconference",
+				"Speaker Program-Web Based",
+				"Speaker Program-Home Office Initiated",
+				"Congress",
+				"Webinar",
+				"Direct Mail Kit",
+				"Monograph",
+				"BRC",
+				"Brochure",
+				"Outbound Fax",
+				"Inbound Fax",
+				"Opt-in Request",
+				"Inbound Call",
+				"Outbound Call",
+				"Lime",
+				"WhatsApp",
+				"In App Pop-up",
+				"In App Activity",
+				"SMS",
+				"Cover Wraps",
+				"Cover Tips",
+				"Prescription Pads",
+				"Journal Ad",
+				"CLM",
+				"Consent",
+				"Event",
+				"Rep Key Message",
+				"Self Mailer",
+				"MSL Approved Email",
+				"Fax",
+				"Live In-Person",
+				"Live Virtual",
+				"On Demand",
+				"Chat",
+				"Face-to-Face",
+				"Call",
+				"Other",
+				"Email",
+				"Web-Based"
+			],
+			"minLength": 1,
+			"type": "string"
+		},
+		"n1:TherapeuticAreaSimpleType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@code": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@description": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:TrainStationType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@express": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@standard": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"n1:UnloadingPointType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"@default": {
+					"$ref": "#/definitions/n1:BooleanType"
+				},
+				"@name": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"n1:calendar": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				},
+				"n1:unloadingHours": {
+					"additionalProperties": false,
+					"patternProperties": {
+						"^@xmlns(:\\w+)?$": {
+							"type": "string"
+						},
+						"^@xsi:\\w+$": {
+							"type": "string"
+						},
+						"^\\?\\w+$": {
+							"type": "string"
+						}
+					},
+					"properties": {
+						"#": {
+							"type": "string"
+						},
+						"$": {
+							"$ref": "#/definitions/n1:NonNullStringType"
+						}
+					},
+					"type": "object"
+				}
+			},
+			"type": "object"
+		},
+		"n1:ZipOrPostalCodeType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				},
+				"@extension": {
+					"$ref": "#/definitions/n1:NonNullStringType"
+				}
+			},
+			"type": "object"
+		},
+		"xsd:anyType": {
+			"additionalProperties": false,
+			"patternProperties": {
+				"^@\\w+$": {
+					"type": [
+						"string",
+						"number",
+						"boolean"
+					]
+				},
+				"^@xmlns(:\\w+)?$": {
+					"type": "string"
+				},
+				"^@xsi:\\w+$": {
+					"type": "string"
+				},
+				"^\\?\\w+$": {
+					"type": "string"
+				},
+				"^\\w+$": {
+				}
+			},
+			"properties": {
+				"#": {
+					"type": "string"
+				},
+				"$": {
+					"type": "string"
+				}
+			},
+			"type": "object"
+		},
+		"xsd:string": {
+			"type": "string"
+		}
+	},
+	"description": "JSON Schema generated by XMLSpy v2018 rel. 2 sp1 (x64) (http://www.altova.com)",
+	"patternProperties": {
+		"^\\?\\w+$": {
+			"type": "string"
+		}
+	},
+	"properties": {
+		"#": {
+			"type": "string"
+		},
+		"@xmlns:n1": {
+			"default": "urn:global:ice"
+		},
+		"@xmlns:xsd": {
+			"default": "http://www.w3.org/2001/XMLSchema"
+		},
+		"n1:acknowledgement": {
+			"$ref": "#/definitions/.n1:acknowledgement"
+		},
+		"n1:activities": {
+			"$ref": "#/definitions/.n1:activities"
+		},
+		"n1:activitiesFlat": {
+			"$ref": "#/definitions/.n1:activitiesFlat"
+		},
+		"n1:activity": {
+			"$ref": "#/definitions/.n1:activity"
+		},
+		"n1:activityTask": {
+			"$ref": "#/definitions/.n1:activityTask"
+		},
+		"n1:activityTaskFlat": {
+			"$ref": "#/definitions/.n1:activityTaskFlat"
+		},
+		"n1:activityTaskLog": {
+			"$ref": "#/definitions/.n1:activityTaskLog"
+		},
+		"n1:activityTaskLogHTML": {
+			"$ref": "#/definitions/.n1:activityTaskLogHTML"
+		},
+		"n1:customer": {
+			"$ref": "#/definitions/.n1:customer"
+		},
+		"n1:customers": {
+			"$ref": "#/definitions/.n1:customers"
+		},
+		"n1:getActivityTaskLog": {
+			"$ref": "#/definitions/.n1:getActivityTaskLog"
+		},
+		"n1:getActivityTaskLogHTML": {
+			"$ref": "#/definitions/.n1:getActivityTaskLogHTML"
+		},
+		"n1:getCustomer": {
+			"$ref": "#/definitions/.n1:getCustomer"
+		},
+		"n1:queryCustomers": {
+			"$ref": "#/definitions/.n1:queryCustomers"
+		},
+		"n1:syncCustomer": {
+			"$ref": "#/definitions/.n1:syncCustomer"
+		}
+	},
+	"type": "object"
+}

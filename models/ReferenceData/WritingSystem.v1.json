@@ -1,0 +1,18 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/WritingSystem.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "WritingSystem",
+    "type": "object",
+    "description": "Writing System has a set of defined base elements or symbols, individually termed signs and collectively called a script, as well as a set of rules and conventions (orthography). \nExamples are Latin Script, Cyrillic Script or Greek Script. \nNorm is ISO 15924\nWhere possible the codes are derived from ISO 639-2 where the name of a script and the name of a language using the script are identical (example: Gujarati ISO 639 guj, ISO 15924 Gujr). Preference is given to the 639-2 Bibliographical codes, which is different from the otherwise often preferred use of the Terminological codes.",
+    "properties": {
+        "referenceDataId": {
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "iso4Code": {
+            "title": "alpha-4Code",
+            "type": "string",
+            "description": "The Alpha-4 Code according to ISO 15924."
+        }
+    }
+}

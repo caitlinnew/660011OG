@@ -1,0 +1,15 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/BusinessPartnerName.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "description": "A BUSINESS PARTNER may have several different NAMES, e.g. a legal name, different abbreviations, a name used in marketing / communication, etc.",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "shortName": {
+            "type": "string",
+            "description": "Short Name of Business Partner Name"
+        }
+    }
+}

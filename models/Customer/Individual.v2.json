@@ -1,0 +1,105 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Individual.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INDIVIDUAL",
+    "type": "object",
+    "description": "The business object INDIVIDUAL is meant to characterize a given Business Partner as an individual, in opposite to an Organization.\nINDIVIDUAL describe a human being and is linked to all the characteristics and engagements that are relevant for the different steps in the master data as well as the downstream processes.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "academicTitle": {
+                    "title": "academicTitle",
+                    "type": "string",
+                    "description": "The Academic Title of a person which has the Role HEALTH CARE PROFESSIONAL."
+                },
+                "professionalTitle": {
+                    "title": "professionalTitle",
+                    "type": "string",
+                    "description": "The title regarding to the occupation of a Person"
+                },
+                "gender": {
+                    "title": "gender",
+                    "type": "string",
+                    "description": "Gender is the range of characteristics pertaining to, and differentiating between, masculinity and femininity. The used standard is ISO 5218.",
+                    "enum": [
+                        "UNKNOWN",
+                        "MALE",
+                        "FEMALE",
+                        "NOT APPLICABLE"
+                    ]
+                },
+                "workplaces": {
+                    "title": "workplaces",
+                    "type": "array",
+                    "description": "Business Partner to Business Partner Affiliation describes the relationship between two Business Partners.",
+                    "items": {
+                        "$ref": "WorkplaceAffiliation.v1.json"
+                    }
+                },
+                "createdBy": {
+                    "title": "auditTrail.createdBy",
+                    "type": "string",
+                    "description": "User who created the object."
+                },
+                "updatedBy": {
+                    "title": "auditTrail.updatedBy",
+                    "type": "string",
+                    "description": "Last user to change object."
+                },
+                "updateTimestamp": {
+                    "title": "updateTimestamp",
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date and time of the last modification of an Individual in a specific IT system."
+                }
+            }
+        },
+        {
+            "$ref": "../Vendor/BusinessPartner.v2.json"
+        },
+        {
+            "$ref": "#/definitions/IndividualName"
+        }
+    ],
+    "definitions": {
+        "IndividualName": {
+            "title": "individualName",
+            "type": "object",
+            "description": "Individual Name is the first name and last name of an individual. For example a Chinese individual can have two names, one in Chinese and one in English.",
+            "properties": {
+                "fullName": {
+                    "title": "fullName",
+                    "type": "string",
+                    "description": "The Formatted Name contains the name parts which are used for written communication.\nThere may exist country specific rules to concatenate the name parts to this full name (MDG).\n\nThe formattedName or fullName is a calculated field containing the Organisation name or the concatenation of the first and last name. In the most Systems this field is read only because the properties are stored separately (e.g. firstName and lastName)."
+                },
+                "firstName": {
+                    "title": "firstName",
+                    "type": "string"
+                },
+                "middleName": {
+                    "title": "middleName",
+                    "type": "string"
+                },
+                "lastName": {
+                    "title": "lastName",
+                    "type": "string"
+                },
+                "namePrefix": {
+                    "title": "namePrefix",
+                    "type": "string",
+                    "description": "Name prefix is used as an addition to the last name that is usually a title of nobility.\n\nIn MDG the prefix is displayed in the screen field in text form. The associated key is stored in the database.\n\n[Source: SAP field help]"
+                },
+                "nameSuffix": {
+                    "title": "nameSuffix",
+                    "type": "string"
+                },
+                "title": {
+                    "title": "title",
+                    "type": "string",
+                    "description": "The \"everybodies title\" (or address) used in front of a name resp. academic title preceding the name."
+                }
+            }
+        }
+    }
+}

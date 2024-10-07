@@ -1,0 +1,92 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/Payment.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Payment",
+    "type": "object",
+    "description": "A PAYMENT is a transfer of money between different business partners, at least one of them being a BI company.\nFrom the point of view of the BI company the transfer may be outbound (BI company is payer: \"debit\") or inbound (the BI company is receiver of the money: \"credit\").\nIn case the payment is taking place between two BI companies, the debit of company 1 is the credit for company 2, and vice versa (of course they'll have to be booked separately in the respective company's ledger accounts).",
+    "properties": {
+        "transactionType": {
+            "type": "string",
+            "description": "Transaction Type shows if the transaction is a Payment, Refund, or a Credit"
+        },
+        "identifiers": {
+            "type": "array",
+            "description": "A unique identifier for a financial transaction within a certain information system.",
+            "items": {
+                "title": "identifier",
+                "type": "string",
+                "description": "value of the unique identifier"
+            }
+        },
+        "informationSystemName": {
+            "type": "string",
+            "description": "The name is a user-friendly identifier for the information system. If the information system is run by a 3rd party, the name should point to that 3rd party."
+        },
+        "status": {
+            "type": "string",
+            "description": "Names the status of the payment."
+        },
+        "paymentMethodName": {
+            "title": "term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        },
+        "sendingBankAccountId": {
+            "title": "sendingBankAccounts.id",
+            "type": "string",
+            "description": "The Identifier for this financialInstrument."
+        },
+        "creditMemo": {
+            "$ref": "#/definitions/CreditMemo"
+        },
+        "sendingCreditCardId": {
+            "title": "sendingCreditCards.id",
+            "type": "string",
+            "description": "The Identifier for this financialInstrument."
+        },
+        "currencyIso3Code": {
+            "title": "currency.alpha-3Code",
+            "type": "string",
+            "description": "The first two letters of the code are the two letters of the ISO 3166-1 alpha-2 country codes (which are also used as the basis for national top-level domains on the Internet) and the third is usually the initial of the currency itself."
+        },
+        "partialPayment": {
+            "type": "array",
+            "description": "An invoice (or some other debt) may be paid in parts. Each of these is a partial payment.",
+            "items": {
+                "$ref": "#/definitions/PartialPayment"
+            }
+        }
+    },
+    "definitions": {
+        "CreditMemo": {
+            "type": "object",
+            "description": "A credit memo is a note about what some business partner owes to BI (referring to what BI is requesting to be paid).",
+            "properties": {
+                "dateCreated": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date Created"
+                },
+                "totalAmount": {
+                    "type": "number",
+                    "description": "Total Amount"
+                }
+            }
+        },
+        "PartialPayment": {
+            "type": "object",
+            "description": "An invoice (or some other debt) may be paid in parts. Each of these is a partial payment.",
+            "properties": {
+                "amount": {
+                    "type": "number",
+                    "description": "Amount of money which the partial payment is about. The partial payment's currency is equal to the containing payment's currency."
+                },
+                "invoiceNumber": {
+                    "title": "invoiceNumber",
+                    "type": "string",
+                    "description": "Invoice number issued by the seller."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,964 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Material/Material.v0.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MATERIAL",
+    "type": "object",
+    "description": "MATERIAL is a broad term for any substance, product, or thing that has materialized in BI, i.e. that is available in BI. The term MATERIAL is used to generalize over these entities and to link them to financial, logistical, organizational aspects such as storage location, expiry date and financial value.\nMATERIAL itself contains only those few attributes necessary for all Materials.",
+    "properties": {
+        "industryStandardDescription": {
+            "title": "industryStandardDescription",
+            "type": "string",
+            "description": "Description of the material in accordance with the appropriate industry standard (such as ANSI or ISO)."
+        },
+        "oldMaterialNumber": {
+            "title": "oldMaterialNumber",
+            "type": "string",
+            "description": "Number under which you have managed the material so far in a legacy system.\nOnly technical use for migration.\nThe old material number from BI legacy systems is kept on plant level (MARC.YYBISMT) as each GBS united deployment provides data from a plant to the GBS system. \nOne Material may have different Old Material Numbers and therefore considered plant specific."
+        },
+        "updateTimestamp": {
+            "title": "updateTimestamp",
+            "type": "string",
+            "format": "date-time"
+        },
+        "number": {
+            "title": "materialNumber",
+            "type": "string",
+            "description": "The Material Number (also called Local SKU Number) is the unique identifier for the MATERIAL within the Enterprise Resource Planning (ERP) System GBS, to become GBS S/4 HANA in 2020, which shall be the corporate-wide ERP system in 2025.\nFor chemically or pharmaceutically relevant Materials shipped internationally, the Local SKU Number must be identical to the Identifier of its GLOBAL SKU in the scientific product description. For chemically or pharmaceutically relevant Materials not shipped internationally, the Local SKU Number may be different, but the MATERIAL data set must referenced the Identifier of its GLOBAL SKU.\n[source: 028-OCS-00283 (3.0), Chapter 5.4]"
+        },
+        "descriptions": {
+            "title": "descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Text"
+            }
+        },
+        "indicatorBatch": {
+            "title": "indicatorBatchManagement",
+            "type": "boolean",
+            "description": "Specifies whether the material is managed in batches.\n\nThis indicator can be set in the material master record manually or, if batches are valuated individually, it is set automatically for the plants concerned, in which case it cannot be changed.\n\nThe indicator cannot be changed if stocks exist in either the current period or in the previous period. The reason for checking the previous period is because stocks can be posted to this period when goods movements are entered."
+        },
+        "statusStart": {
+            "title": "crossPlantMaterialStatusValidityStart",
+            "type": "string",
+            "format": "date",
+            "description": "The Cross Plant Material Status validity Start defines the future date for which the status becomes valid."
+        },
+        "status": {
+            "title": "crossPlantMaterialStatus",
+            "type": "string",
+            "description": "Indicates whether the material may be used in the following areas for all plants:\n- Materials management (for example, in purchasing and in inventory management)\n- Production planning and control\n- Plant maintenance\n- Warehouse management\n- Costing with a quantity structure\nThe cross-plant material status restricts the usability of the material for all plants, that is, it defines whether a warning or error message is displayed if you include the material in a particular function.\nThe material may be a part under development or one to be discontinued.\n\nThe value is not derived from the individual Statuses on Plant level but rather overrules them."
+        },
+        "division": {
+            "title": "division",
+            "type": "string",
+            "description": "In the SAP MATERIAL master the Division is maintained per MATERIAL (MARA.SPART).\nAt BI the Division is additionally maintained per Sales Org (MVKE.YYSPART). This allows to have one MATERIAL in one COUNTRY (=Sales Org) in division Y1, Prescription medicine and in another COUNTRY in division Y2, Consumer Healthcare. This is required because prescription requirements are managed by HEALTH AUTHORITYs in a COUNTRY.\nThe usage of MVKE.YYSPART is not covered by the standard logic of SAP. Its usage is defined in the custom logic developed for BI.\nA Division is a way of grouping materials, products, or services. The system uses divisions to determine the sales areas and the business areas for a material, product, or service.\nA product or service is always assigned to just one division. From the point of view of sales and distribution, the use of divisions lets you organize your sales structure around groups of similar products or product lines. \nIf a MATERIAL is derived via multiple steps from a GLOBAL BRAND owned by a BUSINESS UNIT, then the value for Division must not collide with that BUSINESS UNIT assignment."
+        },
+        "maintenanceStatus": {
+            "title": "maintenanceStatus",
+            "type": "string",
+            "description": "The maintenance status records:\n- Which user departments may maintain a material master record of a particular material type\n- Which user departments have already maintained the material master record at a particular hierarchy level\nThe overall maintenance status is made up of the individual maintenance statuses. The individual maintenance statuses have the following meaning:\nUser department\tMaintenance status\nWork scheduling\tA\nAccounting\t\tB\nClassification\t\tC\nMRP\t\t\tD\nPurchasing\t\tE\nProduction resources/tools\tF\nCosting\t\t\tG\nBasic data\t\tK\nStorage\t\t\tL\nForecasting\t\tP\nQuality management\tQ\nWarehouse management\tS\nSales\t\t\tV\nPlant stocks\t\tX\nStorage location stocks\tZ"
+        },
+        "originName": {
+            "title": "materialOrigin.term",
+            "type": "string",
+            "description": "The Material Origin states from which kind of raw material the material is made out of."
+        },
+        "originSapCode": {
+            "title": "materialOrigin.sapCode",
+            "type": "string",
+            "description": "The Material Origin states from which kind of raw material the material is made out of."
+        },
+        "skuStatusName": {
+            "title": "skuStatus.term",
+            "type": "string",
+            "description": "The SKU Status describes in which status of its life cycle the MATERIAL is. This status is mainly production-driven, i.e. does not reflect non-production point of views, such as Marketing or Regulatory Affairs."
+        },
+        "skuStatusSapCode": {
+            "title": "skuStatus.sapCode",
+            "type": "string",
+            "description": "The SKU Status describes in which status of its life cycle the MATERIAL is. This status is mainly production-driven, i.e. does not reflect non-production point of views, such as Marketing or Regulatory Affairs."
+        },
+        "commercialName": {
+            "title": "commercialName",
+            "type": "string",
+            "description": "The Commercial Name is maintained for a MATERIAL to enable label and COA (Certificate of Anylaysis) printing out of SAP ERP.\nThe requirements for the Commercial Name depend on the JURISDICTION in which the MATERIAL is sold. Therefore it cannot be easily derived."
+        },
+        "deletionFlag": {
+            "title": "deletionFlag",
+            "type": "boolean",
+            "description": "If this indicator is set, the archive and delete program checks whether the material may be deleted at SAP client level, and deletes the data at this level and at all lower levels accordingly.\nSAP forsees no deletion of data. The Deletion Flag indicates, that the MATERIAL is inactivated permanently for any usage, i.e. is not displayed in standard search results."
+        },
+        "businessSegmentPrismaCode": {
+            "title": "businessSegment.prismaCode",
+            "type": "string",
+            "description": "Identifier of business segment (first digit = code of according business unit)"
+        },
+        "baseUomName": {
+            "title": "baseUnitOfMeasure.term",
+            "type": "string",
+            "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+        },
+        "baseUomSapCode": {
+            "title": "baseUnitOfMeasure.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "baseUomIsoCode": {
+            "title": "baseUnitOfMeasure.unitOfMeasureCodeIso",
+            "type": "string",
+            "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+        },
+        "cprmQualityAphis": {
+            "title": "materialQualityManagement.aphisRegistrationNumber",
+            "type": "string",
+            "description": "APHIS (Plant Health Inspection Service) or USDA (U.S. Department of Agriculture) registration number for animal health materials"
+        },
+        "cprmQualityNada": {
+            "title": "materialQualityManagement.nadaCode",
+            "type": "integer",
+            "format": "int32",
+            "description": "The 6 digit number called NADA Code in this field is pointing to an individual new animal drug application documented by FDA.\nIn the US a new animal drug may not be sold into interstate commerce unless it is the subject of an approved new animal drug application (NADA), abbreviated NADA (ANADA), or there is a conditional approval (CNADA) in effect pursuant to 21 U.S.C. § 360ccc or there is an index listing in effect pursuant to 21 USC § 360ccc-1 (21 U.S.C. §§ 331(a) and 360b(a))."
+        },
+        "cprmCphroId": {
+            "title": "referencedCphro.globalSkuId",
+            "type": "string",
+            "deprecated": true,
+            "description": "This field is decprecated and will be removed in the next version. Please use globalSkuId instead."
+        },
+        "cprmCphroVersionSku": {
+            "title": "cphroVersion.globalSkuVersion",
+            "type": "integer",
+            "format": "int32",
+            "description": "The version number of the GLOBAL SKU VERSION. It has the format 6 digits - 3 digits. The 6 digits are the GLOBAL SKU ID."
+        },
+        "cprmCphroVersionArtworkNumber": {
+            "title": "cphroVersion.artworkNumber",
+            "type": "string",
+            "description": "The Artwork number is an optional number used for STATIC PRINT information managed outside SLCI workflows (1).\nFor PRINT information managed within SLCI workflows no Artwork Number is maintained (0)."
+        },
+        "tradeItemIdentifier": {
+            "title": "mainTradeItemIdentifier.tradeItemIdentifier",
+            "type": "string",
+            "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded medicinal product.\nFor important TRADE ITEM IDENTIFIER TYPEs, the Trade Item Identifier is redefined in specializations to this object."
+        },
+        "tradeItemIdentifierType": {
+            "title": "mainTradeItemIdentifier.tradeItemIdentifierType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for TRADE ITEM IDENTIFIER TYPE."
+        },
+        "plantSpecific": {
+            "title": "plantSpecificMaterials",
+            "type": "array",
+            "description": "PLANT SPECIFIC MATERIAL contains parameters of a MATERIAL which are defined per PLANT.",
+            "items": {
+                "$ref": "#/definitions/PlantSpecificMaterial"
+            }
+        },
+        "conversionUom": {
+            "title": "alternateUnitOfMeasureConversion",
+            "type": "array",
+            "description": "For a given MATERIAL and its \"Base Unit of Measure\" a set of \"Alternate Unit of Measure\" may be provided with the corresponding attributes.\nThose attributes are needed to transform a quantity measured in one UNIT OF MEASURE into a quantity measured in another UNIT OF MEASURE.",
+            "items": {
+                "$ref": "#/definitions/AlternateUnitOfMeasureConversion"
+            }
+        },
+        "materialTypeSapCode": {
+            "title": "materialType.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for MATERIAL TYPE."
+        },
+        "groupSapCode": {
+            "title": "materialGroup.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for MATERIAL GROUP."
+        },
+        "globalSkuId": {
+            "title": "globalSku.globalSkuId",
+            "type": "string",
+            "description": "The Global SKU ID is the globally unique identifier for the GLOBAL SKU. It is a six digit integer."
+        },
+        "globalSkuStageSapCode": {
+            "title": "globalSku.globalSkuStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL SKU STAGE."
+        },
+        "hierarchySapCode": {
+            "title": "productHierarchy.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for PRODUCT HIERARCHY."
+        },
+        "hierarchyName": {
+            "title": "productHierarchy.term",
+            "type": "string",
+            "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+        },
+        "salesDistribution": {
+            "title": "materialSales.crossDistributionChainMaterialStatus",
+            "type": "string",
+            "description": "Indicates whether the material may be used in individual functions in Sales and Distribution for all distribution chains.\n\nThe cross-distribution-chain material status restricts the usability of the material for all the distribution chains, that is, it defines whether a warning or error message is displayed if you include the material in a particular function.\n\nThe material may be a part under development or one to be discontinued."
+        },
+        "salesStart": {
+            "title": "materialSales.materialStatusStartDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date from which the cross-distribution-chain material status is valid."
+        },
+        "shelfLifeMinimumRemaining": {
+            "title": "materialShelfLife.minimumRemainingShelfLife",
+            "type": "integer",
+            "format": "int32",
+            "description": "Minimum amount of time for which the material must keep upon goods receipt for the goods receipt to be accepted by the system.\n\nThe period (day, week, month, year) depends on the entry in the Period indicator field."
+        },
+        "shelfLifeTotal": {
+            "title": "materialShelfLife.totalShelfLife",
+            "type": "integer",
+            "format": "int32",
+            "description": "Period for which the material will keep in total, that is, from the date of production to the shelf life expiration date.\n- Value entered in the material master record\nThe system assumes that the date entered upon goods receipt is the material's date of production. It then calculates a shelf life expiration date from the date of production plus the total shelf life.\n- No value entered in the material master record\nThe system assumes that the date entered upon goods receipt is the material's shelf life expiration date.\n\nIn both cases, the system updates the shelf life expiration date in the batch master record and in the material document if the goods receipt is accepted.\n\nThe period (day, week, month, year) depends on the entry in the Period indicator field.\n\nThe shelf life is checked upon goods receipt only if this check has been activated in Customizing for Inventory Management in the activity Set expiration date check."
+        },
+         "shelfLifeBaseDateClassificationName": {
+            "title": "materialShelfLife.baseDateClassification",
+            "type": "string",
+            "deprecated": true,
+            "description": "This field is deprecated and will be removed in the next version. Please use shelfLifeBaseDateClassificationSapCode instead."
+        },
+        "shelfLifeBaseDateClassificationSapCode": {
+            "title": "materialShelfLife.baseDateClassification",
+            "type": "string",
+            "description": "Base Date Classification determines the method how the expiration date is calculated and what date is used as start date."
+        },
+        "packagingMax": {
+            "title": "packagingMaterialData.allowedPackagingVolume",
+            "type": "integer",
+            "format": "int32",
+            "description": "Maximum volume of other materials that are packed in this packaging material."
+        },
+        "shipmentTemperatureSapCode": {
+            "title": "materialShipmentData.shippingTemperatureClass.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for SHIPPING TEMPERATURE CLASS."
+        },
+        "shipmentTemperatureName": {
+            "title": "materialShipmentData.shippingTemperatureClass.description",
+            "type": "string",
+            "description": "The description is the concatenation of the lower Temparature Limit, Upper Temperature Limit, Unit of Measure and the alternative Unit of Measure, if applicable."
+        },
+        "storageTemperatureSapCode": {
+            "title": "materialStorageData.storageTemperatureClass.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for STORAGE TEMPERATURE CLASS."
+        },
+        "salesAreaSpecificMaterials": {
+            "title": "salesAreaSpecificMaterials",
+            "type": "array",
+            "description": "The SALES AREA SPECIFIC MATERIAL contains the Sales Organization and Distribution Channel specific parameters of a MATERIAL.",
+            "items": {
+                "$ref": "#/definitions/SalesAreaSpecificMaterial"
+            }
+        },
+        "legacyGlobalSku": {
+            "$ref": "#/definitions/LegacyGlobalSku"
+        }
+    },
+    "definitions": {
+        "Text": {
+            "title": "text",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "text": {
+                    "title": "text",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "languageRefId": {
+                    "type": "string",
+                    "deprecated": true,
+                    "description": "This field is deprecated and will be removed in the next version. Please use languageIso2 instead."
+                },
+                "languageIso2": {
+                    "title": "language.alpha-2Code",
+                    "type": "string"
+                }
+            }
+        },
+        "PlantSpecificMaterial": {
+            "title": "plantSpecificMaterial",
+            "type": "object",
+            "description": "PLANT SPECIFIC MATERIAL contains parameters of a MATERIAL which are defined per PLANT.",
+            "properties": {
+                "description": {
+                    "title": "customerMaterialDescription",
+                    "type": "string",
+                    "description": "Material Description how it is provided per plant to the Customer"
+                },
+                "number": {
+                    "title": "customerMaterialNumber",
+                    "type": "string",
+                    "description": "Material Number how it is provided per plant to the Customer"
+                },
+                "status": {
+                    "title": "plantSpecificMaterialStatus",
+                    "type": "string",
+                    "description": "Indicates whether, for a specific plant, the material may be used in the following areas:\n- Materials management (for example, in purchasing and in inventory management)\n- Production planning and control\n- Plant maintenance\n- Warehouse management\n- Costing with a quantity structure\n\nThe plant-specific material status restricts the usability of the material for the plant concerned, that is, it defines whether a warning or error message is displayed if you include the material in a particular function.\n\nThe material may be a part under development or one to be discontinued."
+                },
+                "materialProfile": {
+                    "title": "materialProfile",
+                    "type": "string",
+                    "description": "BI Material Profile is used to group MATERIALs within one MATERIAL TYPE\nMaterial Profile has no precise definition"
+                },
+                "oldNumber": {
+                    "title": "oldLocalMaterialNumber",
+                    "type": "string",
+                    "description": "BI Old local material number\n\nStores the material number which has been used in the former legacy/country system of the plant (OPU)."
+                },
+                "plantId": {
+                    "title": "plant.sapId",
+                    "type": "string",
+                    "description": "The SAP Plant ID is used in SAP ERP to define a logical structure of (manufacturing) sites.\nMaster Data like MATERIAL and BUSINESS PARTNER may have information defined on Plant level."
+                },
+                "storageLocation": {
+                    "title": "plant.storageLocation",
+                    "type": "array",
+                    "description": "The STORAGE LOCATION at which the material is stored. A plant may contain one or more storage locations.",
+                    "items": {
+                        "$ref": "#/definitions/StorageLocation"
+                    }
+                },
+                "warehouseSpecificMaterial": {
+                    "title": "plant.storageLocation",
+                    "type": "array",
+                    "deprecated": true,
+                    "description": "This hierarchy is obsolete and will be removed in the near future. storageLocation should be used instead. The storage location at which the material is stored. A plant may contain one or more storage locations. ",
+                    "items": {
+                        "$ref": "#/definitions/WarehouseSpecificMaterial"
+                    }
+                },
+                "schedulingDuration": {
+                    "title": "plantSpecificWorkScheduling.in-HouseProductionTime",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Specifies the time in workdays needed to produce the material in-house.\n\nIn-house production time is independent of the order quantity."
+                },
+                "storagePeriod": {
+                    "title": "plantSpecificStorage.maximumStoragePeriod",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The longest amount of time allowed for storing the material.\n\nIn the Calculate Best-Before Date in Process Order function, the system uses the value entered here to calculate the BBD/shelf life expiration date.\n\nThe value displayed here is for informational purposes only. The field has no functional importance; in particular, there is no functional connection between this and the following fields:\n- Minimum Remaining Shelf Life\n- Total Shelf Life\n- Storage Percentage"
+                },
+                "storagePeriodUomName": {
+                    "title": "plantSpecificStorage.unitForMaximumStoragePeriod.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "storagePeriodUomSapCode": {
+                    "title": "plantSpecificStorage.unitForMaximumStoragePeriod.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "storagePeriodUomRefId": {
+                    "title": "plantSpecificStorage.unitForMaximumStoragePeriod.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "deprecated": true,
+                    "description": "This field is obsolete and will be removed in the near future. storagePeriodUomIsoCode should be used instead."
+                },
+                "storagePeriodUomIsoCode": {
+                    "title": "plantSpecificStorage.unitForMaximumStoragePeriod.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                },
+                "qualityInspectionInterval": {
+                    "title": "plantSpecificQualityManagement.inspectionInterval",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Specifies the interval between different quality inspections.\n\nIf the interval for the recurring inspection has been defined in the material master record, the date of the next recurring inspection is entered automatically when creating a batch.\n\nFor more information on planning deadline monitoring for materials whose stocks are managed in batches, please refer to the Implementation Guide for QM."
+                }
+            }
+        },
+        "WarehouseSpecificMaterial": {
+            "title": "storageLocation",
+            "type": "object",
+            "description": "This hierarchiy is deprecated and will be removed in the next version. Please use 'storageLocation' instead. The storage location at which the material is stored. A plant may contain one or more storage locations.",
+            "deprecated": true,
+            "properties": {
+                "palletizationLoadingQuantity2": {
+                    "title": "warehouseSpecificPalletization.loadingEquipmentQuantity2",
+                    "type": "integer",
+                    "format": "int32",
+                    "deprecated": true,
+                    "description": "This field is deprecated and will be removed in the next version. Please use 'storageLocation.palletizationLoadingQuantity2' instead. In conjunction with the storage unit type, the system uses the loading equipment quantity to propose how to pack a quantity onto loading devices when placing a material into stock.\n\n100 cartons have to be placed into stock. In the material master record, you have specified the following palletization data:\n\nLoading equip. qty\tUnit of measure\tStorage unit type\n25\tCAR (carton)\tE1 (standard wooden pallet)\n\nThe system proposes you use 4 standard wooden pallets with 25 cartons each."
+                }
+            }
+        },
+        "StorageLocation": {
+            "title": "storageLocation",
+            "type": "object",
+            "description": "The STORAGE LOCATION at which the material is stored. A plant may contain one or more storage locations.",
+            "properties": {
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for STORAGE LOCATION.\nIt is a leading SAP Number of the storage location at which the material is stored."
+                },
+                "warehouseSapCode": {
+                    "title": "warehouse.sapCode",
+                    "type": "string",
+                    "description": "Number that identifies a complex, physical warehouse structure within the Warehouse Management system .\n\nAll activities within a warehouse, for example, goods movements and physical inventory, are assigned to a specific warehouse number. The physical warehouse where these activities take place is identified by the warehouse number."
+                },
+                "palletization1StStorageUnitType": {
+                    "title": "warehouseSpecificPalletization.1StStorageUnitType",
+                    "type": "string",
+                    "description": "Key that can be used to classify storage units.\nExample\nAll standard wooden pallets not packed higher than 1 meter can be assigned to one type and thus to the same key.\n\nThe system uses the storage unit type to determine the most suitable location to place stocks."
+                },
+                "palletization1StStorageUnitTypeName": {
+                    "title": "warehouseSpecificPalletization.1StStorageUnitTypeName",
+                    "type": "string"
+                },
+                "palletization2NdStorageUnitType": {
+                    "title": "warehouseSpecificPalletization.2NdStorageUnitType",
+                    "type": "string",
+                    "description": "Key that can be used to classify storage units.\nExample\nAll standard wooden pallets not packed higher than 1 meter can be assigned to one type and thus to the same key.\n\nThe system uses the storage unit type to determine the most suitable location to place stocks."
+                },
+                "palletization2NdStorageUnitTypeName": {
+                    "title": "warehouseSpecificPalletization.2NdStorageUnitTypeName",
+                    "type": "string"
+                },
+                "palletization3RdStorageUnitType": {
+                    "title": "warehouseSpecificPalletization.3RdStorageUnitType",
+                    "type": "string",
+                    "description": "Key that can be used to classify storage units.\nExample\nAll standard wooden pallets not packed higher than 1 meter can be assigned to one type and thus to the same key.\n\nThe system uses the storage unit type to determine the most suitable location to place stocks."
+                },
+                "palletization3RdStorageUnitTypeName": {
+                    "title": "warehouseSpecificPalletization.3RdStorageUnitTypeName",
+                    "type": "string"
+                },
+                "palletizationLoadingQuantity1": {
+                    "title": "warehouseSpecificPalletization.loadingEquipmentQuantity1",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "In conjunction with the storage unit type, the system uses the loading equipment quantity to propose how to pack a quantity onto loading devices when placing a material into stock.\n\n100 cartons have to be placed into stock. In the material master record, you have specified the following palletization data:\n\nLoading equip. qty\tUnit of measure\tStorage unit type\n25\tCAR (carton)\tE1 (standard wooden pallet)\n\nThe system proposes you use 4 standard wooden pallets with 25 cartons each."
+                },
+                "palletizationLoadingQuantity2": {
+                    "title": "warehouseSpecificPalletization.loadingEquipmentQuantity2",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "In conjunction with the storage unit type, the system uses the loading equipment quantity to propose how to pack a quantity onto loading devices when placing a material into stock.\n\n100 cartons have to be placed into stock. In the material master record, you have specified the following palletization data:\n\nLoading equip. qty\tUnit of measure\tStorage unit type\n25\tCAR (carton)\tE1 (standard wooden pallet)\n\nThe system proposes you use 4 standard wooden pallets with 25 cartons each."
+                },
+                "palletizationLoadingQuantity3": {
+                    "title": "warehouseSpecificPalletization.loadingEquipmentQuantity3",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "In conjunction with the storage unit type, the system uses the loading equipment quantity to propose how to pack a quantity onto loading devices when placing a material into stock.\n\n100 cartons have to be placed into stock. In the material master record, you have specified the following palletization data:\n\nLoading equip. qty\tUnit of measure\tStorage unit type\n25\tCAR (carton)\tE1 (standard wooden pallet)\n\nThe system proposes you use 4 standard wooden pallets with 25 cartons each."
+                },
+                "palletizationUom4LoadingQuantity1Name": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity1.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "palletizationUom4LoadingQuantity1SapCode": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity1.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "palletizationUom4LoadingQuantity1IsoCode": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity1.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                },
+                "palletizationUom4LoadingQuantity2Name": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity2.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "palletizationUom4LoadingQuantity2SapCode": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity2.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "palletizationUom4LoadingQuantity2IsoCode": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity2.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                },
+                "palletizationUom4LoadingQuantity3Name": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity3.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "palletizationUom4LoadingQuantity3SapCode": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity3.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "palletizationUom4LoadingQuantity3IsoCode": {
+                    "title": "warehouseSpecificPalletization.unitOfMeasureForLoadingEquipmentQuantity3.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                }
+            }
+        },
+        "AlternateUnitOfMeasureConversion": {
+            "title": "alternateUnitOfMeasureConversion",
+            "type": "object",
+            "description": "For a given MATERIAL and its \"Base Unit of Measure\" a set of \"Alternate Unit of Measure\" may be provided with the corresponding attributes.\nThose attributes are needed to transform a quantity measured in one UNIT OF MEASURE into a quantity measured in another UNIT OF MEASURE.",
+            "properties": {
+                "denominator": {
+                    "title": "denominator",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Denominator is the denominator of the conversion factor that converts a Quantity 1 quantified in a UoM into a Quantity 2 quantified in an Alternate UoM.\nThe conversion rule is: Quantity 1 [UoM] = Quantity 2 [Alternate UoM].\nThis conversion rule can be rearranged to calculate a conversion factor: 1 [UoM] = (Quantity 2 / Quantity 1) [Alternate UoM]. Here, Quantity 2 is the Numerator and Quantity 1 is the Denominator of the conversion factor, respecitively.\nConceptually, the Denominator of the conversion factor (Quantity 1) may be different from the Target Quantity used in PRODUCT COMPOSITION or STRENGTH DECLARATION, e.g. the Target Quantity of a PRODUCT COMPOSITION may be 100 ml, but the conversion factor to calculate the Alternate UoM doses is 1 ml = 1/2 dose.\nIn SAP-MDGx, the Denominator of the conversion factor is the Target Quantity, e.g. the Target Quantity of a PRODUCT COMPOSITION may be 100 ml, then the conversion factor to calculate the Alternate UoM doses is 1 ml = 50/100 dose."
+                },
+                "numerator": {
+                    "title": "numerator",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Numerator for Conversion to Base Units of Measure."
+                },
+                "nationalCode": {
+                    "title": "nationalCode",
+                    "type": "string",
+                    "description": "National Code and Type can be used as an additional alternative identifier of a trade item in the country defined as profile relevant country. \nThe combination of national code and type must be unique. Duplicates are not allowed."
+                },
+                "height": {
+                    "title": "height",
+                    "type": "number",
+                    "description": "Height of the material or its packaging, measured in the unit of dimension."
+                },
+                "length": {
+                    "title": "length",
+                    "type": "number",
+                    "description": "Length of the material or its packaging, measured in the unit of dimension."
+                },
+                "width": {
+                    "title": "width",
+                    "type": "number",
+                    "description": "Breadth of the material or its packaging, measured in the unit of dimension."
+                },
+                "uomName": {
+                    "title": "alternateUnitOfMeasure.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "uomSapCode": {
+                    "title": "alternateUnitOfMeasure.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "uomIsoCode": {
+                    "title": "alternateUnitOfMeasure.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                },
+                "uomRefId": {
+                    "title": "alternateUnitOfMeasure.unitOfMeasureCodeIso",
+                    "deprecated": true,
+                    "type": "string",
+                    "description": "This field is depcrecated and will re removed in the next version. Please use uomIsoCode instead."
+                },
+                "alternativeTradeItem": {
+                    "title": "alternativeTradeItemIdentifier",
+                    "type": "array",
+                    "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded product or parts of it or multiples of it.\nThe type of identifier used comes from the TRADE ITEM IDENTIFIER TYPE class.",
+                    "items": {
+                        "$ref": "#/definitions/TradeItemIdentifier"
+                    }
+                },
+                "defaultTradeItemIdentifier": {
+                    "title": "tradeItemIdentifier.tradeItemIdentifier",
+                    "type": "string",
+                    "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded medicinal product.\nFor important TRADE ITEM IDENTIFIER TYPEs, the Trade Item Identifier is redefined in specializations to this object."
+                },
+                "defaultTradeItemIdentifierType": {
+                    "title": "tradeItemIdentifier.tradeItemIdentifierType.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for TRADE ITEM IDENTIFIER TYPE."
+                },
+                "appearanceGrossWeight": {
+                    "title": "appearance.grossWeight",
+                    "type": "number",
+                    "description": "The Gross Weight is the weight of the item including goods and packaging. A gross weight may also be called just weight.\nIf Weight is maintained in PHYSICAL APPEARANCE, then a UNIT OF MEASURE has to be maintained (1).\nIf Weight is not maintained in PHYSICAL APPEARANCE, then no UNIT OF MEASURE has to be maintained (0)."
+                },
+                "appearanceDimensionUomSapCode": {
+                    "title": "appearance.unitOfMeasureForHeightLengthDepthAndExternalDiameter.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "appearanceWeightUomSapCode": {
+                    "title": "appearance.unitOfMeasureForWeight.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                }
+            }
+        },
+        "TradeItemIdentifier": {
+            "title": "tradeItemIdentifier",
+            "type": "object",
+            "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded product or parts of it or multiples of it.\nThe type of identifier used comes from the TRADE ITEM IDENTIFIER TYPE class.",
+            "properties": {
+                "identifier": {
+                    "title": "tradeItemIdentifier",
+                    "type": "string",
+                    "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded medicinal product.\nFor important TRADE ITEM IDENTIFIER TYPEs, the Trade Item Identifier is redefined in specializations to this object."
+                },
+                "identifierType": {
+                    "title": "tradeItemIdentifierType.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for TRADE ITEM IDENTIFIER TYPE."
+                }
+            }
+        },
+        "SalesAreaSpecificMaterial": {
+            "title": "salesAreaSpecificMaterial",
+            "type": "object",
+            "description": "The SALES AREA SPECIFIC MATERIAL contains the Sales Organization and Distribution Channel specific parameters of a MATERIAL.",
+            "properties": {
+                "divisionName": {
+                    "title": "division.term",
+                    "type": "string",
+                    "description": "In the SAP MATERIAL master the Division is maintained per MATERIAL (MARA.SPART).\nAt BI the Division is additionally maintained per Sales Org (MKVE.YYSPART). This allows to have one MATERIAL in one COUNTRY (=Sales Org) in division Y1, Prescription medicine and in another COUNTRY in division Y2, Consumer Healthcare. This is required because prescription requirements are managed by HEALTH AUTHORITYs in a COUNTRY.\nThe usage of MKVE.YYSPART is not covered by the standard logic of SAP. Its usage is defined in the custom logic developed for BI.\nA Division is a way of grouping materials, products, or services. The system uses divisions to determine the sales areas and the business areas for a material, product, or service.\nA product or service is always assigned to just one division. From the point of view of sales and distribution, the use of divisions lets you organize your sales structure around groups of similar products or product lines. \nIf a MATERIAL is derived via multiple steps from a GLOBAL BRAND owned by a BUSINESS UNIT, then the value for Division must not collide with that BUSINESS UNIT assignment."
+                },
+                "divisionSapCode": {
+                    "title": "division.sapCode",
+                    "type": "string",
+                    "description": "In the SAP MATERIAL master the Division is maintained per MATERIAL (MARA.SPART).\nAt BI the Division is additionally maintained per Sales Org (MKVE.YYSPART). This allows to have one MATERIAL in one COUNTRY (=Sales Org) in division Y1, Prescription medicine and in another COUNTRY in division Y2, Consumer Healthcare. This is required because prescription requirements are managed by HEALTH AUTHORITYs in a COUNTRY.\nThe usage of MKVE.YYSPART is not covered by the standard logic of SAP. Its usage is defined in the custom logic developed for BI.\nA Division is a way of grouping materials, products, or services. The system uses divisions to determine the sales areas and the business areas for a material, product, or service.\nA product or service is always assigned to just one division. From the point of view of sales and distribution, the use of divisions lets you organize your sales structure around groups of similar products or product lines. \nIf a MATERIAL is derived via multiple steps from a GLOBAL BRAND owned by a BUSINESS UNIT, then the value for Division must not collide with that BUSINESS UNIT assignment."
+                },
+                "itemCategoryGroup": {
+                    "title": "itemCategoryGroup",
+                    "type": "string",
+                    "description": "A grouping of materials that the system uses to determine item categories during the processing of sales documents.\n\nDepending on the item category group that you apply and the sales document type you are processing, the system automatically proposes an item category in the document.\n\nIn the standard system, for example, there are standard items, items that represent services (and do not require delivery processing), and items that represent packaging materials."
+                },
+                "localBrandId": {
+                    "title": "localBrand",
+                    "type": "string",
+                    "description": "Value is derived from Product Layer 1-3 and is sendt to ERP with the outbound interface.\nA MATERIAL of MATERIAL TYPE \"YREV\" must have at least one assigned SALES ORGANISATION per COUNTRY to which it is sold (COUNTRY OF FINAL DESTINATION)\nFor each of those SALES ORGANISATIONs the MATERIAL must reference exactly one LOCAL BRAND."
+                },
+                "localBrandFamilyId": {
+                    "title": "localBrandFamily",
+                    "type": "string",
+                    "description": "Value is derived from Product Layer 1-3 and is sendt to ERP with the outbound interface.\nA MATERIAL of MATERIAL TYPE \"YREV\" must have at least one assigned SALES ORGANISATION per COUNTRY to which it is sold (COUNTRY OF FINAL DESTINATION)\nFor each of those SALES ORGANISATIONs the MATERIAL must reference exactly one LOCAL BRAND.\nFor each of those SALES ORGANISATIONs the MATERIAL must reference exactly one LOCAL BRAND.\nThis LOCAL BRAND may be grouped into a LOCAL BRAND FAMILY. If so the LOCAL BRAND FAMILY is also referenced."
+                },
+                "localBrandSubfamilyId": {
+                    "title": "localBrandSubfamily",
+                    "type": "string",
+                    "description": "Value is derived from Product Layer 1-3 and is sendt to ERP with the outbound interface.\nA MATERIAL of MATERIAL TYPE \"YREV\" must have at least one assigned SALES ORGANISATION per COUNTRY to which it is sold (COUNTRY OF FINAL DESTINATION)\nFor each of those SALES ORGANISATIONs the MATERIAL must reference exactly one LOCAL BRAND.\nThis LOCAL BRAND may be grouped into a LOCAL BRAND SUBFAMILY. If so the LOCAL BRAND SUBFAMILY is also referenced."
+                },
+                "localProductId": {
+                    "title": "localProduct",
+                    "type": "string",
+                    "description": "Value is derived from Product Layer 1-3 and is sendt to ERP with the outbound interface.\nA MATERIAL of MATERIAL TYPE \"YREV\" must have at least one assigned SALES ORGANISATION per COUNTRY to which it is sold (COUNTRY OF FINAL DESTINATION)\nFor each of those SALES ORGANISATIONs the MATERIAL must reference exactly one LOCAL PRODUCT.\nThis does not apply for SECONDARY PACKED DEVICEs as for those LOCAL PRODUCT is not defined (DEVICEs do not have STRENGTH nor DOSE FORM)."
+                },
+                "group1Name": {
+                    "title": "materialGroup1.term",
+                    "type": "string",
+                    "description": "Material Groups may be used for any grouping of MATERIALs. Since these material groups are not used in the standard SAP R/3 System, you can use them as required, for example, for analyses."
+                },
+                "group1SapCode": {
+                    "title": "materialGroup1.sapCode",
+                    "type": "string",
+                    "description": "Material Groups may be used for any grouping of MATERIALs. Since these material groups are not used in the standard SAP R/3 System, you can use them as required, for example, for analyses."
+                },
+                "group2Name": {
+                    "title": "materialGroup2.term",
+                    "type": "string",
+                    "description": "Material Groups may be used for any grouping of MATERIALs. Since these material groups are not used in the standard SAP R/3 System, you can use them as required, for example, for analyses.\nMaterial Group 2 was used to group MATERIALs according to local definitions of a Brand or a category. \nWith GBS Release 3.2 (Nov.2021) this grouping will be replaced by use of LOCAL PRODUCT, LOCAL BRAND and LOCAL BRAND FAMILY as defined in MDG Product layer one."
+                },
+                "group2SapCode": {
+                    "title": "materialGroup2.sapCode",
+                    "type": "string",
+                    "description": "Material Groups may be used for any grouping of MATERIALs. Since these material groups are not used in the standard SAP R/3 System, you can use them as required, for example, for analyses.\nMaterial Group 2 was used to group MATERIALs according to local definitions of a Brand or a category. \nWith GBS Release 3.2 (Nov.2021) this grouping will be replaced by use of LOCAL PRODUCT, LOCAL BRAND and LOCAL BRAND FAMILY as defined in MDG Product layer one."
+                },
+                "materialStatus": {
+                    "title": "materialStatus",
+                    "type": "string",
+                    "description": "Indicates whether, for a specific distribution chain, the material may be used in individual functions in Sales and Distribution.\n\nThe distribution-chain-specific material status restricts the usability of the material for the distribution chain concerned, that is, it defines whether a warning or error message is displayed if you include the material in a particular function.\n\nThe material may be a part under development or one to be discontinued."
+                },
+                "text": {
+                    "title": "salesText.text",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "languageIso2": {
+                    "title": "salesText.language.alpha-2Code",
+                    "type": "string"
+                },
+                "deliveringPlantId": {
+                    "title": "deliveringPlant.sapId",
+                    "type": "string",
+                    "description": "The SAP Plant ID is used in SAP ERP to define a logical structure of (manufacturing) sites.\nMaster Data like MATERIAL and BUSINESS PARTNER may have information defined on Plant level."
+                },
+                "deliveringPlantStorageLocation": {
+                    "title": "deliveringPlant.storageLocation",
+                    "type": "array",
+                    "description": "The STORAGE LOCATION at which the material is stored. A plant may contain one or more storage locations.",
+                    "items": {
+                        "$ref": "#/definitions/StorageLocation"
+                    }
+                },
+                "areaDistributionSapCode": {
+                    "title": "salesArea.distributionChannel.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for DISTRIBUTION CHANNEL."
+                },
+                "areaDistributionName": {
+                    "title": "salesArea.distributionChannel.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "areaOrganisationSapCode": {
+                    "title": "salesArea.salesOrganisation.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for SALES ORGANISATION."
+                },
+                "areaOrganisationName": {
+                    "title": "salesArea.salesOrganisation.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "deliveryUomName": {
+                    "title": "deliveryUnitOfMeasure.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "deliveryUomSapCode": {
+                    "title": "deliveryUnitOfMeasure.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "deliveryUomIsoCode": {
+                    "title": "deliveryUnitOfMeasure.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                },
+                "salesUomName": {
+                    "title": "salesUnitOfMeasure.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "deliveryUomRefId": {
+                    "title": "deliveryUnitOfMeasure.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "deprecated": true,
+                    "description": "This field is decprecated and will be removed in the next version. Please use deliveryUomIsoCode instead."
+                },
+                "salesUomCode": {
+                    "title": "salesUnitOfMeasure.sapCode",
+                    "type": "string",
+                    "deprecated": true,
+                    "description": "This field is decprecated and will be removed in the next version. Please use salesUomSapCode instead."
+                },
+                "salesUomSapCode": {
+                    "title": "salesUnitOfMeasure.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "salesUomRefId": {
+                    "title": "salesUnitOfMeasure.RefId",
+                    "type": "string",
+                    "deprecated": true,
+                    "description": "This field is decprecated and will be removed in the next version. Please use salesUomIsoCode instead."
+                },
+                "salesUomIsoCode": {
+                    "title": "salesUnitOfMeasure.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                },
+                "localMarketingCategorySapCode": {
+                    "title": "localMarketingCategory.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for LOCAL MARKETING CATEGORY."
+                },
+                "materialStatusStartDate": {
+                    "title": "materialStatusStartDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Valid from date"
+                },
+                "minimumOrderQuantity": {
+                    "title": "minimumOrderQuantity",
+                    "type": "number",
+                    "description": "The minimum quantity (in base unit of measure) a customer may order."
+                }
+            }
+        },
+        "LegacyGlobalSku": {
+            "title": "legacyGlobalSku",
+            "type": "object",
+            "description": "In a LEGACY GLOBAL STOCK KEEPING UNIT (LEGACY GLOBAL SKU) BI-propriatory knowledge about chemically or pharmaceutically relevant substances or products is maintained. \nThis knowledge is generated in the development process of BI and is put into LEGACY GLOBAL SKUs during the product launch preparation process. \nThey are maintained as LEGACY GLOBAL SKU and/or SKU-C in the legacy system PMD and mapped into the GLOBAL SKU as stored in MDGX Product.\nThese GLOBAL SKUs are the basis of any chemically or pharmaceutical relevant MATERIAL in the ERP.\nThis means those kind of MATERIALs cannot be created without reference to its respective GLOBAL SKU.\nIn addition, GLOBAL SKUs are required for any international shipping as the relevant system (BIX@) only uses LEGACY GLOBAL SKUs.\nThis LEGACY GLOBAL SKUs represents all product stages.",
+            "properties": {
+                "animalHealthSapCode": {
+                    "title": "animalHealthBusinessField",
+                    "type": "integer",
+                    "format": "int32",
+                    "deprecated": true,
+                    "description": "This field is decprecated and will be removed in the next version. Please use animalHealthBusinessField instead."
+                },
+                "animalHealthName": {
+                    "title": "animalHealthBusinessField",
+                    "type": "integer",
+                    "format": "int32",
+                    "deprecated": true,
+                    "description": "This field is decprecated and will be removed in the next version. Please use animalHealthBusinessField instead."
+                },
+                "animalHealthBusinessField": {
+                    "title": "animalHealthBusinessField",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Transfer of Animal health Business Field for reporting in GBS purposes to MDM."
+                },
+                "animalTypeName": {
+                    "title": "animalType.term",
+                    "type": "string",
+                    "description": "GBS Material master does not provide a field to be assigned to SKUs for definition of the type of animal the product is used for.\nThe animal type \nThe BI One Reporting Planning Program already uses in corporate reporting."
+                },
+                "animalTypeSapCode": {
+                    "title": "animalType.sapCode",
+                    "type": "string",
+                    "description": "GBS Material master does not provide a field to be assigned to SKUs for definition of the type of animal the product is used for.\nThe animal type \nThe BI One Reporting Planning Program already uses in corporate reporting."
+                },
+                "bundlingAmount": {
+                    "title": "bundlingAmount",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Bundling Amount is the amount of secondary packed LEGACY FINISHED PRODUCT created from optional bundling secondary packed LEGACY FINISHED PRODUCT with a transparent wrapping material containing no label information. This multiplies the amount of secondary packed LEGACY FINISHED PRODUCT by the Bundling Factor resulting in the Bundling Amount.\nBundling requires no specific SECONDARY PACKAGING as it has no label information.\nNo Bundling is achieved with Bundling Factor 1."
+                },
+                "bundlingFactor": {
+                    "title": "bundlingFactor",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Bundling Factor quantifies the factor by which instances of a secondary packed LEGACY FINISHED PRODUCT are optionally bundled with a transparent wrapping material containing no label information. This multiplies the amount of secondary packed LEGACY FINISHED PRODUCT by the Bundling Factor resulting in the Bundling Amount.\nBundling requires no specific SECONDARY PACKAGING as it has no label information.\nNo Bundling is achieved with Bundling Factor 1."
+                },
+                "atcName": {
+                    "title": "indicatorAtc.term",
+                    "type": "string",
+                    "description": "The Anatomic - Therapeutic - Chemical (ATC) Indicator is an external, 5-level hierarchy standard developed by the WHO to classify Active Ingredients according to their anatomic areas, therapeutic principles and chemical structure.\nFor Business Unit HP only first three levels (anatomic and therapeutic information) is maintained.\nFor Business Unit AH a BI internal coding is used."
+                },
+                "atcSapCode": {
+                    "title": "indicatorAtc.sapCode",
+                    "type": "string",
+                    "description": "The Anatomic - Therapeutic - Chemical (ATC) Indicator is an external, 5-level hierarchy standard developed by the WHO to classify Active Ingredients according to their anatomic areas, therapeutic principles and chemical structure.\nFor Business Unit HP only first three levels (anatomic and therapeutic information) is maintained.\nFor Business Unit AH a BI internal coding is used."
+                },
+                "tradeName": {
+                    "title": "localTradeNameLong",
+                    "type": "string",
+                    "description": "Commercial name from PMD"
+                },
+                "newFormCode": {
+                    "title": "newFormCode",
+                    "type": "string",
+                    "description": "The Dose Form of the LEGACY GLOBAL SKU of BUSINESS UNIT Human Pharma is provided as New Form Code (NFC), an external standard providede by the European Pharmaceutical Market Research Association (EphMRA).\nThe Dose Form of the LEGACY GLOBAL SKU of BUSINESS UNIT Animal Health is provided from a BI-internal list of values.\nThe Dose Form is mandatory, even for Product Stages below the Product Stage Bulk Drug Product, e.g. Raw Material, Excipients and API."
+                },
+                "productStageName": {
+                    "title": "pmdProductStage.term",
+                    "type": "string",
+                    "description": "The Product Stage of the LEGACY GLOBAL SKU specifies the stage of the LEGACY GLOBAL SKU in the pharmaceutical value chain, i.e. wether the LEGACY GLOBAL SKU represents a single MANUFACTURING SUBSTANCE, a DRUG PRODUCT, a PRIMARY PACKED DRUG PRODUCT or a SECONDARY PACKED DRUG PRODUCT (see Examples).\nPleas note: The Product Stage from PMD is not the same as PRODUCT STAGE implemented in the Reference Data Management System (FRED)"
+                },
+                "productStageSapCode": {
+                    "title": "pmdProductStage.sapCode",
+                    "type": "string",
+                    "description": "The Product Stage of the LEGACY GLOBAL SKU specifies the stage of the LEGACY GLOBAL SKU in the pharmaceutical value chain, i.e. wether the LEGACY GLOBAL SKU represents a single MANUFACTURING SUBSTANCE, a DRUG PRODUCT, a PRIMARY PACKED DRUG PRODUCT or a SECONDARY PACKED DRUG PRODUCT (see Examples).\nPleas note: The Product Stage from PMD is not the same as PRODUCT STAGE implemented in the Reference Data Management System (FRED)"
+                },
+                "qtyCcs2NdPackaging": {
+                    "title": "quantityCcsPerSecondaryPackaging",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Defines the quanity of container closures in one pack from PMD"
+                },
+                "quantityPresentation": {
+                    "title": "quantityDrugProductPerPresentationForm",
+                    "type": "number",
+                    "description": "The Quantity (of DRUG PRODUCT) per Presentation Form quantifies how much Bulk Drug Product is in one Presentation Form. \nFor Substances (Raw Material, Excipient, API, API Starting Material) standard amounts are provided, e.g. 1 000.0 g or 1 000 ml (where the UoM g and ml is a separate attribute)."
+                },
+                "quantitySecondaryPackaging": {
+                    "title": "quantityDrugProductPerSecondaryPackaging",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Quantity (of DRUG PRODUCT) per Secondary Packaging quantifies how much Bulk Drug Product is in one Secondary Packaging. This quantity is also called Packsize (PMD GUI label: Pack Quantity/UoM PARS).\nDetailled Information: For non countable but measureable products the pack size in PMD is provided as amount of PRIMARY PACKED DRUG PRODUCT (e.g. one 100ml bottle)\nThe Quantity (of DRUG PRODUCT) per Secondary Packaging is calculated from Quantity (of DRUG PRODUCT) per Presentation Form x Quantity (of DRUG PRODUCT) per PRIMARY PACKAGING SYSTEM\nFor Substances (Raw Material, Excipient, API, API Starting Material) the Quantity (of DRUG PRODUCT) per Secondary Packaging is always 1 kg or 1 liter. The UoM kg and l is a separate attribute."
+                },
+                "quantityCcs": {
+                    "title": "quantityPresentationFormPerCcs",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "States the quantity of items in one container closure system from PMD"
+                },
+                "skuStatusName": {
+                    "title": "skuStatus.term",
+                    "type": "string",
+                    "description": "The SKU Status describes in which status of its life cylce the LEGACY GLOBAL SKU is. This status is mainly production-driven, i.e. does not reflect non-production point of views, such as Marketing or Regulatory Affairs."
+                },
+                "skuStatusSapCode": {
+                    "title": "skuStatus.sapCode",
+                    "type": "string",
+                    "description": "The SKU Status describes in which status of its life cylce the LEGACY GLOBAL SKU is. This status is mainly production-driven, i.e. does not reflect non-production point of views, such as Marketing or Regulatory Affairs."
+                },
+                "vaccineDoses": {
+                    "title": "vaccineDoses",
+                    "type": "number",
+                    "description": "Numeric value of amount of doses in a finished product Global SKU maintained in PMD."
+                },
+                "productSubgroupSapCode": {
+                    "title": "productSubgroup.code",
+                    "type": "string",
+                    "description": "The Product Subgroup Code is the unique identifier for the PRODUCT SUBGROUP. It is a six digit integer, of which the first four digits are the Product Group Code.\nProduct Subgroup Code = Product Group Code (4 digits) + Product Group Subcode (2 digits).\nThe last two digits are called Product Group Subcode. As this is not a unique key (see examples), the Product Group Subcode is not an own entity in the data model."
+                },
+                "productSubgroupName": {
+                    "title": "productSubgroup.shortTerm",
+                    "type": "string",
+                    "description": "short name for product subgroup, not mandatory"
+                },
+                "drugQuantityPresentationUomName": {
+                    "title": "quantityDrugProductPerPresentationFormUom.term",
+                    "type": "string",
+                    "description": "The Term is the human readable unique and complete name.\nIn cases when the complete name fits into the Term then it is identical to the Short Description.\nElse it contains an abbreviated version of the complete name.\nEnglish is the leading Language."
+                },
+                "drugQuantityPresentationUomSapCode": {
+                    "title": "quantityDrugProductPerPresentationFormUom.sapCode",
+                    "type": "string",
+                    "description": "The unconverted Code in Column MSEHI of SAP table T006."
+                },
+                "drugQuantityPresentationUomIsoCode": {
+                    "title": "quantityDrugProductPerPresentationFormUom.unitOfMeasureCodeIso",
+                    "type": "string",
+                    "description": "The ISO Code is used to identify a global UNIT OF MEASURE. All Global Units must have an ISO Code.\nThe Code of the Unit of Measure according to ISO/IEC 80000. \nThe International System of Quantities (ISQ) is a system based on seven base quantities: length, mass, time, electric current, thermodynamic temperature, amount of substance, and luminous intensity. Other quantities such as area, pressure, and electrical resistance are derived from these base quantities by clear, non-contradictory equations."
+                },
+                "legacyBusiness": {
+                    "title": "legacyBusiness",
+                    "type": "string",
+                    "description": "Business indicates in the LEGACY GLOBAL SKU the Business Unit to which the GLOBAL SKU is assigned."
+                },
+                "quantitySecondaryPackagingUom": {
+                    "title": "quantitySecondaryPackagingUom",
+                    "type": "string"
+                },
+                "quantityPresentationUom": {
+                    "title": "quantityPresentationUom",
+                    "type": "string"
+                },
+                "dosageStrength": {
+                    "title": "pmdDosageOrStrength",
+                    "type": "string",
+                    "description": "The attribute PMD Dosage Strength provides the strength or dosage information for a given Global SKU.\nStrength is the amount of active ingredient per formulated DRUG PRODUCT.\nDosage is used to quantify the amount of doses per primary packaging, with Dose [9 CFR, Ch.I, §101.5] being the recommended amount of a biological product to be given to one animal at one time.\nFor biological products, the strength or potency information is not documented in PMD."
+                },
+                "productGroupSapCode": {
+                    "title": "productGroup.productGroupCode",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Product Group Code is the unique identifier for PRODUCT GROUP. It is a four digit integer."
+                },
+                "productGroupName": {
+                    "title": "productGroup.term",
+                    "type": "string"
+                },
+                "salesTypeName": {
+                    "title": "salesType.term",
+                    "type": "string",
+                    "description": "The Sales Type indicates wether a GLOBAL SKU is a sellable article (SA, Sales) or a commecial sample (SP, Sample)"
+                },
+                "salesTypeSapCode": {
+                    "title": "salesType.sapCode",
+                    "type": "string",
+                    "description": "The Sales Type indicates wether a GLOBAL SKU is a sellable article (SA, Sales) or a commecial sample (SP, Sample)"
+                }
+            }
+        }
+    }
+}

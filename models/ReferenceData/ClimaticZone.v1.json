@@ -1,0 +1,65 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/ClimaticZone.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLIMATIC ZONE",
+    "type": "object",
+    "description": "The CLIMATIC ZONEs are the zones into which the world is divided based on the\nprevailing annual climatic conditions. See reference in the living document\n“Long-term stability testing conditions as identified by WHO Member States”.\n[source: WHO Technical Report Series, No. 1010, 2018; https://www.ich.org/fileadmin/Public_Web_Site/ICH_Products/Guidelines/Quality/Q1F/Stability_Guideline_WHO_2018.pdf, retrieved 06 MAR 2019]\n\nCLIMATIC ZONEs are the four zones in the world that are distinguished by their characteristic prevalent annual climatic conditions. This is based on the concept described by W. Grimm (Drugs Made in Germany, 28:196-202, 1985 and 29:39-47, 1986).\n[source: Stability Testing of New Drug Substances and Products ; https://www.ich.org/fileadmin/Public_Web_Site/ICH_Products/Guidelines/Quality/Q1A_R2/Step4/Q1A_R2__Guideline.pdf, retrieved 06 MAR 2019]",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Term then it is identical to the Short Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        }
+    }
+}

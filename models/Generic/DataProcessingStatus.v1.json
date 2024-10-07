@@ -1,0 +1,85 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Generic/DataProcessingStatus.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Data Processing Status",
+    "type": "object",
+    "properties": {
+        "messageId": {
+            "title": "messageId",
+            "type": "string"
+        },
+        "changeId": {
+            "title": "changeRequestNumber",
+            "type": "string"
+        },
+        "entityId": {
+            "title": "entityId",
+            "type": "string",
+            "description": "The identifier of the object which should be processed."
+        },
+        "entityType": {
+            "title": "entityType",
+            "type": "string",
+            "description": "Names the type of the object which should be processed."
+        },
+        "lastChangeDate": {
+            "title": "utcTimeStamp",
+            "type": "string",
+            "format": "date-time",
+            "description": "The date when the Status was changed."
+        },
+        "status": {
+            "title": "processingStatus",
+            "type": "string",
+            "enum": [
+                "ERROR",
+                "CREATED",
+                "IN PROGRESS",
+                "SUCCESS",
+                "REJECTED",
+                "ACTIVATION ERROR"
+            ]
+        },
+        "messages": {
+            "title": "technicalMessages",
+            "type": "array",
+            "description": "Messages of the actual status.",
+            "items": {
+                "$ref": "#/definitions/TechnicalMessage"
+            }
+        }
+    },
+    "definitions": {
+        "TechnicalMessage": {
+            "title": "technicalMessage",
+            "type": "object",
+            "properties": {
+                "type": {
+                    "title": "messageType",
+                    "type": "string",
+                    "enum": [
+                        "SUCCESS",
+                        "ERROR",
+                        "WARNING",
+                        "INFO",
+                        "ABORT"
+                    ]
+                },
+                "number": {
+                    "title": "messageNumber",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "text": {
+                    "title": "messageText",
+                    "type": "string",
+                    "description": "The text of the message."
+                },
+                "classId": {
+                    "title": "messageClass.id",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/CompanyOwnership.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Company Ownership",
+    "type": "object",
+    "description": "Business Partner to Business Partner Affiliation describes the relationship between two Business Partners.",
+    "allOf": [
+        {
+            "$ref": "#/definitions/BusinessPartnerAffiliation"
+        },
+        {
+            "$ref": "#/definitions/Organization"
+        }
+    ],
+    "definitions": {
+        "BusinessPartnerAffiliation": {
+            "title": "businessPartnerAffiliation",
+            "type": "object"
+        },
+        "Organization": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/BusinessPartner"
+                }
+            ]
+        },
+        "BusinessPartner": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/BusinessPartnerIdentifier"
+                }
+            ]
+        },
+        "BusinessPartnerIdentifier": {
+            "title": "businessPartnerIdentifier",
+            "type": "object",
+            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "Internal or External (alternative) Identifier of the Business Partner."
+                }
+            }
+        }
+    }
+}

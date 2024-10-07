@@ -1,0 +1,30 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/StudyProtocolAmendment.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "STUDY PROTOCOL AMENDMENT",
+    "type": "object",
+    "description": "A amendment to a study protocol describes a globally or locally implemented change to a given clinical study protocol.\n\nAmendments to a study protocol can result from simpler administrative or logistical changes, but also from more complex changes in the study design (e.g. to remove potential safety hazards). Depending on the nature of the change, the amendment may be implemented right away or after obtaining all necessary approvals from the responsible regulatory authorities.",
+    "properties": {
+        "number": {
+            "title": "amendmentNumber",
+            "type": "string",
+            "description": "Amendment number."
+        },
+        "descriptionOfChange": {
+            "title": "descriptionOfChange",
+            "type": "string",
+            "description": "Description of change for the Study protocol Amendment."
+        },
+        "dateOfAmendment": {
+            "title": "dateOfAmendment",
+            "type": "string",
+            "format": "date",
+            "description": "The date of the amendment."
+        },
+        "protocolStudyImpactId": {
+            "title": "studyProtocol.study.impactStudyId",
+            "type": "string",
+            "description": "the system generated study identifier"
+        }
+    }
+}

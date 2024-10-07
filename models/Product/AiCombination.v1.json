@@ -1,0 +1,352 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/AiCombination.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "AI COMBINATION",
+    "type": "object",
+    "description": "An ACTIVE INGREDIENT (AI) COMBINATION is a single SUBSTANCE (or SPECIFIED SUBSTANCE) or a combination of more than one SUBSTANCE (or SPECIFIED SUBSTANCEs) with the role active ingredient.\nSUBSTANCEs are used for AI COMBINATIONs of PRODUCT CATEGORY chemical. The SUBSTANCE naming only the Active Pharmaceutical Ingredient (API) moiety is used for definition of an AI COMBINATION, i.e. without salt form and hydrate form. Salt form and hydrate form are provided in the PRODUCT COMPOSITION.\n[Source: Eudralex - The Rules Governing Medicinal Products in the European Union, Volume 2C: Regulatory Guidelines, A GUIDELINE ON SUMMARY OF PRODUCT CHARACTERISTICS (SmPC) Rev. 2, Sep. 2009; http://ec.europa.eu/health/files/eudralex/vol-2/c/smpc_guideline_rev2_en.pdf]\n\nSPECIFIED SUBSTANCEs are used for AI COMBINATIONs of PRODUCT CATEGORY immunological (i.e. vaccines), as only the SPECIFIED SUBSTANCE specifies the active immunological ingredient (antigen), type and/or the strain of the antigen, live status. This information is relevant for the GLOBAL BRAND. The SUSTANCE only specifies antigen and live status and is therefore not sufficient.\n[source: project VERITAS Product - Phase 1, Design & Build phase, Oct 2018 - Oct 2019]",
+    "properties": {
+        "id": {
+            "title": "aiCombinationId",
+            "type": "string",
+            "description": "Unique identifier of the object AI COMBINATION."
+        },
+        "ctmsSubstanceNumber": {
+            "title": "ctmsSubstanceNumber",
+            "type": "string",
+            "description": "The CTMS Substance Number is an additional identifyier for an AI COMBINATION being maintained in the application BI CTMS (Clinical Trial Management System). AI COMBINATIONs subject to BI Clinical Operations activities will have a Substance Number (1). AI COMBINATIONs not subject to BI Clinical Operations activities will have no CTMS Substance Number (0).\nThe maintenance process is not transparent to GBS MDM at time of modeling, however MDM Product application replacement with MDG Product application in early 2021 necessitates migration to ensure business continuity in consuming systems in GTM (Go To Market) ecosystem, where the application Datavision uses Substance Number provided by MDM Product.\nThe field length is limited to four (4) characters.\nThe Substance Name as maintained in BI CTMS is not maintained here, as there is currently no alignment of AI Combination Name in MDG [use AI moiety only, no salt forms] with Substance Name in BI CTMS."
+        },
+        "names": {
+            "title": "aiCombinationNames",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Description"
+            }
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "additionalInformationLanguageSapCode": {
+            "title": "additionalInformation.language.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "additionalInformationLanguageRefId": {
+            "title": "additionalInformation.language.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "atc": {
+            "title": "atcCode",
+            "type": "array",
+            "description": "The purpose of the Anatomical Therapeutic Chemical (ATC) classification system is to serve as a tool for drug utilization monitoring and research in order to improve quality of drug use in humans. In the ATC classification system, the active substances are classified in a hierarchy with five different levels:\n•\t1st Level\tanatomical main group\n•\t2nd Level\ttherapeutic subgroup\n•\t3rd Level\tpharmacological subgroup\n•\t4th Level\tchemical subgroup\n•\t5th Level\tchemical substance\nSource : https://www.whocc.no/atc/structure_and_principles/; retrieved 04 MAR 2022\nTechnical implementation of all levels 1-5 in the Reference Data Management system.\nReporting of 5th Level ATC Code for ACTIVE INGREDIENT COMBINATIONs subject to IDMP reporting to EMA.\n2nd and 3rd Level and link to 5th Level requested by application TRAIL.",
+            "items": {
+                "$ref": "#/definitions/AtcCode"
+            }
+        },
+        "atcStatusSapCode": {
+            "title": "atcCodeApplicationStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "atcStatusRefId": {
+            "title": "atcCodeApplicationStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "componentStageCode": {
+            "title": "componentStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "componentStageRefId": {
+            "title": "componentStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "communicationTheme": {
+            "title": "communicationTheme",
+            "type": "array",
+            "description": "Main top-level narrative concept to be delivered through content. This may be detailed into Communication Messages. \nBrand teams establish high level themes to guide development of communication messages for end audiences for specific knowledge and behavioral changes. A communication theme is based on multiple scientific statements on a single topic.",
+            "items": {
+                "$ref": "#/definitions/CommunicationTheme"
+            }
+        },
+        "criticalSuccessFactor": {
+            "title": "criticalSuccessFactor",
+            "type": "array",
+            "description": "A characteristic, condition, or variable absolutely required to achieve an objective (e. g. cost leadership, supreme customer communication) or a business program or strategy (e. g. brand strategy).",
+            "items": {
+                "$ref": "#/definitions/CriticalSuccessFactor"
+            }
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.code",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record.\nThis element is deprecated and will be removed soon.\nPlease use sapCode instead."
+        },
+        "globalLifeCycleStatusSapCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "indicationAssignments": {
+            "title": "indicationAssignment",
+            "type": "array",
+            "description": "INDICATION ASSIGNMENT shows which INDICATION is assigned to which AI COMBINATION.",
+            "items": {
+                "$ref": "#/definitions/IndicationAssignment"
+            }
+        },
+        "specifiedSubstanceIds": {
+            "title": "specifiedSubstances",
+            "type": "array",
+            "description": "A specified substance is described by its unchangeable scientific properties plus high level attributes which are describing a high level quality of the substance e.g. \"according to pharmacopeia standard\" or \"killed virus\".",
+            "items": {
+                "title": "specifiedSubstanceId",
+                "type": "string",
+                "description": "Identifier of the Specified Substance."
+            }
+        },
+        "speciefiedSubstancesIds": {
+            "title": "specifiedSubstances",
+            "type": "array",
+            "deprecated": true,
+            "description": "This property will not be provided in the next version. Please use specifiedSubstanceIds instead.",
+            "items": {
+                "title": "specifiedSubstanceId",
+                "type": "string",
+                "description": "Identifier of the Specified Substance."
+            }
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productCategoryCode": {
+            "title": "productCategory.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "productCategoryRefId": {
+            "title": "productCategory.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "substances": {
+            "title": "substances",
+            "type": "array",
+            "description": "The substance definition of Boehringer is close to the substance defitinition in the ISO standard, excerpt is given below. \nIn brief a substance is described by its unchangeable scientific properties. For substance types refer to ISO standard below. In addition Boehringer accepts Virus Strains listed as Substances. \nISO DTS 19844 definition: \nAll medicinal products consist of substances; these substances can be active ingredients, excipients, or packaging materials. There are two fundamental levels of information described in the standard, a substance level and what is called a specified substance level. Both levels are included in the more generic concept of an ingredient. At the substance level, substances are defined based on inherent attributes rather than use or method of manufacture. At the specified substance level, four separate groups of elements provide additional information. In order to define or distinguish material either at a substance or specified substance level, a number ofattributes should be taken into consideration:\n• For chemicals, the molecular structure is only captured at the substance level.\n• For proteins, the amino acid sequence, sites and type of glycosylation, and the presence and position of disulfide bonds will only be captured at the substance level.\n• For nucleic acids, the sequence, type of sugar and linkage will only be captured at the substance level.\n• For other polymers, the monomers used to synthesise the polymer, the structural repeating units, the molecular weight and/or a property related to molecular weight (i.e. viscosity), the source of naturally derived polymers and any modifications that irreversibly alters the molecular structure of a polymer will be captured at the substance level. \n• For structurally diverse material, taxonomic, anatomical and fractionation information, properties related to the underlying molecular structure of the material, and modifications that alter the underlying molecular structure will be captured at the substance level. \n• Mixture substance consists of a simple combination of single substances that are either isolated together or are the result of the same synthetic process. The biological source of the mixture is also captured where relevant at the substance level. Proportions are not captured at the substance level. It should be noted that a mixture substance description should only include the substances that are generally or consistently present in the material. This excludes impurities and degradants.\"\n\nSKU relation: \nA Substance defines the same as a GLOBAL SKU for Substance product stages.",
+            "items": {
+                "$ref": "#/definitions/Substance"
+            }
+        },
+        "targetSpeciesAssignments": {
+            "title": "targetSpeciesAssignment",
+            "type": "array",
+            "description": "SPECIES ASSIGNMENT shows which SPECIES is assigned to which AI COMBINATION.",
+            "items": {
+                "$ref": "#/definitions/SpeciesAssignment"
+            }
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One AI COMBINATION must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing AI COMBINATION."
+        }
+    },
+    "definitions": {
+        "AtcCode": {
+            "title": "atcCode",
+            "type": "object",
+            "description": "The purpose of the Anatomical Therapeutic Chemical (ATC) classification system is to serve as a tool for drug utilization monitoring and research in order to improve quality of drug use in humans. In the ATC classification system, the active substances are classified in a hierarchy with five different levels:\n•\t1st Level\tanatomical main group\n•\t2nd Level\ttherapeutic subgroup\n•\t3rd Level\tpharmacological subgroup\n•\t4th Level\tchemical subgroup\n•\t5th Level\tchemical substance\nSource : https://www.whocc.no/atc/structure_and_principles/; retrieved 04 MAR 2022\nTechnical implementation of all levels 1-5 in the Reference Data Management system.\nReporting of 5th Level ATC Code for ACTIVE INGREDIENT COMBINATIONs subject to IDMP reporting to EMA.\n2nd and 3rd Level and link to 5th Level requested by application TRAIL.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        },
+        "CommunicationTheme": {
+            "title": "communicationTheme",
+            "type": "object",
+            "description": "Main top-level narrative concept to be delivered through content. This may be detailed into Communication Messages. \nBrand teams establish high level themes to guide development of communication messages for end audiences for specific knowledge and behavioral changes. A communication theme is based on multiple scientific statements on a single topic.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is one of the unique identifiers of the data record for this object."
+                }
+            }
+        },
+        "CriticalSuccessFactor": {
+            "title": "criticalSuccessFactor",
+            "type": "object",
+            "description": "A characteristic, condition, or variable absolutely required to achieve an objective (e. g. cost leadership, supreme customer communication) or a business program or strategy (e. g. brand strategy).",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        },
+        "Description": {
+            "title": "description",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "shortdescription": {
+                    "title": "shortdescription",
+                    "type": "string"
+                },
+                "description": {
+                    "title": "description",
+                    "type": "string"
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "languageCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        },
+        "IndicationAssignment": {
+            "title": "indicationAssignment",
+            "type": "object",
+            "description": "INDICATION ASSIGNMENT shows which INDICATION is assigned to which AI COMBINATION.",
+            "properties": {
+                "status": {
+                    "title": "term",
+                    "type": "string"
+                },
+                "indicationName": {
+                    "title": "indication.name",
+                    "type": "string"
+                },
+                "indicationCode": {
+                    "title": "indication.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "indicationRefId": {
+                    "title": "indication.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "statusSapCode": {
+                    "title": "status.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        },
+        "Substance": {
+            "title": "substance",
+            "type": "object",
+            "description": "The substance definition of Boehringer is close to the substance defitinition in the ISO standard, excerpt is given below. \nIn brief a substance is described by its unchangeable scientific properties. For substance types refer to ISO standard below. In addition Boehringer accepts Virus Strains listed as Substances. \nISO DTS 19844 definition: \nAll medicinal products consist of substances; these substances can be active ingredients, excipients, or packaging materials. There are two fundamental levels of information described in the standard, a substance level and what is called a specified substance level. Both levels are included in the more generic concept of an ingredient. At the substance level, substances are defined based on inherent attributes rather than use or method of manufacture. At the specified substance level, four separate groups of elements provide additional information. In order to define or distinguish material either at a substance or specified substance level, a number ofattributes should be taken into consideration:\n• For chemicals, the molecular structure is only captured at the substance level.\n• For proteins, the amino acid sequence, sites and type of glycosylation, and the presence and position of disulfide bonds will only be captured at the substance level.\n• For nucleic acids, the sequence, type of sugar and linkage will only be captured at the substance level.\n• For other polymers, the monomers used to synthesise the polymer, the structural repeating units, the molecular weight and/or a property related to molecular weight (i.e. viscosity), the source of naturally derived polymers and any modifications that irreversibly alters the molecular structure of a polymer will be captured at the substance level. \n• For structurally diverse material, taxonomic, anatomical and fractionation information, properties related to the underlying molecular structure of the material, and modifications that alter the underlying molecular structure will be captured at the substance level. \n• Mixture substance consists of a simple combination of single substances that are either isolated together or are the result of the same synthetic process. The biological source of the mixture is also captured where relevant at the substance level. Proportions are not captured at the substance level. It should be noted that a mixture substance description should only include the substances that are generally or consistently present in the material. This excludes impurities and degradants.\"\n\nSKU relation: \nA Substance defines the same as a GLOBAL SKU for Substance product stages.",
+            "properties": {
+                "id": {
+                    "title": "substanceId",
+                    "type": "string",
+                    "description": "An ID with no business meaning"
+                },
+                "names": {
+                    "title": "substanceNames",
+                    "type": "array",
+                    "description": "A SUBSTANCE may have multiple SUBSTANCE NAMEs given by the naming system described in the SUBSTANCE NAME TYPE.\nEach SUBSTANCE NAME is written in a LANGUAGE and encoded in a WRITING SYSTEM.\nThe SUBSTANCE NAME has no code, just a term.\nThe SUBSTANCE NAME TYPE acts almost like a code for this SUBSTANCE NAME used for this SUBSTANCE.",
+                    "items": {
+                        "$ref": "#/definitions/SubstanceName"
+                    }
+                }
+            }
+        },
+        "SubstanceName": {
+            "title": "substanceName",
+            "type": "object",
+            "description": "A SUBSTANCE may have multiple SUBSTANCE NAMEs given by the naming system described in the SUBSTANCE NAME TYPE.\nEach SUBSTANCE NAME is written in a LANGUAGE and encoded in a WRITING SYSTEM.\nThe SUBSTANCE NAME has no code, just a term.\nThe SUBSTANCE NAME TYPE acts almost like a code for this SUBSTANCE NAME used for this SUBSTANCE.",
+            "properties": {
+                "name": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "The Term is the human readable name of a SUBSTANCE."
+                },
+                "languageSapCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "typeSapCode": {
+                    "title": "substanceNameType.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "typeRefId": {
+                    "title": "type.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "SpeciesAssignment": {
+            "title": "speciesAssignment",
+            "type": "object",
+            "description": "SPECIES ASSIGNMENT shows which SPECIES is assigned to which AI COMBINATION.",
+            "properties": {
+                "targetSpeciesCode": {
+                    "title": "targetSpecies.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "targetSpeciesRefId": {
+                    "title": "targetSpecies.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "status": {
+                    "title": "term",
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

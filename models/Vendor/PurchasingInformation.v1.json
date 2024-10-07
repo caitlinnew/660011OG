@@ -1,0 +1,24 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/PurchasingInformation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PURCHASING INFORMATION",
+    "type": "object",
+    "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim purchasing organization meant to drive and contribute to processes in the area of Purchase to procure. Data are used to drive automation and provide default values when creating a purchase requisition or a purchase order.\nExamples are Payment Term (30 days due net, immediate payment, ...), currency, Incoterms.",
+    "properties": {
+        "paymentTermCode": {
+            "title": "paymentTerms.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for PAYMENT TERM."
+        },
+        "purchasingOrganizationCode": {
+            "title": "purchasingOrganization.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for PURCHASING ORGANIZATION."
+        },
+        "purchasingOrganizationName": {
+            "title": "purchasingOrganization.term",
+            "type": "string",
+            "description": "The Term is the PURCHASING ORGANISATION name. See description of object PURCHASING ORGANISATION for details."
+        }
+    }
+}

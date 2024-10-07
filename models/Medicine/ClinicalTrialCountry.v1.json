@@ -1,0 +1,115 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalTrialCountry.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL TRIAL COUNTRY",
+    "type": "object",
+    "description": "A CLINICAL TRIAL COUNTRY describes the contribution of patients from a specific country to a clinical trial. The patients are assumed to be \"supplied\" from one geographical country and their contribution is managed by a designated CML. This CML does not necessarily need to be located within the country supplying the patients.\nThe contribution brings together a set of information (planning and monitoring relevant) from different areas. It is in general always a pair of CML/Country. Via the CML role assignment, the responsible company can be derived.\nThis combination implies which BI Company is responsible for planning and tracking on external costs for the countries/sites it is assigned to. In a regional setting, the OPU with regional scope (like e.g. RA for South America) may take on financial responsibility for a multitude of countries in SA during a given clinical trial.\nIt is to be noted, however, that the monitoring responsibility of the CML might not correspond to the financial responsibility. It might be decided to have one regional CML only or one CML for two countries and one for each remaining country.",
+    "properties": {
+        "number": {
+            "title": "studyCountryNumber",
+            "type": "string",
+            "description": "Provides the unique identifier of a clinical trial country."
+        },
+        "countryIso2Code": {
+            "title": "country.alpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 code according to ISO 3166-1"
+        },
+        "countryIso3Code": {
+            "title": "country.alpha-3Code",
+            "type": "string",
+            "description": "The Alpha-3 code according to ISO 3166-1"
+        },
+        "importantDates": {
+            "deprecated": true,
+            "title": "importantDates",
+            "type": "array",
+            "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+            "items": {
+                "$ref": "ImportantStudyCountryDate.v1.json"
+            }
+        },
+        "currentClinicalTrialCountryStatus": {
+            "title": "currentClinicalTrialCountryStatus",
+            "type": "string",
+            "description": "The actual status of a clinical trial country."
+        },
+        "clinicalTrial": {
+            "$ref": "ClinicalTrial.v1.json"
+        },
+        "ongoingStatusTypeCode": {
+            "title": "ongoingStatus.type.code",
+            "type": "string",
+            "description": "The code of the study ongoing status type"
+        },
+        "personnel": {
+            "title": "individualClinicalDevelopmentFunction",
+            "type": "array",
+            "description": "INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION defines the role executed by an employee of Boehringer or a CRO in the context of clinical operations. \nINDIVIDUAL CLINICAL DEVELOPMENT FUNCTION is specialized in INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL COUNTRY, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL SITE. \nThe values (roles types) are defined by INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION TYPE.",
+            "items": {
+                "$ref": "IndividualClinicalDevelopmentFunction.v1.json"
+            }
+        },
+        "countryEnglishShortName": {
+            "title": "country.englishShortName",
+            "type": "string",
+            "description": "English short name according to ISO 3166-1"
+        },
+        "metrics": {
+            "$ref": "#/definitions/ClinicalTrialCountryMetrics"
+        },
+        "milestones": {
+            "title": "milestones",
+            "type": "array",
+            "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+            "items": {
+                "$ref": "Milestone.v1.json"
+            }
+        }
+    },
+    "definitions": {
+        "ClinicalTrialCountryMetrics": {
+            "title": "clinicalTrialCountryMetrics",
+            "type": "object",
+            "description": "... provides planned and actual numbers of subjects in a clinical trial country.",
+            "properties": {
+                "actualRandomised": {
+                    "title": "actualNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the actual number of subjects randomised."
+                },
+                "actualScreened": {
+                    "title": "actualNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the actual number of subjects screened."
+                },
+                "actualTreatmentCompleted": {
+                    "title": "actualNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the actual number of subjects completed."
+                },
+                "plannedRandomised": {
+                    "title": "plannedNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the planned number of subjects randomised."
+                },
+                "plannedScreened": {
+                    "title": "plannedNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the planned number of subjects screened."
+                },
+                "plannedTreatmentCompleted": {
+                    "title": "plannedNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the planned number of subjects completed."
+                }
+            }
+        }
+    }
+}

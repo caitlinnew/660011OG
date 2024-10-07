@@ -1,0 +1,124 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/PackagingClass.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PACKAGING CLASS",
+    "type": "object",
+    "description": "PACKAGING CLASS is a standardized high level categorization of Packagings used for storage, identication and/or transport of the components of a medicinal product. One PACKAGING CLASS may describe a mono-component Packaging, e.g. foil, sachet, ampoule, or may describe a multi-component Packaging, e.g. blister [forming foil+lidding foil], syringe [syringe barrel + plunger stopper + plunger + backstop] \n[source: https://drugdeliverysystems.bd.com/products/prefillable-syringe-systems/add-ons-and-components; retrieved 13 JUN 2019]\nThe non exclusive sub types DEVICE TYPE, PACKAGING TYPE and PACKAGING COMPONENT TYPE were created to support users in correct master data maintenance by limiting the list of values for DEVICE FOR CONFIGURATION and PRIMARY PACKAGING FOR CONFIGURATION. \"Ampoule\" for example can be used as a PACKAGING TYPE, as a PACKAGING COMPONENT TYPE but not as a DEVICE TYPE.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items":
+                {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "deviceType": {
+            "title": "deviceType",
+            "type": "boolean",
+            "description": "If a PACKAGING CLASS is a DEVICE TYPE, then the value is y (in the Reference Data Management System)"
+        },
+        "hasVolumeInformation": {
+            "title": "hasVolumeInformation",
+            "type": "boolean",
+            "description": "Has Volume Information defines if a DEVICE PACKAGING or PACKAGING COMPONENT should have a Nominal Volume.\nThis is defined for each DEVICE TYPE, PACKAGING TYPE and PACKAGING COMPONENT TYPE."
+        },
+        "packagingComponentType": {
+            "title": "packagingComponentType",
+            "type": "boolean",
+            "description": "If a PACKAGING CLASS is a PACKAGING COMPONENT TYPE, then the value is y (in the Reference Data Management System)"
+        },
+        "packagingType": {
+            "title": "packagingType",
+            "type": "boolean",
+            "description": "If a PACKAGING CLASS is a PACKAGING TYPE, then the value is y (in the Reference Data Management System)"
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "enum": [
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "validityBusinessUnit": {
+            "title": "validityHumanOrVeterinary",
+            "type": "string",
+            "enum": [
+                "HP",
+                "AH",
+                "HP + AH"
+            ]
+        },
+        "rmsContainerCategory": {
+            "title": "rmsContainerCategory",
+            "type": "string",
+            "enum": [
+                "Container",
+                "Closure",
+                "Administration Device"
+            ]
+        }
+    }
+}

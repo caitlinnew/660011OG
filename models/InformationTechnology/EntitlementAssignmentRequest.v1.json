@@ -1,0 +1,70 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/EntitlementAssignmentRequest.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ENTITLEMENT ASSIGNMENT REQUEST",
+    "type": "object",
+    "description": "Request performed by an BI Employee or a Contractor to assign, create, modify or revoke an entitlement.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "reason": {
+                    "title": "reason",
+                    "type": "string",
+                    "description": "Please specify a reference to your Source System Documentation e.g.: Change Control Number, Change Number, SLC DocumentID"
+                },
+                "status": {
+                    "title": "requestStatus",
+                    "type": "string", 
+                    "enum": [
+                        "CREATED",
+                        "PROCESSING",
+                        "FINISHED",
+                        "ERROR"
+                    ]
+                },
+                "requestType": {
+                    "title": "requestType",
+                    "type": "string",
+                    "enum": [
+                        "ASSIGN",
+                        "REVOKE"
+                    ]
+                },
+                "approverAdIdentity": {
+                    "$ref": "#/definitions/Identity"
+                },
+                "approverAdUserName": {
+                    "title": "approver.userName",
+                    "type": "string",
+                    "description": "The name of the DIRECTORY SERVICE ACCOUNT."
+                }, 
+                "requestorAdIdentity": {
+                    "$ref": "#/definitions/Identity"
+                },
+                "requestorAdUserName": {
+                    "title": "requestor.userName",
+                    "type": "string",
+                    "description": "The name of the DIRECTORY SERVICE ACCOUNT."
+                }
+            }
+        },
+        {
+            "$ref": "EntitlementAssignment.v1.json"
+        }
+    ],
+    "definitions": {
+        "Identity": {
+            "title": "identity",
+            "type": "object",
+            "description": "Identity is a collection of information on the employee and his access rights.",
+            "properties": {
+                "globalId": {
+                    "title": "globalIdentifier",
+                    "type": "string",
+                    "description": "The Global Identifier also known as BIDS-ID is the global unique identifier of an Identity It is also the only one-to-one identifier of an Identity. Example: \"GI00001234\""
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,117 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/ManufacturingActivity.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MANUFACTURING ACTIVITY",
+    "type": "object",
+    "description": "This list contains the terms related to manufacturing activities as defined on Manufacturer’s/Importer’s Authorisation (MIA) and Good Manufacturing Practice (GMP) certificates issued by Competent Authorities in the EEA.\nThis section describes the operation(s) being performed by the manufacturing site for a medicinal product (including activities related to the manufacture of the active substance as applicable). Operations to be selected should be in line with the information included in section 2.5 - Manufacturers of the initial Marketing Authorisation Application electronic application form (in case of initial submission) and module 3.2.P.3.1 / 3.2.S.2.1 – Manufacturers (in case of changes to the terms of the marketing authorisation). This should include manufacturing sites of any diluent/solvent presented in a separate container, but forming part of the medicinal product, quality control/in-process testing sites, immediate (primary) and outer (secondary) packaging as well as importer(s). In addition, all manufacturing sites involved in the manufacturing process of the active substance, including quality control/ in-process testing sites should be listed. For biotech products include all sites of storage of master and working cell bank and preparation of working cell banks should also be included.\nThe type of manufacturing operation shall be specified as a term ID. The applicable value(s) shall be selected from the term ID as listed in the Manufacturing Activity Referentials Management Service (RMS) list. The applicable manufacturing operation(s) to be completed as per section 2.5 of the initial Marketing Authorisation eAF. Manufacturing operations of finished product and/or active substance (include manufacturers of intermediates of the active substance) to be included as applicable. For the IDMP element “Operation type” the list “manufacturing activity” has to be used.",
+    "properties": {
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "code": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sources": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": 
+                {
+                    "$ref": "#/definitions/SourceOfInformationRef"
+                }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                    "title": "disabledAttributes",
+                    "type": "string",
+                    "description": "a list of disabled misc attributes in this dataset"
+                }
+        },
+        "rmsIdentifier": {
+            "title": "rmsIdentifier",
+            "type": "string",
+            "description": "Identifier defined by EMA RMS."
+        },
+        "rmsStatus": {
+            "title": "rmsStatus",
+            "type": "string",
+            "enum": [
+                "CURRENT",
+                "NON_CURRENT",
+                "NULLIFIED",
+                "PROVISIONAL"
+            ]
+        },
+        "validityBusinessUnit": {
+            "title": "validityHumanOrVeterinary",
+            "type": "string",
+            "enum": [
+                "HP",
+                "AH",
+                "HP + AH"
+            ]
+        },
+        "parentManufacturingActivityRefId": {
+            "title": "parentManufacturingActivity",
+            "type": "array",
+            "description": "This list contains the terms related to manufacturing activities as defined on Manufacturer’s/Importer’s Authorisation (MIA) and Good Manufacturing Practice (GMP) certificates issued by Competent Authorities in the EEA.\nThis section describes the operation(s) being performed by the manufacturing site for a medicinal product (including activities related to the manufacture of the active substance as applicable). Operations to be selected should be in line with the information included in section 2.5 - Manufacturers of the initial Marketing Authorisation Application electronic application form (in case of initial submission) and module 3.2.P.3.1 / 3.2.S.2.1 – Manufacturers (in case of changes to the terms of the marketing authorisation). This should include manufacturing sites of any diluent/solvent presented in a separate container, but forming part of the medicinal product, quality control/in-process testing sites, immediate (primary) and outer (secondary) packaging as well as importer(s). In addition, all manufacturing sites involved in the manufacturing process of the active substance, including quality control/ in-process testing sites should be listed. For biotech products include all sites of storage of master and working cell bank and preparation of working cell banks should also be included.\nThe type of manufacturing operation shall be specified as a term ID. The applicable value(s) shall be selected from the term ID as listed in the Manufacturing Activity Referentials Management Service (RMS) list. The applicable manufacturing operation(s) to be completed as per section 2.5 of the initial Marketing Authorisation eAF. Manufacturing operations of finished product and/or active substance (include manufacturers of intermediates of the active substance) to be included as applicable. For the IDMP element “Operation type” the list “manufacturing activity” has to be used.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        }
+    },
+    "definitions": {
+        "SourceOfInformationRef": {
+            "title": "sourceOfInformationRef",
+            "type": "object",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "properties": {
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,603 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/FinancialCustomer.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "FINANCIAL CUSTOMER",
+    "type": "object",
+    "description": "FINANCIAL CUSTOMER is a type of CUSTOMER maintained in ERP Systems.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "title": "customerIdentifier",
+                    "type": "string",
+                    "description": "The internal ID is used (from MDG as sending system) to facilitate analysis of the data for receiving systems"
+                },
+                "classification": {
+                    "title": "customerClassification",
+                    "type": "string",
+                    "description": "Is the classification of the Customer.",
+                    "enum": [
+                        "BUILD",
+                        "DEFEND",
+                        "GAIN",
+                        "MAINTAIN",
+                        "MARGINAL",
+                        "NC",
+                        "OBSERVE",
+                        "OS",
+                        "FR ACCESS",
+                        "FR CLUB",
+                        "FR PLATINUM"
+                    ]
+                },
+                "accountingGroup": {
+                    "title": "accountingGroup",
+                    "type": "string",
+                    "enum": [
+                        "BILL-TO PARTY",
+                        "SOLD-TO PARTY",
+                        "PAYER",
+                        "GOODS RECIPIENT",
+                        "EMPLOYEE",
+                        "HIERARCHY NODE",
+                        "INTERCOMPANY DEBI CUSTOMER",
+                        "MAILBOX OWNER",
+                        "NON-COMMERCIAL CUSTOMER",
+                        "ONE-TIME CUSTOMER",
+                        "Z DO NOT USE CUSTOMER INTERCOM"
+                    ]
+                },
+                "territoryAssignments": {
+                    "title": "customerTerritoryAssignments",
+                    "type": "array",
+                    "description": "shows the fact that a CUSTOMER is assigned to a TERRITORY",
+                    "items": {
+                        "$ref": "#/definitions/CustomerTerritoryAssignment"
+                    }
+                },
+                "accountingInformation": {
+                    "title": "companySpecificAccountingInformation",
+                    "type": "array",
+                    "description": "Set of information relevant to a CUSTOMER and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Recievable, Accounting to Reporting, Treasury.",
+                    "items": {
+                        "$ref": "CustomerAccountingInformation.v1.json"
+                    }
+                },
+                "billTo": {
+                    "title": "billTo",
+                    "type": "array",
+                    "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner himself. Otherwise, it is the address of another partner who takes over the function for him.",
+                    "items": {
+                        "$ref": "CustomerFunctionAssignment.v1.json"
+                    }
+                },
+                "centralDeletionFlag": {
+                    "title": "centralDeletionFlag",
+                    "type": "boolean",
+                    "description": "The Central Archiving Flag also called Central Deletion Flag indicates that the Master Record is marked for deletion. The record will be deleted by the next mass delete process.\nA SUPPLIER then is disabled for any activity (Postings, Payments, new Purchase Orders) as long as the blocking is active. \nThis is valid for all BI LEGAL ENTITIES and all PURCHASING ORGANIZATIONs.\nA CUSTOMER then is disabled for any activity (Postings and new Sales Orders) for all BI LEGAL ENTITY and all SALES ORGANIZATIONs."
+                },
+                "salesPriceListsId": {
+                    "title": "salesPriceLists",
+                    "type": "array",
+                    "description": "A SALES PRICE LIST comprises one (list) price per orderable product for a set of products; e.g. revenue generating materials. For each (revenue generating) material there might be several sales price lists comprising different prices. Sales price lists might be customer specific.",
+                    "items": {
+                        "title": "identifier",
+                        "type": "string",
+                        "description": "(Unique) identifier of the sales price list."
+                    }
+                },
+                "salesInformations": {
+                    "title": "salesOrganizationSpecificSalesInformations",
+                    "type": "array",
+                    "description": "The CUSTOMER SALES INFORMATION is defined for each SALES AREA, where a FINANCIAL CUSTOMER may place an order.",
+                    "items": {
+                        "$ref": "CustomerSalesInformation.v1.json"
+                    }
+                },
+                "shipTo": {
+                    "title": "shipTo",
+                    "type": "array",
+                    "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner himself. Otherwise, it is the address of another partner who takes over the function for him.",
+                    "items": {
+                        "$ref": "CustomerFunctionAssignment.v1.json"
+                    }
+                },
+                "soldTo": {
+                    "title": "soldTo",
+                    "type": "array",
+                    "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner himself. Otherwise, it is the address of another partner who takes over the function for him.",
+                    "items": {
+                        "$ref": "CustomerFunctionAssignment.v1.json"
+                    }
+                },
+                "payer": {
+                    "title": "payer",
+                    "type": "array",
+                    "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner himself. Otherwise, it is the address of another partner who takes over the function for him.",
+                    "items": {
+                        "$ref": "CustomerFunctionAssignment.v1.json"
+                    }
+                },
+                "taxCountryIso2Code": {
+                    "title": "country.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                },
+                "taxCountryRefId": {
+                    "title": "country.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "taxNumbers": {
+                    "title": "customerTaxData.taxNumbers",
+                    "type": "array",
+                    "description": "A Tax Number usually is an identifying number issued by the particular responsible institution for tax purposes.",
+                    "items": {
+                        "$ref": "#/definitions/TaxNumber"
+                    }
+                },
+                "blockingInformation": {
+                    "$ref": "CustomerBlocking.v1.json"
+                },
+                "contactPersons": {
+                    "title": "contactPersons",
+                    "type": "array",
+                    "items": {
+                        "$ref": "ContactPerson.v1.json"
+                    }
+                },
+                "masterTaxes": {
+                    "title": "customerMasterTaxIndicator",
+                    "type": "array",
+                    "description": "This Information Object is called \"Customer Master Tax Indicator\" in MDG.\nIt provides the information which is needed to control the usage of Tax Codes depending on Customer and sending Sales Organization of a Country.",
+                    "items": {
+                        "$ref": "#/definitions/CustomerMasterTaxIndicator"
+                    }
+                }
+            }
+        },
+        {
+            "$ref": "#/definitions/BusinessPartner"
+        }
+    ],
+    "definitions": {
+        "CustomerTerritoryAssignment": {
+            "title": "customerTerritoryAssignment",
+            "type": "object",
+            "description": "shows the fact that a CUSTOMER is assigned to a TERRITORY",
+            "properties": {
+                "startDate": {
+                    "title": "startDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "First Day of assignment"
+                },
+                "endDate": {
+                    "title": "endDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Last Day of assignment"
+                },
+                "territory": {
+                    "$ref": "#/definitions/Territory"
+                },
+                "businessPartnerIdentifier": {
+                    "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+                }
+            }
+        },
+        "Territory": {
+            "title": "territory",
+            "type": "object",
+            "description": "A Territory is an “area of responsibility” in the customer relationship management field, i.e. a number of tasks within a field force team. Usually it takes place in a geographical area and has rules e.g. to specify which customers (HCP, HCO) are belonging to it, which products (one or more Local Brands) it is about, and it has assigned some Customer Facing Employee (aka Roster Member) to it who is “in charge”.",
+            "properties": {
+                "fieldForcePartnerFunction": {
+                    "$ref": "#/definitions/BusinessPartnerFunction"
+                },
+                "salesArea": {
+                    "$ref": "SalesArea.v1.json"
+                }
+            }
+        },
+        "BusinessPartnerFunction": {
+            "title": "businessPartnerFunction",
+            "type": "object",
+            "description": "A BUSINESS PARTNER holds the information that identifies the partner function. There are BUSINESS PARTNER FUNCTION for Vendor as well as for CUSTOMER.",
+            "properties": {
+                "sapCode": {
+                    "title": "sapCode",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                }
+            }
+        },
+        "TaxNumber": {
+            "title": "taxNumber",
+            "type": "object",
+            "description": "A Tax Number usually is an identifying number issued by the particular responsible institution for tax purposes.",
+            "properties": {
+                "number": {
+                    "title": "taxNumber",
+                    "type": "string",
+                    "description": "Specifies the Tax Number at a Responsible Tax Authority.\nThe taxnumber is the tax number independent from the lenght."
+                },
+                "type": {
+                    "title": "taxNumberType",
+                    "type": "string",
+                    "enum": [
+                        "TAX NUMBER AT RESPONSIBLE TAX AUTHORITY",
+                        "TAX NUMBER 1",
+                        "TAX NUMBER 2",
+                        "TAX NUMBER 3",
+                        "TAX NUMBER 4",
+                        "TAX NUMBER 5",
+                        "VAT REGISTRATION NUMBER"
+                    ]
+                },
+                "typeCode": {
+                    "title": "taxNumberType.code",
+                    "type": "string",
+                    "description": "The Code of a Tax Number Category contains the Country Key in its string."
+                },
+                "typeName": {
+                    "title": "taxNumberType.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        },
+        "CustomerMasterTaxIndicator": {
+            "title": "customerMasterTaxIndicator",
+            "type": "object",
+            "description": "This Information Object is called \"Customer Master Tax Indicator\" in MDG.\nIt provides the information which is needed to control the usage of Tax Codes depending on Customer and sending Sales Organization of a Country.",
+            "properties": {
+                "departureCountryIso2Code": {
+                    "title": "departureCountry.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                },
+                "departureCountryRefId": {
+                    "title": "departureCountry.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "taxCategoryCode": {
+                    "title": "taxCategory.code",
+                    "type": "string",
+                    "description": "The Code of a Tax Number Category contains the Country Key in its string."
+                },
+                "taxCategoryName": {
+                    "title": "taxCategory.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "taxClassificationCode": {
+                    "title": "taxClassificationForApi",
+                    "type": "string",
+                    "description": "Tax type. Classification of companies according to tax aspects."
+                },
+                "taxClassificationName": {
+                    "title": "taxClassificationName",
+                    "type": "string",
+                    "description": "Tax type. Classification of companies according to tax aspects."
+                }
+            }
+        },
+        "BusinessPartner": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "createdDate": {
+                            "title": "createdDate",
+                            "type": "string",
+                            "format": "date",
+                            "description": "Date of creation of a BUSINESS PARTNER in a specific IT System."
+                        },
+                        "businessPartnerGroup": {
+                            "title": "businessPartnerGroup",
+                            "type": "string",
+                            "description": "BUSINESS PARTNER GROUPING is a classification assigned on creation of a BUSINESS PARTNER. The grouping determines the number range. It cannot be changed after creation.",
+                            "enum": [
+                                "SOLD-TO PARTY",
+                                "GOODS RECIPIENT",
+                                "PAYER",
+                                "BILL-TO PARTY",
+                                "CUSTOMER GROUPING",
+                                "HIERARCHY NODE",
+                                "CONTACT PERSON",
+                                "INTERCOMPANY DEBI CUSTOMER",
+                                "MANUFACTURER",
+                                "NON-COMMERCIAL CUSTOMER",
+                                "ORDERING ADDRESS",
+                                "STANDARD",
+                                "VENDOR"
+                            ]
+                        },
+                        "dunsNumber": {
+                            "title": "dunsNumber",
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "The DUNS number issued by Duns and Bradstreet for a Business Partner."
+                        },
+                        "directOrdering": {
+                            "title": "directOrdering",
+                            "type": "string",
+                            "description": "Direct Ordering defines if a BUSINESS PARTNER with role CUSTOMER is places ORDERs directly or if he is only allowed to place ORDERs indirectly via another BUSINESS PARTNER.",
+                            "enum": [
+                                "DIRECT",
+                                "INDIRECT"
+                            ]
+                        },
+                        "industrySectorCode": {
+                            "title": "industrySector.code",
+                            "type": "string",
+                            "description": "The identifier of the Industry Sector to classify companies according to their main business activity."
+                            
+                        },
+                        "type": {
+                            "title": "businessPartnerType",
+                            "type": "string",
+                            "enum": [
+                                "INDIVIDUAL",
+                                "ORGANIZATION",
+                                "ANIMAL",
+                                "GROUP"
+                            ]
+                        },
+                        "ultimateParentDunsNumber": {
+                            "title": "ultimateParent.dunsGlobalUltimateParent",
+                            "type": "string",
+                            "description": "DUNS Global Ultimate Parent (GUP) is the DUNS number of the root parent node in company corporate structure. It is a nine digit number."
+                        },
+                        "ultimateParentDunsName": {
+                            "title": "ultimateParent.dunsGlobalUltimateParentName",
+                            "type": "string",
+                            "description": "DUNS Global Ultimate Parent (GUP) is the DUNS name of the root parent node in company corporate structure."
+                        },
+                        "centralBlock": {
+                            "title": "centralBlockForBusinessPartner",
+                            "type": "string",
+                            "description": "The Central Block for Business Partner indicates that the BP is blocked for usage (no payments, no purchase orders) for all company codes and purchasing organizations."
+                        },
+                        "standardCommunicationType": {
+                            "title": "standardCommunicationType",
+                            "type": "string",
+                            "enum": [
+                                "TELEPHONE",
+                                "SMS",
+                                "EMAIL",
+                                "FAX",
+                                "LETTER",
+                                "URL"
+                            ]
+                        },
+                        "status": {
+                            "title": "status",
+                            "type": "string",
+                            "enum": [
+                                "ACTIVE",
+                                "INACTIVE"
+                            ]
+                        },
+                        "updateTimestamp": {
+                            "title": "updateTimestamp",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "addresses": {
+                            "title": "addressUsage",
+                            "type": "array",
+                            "description": "Address usage says that a certain business partner is using a certain address (which is (usually) independent of a business partner). Via the relationship to ADDRESS TYPE it also tells the purpose which the address is used for, e.g. Sold-To, Bill-To, Ship-To, Private, Office, ... (see Examples tab of ADDRESS TYPE).",
+                            "items": {
+                                "$ref": "AddressUsage.v2.json"
+                            }
+                        },
+                        
+                        "affiliations": {
+                            "title": "affiliationsToBusinessPartner",
+                            "type": "array",
+                            "items": {
+                                "$ref": "BusinessPartnerAffiliation.v1.json"
+                            }
+                        },
+                        "alternateIds": {
+                            "title": "businessPartnerIdentifiers",
+                            "type": "array",
+                            "description": "A Business Partner can be stored in different SYSTEMS and can have in these SYSTEMS different internal and external identifiers.",
+                            "items": {
+                                "$ref": "../Vendor/BusinessPartnerIdentifier.v1.json"
+                            }
+                        },
+                        "bankAccounts": {
+                            "title": "bankAccounts",
+                            "type": "array",
+                            "description": "BANK ACCOUNT is containing all the information needed to uniquely and correctly identify the bank coordinates of a business partner to be used for payment processes. This can be needed both for creditors (Customers) and for debitors (Vendor, Employee).\nBANK ACCOUNT is including the bank account number, a reference to the bank branch managing the bank account, an IBAN code when relevant, information about the bank account currency, etc...\nA Business Partner may own multiple Bank Accounts.",
+                            "items": {
+                                "$ref": "../Vendor/BankAccount.v1.json"
+                            }
+                        },
+                        "creditCards": {
+                            "title": "creditCards",
+                            "type": "array",
+                            "description": "A credit card is a payment card issued to users (cardholders) to enable the cardholder to pay a merchant for goods and services based on the cardholder's promise to the card issuer to pay them for the amounts plus the other agreed charges. The card issuer (usually a bank) creates a revolving account and grants a line of credit to the cardholder, from which the cardholder can borrow money for payment to a merchant or as a cash advance. (Source: Wikipedia)",
+                            "items": {
+                                "$ref": "../Finance/CreditCard.v1.json"
+                            }
+                        },
+                        "roles": {
+                            "title": "roles",
+                            "type": "array",
+                            "description": "A BUSINESS PARTNER may different BUSINESS PARTNER ROLES assigned.",
+                            "items": {
+                                "$ref": "#/definitions/BusinessPartnerRoleAffiliation"
+                            }
+                        },
+                        
+                        "defaultLanguageIso2Code": {
+                            "title": "defaultLanguage.alpha-2Code",
+                            "type": "string",
+                            "description": "The Alpha-2 Code according to Iso 639."
+                        },
+                        "defaultLanguageRefId": {
+                            "title": "defaultLanguage.referenceDataId",
+                            "type": "string",
+                            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                        },
+                        "telephones": {
+                            "title": "telephones",
+                            "type": "array",
+                            "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+                            "items": {
+                                "$ref": "Telephone.v1.json"
+                            }
+                        },
+                        "faxs": {
+                            "title": "faxs - use faxes",
+                            "type": "array",
+                            "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+                            "deprecated": "true",
+                            "items": {
+                                "$ref": "Fax.v1.json"
+                            }
+                        },
+                        "faxes": {
+                            "title": "faxs",
+                            "type": "array",
+                            "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+                            "items": {
+                                "$ref": "Fax.v1.json"
+                            }
+                        },
+                        "emails": {
+                            "title": "emails",
+                            "type": "array",
+                            "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+                            "items": {
+                                "$ref": "Email.v1.json"
+                            }
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/BusinessPartnerName"
+                }
+            ]
+        },
+        "BusinessPartnerRoleAffiliation": {
+            "title": "businessPartnerRoleAffiliation",
+            "type": "object",
+            "description": "A BUSINESS PARTNER may different BUSINESS PARTNER ROLES assigned.",
+            "properties": {
+                "code": {
+                    "title": "role.code",
+                    "type": "string",
+                    "description": "The Code to identify the BUSINESS PARTNER ROLE."
+                },
+                "typeCode": {
+                    "title": "role.typeCode",
+                    "type": "string",
+                    "description": "The Code to classify the type of the BUSINESS PARTNER ROLE."
+                },
+                "validFrom": {
+                    "title": "validFrom",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date on which the role was assigned to a Business Partner."
+                },
+                "validTo": {
+                    "title": "validTo",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date on which a role was deactivated for a Business Partner."
+                }
+            }
+        },
+        "BusinessPartnerName": {
+            "title": "businessPartnerName",
+            "type": "object",
+            "description": "A BUSINESS PARTNER may have several different NAMES, e.g. a legal name, different abbreviations, a name used in marketing / communication, etc.",
+            "properties": {
+                "formattedName": {
+                    "title": "fullName",
+                    "type": "string",
+                    "description": "The Formatted Name contains the name parts which are used for written communication.\nThere may exist country specific rules to concatenate the name parts to this full name (MDG)."
+                },
+                
+                "firstName": {
+                    "title": "firstName",
+                    "type": "string"
+                },
+                "lastName": {
+                    "title": "lastName",
+                    "type": "string",
+                    "description": "The Last Name of a Person."
+                },
+                "fullName": {
+                    "title": "fullName",
+                    "type": "string",
+                    "description": "The Formatted Name contains the name parts which are used for written communication.\nThe formattedName or fullName is a calculated field containing the Organisation name parts or the concatenation of the first and last name. In the most Systems this field is read only because the properties are stored separately (e.g. firstName and lastName)."
+                },
+                "orgName1": {
+                    "title": "orgName1",
+                    "type": "string",
+                    "description": "The (Organisation) Name of the BUSINESS PARTNER."
+                },
+                "orgName2": {
+                    "title": "orgName2",
+                    "type": "string",
+                    "description": "The (Organisation) Name Extension of the BUSINESS PARTNER."
+                },
+                "orgName3": {
+                    "title": "orgName3",
+                    "type": "string",
+                    "description": "The (Organisation) Name Extension2 of the BUSINESS PARTNER."
+                },
+                "orgName4": {
+                    "title": "orgName4",
+                    "type": "string",
+                    "description": "The (Organisation) Name Extension3 of the BUSINESS PARTNER."
+                },
+
+                "title": {
+                    "title": "title",
+                    "type": "string"
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "The Name contains name parts which are used for written communication. Field has been replaced by fullName",
+                    "deprecated": "true"
+                },
+                "searchTerms": {
+                    "title": "searchTerms",
+                    "type": "array",
+                    "description": "SEARCH TERM is a non mandatory, non governed grouping which can be syndicated across systems.",
+                    "items": {
+                        "$ref": "#/definitions/SearchTerm"
+                    }
+                }
+            }
+        },
+        "SearchTerm": {
+            "title": "searchTerm",
+            "type": "object",
+            "description": "SEARCH TERM is a non mandatory, non governed grouping which can be syndicated across systems.",
+            "properties": {
+                "term": {
+                    "title": "searchTerm",
+                    "type": "string",
+                    "description": "Search Term 1 and Search Term 2"
+                },
+                "orderNumber": {
+                    "title": "searchTermOrderingNumber",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Number of the Search Term: 1 for \"Search Term 1\", 2 for \"Search Term 2\""
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,128 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/CustomerFunctionAssignment.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Customer Function Assignment",
+    "type": "object",
+    "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner himself. Otherwise, it is the address of another partner who takes over the function for him.",
+    
+            "properties": {
+        "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The main identifier of this Business Partner given from the IT system."
+            },
+            "billTo": {
+                "title": "billTo",
+                "type": "array",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+                "items": {
+                    "$ref": "#/definitions/CustomerFunctionAssignment"
+                }
+            },
+            "shipTo": {
+                "title": "shipTo",
+                "type": "array",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+                "items": {
+                    "$ref": "#/definitions/CustomerFunctionAssignment"
+                }
+            },
+            "soldTo": {
+                "title": "soldTo",
+                "type": "array",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+                "items": {
+                    "$ref": "#/definitions/CustomerFunctionAssignment"
+                }
+            },
+            "payer": {
+                "title": "payer",
+                "type": "array",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+                "items": {
+                    "$ref": "#/definitions/CustomerFunctionAssignment"
+                }
+            },
+            "salesManager": {
+                "title": "salesManager",
+                "type": "array",
+                "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+                "items": {
+                    "$ref": "#/definitions/CustomerFunctionAssignment"
+                }
+            },
+            "medicalRepresentative": {
+                "title": "medicalRepresentative",
+                "type": "array",
+                "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+                "items": {
+                    "$ref": "#/definitions/CustomerFunctionAssignment"
+                }
+            },
+            "salesRepresentative": {
+                "title": "salesRepresentative",
+                "type": "array",
+                "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+                "items": {
+                    "$ref": "#/definitions/CustomerFunctionAssignment"
+                }
+            }
+        },
+    "definitions": {
+        "CustomerFunctionAssignment": {
+            "title": "customerFunctionAssignment",
+            "type": "object",
+            "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.\n\nThe partner address is a functional address of the business partner. If the party is empty, this is an address of the partner itself. Otherwise, it is the address of another partner who takes over a specific function.",
+            "properties": {
+                "party": {
+                    "$ref": "#/definitions/BusinessPartner"
+                },
+                "address": {
+                    "$ref": "AddressUsage.v2.json"
+                },
+                "salesArea": {
+                    "$ref": "SalesArea.v1.json"
+                }
+            }
+        },
+        "BusinessPartner": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "title": "identifier",
+                            "type": "string",
+                            "description": "The main identifier of this Business Partner in a specific IT system."
+                        },
+                        "status": {
+                            "title": "status",
+                            "type": "string",
+                            "description": "The status defines if the Business Partner is active or deactivated.",
+                            "enum": [
+                                "ACTIVE",
+                                "INACTIVE"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/BusinessPartnerName"
+                }
+            ]
+        },
+        "BusinessPartnerName": {
+            "title": "businessPartnerName",
+            "type": "object",
+            "description": "A BUSINESS PARTNER may have several different NAMES, e.g. a legal name, different abbreviations, a name used in marketing / communication, etc.",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "The name of the Business Partner."
+                }
+            }
+        }
+    }
+}

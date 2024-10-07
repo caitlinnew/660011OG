@@ -1,0 +1,133 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Rdm/DevelopmentProject.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DEVELOPMENT PROJECT",
+    "type": "object",
+    "description": "A DEVELOPMENT PROJECT \n- is a project for cost reporting in controlling,\n- is maintained in the application system Probase,\n- is owned by development coordination,\n- aims at developing a drug product from start of development beyond launch.\n\nThe clinical part of the development is covered by the CLINICAL DEVELPMENT PROJECT.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "developmentStartEstimated": {
+                    "title": "estimationOfStartOfDevelopmentDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Estimation of the start of development date."
+                },
+                "developmentStartProbability": {
+                    "title": "startOfDevelopmentProbability",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "defines the probability that the development will start in percent."
+                },
+                "formulation": {
+                    "title": "formulation",
+                    "type": "string",
+                    "description": "(High level) description of the drug form."
+                },
+                "administrationRoute": {
+                    "title": "administrationRoute",
+                    "type": "string",
+                    "description": "(High level) description of the administration route and method"
+                },
+                "status": {
+                    "title": "projectStatus",
+                    "type": "string",
+                    "description": "Describes the project status"
+                },
+                "competitiveStatus": {
+                    "title": "competitiveStatus",
+                    "type": "string",
+                    "description": "Describes the competive status of the development project."
+                },
+                "modeOfAction": {
+                    "title": "modeOfAction",
+                    "type": "string",
+                    "description": "Defines the mode of action."
+                },
+                "diseaseArea": {
+                    "title": "diseaseArea",
+                    "type": "string",
+                    "description": "Describe the disease area the development project is assigned to."
+                },
+                "diseaseAreaInitial": {
+                    "title": "diseaseAreaInitial",
+                    "type": "string",
+                    "description": "Describe the disease area the development project is initially assigned to."
+                },
+                "biCtmsCodes": {
+                    "title": "biCtmsCodes",
+                    "type": "string",
+                    "description": "(List of) BI CTMS Codes of clinical development projects initiated by this development project."
+                },
+                "inLicensedFlag": {
+                    "title": "inLicensedFlag",
+                    "type": "boolean",
+                    "description": "Indicates whether the substance the project is about is inlicensed. True: it is. False: it is not."
+                },
+                "indicationInitial": {
+                    "title": "indicationInitial",
+                    "type": "array",
+                    "description": "Indications the project is about.",
+                    "items": {
+                        "title": "indicationInitial",
+                        "type": "string",
+                        "description": "Indications the project is about."
+                    }
+                },
+                "indication": {
+                    "title": "indication",
+                    "type": "string",
+                    "description": "describe the indications the development project is about."
+                },
+                "newMolecularEntityTypeInitial": {
+                    "title": "newMolecularEntityTypeInitial",
+                    "type": "string",
+                    "description": "Defines initially the new molecular type of the substance the project is about."
+                },
+                "parentResearchProject": {
+                    "$ref": "#/definitions/ResearchProject"
+                },
+                "aiCombination": {
+                    "$ref": "../Product/AiCombination.v1.json"
+                },
+                "newMolecularEntityType": {
+                    "title": "newMolecularEntityType",
+                    "type": "string",
+                    "description": "Defines the new molecular type of the substance the project is about."
+                },
+                "classificationInitial": {
+                    "title": "classificationInitial",
+                    "type": "string",
+                    "description": "defines initially the classification of the development project."
+                },
+                "classification": {
+                    "title": "classification",
+                    "type": "string",
+                    "description": "defines the classfication of the development project."
+                },
+                "target": {
+                    "title": "target",
+                    "type": "string",
+                    "description": "The target of the examined active ingredient."
+                }
+            }
+        },
+        {
+            "$ref": "ResearchAndDevelopmentProject.v1.json"
+        }
+    ],
+    "definitions": {
+        "ResearchProject": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "ResearchAndDevelopmentProject.v1.json"
+                }
+            ]
+        }
+    }
+}

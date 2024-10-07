@@ -1,0 +1,70 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/NewFormCode.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "NEW FORM CODE",
+    "type": "object",
+    "description": "The New Form Code (NFC) is a standardized classification of dose forms, which also provides some information on primary packaging. The New Form Code classification is based on three letters:\n\n1.The first letter differentiates between forms for systemic and topical effect, site of application, and also between long-acting and ordinary forms.\n\n2.The second letter indicates the general form of medication and is independent of the first letter. This allows to select all liquids independent of the site of application, all tablets independent of ordinary or long-acting effect and systemic or topical use, etc. For the distinction of the specific form the third letter is to be used together with the second letter.\n\n3.The third letter subdivides the general form of medication as defined by the second letter into more specific dose forms. Therefore, the third letter can only be used together with the second letter. Normally, the third letter that provides the most specific information is used.\n\nFor details, see NEW FORM CODE CLASSIFICATION (ephmra.org). A thorough understanding of the NFC definition details, especially of Rules 1-4, is critical for its accurate usage.",
+    "properties": {
+        "refId": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "boolean",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "sourceRefId": {
+            "title": "source.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "Technical identifier of the record in SAP."
+        },
+        "code": {
+            "title": "code",
+            "type": "string",
+            "description": "Externally provided code."
+        }
+    }
+}

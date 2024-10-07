@@ -1,0 +1,127 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/StrengthDeclaration.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "STRENGTH DECLARATION",
+    "type": "object",
+    "description": "INGREDIENTs of a GLOBAL PRODUCT may be SUBSTANCEs or SPECIFIED SUBSTANCEs.",
+    "properties": {
+        "maximumQuantity": {
+            "title": "maximumQuantity",
+            "type": "number",
+            "description": "If the quantity of a PRODUCT INGREDIENT is defined as a quantity range, the Maximum quantity describes the upper end of such range. If the quantity of a PRODUCT INGREDIENT is defined via a maximum quantity, the Maximum quantity describes this maximum quantity (1).\nIf the quantity of the PRODUCT INGREDIENT is defined as an exact quantity, the Maximum quantity is not used (0).\nIf the quantity of the PRODUCT INGREDIENT is defined as an average quantity, the Maximum quantity may be used to describe the upper end of the quantity range (0...1)."
+        },
+        "maximumQuantityExponent": {
+            "title": "maximumQuantityExponent",
+            "type": "number",
+            "description": "The Maximum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Maximimum Quantity Exponent is the Exponent m."
+        },
+        "maximumQuantityPotencyBase": {
+            "title": "maximumQuantityPotencyBase",
+            "type": "string",
+            "description": "The Maximum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Maximimum Quantity Potency Base is the base 10."
+        },
+        "minimumQuantity": {
+            "title": "minimumQuantity",
+            "type": "number",
+            "description": "If the quantity of a PRODUCT INGREDIENT is defined as a quantity range, the Minimum quantity describes the lower end of such range. If the quantity of a PRODUCT INGREDIENT is defined via a minimal quantity, the Minimal quantity describes this minimal quantity (1).\nIf the quantity of the PRODUCT INGREDIENT is defined as an exact quantity, the Minimum quantity is not used (0).\nIf the quantity of the PRODUCT INGREDIENT is defined as an average quantity, the Mimimum quantity may be used to describe the lower end of the quantity range (0...1)."
+        },
+        "minimumQuantityExponent": {
+            "title": "minimumQuantityExponent",
+            "type": "number",
+            "description": "The Minimum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Minimum Quantity Exponent is the Exponent m."
+        },
+        "minimumQuantityPotencyBase": {
+            "title": "minimumQuantityPotencyBase",
+            "type": "string",
+            "description": "The Minimum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Minimum Quantity Potency Base is the base 10."
+        },
+        "quantity": {
+            "title": "quantity",
+            "type": "number",
+            "description": "If the quantity of a PRODUCT INGREDIENT is defined as an exact value, approximate value, or as an average value, the Quantity describes this value (1).\nIf the quantity of the PRODUCT INGREDIENT is defined as a range, the Maximum quantity and Minimum quantity describes this range (0)."
+        },
+        "quantityExponent": {
+            "title": "quantityExponent",
+            "type": "number",
+            "description": "The Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Quantity Exponent is the Exponent m."
+        },
+        "quantityPotencyBase": {
+            "title": "quantityPotencyBase",
+            "type": "string",
+            "description": "The Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Quantity Potency Base is the base 10."
+        },
+        "sortKey": {
+            "title": "sortKey",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Sort Key is used to give the ACTIVE INGREDIENTs (AI) of a GLOBAL PRODUCT an order which must reflect the name of the GLOBAL PRODUCT.\nThe PRODUCT name includes the STRENGTH DECLARATION. The sequence of AI strengths is exactly defined and must no be changed."
+        },
+        "concentrationTypeSapCode": {
+            "title": "concentrationType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "concentrationTypeCode": {
+            "title": "concentrationType.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "This field is decprecated and will be removed in the next version. Please use concentrationTypeSapCode instead."
+        },
+        "concentrationTypeRefId": {
+            "title": "concentrationType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "specifiedSubstanceId": {
+            "title": "specifiedSubstance.specifiedSubstanceId",
+            "type": "string",
+            "description": "Identifier of the Specified Substance."
+        },
+        "substanceId": {
+            "title": "substance.substanceId",
+            "type": "string",
+            "description": "An ID with no business meaning"
+        },
+        "uomCode": {
+            "title": "uomForStrengthInformation.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "This field is decprecated and will be removed in the next version. Please use uomSapCode instead."
+        },
+        "uomSapCode": {
+            "title": "uomForStrengthInformation.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "uomRefId": {
+            "title": "uomForStrengthInformation.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "dailyDoseValue": {
+            "title": "dailyDose.dailyDoseValue",
+            "type": "number",
+            "description": "The Daily Dose value is the numeric quantity of the assumed average maintenance dose of an active ingredient of a GLOBAL PRODUCT per day used for its main indication in human adults."
+        },
+        "dailyDoseValueDisplay": {
+            "title": "dailyDose.valueDisplay",
+            "type": "number",
+            "description": "The Daily Dose value is the numeric quantity of the assumed average maintenance dose of an active ingredient of a GLOBAL PRODUCT per day used for its main indication in human adults.\nsame value as \"value\"; is used in MDG UI"
+        },
+        "dailyDoseNominatorUomSapCode": {
+            "title": "dailyDose.dailyDoseUomNumerator.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "dailyDoseNominatorUomRefId": {
+            "title": "dailyDoseUomNumerator.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "isPlacebo": {
+            "title": "placebo",
+            "type": "boolean",
+            "description": "The boolean operater Placebo indicates a Placebo. Only if the boolean operator is TRUE, a value of 0 for the STRENGTH DECLARATION is maintained."
+        }
+    }
+}

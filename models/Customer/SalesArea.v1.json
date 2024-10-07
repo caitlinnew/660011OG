@@ -1,0 +1,30 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/SalesArea.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SALES AREA",
+    "type": "object",
+    "description": "A SALES AREA is defined by one Division, one SALES ORGANISATION and a specific DISTRIBUTION CHANNEL.\nIt defines that a certain Sales Organization employed a certain strategy of market reach, i.e. a Distribution Channel to sale a good or service belonging to a particular division.",
+    "properties": {
+        "divisionCode": {
+            "title": "division",
+            "type": "string",
+            "description": "Division\nA way of grouping materials, products, or services. The system uses divisions to determine the sales areas and the business areas for a material, product, or service.\n[Source SAP field help]"
+        },
+        "distributionChannelCode": {
+            "title": "distributionChannel.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "salesOrganisationCode": {
+            "title": "salesOrganisation.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "businessUnitCode": {
+            "title": "This is not Business Unit - use division",
+            "type": "string",
+            "description": "This field contains division not Business Unit. Division is used for grouping of materials, products, or services. The system uses divisions to determine the sales areas and the business areas for a material, product, or service.\n[Source SAP field help]",
+            "deprecated": "true"
+        }
+    }
+}

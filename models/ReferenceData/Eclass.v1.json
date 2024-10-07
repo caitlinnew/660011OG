@@ -1,0 +1,131 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/ReferenceData/Eclass.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ECLASS",
+    "type": "object",
+    "description": "ECLASS is an international and cross-industry classification system; a data standard allowing products and services to be described clearly using unique identifiers. ECLASSes translate all properties of and information about products and services into a common data language. The ECLASS structure consists of four levels: segments, main groups, groups, and commodity classes. The advantage of using ECLASS as commodity code scheme is that BI and its suppliers speak the same language.\nECLASS is used to classify products and services to be purchased. In the procurement system(s) only 4th level ECLASSes can be selected to process purchase requisitions and purchase orders. In catalogues, suppliers make the ECLASS available at product level.\nBased on the ECLASS, approval workflows (e.g., Sourcing Approval of a PO) are routed. Moreover, each ECLASS covers certain flags, e.g., goods receipt or allocation type ensuring an automated processing of purchasing requisitions and purchase orders.\nAttributes like General Ledger (GL) Account or Target Operating Model (TOM) are assigned to each ECLASS driving automation in the procurement systems.\nECLASS is used as basis for spend reporting.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Short Description then it is identical to the Long Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformations",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "reducedEclass": {
+            "title": "reducedEclass",
+            "type": "boolean",
+            "description": "Indicator whether value is valid for reduced ECLASS list"
+        },
+        "level": {
+            "title": "level",
+            "type": "integer",
+            "format": "int32",
+            "description": "Level of value within ECLASS hierarchy"
+        },
+        "targetOperatingModel": {
+            "title": "targetOperatingModel",
+            "type": "string",
+            "description": "Indicator whether an ECLASS is handled centralized, center-led or decentralized within the Sourcing organization."
+        },
+        "purchaseOrderMandatory": {
+            "title": "purchaseOrderMandatory",
+            "type": "boolean",
+            "description": "Indicator whether a PO is compulsory for this ECLASS"
+        },
+        "eclassCategory": {
+            "title": "eclassCategory",
+            "type": "string",
+            "description": "Indicator whether the ECLASS is a material or a service"
+        },
+        "globalOwner": {
+            "title": "globalOwner",
+            "type": "string",
+            "description": "LogIn of Owner of ECLASS value"
+        },
+        "predecessorEclass": {
+            "title": "predecessorEclass",
+            "type": "string",
+            "description": "List ECLASS identifier that are reported now in this value"
+        },
+        "gsckIdentifier": {
+            "title": "gsckIdentifier",
+            "type": "string",
+            "description": "GSCK (Global Sourcing Category Key) Identifier: Identifier of assigned GSCK value"
+        },
+        "gsckName": {
+            "title": "gsckName",
+            "type": "string",
+            "description": "GSCK (Global Sourcing Category Key) Name: Name of assigned GSCK value"
+        },
+        "pckIdentifer": {
+            "title": "pckIdentifer",
+            "type": "string",
+            "description": "PCK (Prchasing Category Key) Identifier: Identifier of assigned PCK value"
+        },
+        "parentRefId": {
+            "title": "parent.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "localizedRefId": {
+            "title": "localized.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "sourcingOrganisationStructureRefId": {
+            "title": "sourcingOrganisationStructure.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        }
+    }
+}

@@ -1,0 +1,245 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/CustomerBlocking.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Customer Blocking",
+    "type": "object",
+    "properties": {
+        "centralBlockForBusinessPartner": {
+            "title": "centralBlockForBusinessPartner",
+            "type": "boolean",
+            "description": "The Central Block for Business Partner indicates that the BP is blocked for usage (no payments, no purchase orders) for all company codes and purchasing organizations."
+        },
+        "centralDeletionFlag": {
+            "title": "centralArchivingFlag",
+            "type": "boolean",
+            "description": "The Central Deletion Flag indicates that the Master Record is marked for deletion. The record will be deleted by the next mass delete process.\nA SUPPLIER then is disabled for any activity (Postings, Payments, new Purchase Orders) as long as the blocking is active. \nThis is valid for all BI LEGAL ENTITIES and all PURCHASING ORGANIZATIONs.\nA CUSTOMER then is disabled for any activity (Postings and new Sales Orders) for all BI LEGAL ENTITY and all SALES ORGANIZATIONs."
+        },
+        "centralBillingBlock": {
+            "title": "centralBillingBlock",
+            "type": "boolean",
+            "description": "The CENTRAL BILLING BLOCK is activated for customers where no billing should occur across all sales organizations.\n(Template uses blocks in Sales Org view.)"
+        },
+        "centralBillingBlockReason": {
+            "title": "centralBillingBlockReason",
+            "type": "string",
+            "enum": [
+                "CALCULATION MISSING",
+                "CONFIRMATION MISSING",
+                "PRICES INCOMPLETE",
+                "CHECK TERMS OF PAYMENT",
+                "CHECK TERMS OF DELIVERY",
+                "CHECK CREDIT MEMO",
+                "CHECK DEBIT MEMO",
+                "PRICE CHANGE APPROVAL"
+            ]
+        },
+        "centralDeliveryBlock": {
+            "title": "centralDeliveryBlock",
+            "type": "boolean",
+            "description": "CENTRAL DELIVERY BLOCK is activated for customers who pay using prepayments and for customers who we wish to create orders, but no deliveries.\n(Template uses blocks in Sales Org view.)"
+        },
+        "centralDeliveryBlockReason": {
+            "title": "centralDeliveryBlockReason",
+            "type": "string",
+            "enum": [
+                "NAME BLACK LIST",
+                "CASH IN ADVANCE",
+                "CONFIRMATION BLOCK",
+                "CUSTOMER SERVICE",
+                "FEEDBACK 3PL",
+                "LICENCE CHECK",
+                "NO PRINT 3PL",
+                "SLS ORDER INCOMPLETE",
+                "MISSING BP-PAYER-RELATION"
+            ]
+        },
+        "centralOrderBlock": {
+            "title": "centralOrderBlock",
+            "type": "boolean",
+            "description": "The CENTRAL ORDER BLOCK is activated to avoid, that any order can be created for this customer in all sales organizations (Template uses blocks in Sales Org view.)"
+        },
+        "centralOrderBlockReason": {
+            "title": "centralOrderBlockReason",
+            "type": "string",
+            "enum": [
+                "OVERALL BLOCK",
+                "ALL FREE OF CHARGE",
+                "TEST BLOCK",
+                "CUSTOMER BANKRUPTCY",
+                "CUSTOMER FINANCIAL DIFFICULTY",
+                "ONLY REBATES ALLOWED",
+                "INDIRECT CUSTOMER",
+                "PET OWNER",
+                "GLOBAL TRADE SANCTION"
+            ]
+        },
+        "centralPostingBlock": {
+            "title": "centralPostingBlock",
+            "type": "boolean",
+            "description": "Physical inventory blocking indicator. \nIndicates that the account is blocked for posting of items."
+        },
+        "centralSalesBlock": {
+            "title": "centralSalesBlock",
+            "type": "boolean",
+            "description": "Blocks sales activities and promotions from being created for customer. Not used in template."
+        },
+        "companyBlocks": {
+            "title": "companyBlocks",
+            "type": "array",
+            "description": "Set of information relevant to a CUSTOMER and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Recievable, Accounting to Reporting, Treasury.",
+            "items": {
+                "$ref": "#/definitions/CustomerAccountingInformation"
+            }
+        },
+        "salesAreaBlocks": {
+            "title": "salesAreaBlocks",
+            "type": "array",
+            "description": "The CUSTOMER SALES INFORMATION is defined for each SALES AREA, where a FINANCIAL CUSTOMER may place an order.",
+            "items": {
+                "$ref": "#/definitions/CustomerSalesInformation"
+            }
+        }
+    },
+    "definitions": {
+        "CustomerAccountingInformation": {
+            "title": "customerAccountingInformation",
+            "type": "object",
+            "description": "Set of information relevant to a CUSTOMER and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Recievable, Accounting to Reporting, Treasury.",
+            "properties": {
+                "companyCode": {
+                    "title": "companyCode.code",
+                    "type": "string",
+                    "description": "unique identifier of legal entity (originally generated in AMI)"
+                },
+                "companyName": {
+                    "title": "companyCode.term",
+                    "type": "string",
+                    "description": "name of legal entity (originally generated in AMI)"
+                },
+                "deletionFlagOnCompanyLevel": {
+                    "title": "deletionFlagOnCompanyLevel",
+                    "type": "boolean",
+                    "description": "The supplier is disabled for any activity (Postings and Payments) on the level of a BI LEGAL ENTITY as long as the flag is set."
+                },
+                "paymentBlock": {
+                    "title": "paymentBlock",
+                    "type": "boolean",
+                    "description": "No payments can be performed for the specific Vendor and the selected BI LEGAL ENTITY as long as the blocking is active."
+                },
+                "paymentBlockReason": {
+                    "title": "paymentBlockReason",
+                    "type": "string",
+                    "enum": [
+                        "FREE FOR PAYMENT",
+                        "SKIP ACCOUNT",
+                        "BLOCKED FOR PAYMENT",
+                        "TREASURY CONTROL DOCUMENT",
+                        "ORDER OR DELIVERY COMPLAINT",
+                        "PAYMENT REJECTED",
+                        "DEDUCTION",
+                        "MANUAL PAYMENT TRANSACTION",
+                        "BUSINESS PARTNER BANKRUPTCY",
+                        "INVOICE COMPLAINT",
+                        "TREASURY CONTROL MASTER DATA",
+                        "LEGAL ACTION ONGOING",
+                        "BLOCKED CREDIT NOTE",
+                        "NOT TO BE COLLECTED",
+                        "DIRECT DEBIT",
+                        "ACCOUNTS PAYABLE",
+                        "STOP PAYMENTS",
+                        "HOLDBACK",
+                        "FOREIGN VENDOR",
+                        "BANK DATA VERIFICATION",
+                        "WITHHOLD WIRE",
+                        "MULTIPLE BANK ACCOUNTS",
+                        "LEGAL VERIFICATION"
+                    ]
+                },
+                "postingBlock": {
+                    "title": "postingBlock",
+                    "type": "boolean",
+                    "description": "No (financial) postings can be performed for the specific Vendor and the selected BI LEGAL ENTITY as long as the blocking is active."
+                }
+            }
+        },
+        "CustomerSalesInformation": {
+            "title": "customerSalesInformation",
+            "type": "object",
+            "description": "The CUSTOMER SALES INFORMATION is defined for each SALES AREA, where a customer may place an order.",
+            "properties": {
+                "salesArea": {
+                    "$ref": "SalesArea.v1.json"
+                },
+                "billingBlock": {
+                    "title": "billingBlock",
+                    "type": "boolean",
+                    "description": "For customers where no billing should occur across a specific sales organization."
+                },
+                "billingBlockReason": {
+                    "title": "billingBlockReason",
+                    "type": "string",
+                    "enum": [
+                        "CALCULATION MISSING",
+                        "CONFIRMATION MISSING",
+                        "PRICES INCOMPLETE",
+                        "CHECK TERMS OF PAYMENT",
+                        "CHECK TERMS OF DELIVERY",
+                        "CHECK CREDIT MEMO",
+                        "CHECK DEBIT MEMO",
+                        "PRICE CHANGE APPROVAL"
+                    ]
+                },
+                "deletionFlagOnSalesAreaLevel": {
+                    "title": "deletionFlagOnSalesAreaLevel",
+                    "type": "boolean",
+                    "description": "The CUSTOMER is disabled for any activity (Postings and new Sales Orders) on the level of a SALES ORGANIZATION as long as the flag is set."
+                },
+                "deliveryBlock": {
+                    "title": "deliveryBlock",
+                    "type": "boolean",
+                    "description": "The DELIVERY BLOCK is active fot customers who pay using prepayments and for customers who we wish to create orders, but no deliveries."
+                },
+                "deliveryBlockReason": {
+                    "title": "deliveryBlockReason",
+                    "type": "string",
+                    "enum": [
+                        "NAME BLACK LIST",
+                        "CASH IN ADVANCE",
+                        "CONFIRMATION BLOCK",
+                        "CUSTOMER SERVICE",
+                        "FEEDBACK 3PL",
+                        "LICENCE CHECK",
+                        "NO PRINT 3PL",
+                        "SLS ORDER INCOMPLETE",
+                        "MISSING BP-PAYER-RELATION"
+                    ]
+                },
+                "orderBlock": {
+                    "title": "orderBlock",
+                    "type": "boolean",
+                    "description": "The ORDER BLOCK is activated to avoid, that an orders can be created for this customer in all sales organizations."
+                },
+                "orderBlockReason": {
+                    "title": "orderBlockReason",
+                    "type": "string",
+                    "enum": [
+                        "OVERALL BLOCK",
+                        "ALL FREE OF CHARGE",
+                        "TEST BLOCK",
+                        "CUSTOMER BANKRUPTCY",
+                        "CUSTOMER FINANCIAL DIFFICULTY",
+                        "ONLY REBATES ALLOWED",
+                        "INDIRECT CUSTOMER",
+                        "PET OWNER",
+                        "GLOBAL TRADE SANCTION"
+                    ]
+                },
+                "salesBlock": {
+                    "title": "salesBlockOnSalesAreaLevel",
+                    "type": "boolean",
+                    "description": "Blocks sales activities and promotions from being created for customer. Not used in template."
+                }
+            }
+        }
+    }
+}

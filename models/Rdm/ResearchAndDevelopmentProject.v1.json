@@ -1,0 +1,74 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Rdm/ResearchAndDevelopmentProject.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RESEARCH AND DEVELOPMENT PROJECT",
+    "type": "object",
+    "description": "... is a specialization of project covering (drug) Research Projects, (drug) Development Projects, and Clinical Development Projects",
+    "properties": {
+        "projectCode": {
+            "title": "projectCode",
+            "type": "string",
+            "description": "The unique identifier of a Development Project."
+        },
+        "shortTitle": {
+            "title": "shortTitle",
+            "type": "string",
+            "description": "Gives the short title of the project"
+        },
+        "title": {
+            "title": "projectTitle",
+            "type": "string",
+            "description": "The Project Title describes the Development Project."
+        },
+        "additionalIds": {
+            "title": "additionalProjectIdentifiers",
+            "type": "array",
+            "description": "Defines an additional project identifier and its source.",
+            "items": {
+                "$ref": "#/definitions/AdditionalProjectIdentifier"
+            }
+        },
+        "phase": {
+            "title": "projectPhase",
+            "type": "string",
+            "description": "Defines the (current) phase of the project"
+        },
+        "importantDates": {
+            "title": "importantDates",
+            "type": "array",
+            "description": "An IMPORTANT DATE is a milestone or a planned event which will be specialized for the different scopes of IMPORTANT DATE; e.g. IMPORTANT DATE FOR STUDY, IMPORTANT DATE FOR STUDY COUNTRY, IMPORTANT DATE FOR STUDY SITE., ....\nAn IMPORTANT DATE is typificated by IMPORTANT DATE TYPE.",
+            "items": {
+                "$ref": "../Medicine/ImportantDate.v1.json"
+            }
+        },
+        "businessSegmentShortTerm": {
+            "title": "businessSegment.shortTerm",
+            "type": "string",
+            "description": "short name of business segment"
+        }
+    },
+    "definitions": {
+        "AdditionalProjectIdentifier": {
+            "title": "additionalProjectIdentifier",
+            "type": "object",
+            "description": "Defines an additional project identifier and its source.",
+            "properties": {
+                "id": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The code/identifier of the additional identifier"
+                },
+                "source": {
+                    "title": "source",
+                    "type": "string",
+                    "description": "The source of the additional identifier",
+                    "enum": [
+                        "PROMPT",
+                        "PROBASE",
+                        "FOCUS"
+                    ]
+                }
+            }
+        }
+    }
+}

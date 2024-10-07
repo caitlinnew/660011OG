@@ -1,0 +1,87 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/InformationModelDiagram.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INFORMATION MODEL DIAGRAM",
+    "type": "object",
+    "description": "The INFOMRATION MODEL DIAGRAM is a visualisation of one ore mulitple INFORMATION OBJECT(s), their INFORMATION ATTRIBUTE(s) and the respective INFORMATION RELATION(s) among them.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "graphic": {
+                    "title": "graphic",
+                    "type": "string",
+                    "description": "The Graphic is the picture of the INFORMATION MODEL DIAGRAM."
+                },
+                "mimeType": {
+                    "title": "mimeType",
+                    "type": "string"
+                },
+                "containedInformationAttributes": {
+                    "type": "array",
+                    "description": "An INFORMATION ATTRIBUTE is an INFORMATION MODEL ELEMENT that represents detail information on its most detailed level.",
+                    "items": {
+                        "$ref": "#/definitions/InformationAttribute"
+                    }
+                },
+                "containedInformationObjects": {
+                    "type": "array",
+                    "description": "The INFORMATION OBJECT is a representation of a piece of information whithin Boehringer Ingelheim. It may contain more detailed information (INFORMATION ATTRIBUTE).\nDepending on the layer of the Boehringer Information Model where the INFORMATION OBJECT is used, it is also known as \"conceptual object\" (conceptual model layer).",
+                    "items": {
+                        "$ref": "#/definitions/InformationObject"
+                    }
+                },
+                "containedInformationRelations": {
+                    "type": "array",
+                    "description": "An INFORMATION RELATION is the representation of how two pieces of information are connected to each other",
+                    "items": {
+                        "$ref": "#/definitions/InformationRelation"
+                    }
+                },
+                "domainName": {
+                    "title": "domain.name",
+                    "type": "string",
+                    "description": "The name of the DATA DOMAIN is the way how it is called typically."
+                }
+            }
+        },
+        {
+            "$ref": "InformationModelElement.v1.json"
+        }
+    ],
+    "definitions": {
+        "InformationAttribute": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        },
+        "InformationObject": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        },
+        "InformationRelation": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        }
+    }
+}

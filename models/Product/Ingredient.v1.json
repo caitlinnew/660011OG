@@ -1,0 +1,148 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/Ingredient.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INGREDIENT",
+    "type": "object",
+    "description": "INGREDIENT is a SPECIFIED SUBSTANCE which plays a role in the PRODUCT COMPOSITION of a DRUG PRODUCT. This role may be Active Ingredient, Excipient, Adjuvant, Inactivant, Preservative, Impurity etc. \nThe strength of the INGREDIENT is provided, and for active ingredients a strength of the REFERENCE SUBSTANCE may be provided.",
+    "properties": {
+        "id": {
+            "title": "identifier",
+            "type": "string"
+        },
+        "compositionGroup": {
+            "title": "compositionGroup",
+            "type": "string",
+            "description": "Composition Group is the information which specifies to which part of the DRUG PRODUCT FOR CONFIGURATION each INGREDIENT belongs to (i.e. coating, printing ink).\n[Source: PMS IG Chapter 2 v2.1 5.3. Composition grouping description]\nThe P100 document has at least one table on the quantitative and qualitative composition of the medicinal product. That table may have sub-headers, grouping the INGREDIENTs under one sub-header into one Composition Group. Or there may be more than one tables maintained, one for each Composition Group.\nIn case one INGREDIENT occures in two Composition Groups, the INGREDIENT is only listed once as regulated in ISO 11615: There shall be one instance of the Ingredient class for each actual ingredient of either the manufactured item or pharmaceutical product, as appropriate. [source: ISO11615:2012, 7.7.2.1 Ingredient].\nThe Composition Group is free text, therefore may contain more than one Composition Group."
+        },
+        "maximumQuantity": {
+            "title": "maximumQuantity",
+            "type": "number",
+            "description": "If the quantity of a PRODUCT INGREDIENT is defined as a quantity range, the Maximum quantity describes the upper end of such range. If the quantity of a PRODUCT INGREDIENT is defined via a maximum quantity, the Maximum quantity describes this maximum quantity (1).\nIf the quantity of the PRODUCT INGREDIENT is defined as an exact quantity, the Maximum quantity is not used (0).\nIf the quantity of the PRODUCT INGREDIENT is defined as an average quantity, the Maximum quantity may be used to describe the upper end of the quantity range (0...1)."
+        },
+        "maximumQuantityExponent": {
+            "title": "maximumQuantityExponent",
+            "type": "number",
+            "description": "The Maximum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Maximimum Quantity Exponent is the Exponent m."
+        },
+        "maximumQuantityPotencyBase": {
+            "title": "maximumQuantityPotencyBase",
+            "type": "string",
+            "description": "The Maximum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Maximimum Quantity Potency Base is the base 10."
+        },
+        "minimumQuantity": {
+            "title": "minimumQuantity",
+            "type": "number",
+            "description": "If the quantity of a PRODUCT INGREDIENT is defined as a quantity range, the Minimum quantity describes the lower end of such range. If the quantity of a PRODUCT INGREDIENT is defined via a minimal quantity, the Minimal quantity describes this minimal quantity (1).\nIf the quantity of the PRODUCT INGREDIENT is defined as an exact quantity, the Minimum quantity is not used (0).\nIf the quantity of the PRODUCT INGREDIENT is defined as an average quantity, the Mimimum quantity may be used to describe the lower end of the quantity range (0...1)."
+        },
+        "minimumQuantityExponent": {
+            "title": "minimumQuantityExponent",
+            "type": "number",
+            "description": "The Minimum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Minimum Quantity Exponent is the Exponent m."
+        },
+        "minimumQuantityPotencyBase": {
+            "title": "minimumQuantityPotencyBase",
+            "type": "string",
+            "description": "The Minimum Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Minimum Quantity Potency Base is the base 10."
+        },
+        "quantity": {
+            "title": "quantity",
+            "type": "number",
+            "description": "If the quantity of a PRODUCT INGREDIENT is defined as an exact value, approximate value, or as an average value, the Quantity describes this value (1).\nIf the quantity of the PRODUCT INGREDIENT is defined as a range, the Maximum quantity and Minimum quantity describes this range (0)."
+        },
+        "specifiedSubstanceId": {
+            "title": "specifiedSubstance.specifiedSubstanceId",
+            "type": "string",
+            "description": "Identifier of the Specified Substance."
+        },
+        "quantityExponent": {
+            "title": "quantityExponent",
+            "type": "number",
+            "description": "The Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Quantity Exponent is the Exponent m."
+        },
+        "quantityPotencyBase": {
+            "title": "quantityPotencyBase",
+            "type": "string",
+            "description": "The Quantity may be described in a scientific number format, i.e. n x 10^m (n times 10 to the power of m). The Quantity Potency Base is the base 10."
+        },
+        "sortKey": {
+            "title": "sortKey",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Sort Key is a positive integer assigned to each INGREDIENT of a PRODUCT COMPOSITION, VALENCE PRODUCT COMPOSITION and SPECIFIED SUBSTANCE. This allows to display the INGREDIENTs in the sequence of the Sort Key.\nFor (VALENCE) PRODUCT COMPOSITIONs, the sequence shall be the same as in the regulatory document P100 Description and Composition of the Drug Product. This shall help humans to compare this structured data with data in the P100 document.\nFor SPECIFIED SUBSTANCEs for which their INGREDIENTs are listed in the P100 document, the sequence of their INGREDIENTs shall be the same as in the P100 document.\nFor SPECIFIED SUBSTANCEs for which their INGREDIENTs are not listed in the P100 document, there is no requirement to sort the INGREDIENT sequence."
+        },
+        "valenceIngredient": {
+            "title": "valenceIngredient",
+            "type": "boolean",
+            "description": "The flag Valence ingredient indicates whether or not a PRODUCT INGREDIENT is part of a valence approach used in a PRODUCT COMPOSITION.\nA valence approach is used for DRUG PRODUCTs against outbreak diseases, such as Foot and Mouth Disease, Blue Tongue or Avian Flu. Such DRUG PRODUCTs are registered to contain e.g. 3 out of 8 virus strain antigens, with those 3 antigens being the relevant virus strains in the addressed outbreak. This approach ensures quick reaction to an outbreak, which is crucial to contain an outbreak disease.\nThe PRODUCT INGREDIENTs included in such valence approach are flagged as Valence Ingredient. From these, valence is the amount of PRODUCT INGREDIENTs to be selected. Valence may be a single value (e.g. 3) or a range (e.g. 1 to 3).\nThe PRODUCT INGREDIENTs not flagged as valence ingredient are always present in the DRUG PRODUCT, e.g. Adjuvants."
+        },
+        "concentrationTypeSapCode": {
+            "title": "concentrationType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for CONCENTRATION TYPE."
+        },
+        "concentrationTypeCode": {
+            "title": "concentrationType.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for CONCENTRATION TYPE.\nThis element is deprecated and will be removed in soon.\nPlease use *sapCode instead."
+        },
+        "concentrationTypeRefId": {
+            "title": "concentrationType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "ingredientRoleSapCode": {
+            "title": "ingredientRole.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for INGREDIENT ROLE."
+        },
+        "ingredientRoleCode": {
+            "title": "ingredientRole.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for INGREDIENT ROLE.\nThis element is deprecated and will be removed in soon.\nPlease use *sapCode instead."
+        },
+        "ingredientRoleRefId": {
+            "title": "ingredientRole.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "uomSapCode": {
+            "title": "unitOfMeasure.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "uomCode": {
+            "title": "unitOfMeasure.sapCode",
+            "type": "string",
+            "deprecated": true,
+            "description": "The unconverted Code in Column MSEHI of SAP table T006.\nThis element is deprecated and will be removed soon.\nPlease use *SapCode instead."
+        },
+       
+        "uomRefId": {
+            "title": "unitOfMeasure.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "referenceStrength": {
+            "title": "referenceStrength.quantity",
+            "type": "number",
+            "description": "The Quantity of a REFERENCE SUBSTANCE is the REFERENCE STRENGTH Quantity.\nIt is calculated from the Quantity of the INGREDIENT, if maintained (0..1), multiplied with the REFERENCE STRENGTH CALCULATION Factor."
+        },
+        "referenceStrengthMin": {
+            "title": "referenceStrength.minimumQuantity",
+            "type": "number",
+            "description": "The Minimum Quantity of a REFERENCE SUBSTANCE is the REFERENCE STRENGTH Minimum Quantity.\nIt is calculated from the Minimum Quantity of the INGREDIENT, if maintained (0..1), multiplied with the REFERENCE STRENGTH CALCULATION Factor."
+        },
+        "referenceStrengthSubstanceId": {
+            "title": "referenceStrength.substanceId",
+            "type": "string",
+            "description": "An ID with no business meaning"
+        },
+        "referenceStrengthMax": {
+            "title": "referenceStrength.maximumQuantity",
+            "type": "number",
+            "description": "The Maximum Quantity of a REFERENCE SUBSTANCE is the REFERENCE STRENGTH Maximum Quantity.\nIt is calculated from the Maximum Quantity of the INGREDIENT, if maintained (0..1), multiplied with the REFERENCE STRENGTH CALCULATION Factor."
+        }
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/BusinessPartnerFunctionAssignment.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BUSINESS PARTNER FUNCTION ASSIGNMENT",
+    "type": "object",
+    "description": "The referenced BUSINESS PARTNER may be any kind of BUSINESS PARTNER, e.g. a Contact Person.",
+    "properties": {
+        "defaultPartner": {
+            "title": "defaultPartner",
+            "type": "boolean",
+            "description": "A Business Partner Function Assignment may be assigned from one BP to multiple BPs.\nOne of these BPs must be the Default Partner for this function."
+        },
+        "businessPartnerId": {
+            "title": "businessPartnerIdentifier.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "assignedPartnerId": {
+            "title": "businessPartner.businessPartnerIdentifier.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "assignedPartnerCustomer": {
+            "$ref": "./Customer.v1.json"
+        },
+        "assignedPartnerSupplier": {
+            "$ref": "../Vendor/PurchasingSupplier.v1.json"
+        },
+        "assignedPartnerAddresses": {
+            "title": "businessPartner.addressUsage",
+            "type": "array",
+            "description": "ADDRESS USAGE says that a certain BUSINESS PARTNER is using a certain ADDRESS (which is (usually) independent of a BUSINESS PARTNER). Via the relationship to ADDRESS TYPE it also tells the purpose which the address is used for, e.g. Sold-To, Bill-To, Ship-To, Private, Office, ... (see Examples tab of ADDRESS TYPE).",
+            "items": {
+                "$ref": "./AddressUsage.v1.json"
+            }
+        },
+        "purchasingOrganizationCode": {
+            "title": "purchasingOrganization.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for PURCHASING ORGANIZATION."
+        },
+        "referencedFunctionCode": {
+            "title": "referencedBusinessPartnerFunction.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for BUSINESS PARTNER FUNCTION."
+        },
+        "referencedFunctionName": {
+            "title": "referencedBusinessPartnerFunction.term",
+            "type": "string",
+            "description": "Term is a human readable designator of the data record for this object."
+        }
+    }
+}

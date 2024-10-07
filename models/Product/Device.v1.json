@@ -1,0 +1,266 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/Device.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DEVICE",
+    "type": "object",
+    "description": "A DEVICE is a DRUG PRODUCT-free item of the Boehringer Ingelheim product portfolio for which Boehringer holds specific knowledge and/or labels it as a Boehringer product (see detailed descriptions below).\nThe DEVICE achieves its principal effect mainly through physical approach. It does not achieve its principal effect by pharmacological, immunological or metabolic means in or on the human body or animal, but it may be assisted in its function by such means.\nA DEVICE is an instrument, apparatus, implement, machine, contrivance, implant, in vitro reagent, software, material or other similar or related article, including any component, part, or accessory for one of the following purposes\na) diagnosis, prevention, monitoring, prediction, prognosis, treatment or alleviation of disease, \nb) diagnosis, monitoring, treatment, alleviation of, or compensation for, an injury or disability,\nc) investigation, replacement or modification of the anatomy or of a physiological or pathological process or state (affecting the structure or function of human or animal body),\nd) providing information by means of in vitro examination of specimens derived from the human body or animal, including organ, blood and tissue donations, \ne) Products specifically intended for the cleaning, disinfection or sterilization of devices\nIf a DEVICE is regulated as a MEDICAL DEVICE for a TARGET SPECIES in a JURISDICTION it specializes into a MEDICAL DEVICE. Otherwise it remains the generalized DEVICE.\n[Source: Karin Herzog, Information Owner DEVICE, 12 JUN 2018]\n\nSome DEVICEs have to be sterile for use. They are either packed sterile in a PRIMARY PACKAGING or they are sterilized prior to use. For the first option, the PRIMARY PACKAGING is not described in detail and is not managed as PRIMARY PACKAGING in Boehringer, as Boehringer purchases sterile DEVICEs already sterile packed, e.g. sterile single-use syringes, sterile single-use alcohol swab, sterile single-use vial adaptor. Therefore DEVICE includes sterile (primary packed) Devices, without separate description of the sterile packaging.\nThe penetration of an item into the body of a human or an animal does not make the item a DEVICE. For example, ear tags pinched through ears of vaccinated animals are not a DEVICE, but AUXILIARY GOODs, as there is no causality between the item and a disease, injury or disability.\nDEVICEs for which Boehringer holds no specific knowledge nor labels it as a Boehringer product are not managed as DEVICE, but as AUXILIARY GOOD. For example, unbranded empty syringes or protective gloves for veterinary use are managed as AUXILIARY GOOD, as Boehringer does not manage nor need to report any MEDICAL DEVICE NOMENCLATURE for these items. That is the manufacturer's responsibility.",
+    "properties": {
+        "additionalInformationText": {
+            "title": "globalSku.additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "additionalInformationLanguageIso2Code": {
+            "title": "additionalInformation.language.isoAlpha-2Code",
+            "type": "string",
+            "description": "The Alpha-2 Code according to Iso 639."
+        },
+        "additionalInformationLanguageRefId": {
+            "title": "language.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "baseUomSapCode": {
+            "title": "globalSku.baseUom.sapCode",
+            "type": "string",
+            "description": "The unconverted Code in Column MSEHI of SAP table T006."
+        },
+        "baseUomRefId": {
+            "title": "baseUom.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "id": {
+            "title": "globalSku.globalSkuId",
+            "type": "string",
+            "description": "The Global SKU ID is the globally unique identifier for the GLOBAL SKU. It is a six digit integer."
+        },
+        "descriptions": {
+            "title": "globalSku.descriptions",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Text"
+            }
+        },
+        "purposeSapCode": {
+            "title": "globalSku.globalSkuPurpose.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for GLOBAL SKU PURPOSE."
+        },
+        "stageSapCode": {
+            "title": "globalSku.globalSkuStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL SKU STAGE."
+        },
+        "stageName": {
+            "title": "globalSku.globalSkuStage.name",
+            "type": "object"
+        },
+        "updateTimeStamp": {
+            "title": "globalSku.updateTimeStamp",
+            "type": "string",
+            "format": "date-time",
+            "description": "The date, when the GLOBAL SKU has been updated for the last time."
+        },
+        "globalSkuTypeSapCode": {
+            "title": "globalSku.globalSkuType.sapCode",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for GLOBAL SKU TYPE."
+        },
+        "globalLifecycleStatusSapCode": {
+            "title": "globalSku.globalLifecycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for GLOBAL LIFE CYCLE STATUS."
+        },
+        "globalLifecycleStatusRefId": {
+            "title": "globalLifecycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "productSubgroupSapCode": {
+            "title": "globalSku.productSubgroup.sapCode",
+            "type": "string"
+        },
+        "productGroupSapCode": {
+            "title": "globalSku.productGroup.sapCode",
+            "type": "string"
+        },
+        "skuStructure": {
+            "title": "globalSku.stockKeepingUnitStructure",
+            "type": "array",
+            "description": "The Stock Keeping Unit Structure connects all Stock Keeping Units to be sold into the market with the Business Field Structure. This refers only to 3rd Party Business Field Structures.",
+            "items": {
+                "$ref": "#/definitions/StockKeepingUnitStructure"
+            }
+        },
+        "incomeTypePrismaCode": {
+            "title": "globalSku.incomeType.prismaCode",
+            "type": "string",
+            "description": "unique identifier for income type"
+        },
+        "packagingTechnologySapCode": {
+            "title": "globalSku.packagingTechnology.sapCode",
+            "type": "string",
+            "description": "The code of the PACKAGING TECHNOLOGY"
+        },
+        "manufacturingTechnologySapCode": {
+            "title": "globalSku.manufacturingTechnology.sapCode",
+            "type": "string",
+            "description": "the code of the MANUFACTURING TECHNOLOGY"
+        },
+        "newFormCodeName": {
+            "title": "globalSku.newFormCode.name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "newFormCodeSapCode": {
+            "title": "globalSku.newFormCode.sapCode",
+            "type": "string",
+            "description": "The SAP code to identify a NEW FORM CODE."
+        },
+        "referenceExemptionSapCode": {
+            "title": "globalSku.referenceExemption.sapCode",
+            "type": "string",
+            "description": "The code of the REFERENCE EXEMPTION. May be 1-4"
+        },
+        "referenceExemptionName": {
+            "title": "globalSku.referenceExemption.name",
+            "type": "string"
+        },
+        "localBrand": {
+            "title": "localBrand",
+            "type": "array",
+            "description": "The LOCAL BRAND is the implementation of a GLOBAL BRAND in a COUNTRY. \nIn this COUNTRY, the LOCAL BRAND is named by the LOCAL BRAND Name, which may differ from the preferred GLOBAL BRAND Name.\nLOCAL BRAND does not refer to any geographical reach.",
+            "items": {
+                "$ref": "#/definitions/LocalBrand"
+            }
+        },
+        "legalManufacturerOfDevice": {
+            "title": "legalManufacturerOfDevice",
+            "type": "array",
+            "description": "LEGAL MANUFACTURER OF DEVICE describes the relationship of LEGAL MANUFACTURER and a DEVICE identified by a model number. One SKU (DEVICE) can be assigned to muliple model numbers from the same LEGAL MANUFACTURER.",
+            "items": {
+                "$ref": "#/definitions/LegalManufacturerOfDevice"
+            }
+        }
+    },
+    "definitions": {
+        "Text": {
+            "title": "text",
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "text": {
+                    "title": "text",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "description": {
+                    "title": "description",
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "languageIso2Code": {
+                    "title": "language.isoAlpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 Code according to Iso 639."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "StockKeepingUnitStructure": {
+            "title": "stockKeepingUnitStructure",
+            "type": "object",
+            "description": "The Stock Keeping Unit Structure connects all Stock Keeping Units to be sold into the market with the Business Field Structure. This refers only to 3rd Party Business Field Structures.",
+            "properties": {
+                "businessFieldStructureBusinessFieldSapCode": {
+                    "title": "businessFieldStructure.businessField.sapCode",
+                    "type": "string",
+                    "description": "Code of the Business Field."
+                },
+                "businessFieldStructureBusinessSegmentSapCode": {
+                    "title": "businessFieldStructure.businessSegment.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for BUSINESS SEGMENT."
+                },
+                "businessFieldStructureBusinessSegmentRefId": {
+                    "title": "businessSegment.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "businessFieldStructureBusinessUnitSapCode": {
+                    "title": "businessFieldStructure.businessUnit.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identify the data record for BUSINESS UNIT."
+                },
+                "businessFieldStructureBusinessUnitRefId": {
+                    "title": "businessUnit.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "businessFieldStructureOperatingUnitSapCode": {
+                    "title": "businessFieldStructure.biLegalEntity.sapCode",
+                    "type": "string",
+                    "description": "unique identifier of legal entity (originally generated in CIM system)"
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "description": "The status of the combination of the GLOBAL SKU and the BUSINESS FIELD STRUCTURE. It may be active, inactive or only-history"
+                }
+            }
+        },
+        "LocalBrand": {
+            "title": "localBrand",
+            "type": "object",
+            "description": "The LOCAL BRAND is the implementation of a GLOBAL BRAND in a COUNTRY. \nIn this COUNTRY, the LOCAL BRAND is named by the LOCAL BRAND Name, which may differ from the preferred GLOBAL BRAND Name.\nLOCAL BRAND does not refer to any geographical reach.",
+            "properties": {
+                "id": {
+                    "title": "localBrandId",
+                    "type": "string",
+                    "description": "Unique identifier of the object LOCAL BRAND."
+                },
+                "countryIso2Code": {
+                    "title": "country.isoAlpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1\nThis element is deprecated and will be removed soon. Please use ISO Alpha-2 Code instead."
+                },
+                "countryRefId": {
+                    "title": "country.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "names": {
+                    "title": "localBrandNameList",
+                    "type": "array",
+                    "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+                    "items": {
+                        "$ref": "#/definitions/Text"
+                    }
+                }
+            }
+        },
+        "LegalManufacturerOfDevice": {
+            "title": "legalManufacturerOfDevice",
+            "type": "object",
+            "description": "LEGAL MANUFACTURER OF DEVICE describes the relationship of LEGAL MANUFACTURER and a DEVICE identified by a model number. One SKU (DEVICE) can be assigned to muliple model numbers from the same LEGAL MANUFACTURER.",
+            "properties": {
+                "modelNumber": {
+                    "title": "modelNumber",
+                    "type": "string",
+                    "description": "The version or model found on the device label or accompanying packaging used to identify a category or design of a device. The version or model identifies all devices that have specifications, performance, size, and composition within limits set by the labeler.\n[source: GUDID data elements, Karin Herzog 2019]\nDevice Model Number: Identifier assigned by a device manufacturer to a particular design or version of a medical device.\n[source ISO 11616:2017, 3.1.21 device modell number]\nBasicUDIData.Device Model: Information allowing the identification of the device - Device Model. At least one of the Device identification details (Device Model or the Device Name) have to be provided for a Basic UDI-DI.\nEUDIData.Device Model: Information allowing the identification of the device - Device Name. At least one of the Device identification details (Device Model or the Device Name) have to be provided for a EUDAMED DI.\n[source: EUDAMED Business Model, 05 DEC 2022]\nWith this, the Model Number correlates to a UDI DEVICE IDENTIFIER (UDI-DI), not to a UDI PRODUCTION IDENTIFIER (UDI-PI).\nThe usage of \"version of a DEVICE\" for Model Number is discouraged, as this may be confused with a GLOBAL SKU VERSION for a DEVICE.\nThe version or model found on the device label or accompanying packaging used to identify a category or design of a device. The version or model identifies all devices that have specifications, performance, size, and composition within limits set by the labeler.\n[source: GUDID data elements, Karin Herzog 2019]\nDevice Model Number: Identifier assigned by a device manufacturer to a particular design or version of a medical device.\n[source ISO 11616:2017, 3.1.21 device modell number]\nBasicUDIData.Device Model: Information allowing the identification of the device - Device Model. At least one of the Device identification details (Device Model or the Device Name) have to be provided for a Basic UDI-DI.\nEUDIData.Device Model: Information allowing the identification of the device - Device Name. At least one of the Device identification details (Device Model or the Device Name) have to be provided for a EUDAMED DI.\n[source: EUDAMED Business Model, 05 DEC 2022]\nWith this, the Model Number correlates to a UDI DEVICE IDENTIFIER (UDI-DI), not to a UDI PRODUCTION IDENTIFIER (UDI-PI).\nThe usage of \"version of a DEVICE\" for Model Number is discouraged, as this may be confused with a GLOBAL SKU VERSION for a DEVICE."
+                },
+                "manufacturerId": {
+                    "title": "businessPartyIdentifier.identifier",
+                    "type": "string",
+                    "description": "Internal or External (alternative) Identifier of the Business Party."
+                }
+            }
+        }
+    }
+}

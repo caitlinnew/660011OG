@@ -1,0 +1,55 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/RevenueGeneratingMaterial.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RevenueGeneratingMaterial",
+    "type": "object",
+    "description": "REVENUE GENERATING MATERIAL is a MATERIAL with MATERIAL TYPE \"Revenue Generating Material\" (YREV in SAP-GBS-ERP).",
+    "properties": {
+        "materialNumber": {
+            "type": "string",
+            "description": "The Material Number (also called Local SKU Number) is the unique identifier for the MATERIAL within the Enterprise Resource Planning (ERP) System GBS, to become GBS S/4 HANA in 2020, which shall be the corporate-wide ERP system in 2025.\nFor CPHRM shipped internationally, the Local SKU Number must be identical to the Identifier of its CPHRO in the scientific product description. For CPHRM not shipped internationally, the Local SKU Number may be different, but the MATERIAL data set must referenced the Identifier of its CPHRO.\n[source: 028-OCS-00283 (3.0), Chapter 5.4]"
+        },
+        "description": {
+            "title": "materialDescription",
+            "type": "string",
+            "description": "For a CPHRM, the Material Description is derived from its respective CPHRO in the scientific product description and cannot be changed manually.\nExceptions are: \n- For CPHRM used for financial planning purposes only, the Material Description may be derived from the respective object in the strategic product description.\n- For CPHRM for which BI acts as contract manufacturing, the Material Description may be generated from customer input.\nFor a NON-CPHRM, there are no CPHRO, therefore the Material Description must be created de novo. It is usually based on the supplier's material description."
+        },
+        "salesInfo": {
+            "title": "materialSalesInformation",
+            "type": "array",
+            "items": {
+                "$ref": "../Ecommerce/MaterialE-CommerceProfile.v1.json"
+            }
+        },
+        "tradeItemIdentifiers": {
+            "title": "tradeItemIdentifier",
+            "type": "array",
+            "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded medicinal product.\nThe type of identifier used comes from the TRADE ITEM IDENTIFIER TYPE class.",
+            "items": {
+                "$ref": "#/definitions/TradeItemIdentifier"
+            }
+        }
+    },
+    "definitions": {
+        "TradeItemIdentifier": {
+            "title": "tradeItemIdentifier",
+            "type": "object",
+            "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded medicinal product.\nThe type of identifier used comes from the TRADE ITEM IDENTIFIER TYPE class.",
+            "properties": {
+                "id": {
+                    "title": "tradeItemIdentifier",
+                    "type": "string",
+                    "description": "The TRADE ITEM IDENTIFIER is a national or international identifier for a traded medicinal product."
+                },
+                "type": {
+                    "title": "tradeItemIdentifierTypeEnum",
+                    "type": "string",
+                    "enum": [
+                        "GLOBAL TRADE ITEM NUMBER",
+                        "NATIONAL TRADE ITEM NUMBER"
+                    ]
+                }
+            }
+        }
+    }
+}

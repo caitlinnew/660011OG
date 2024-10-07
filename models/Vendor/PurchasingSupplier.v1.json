@@ -1,0 +1,99 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Vendor/PurchasingSupplier.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PURCHASING SUPPLIER",
+    "type": "object",
+    "description": "A PURCHASING SUPPLIER requires the same information as FINANCIAL SUPPLIER plus the information necessary to issue Purchase Orders.\nAll PURCHASING SUPPLIER are linked to one or more COMMODITY CODEs.\n\nThe purpose is to enable the creation of a Purchase Order (Contract call of, Delivery Schedule) as a contractual binding agreement with the supplier.\nThey have to be used for all goods or service types that are not listed in PO Excemption List (POEL).\nPOEL is defined in the Purchasing Manual SOP defined within the respective OPUs.",
+    "properties": {
+        "centralDeletionFlag": {
+            "title": "centralDeletionFlag",
+            "type": "boolean",
+            "description": "The Central Deletion Flag indicates that the Master Record is marked for deletion. The record will be deleted by the next mass delete process.\nA SUPPLIER then is disabled for any activity (Postings, Payments, new Purchase Orders) as long as the blocking is active. \nThis is valid for all BI LEGAL ENTITIES and all PURCHASING ORGANIZATIONs."
+        },
+        "codeOfConductStatus": {
+            "title": "codeOfConductStatus",
+            "type": "string",
+            "description": "The SUPPLIER's Code of Conduct Status documents the  status of a SUPPLIER record regarding Code of Conduct acceptence.",
+            "enum": [
+                "PENDING",
+                "APPROVED",
+                "NOT APPROVED"
+            ]
+        },
+        "vendorClassification": {
+            "title": "vendorClassification",
+            "type": "string",
+            "description": "Vendors classification (e.g. Basic, Advanced, Premium)",
+            "enum": [
+                "ADVANCED",
+                "BASIC",
+                "BASIC AND HIGH IMPACT",
+                "DIFFERENTIATING",
+                "PREMIUM"
+            ]
+        },
+        "vendorType": {
+            "title": "vendorType",
+            "type": "string",
+            "description": "The Vendor Type distinguishes Vendors into \n- Basic Supplier (with Contracts)\n- Financial Supplier (with additional Financial Information)\n- Purchasing Supplier (with additional Purchasing Information)\n\nThe different Vendor Types build on top of each other.\nFinancial Supplier has all Information of a Basic Supplier,\nPurchasing Supplier has all Information of a Financial Supplier.",
+            "enum": [
+                "BASIC SUPPLIER",
+                "FINANCIAL SUPPLIER",
+                "PURCHASING SUPPLIER",
+                "ORDER ADDRESS",
+                "MANUFACTURER"
+            ]
+        },  
+        "accountingInformations": {
+            "title": "companySpecificAccountingInformations",
+            "type": "array",
+            "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim legal entity meant to drive and contribute to accounting processes in areas like Accounts Payable, Accounting to Reporting, Treasury.\nExamples are Reconciliation Account, Payment Methods (bank transfer, cheque, ...), Payment Term (30 days due net, immediate payment, ...)",
+            "items": {
+                "$ref": "VendorAccountingInformation.v1.json"
+            }
+        },
+        "blocks": {
+            "$ref": "VendorBlocking.v1.json"
+        },
+        "commodityCodes": {
+            "title": "commodityCodeAssignments",
+            "type": "array",
+            "description": "The COMMODITY CODE ASSGINMENT links a PURCHASING SUPPLIER to a COMMODITY CODE.",
+            "items": {
+                "$ref": "#/definitions/CommodityCodeAssignment"
+            }
+        },
+        "purchasingInformations": {
+            "title": "purchasingOrganizationSpecificPurchasingInformations",
+            "type": "array",
+            "description": "Set of information relevant to a vendor and to a Boehringer Ingelheim purchasing organization meant to drive and contribute to processes in the area of Purchase to procure. Data are used to drive automation and provide default values when creating a purchase requisition or a purchase order.\nExamples are Payment Term (30 days due net, immediate payment, ...), currency, Incoterms.",
+            "items": {
+                "$ref": "PurchasingInformation.v1.json"
+            }
+        }
+    },
+    "definitions": {
+        "CommodityCodeAssignment": {
+            "title": "commodityCodeAssignment",
+            "type": "object",
+            "description": "The COMMODITY CODE ASSGINMENT links a PURCHASING SUPPLIER to a COMMODITY CODE.",
+            "properties": {
+                "mainCommodityCode": {
+                    "title": "mainCommodityCode",
+                    "type": "boolean",
+                    "description": "A PURCHASING SUPPLIER may have many COMMODITY CODES ASSIGNED. One is marked as the Main Commodity Code."
+                },
+                "commodityCode": {
+                    "title": "commodityCode.code",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object."
+                },
+                "commodityName": {
+                    "title": "commodityCode.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                }
+            }
+        }
+    }
+}

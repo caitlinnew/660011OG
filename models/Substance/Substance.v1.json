@@ -1,0 +1,218 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Substance/Substance.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SUBSTANCE",
+    "type": "object",
+    "description": "The SUBSTANCE definition of Boehringer is close to the substance defitinition in the ISO standard, excerpt is given below. \nIn brief a substance is described by its unchangeable scientific properties. For substance types refer to ISO standard below. In addition Boehringer accepts Virus Strains listed as Substances. \nISO DTS 19844 definition: \nAll medicinal products consist of substances; these substances can be active ingredients, excipients, or packaging materials. There are two fundamental levels of information described in the standard, a substance level and what is called a specified substance level. Both levels are included in the more generic concept of an ingredient. At the substance level, substances are defined based on inherent attributes rather than use or method of manufacture. At the specified substance level, four separate groups of elements provide additional information. In order to define or distinguish material either at a substance or specified substance level, a number ofattributes should be taken into consideration:\n• For chemicals, the molecular structure is only captured at the substance level.\n• For proteins, the amino acid sequence, sites and type of glycosylation, and the presence and position of disulfide bonds will only be captured at the substance level.\n• For nucleic acids, the sequence, type of sugar and linkage will only be captured at the substance level.\n• For other polymers, the monomers used to synthesise the polymer, the structural repeating units, the molecular weight and/or a property related to molecular weight (i.e. viscosity), the source of naturally derived polymers and any modifications that irreversibly alters the molecular structure of a polymer will be captured at the substance level. \n• For structurally diverse material, taxonomic, anatomical and fractionation information, properties related to the underlying molecular structure of the material, and modifications that alter the underlying molecular structure will be captured at the substance level. \n• Mixture substance consists of a simple combination of single substances that are either isolated together or are the result of the same synthetic process. The biological source of the mixture is also captured where relevant at the substance level. Proportions are not captured at the substance level. It should be noted that a mixture substance description should only include the substances that are generally or consistently present in the material. This excludes impurities and degradants.\"\n\nSKU relation: \nA Substance defines the same as a GLOBAL SKU for Substance product stages.",
+    "properties": {
+        "id": {
+            "title": "substanceId",
+            "type": "string",
+            "description": "An ID with no business meaning"
+        },
+        "additionalInformation": {
+            "title": "additionalInformation.text",
+            "type": "string",
+            "description": "The text string itself."
+        },
+        "componentStageCode": {
+            "title": "componentStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "componentStageRefId": {
+            "title": "componentStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "referenceStrength": {
+            "title": "referenceStrengthCalculation",
+            "type": "array",
+            "description": "The REFERENCE STRENGTH CALCULATION maintains the Reference Strength Calculation Factor for two given SUBSTANCES.\n\nIt is used to calculate the REFERENCE STRENGTH of a Reference SUBSTANCE from the strength of a SUBSTANCE used as an INGREDIENT.\nThe Reference SUBSTANCE of the active substance(s) contained in pharmaceutical product or Manufactured Item, as expressed in section 2. Qualitative and Quantitative Composition of the corresponding SmPC and in Module 3.2.P.1 of the dossier, shall be specified. The reference substance shall be provided for active substances only.\n[Source: PMS IG, Chapter 2, v2.1, Section 5.5 Substance]\n\nA Reference SUBSTANCE is a SUBSTANCE. The relationship between two SUBSTANCEs 1 and 2 makes them Reference SUBSTANCEs: SUBSTANCE 1 becomes Reference SUBSTANCE of SUBSTANCE 2 and SUBSTANCE 2 becomes Reference SUBSTANCE of SUBSTANCE 1.\nReference SUBSTANCEs are established for INGREDIENTs with INGREDIENT ROLE \"active\". It documents the relationship of the active ingredient moiety (SUBSTANCE 1) to its salt forms and hydrates (SUBSTANCE 2, ...). See the Examples tab for examples.",
+            "items": {
+                "$ref": "#/definitions/ReferenceStrengthCalculation"
+            }
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "names": {
+            "title": "substanceNames",
+            "type": "array",
+            "description": "A SUBSTANCE may have multiple SUBSTANCE NAMEs given by the naming system described in the SUBSTANCE NAME TYPE.\nEach SUBSTANCE NAME is written in a LANGUAGE and encoded in a WRITING SYSTEM.\nThe SUBSTANCE NAME has no code, just a term.\nThe SUBSTANCE NAME TYPE acts almost like a code for this SUBSTANCE NAME used for this SUBSTANCE.",
+            "items": {
+                "$ref": "#/definitions/SubstanceName"
+            }
+        },
+        "substanceTypeCode": {
+            "title": "substanceType.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "substanceTypeRefId": {
+            "title": "substanceType.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "cellType": {
+            "title": "cellType",
+            "type": "string",
+            "description": "If SUBSTANCE TYPE is \"stem cell\", then Cell Type is used to generate the (english) SUBSTANCE NAME. It is the 3rd part of the SUBSTANCE NAME."
+        },
+        "tissueOrigin": {
+            "title": "tissueOrigin",
+            "type": "string",
+            "description": "If SUBSTANCE TYPE is \"stem cell\", then Tissue Origin of the SUBSTANCE is used to generate the (english) SUBSTANCE NAME. It is the 2nd part of the SUBSTANCE NAME"
+        },
+        "sourceMaterialSpeciesSapCode": {
+            "title": "sourceMaterialSpecies.sapCode",
+            "type": "string",
+            "description": "The SOURCE MATERIAL SPECIES defines the SPECIES or Species Group from which a biological material is sourced. It is used to define Substance Names for stem cells with standadized name parts (SOURCE MATERIAL SPECIES, kind of tissue & kind of cell). The list of values also exists as an EMA RMS list."
+        },
+        "sourceMaterialSpeciesRefId": {
+            "title": "sourceMaterialSpecies.referenceDataId",
+            "type": "string",
+            "description": "The SOURCE MATERIAL SPECIES defines the SPECIES or Species Group from which a biological material is sourced. It is used to define Substance Names for stem cells with standadized name parts (SOURCE MATERIAL SPECIES, kind of tissue & kind of cell). The list of values also exists as an EMA RMS list."
+        },
+        "geneticallyModified": {
+            "title": "geneticallyModifiedOrganisms",
+            "type": "boolean",
+            "description": "The boolean attribute Genetically Modified Organism indicates whether or not a SUBSTANCE is a genetically modified organism.\nHere, the definition provided in Article 2(2) of Directive 2001/18/EC shall be used: “ ‘genetically modified organism (GMO)’ means an organism, with the exception of human beings, in which the genetic material has been altered in a way that does not occur naturally by mating and/or natural recombination.”\n\nGenetically Modified Organisms attribute shall be completed to indicate whether a medicinal product contain or consists of Genetically Modified Organisms (GMOs) with the following values, based on the Directive 2001/18/EC:\n·    Yes: shall be selected if the medicinal product does contain or consist of Genetically Modified Organisms (GMOs) within the meaning of Directive 2001/18/EC\n·    No: shall be selected if the medicinal product does not contain or consist of Genetically Modified Organisms (GMOs) within the meaning of Directive 2001/18/EC\n[Source: IDMP IG Chapter 2, v2.1 (Section 1.13.5.)]"
+        },
+        "molarMass": {
+            "title": "molarMassInGrammPerMol",
+            "type": "integer",
+            "format": "int32",
+            "description": "The Molar mass in g/mol is the mass of one mol of that SUBSTANCE measured in gram. It only needs to be maintained, if the SUBSTANCE is referenced by another SUBSTANCE (1).\nThe Molar mass shall be provided with 2 decimals. This shall avoid unambiguity from rounding."
+        },
+        "activeMoiety": {
+            "title": "activeMoiety",
+            "type": "integer",
+            "format": "int32",
+            "description": "This attribute quantifies the amount of active moieties in the SUBSTANCE. Generally this is one, however sometimes it is larger than one. The Value is not set (0) if Molar Mass is Complex Range is True."
+        },
+        "molarMassIsComplexRange": {
+            "title": "molarMassIsComplexRange",
+            "type": "boolean",
+            "description": "Biological substances are larger molecules, that cannot be reasonably synthesized by humans and therefore are synthesized in organisms. This results in substances that may differ in their exact molecular structure, molar mass and activity. For these no molar mass is provided and Complex Range is then true."
+        },
+        "isotopeLabelIndicator": {
+            "title": "isotopeLabelIndicator",
+            "type": "boolean",
+            "description": "The Isotope Label Indicator indicates whether or not a SUBSTANCE is labeled by an isotope.\nIsotope label may be any isotope differing from the abundandly available isotope."
+        },
+        "isotopePosition": {
+            "title": "isotopePosition",
+            "type": "string",
+            "description": "The Isotope Position describes where the isotope is located in the SUBSTANCE.\nThe value is optional. It is only required, if one SUBSTANCE is labeled with the same isotope at different positions within the SUBSTANCE molecule (1)."
+        },
+        "radiationLevel": {
+            "title": "radiationLevel",
+            "type": "string",
+            "description": "The Radiation Level indicates the Radiation Level of the isotope used to label a SUBSTANCE.\nNon-radioactive isotope labels have the Radiation Level cold.\nRadioactive isotope labels have the Radiation Level warm, if their radiation is below the threshold radiation amount.\nRadioactive isotope labels have the Radiation Level hot, if their radiation is above the threshold radiation amount."
+        },
+        "isotopeSapCode": {
+            "title": "isotope.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identify the data record for ISOTOPE."
+        },
+        "isotopeRefId": {
+            "title": "isotope.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "prevailingId": {
+            "title": "prevailingId",
+            "type": "string",
+            "description": "One SUBSTANCE must have a Prevailing ID if its GLOBAL LIFECYCLE STATUS is set to 99, duplicate (1). Otherwise the Prevailing ID remains empty (0).\nThis directs the user to the prevailing SUBSTANCE."
+        }
+    },
+    "definitions": {
+        "ReferenceStrengthCalculation": {
+            "title": "referenceStrengthCalculation",
+            "type": "object",
+            "description": "The REFERENCE STRENGTH CALCULATION maintains the Reference Strength Calculation Factor for two given SUBSTANCES.\n\nIt is used to calculate the REFERENCE STRENGTH of a Reference SUBSTANCE from the strength of a SUBSTANCE used as an INGREDIENT.\nThe Reference SUBSTANCE of the active substance(s) contained in pharmaceutical product or Manufactured Item, as expressed in section 2. Qualitative and Quantitative Composition of the corresponding SmPC and in Module 3.2.P.1 of the dossier, shall be specified. The reference substance shall be provided for active substances only.\n[Source: PMS IG, Chapter 2, v2.1, Section 5.5 Substance]\n\nA Reference SUBSTANCE is a SUBSTANCE. The relationship between two SUBSTANCEs 1 and 2 makes them Reference SUBSTANCEs: SUBSTANCE 1 becomes Reference SUBSTANCE of SUBSTANCE 2 and SUBSTANCE 2 becomes Reference SUBSTANCE of SUBSTANCE 1.\nReference SUBSTANCEs are established for INGREDIENTs with INGREDIENT ROLE \"active\". It documents the relationship of the active ingredient moiety (SUBSTANCE 1) to its salt forms and hydrates (SUBSTANCE 2, ...). See the Examples tab for examples.",
+            "properties": {
+                "factor": {
+                    "title": "referenceStrengthCalculationFactor",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The Reference Strength Calculation Factor is used to calculate the reference strength of a REFERENCE SUBSTANCE from the strength of a SUBSTANCE used as an INGREDIENT.\nThe factor is calculated as the quotient from the molar mass of the referenced (Target) SUBSTANCE divided by the molar mass of the (Source) SUBSTANCE and the amount of Active Moiety in Substance."
+                },
+                "targetSubstanceName": {
+                    "title": "targetSubstance.name",
+                    "type": "string",
+                    "description": "The preferred name is to be used for the Specified Substance in unstructured Documentation and in internal communication. It is unique but may change over time. Therefore it should not be used for technical referencing purpose. \nThe preferred name is always derived out of one of the other fields containing naming conventions including the other names. The change of the preferred name over time is triggered by setting the the preferred name flag rather than changing the content of a specific field. E.g. a development substance will be identified the BI Reporting Code early in development. It will change in clinical trial phase 2 to the INN or the INN modified name."
+                },
+                "targetSubstanceMolarMass": {
+                    "title": "targetSubstance.molarMass",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "targetSubstanceId": {
+                    "title": "targetSubstance.id",
+                    "type": "string"
+                }
+            }
+        },
+        "SubstanceName": {
+            "title": "substanceName",
+            "type": "object",
+            "description": "A SUBSTANCE may have multiple SUBSTANCE NAMEs given by the naming system described in the SUBSTANCE NAME TYPE.\nEach SUBSTANCE NAME is written in a LANGUAGE and encoded in a WRITING SYSTEM.\nThe SUBSTANCE NAME has no code, just a term.\nThe SUBSTANCE NAME TYPE acts almost like a code for this SUBSTANCE NAME used for this SUBSTANCE.",
+            "properties": {
+                "abbreviation": {
+                    "title": "abbreviation",
+                    "type": "string",
+                    "description": "A SUBSTANCE NAME may be abbreviated (0..1)."
+                },
+                "preferredName": {
+                    "title": "preferredName",
+                    "type": "boolean",
+                    "description": "The preferred name is to be used for the Specified Substance in unstructured Documentation and in internal communication. It is unique but may change over time. Therefore it should not be used for technical referencing purpose. \nThe preferred name is always derived out of one of the other fields containing naming conventions including the other names. The change of the preferred name over time is triggered by setting the the preferred name flag rather than changing the content of a specific field. E.g. a development substance will be identified the BI Reporting Code early in development. It will change in clinical trial phase 2 to the INN or the INN modified name."
+                },
+                "name": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "The Term is the human readable name of a SUBSTANCE."
+                },
+                "languageCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "typeCode": {
+                    "title": "substanceNameType.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "typeRefId": {
+                    "title": "substanceNameType.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

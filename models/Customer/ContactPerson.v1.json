@@ -1,0 +1,147 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/ContactPerson.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Contact Person",
+    "type": "object",
+    "allOf": [
+        {
+        "type": "object",
+            "properties": {
+                "affiliations": {
+                    "title": "affiliations",
+                    "type": "array",
+                    "description": "Information specific for the affiliations to a Business Party for which the person is a Contact Person.",
+                    "items": {
+                        "$ref": "#/definitions/BusinessPartnerAffiliation"
+                    }
+                }
+            }
+        },
+        {
+            "$ref": "#/definitions/Individual"
+        }
+    ],
+    "definitions": {
+        "BusinessPartnerAffiliation": {
+            "title": "businessPartnerAffiliation",
+            "type": "object",
+            "properties": {
+                "authorityCode": {
+                    "title": "authorityCode",
+                    "type": "string",
+                    "description": "The code of the Contact Person's Authority."
+                },
+                "department": {
+                    "title": "department",
+                    "type": "string",
+                    "description": "BP Affiliation with a type like employment or contact person may have the name of the the department as additional information .",
+                    "deprecated": true
+                },
+                "departmentCode": {
+                    "title": "departmentCode",
+                    "type": "string",
+                    "description": "BP Affiliation with a type like employment or contact person may have a code & name of the the department where the person is working as additional information."
+                },
+                "notes": {
+                    "title": "notes",
+                    "type": "string",
+                    "description": "Further unstructured data to describe the relationship to the other Business Partner."
+                },
+                "positionCode": {
+                    "title": "positionCode",
+                    "type": "string",
+                    "description": "The Position Code identifies the function that a person has within a company."
+                },
+                "vipCode": {
+                    "title": "vipCode",
+                    "type": "string",
+                    "description": "The code which indicates if the contact person is treates with VIP-Status."
+                },
+                "sourceBusinessPartnerId": {
+                    "title": "sourceBusinessPartnerId.identifier",
+                    "type": "string",
+                    "description": "The Business Partner to which this Business Partner has the relationship.\n\nInternal or External (alternative) Identifier of the Business Party."
+                },
+                "startDate": {
+                    "title": "startDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The Start Date indicates when the Business Party Affiliation begins."
+                },
+                "endDate": {
+                    "title": "endDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The End Date indicates when the Business Party Affiliation finishes."
+                                }
+            }
+        },
+                "Individual": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "firstName": {
+                            "title": "preferedName.firstName",
+                            "type": "string",
+                            "description": "The first name of a person."
+                        },
+                        "lastName": {
+                            "title": "preferedName.lastName",
+                            "type": "string",
+                            "description": "The last name of a person."
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/BusinessPartner"
+                }
+            ]
+        },
+        "BusinessPartner": {
+            "title": "businessPartner",
+            "type": "object",
+            "description": "ORGANIZATION (firm, branch office), individual or a group of individuals or organizations in which your company has a business interest.\nA BUSINESS PARTNER is a generalization for the roles CUSTOMER, VENDOR, and EMPLOYEE, holding all the attributes and relationships / associations which are common for all of these.",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "The main identifier of this Business Partner in a specific IT system."
+                },
+                "addresses": {
+                    "title": "addressUsage",
+                    "type": "array",
+                    "description": "ADDRESS USAGE says that a certain BUSINESS PARTY is using a certain ADDRESS (which is (usually) independent of a BUSINESS PARTY). Via the relationship to ADDRESS TYPE it also tells the purpose which the address is used for, e.g. Sold-To, Bill-To, Ship-To, Private, Office, ... (see Examples tab of ADDRESS TYPE).",
+                    "items": {
+                        "$ref": "./AddressUsage.v2.json"
+                    }
+                },
+                "telephones": {
+                    "title": "telephones",
+                    "type": "array",
+                    "description": "Telephone is a communication type used in customer communication. Telephone includes the full telephone number, including area code, etc.",
+                    "items": {
+                        "$ref": "./Telephone.v1.json"
+                    }
+                },
+                "faxs": {
+                    "title": "faxs",
+                    "type": "array",
+                    "description": "Fax is a communication type used in customer communication. Fax includes the full fax number, including area code, etc.",
+                    "items": {
+                        "$ref": "./Fax.v1.json"
+                    }
+                },
+                "emails": {
+                    "title": "emails",
+                    "type": "array",
+                    "description": "eMail is a communication type used in customer communication. eMail includes the eMail address.",
+                    "items": {
+                        "$ref": "./Email.v1.json"
+                    }
+                }
+            }
+        }
+    }
+}

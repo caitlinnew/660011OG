@@ -1,0 +1,688 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalTrial.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL TRIAL",
+    "type": "object",
+    "description": "A CLINICAL TRIAL is a specialization of a study whose objectives are to test or confirm hypotheses concerning the utility, impact, pharmacological, physiological, and/or psychological effects of a particular treatment, procedure, drug, device, biologic, food product, cosmetic, care plan, or subject characteristic. In the context of clinical development the terms clinical trial and clinical study as well as study are synonymous",
+    "properties": {
+        "comment": {
+            "title": "comment",
+            "type": "string",
+            "description": "Human readable comment which captures additional information regarding the specific entity."
+        },
+        "studyTitle": {
+            "title": "studyTitle",
+            "type": "string",
+            "description": "The title is a short description that allows the user to identify the study in a meaningful way. The title should include information about purpose, terms like diseases, cells or tissues and authors of a study."
+        },
+        "edcCaptureFlagCode": {
+            "title": "electronicDataCaptureTrialFlagCode",
+            "type": "string",
+            "description": "Indicates whether this study works with electronic data capture (true) or not (false)."
+        },
+        "edcCaptureFlag": {
+            "title": "electronicDataCaptureTrialFlag",
+            "type": "string",
+            "description": "Indicates whether this clinical trial works with electronic data capture (true) or not (false)."
+        },
+        "eproStudyCode": {
+            "title": "electronicPatientReportedOutcomesFlagCode",
+            "type": "string",
+            "description": "Indicates whether this study works with electronic reporting for patient outcomes."
+        },
+        "eproStudy": {
+            "title": "electronicPatientReportedOutcomesFlag",
+            "type": "string",
+            "description": "Indicates whether this clinical trial works with electronic reporting for patient outcomes."
+        },
+        "clinicalDevelopmentProject": {
+            "$ref": "ClinicalDevelopmentProject.v1.json"
+        },
+        "developmentProjectId": {
+            "title": "developmentProject.impactProjectId",
+            "type": "string",
+            "description": "\"Study\" is renamed to \"clinical trial\" therefore all properties are renamed accordingly.\n\nUnique ID of the development project given automatically by the CTMS"
+        },
+        "importantDates": {
+            "deprecated": true,
+            "title": "importantDates",
+            "type": "array",
+            "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+            "items": {
+                "$ref": "ImportantStudyDate.v1.json"
+            }
+        },
+        "biNumber": {
+            "title": "biClinicalTrialNumber",
+            "type": "string",
+            "description": "Internal BI Clinical Trial Number as generated via current Process for Clinical Trial Number maintenance for Impact CTMS.\n\"Study\" is renamed to \"clinical trial\" therfore all properties are renamed accordingly."
+        },
+        "standardChangeReason": {
+            "title": "studyStandard.changeReason",
+            "type": "string",
+            "description": "The reason of the last change of the study standard"
+        },
+        "standardLastChangeDate": {
+            "title": "studyStandard.lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Date of the last Standard Type change"
+        },
+        "standardTypeCode": {
+            "title": "studyStandard.studyStandardType.code",
+            "type": "string",
+            "description": "Gives the code of the CLINICAL TRIAL STANDARD TYPE."
+        },
+        "standardTypeName": {
+            "title": "studyStandard.studyStandardType.term",
+            "type": "string",
+            "description": "Term"
+        },
+        "impactId": {
+            "title": "impactClinicalTrialId",
+            "type": "string",
+            "description": "The system generated clinical trial identifier."
+        },
+        "eudractNumber": {
+            "title": "eudractNumber",
+            "type": "string",
+            "description": "The EudraCT registry number assigned to the clinical trial, if applicable.\nThe number is composed of three parts: YYYY-NNNNNN-CC\n•\tYYYY - The year\n•\tNNNNNN - A six digit number\n•\tCC - Two control digits"
+        },
+        "historicalNumbersOfCountries": {
+            "title": "numbersOfCountries",
+            "type": "array",
+            "description": "... provides planned and actual numbers of countries in which the CLINICAL TRIAL will be performed.",
+            "items": {
+                "$ref": "#/definitions/NumberOfCountriesPerClinicalTrial"
+            }
+        },
+        "historicalNumbersOfSites": {
+            "title": "numbersOfSites",
+            "type": "array",
+            "description": "... provides planned, actual, confirmed and unconfirmed numbers of sites included in a study.",
+            "items": {
+                "$ref": "#/definitions/NumberOfSitesPerClinicalTrial"
+            }
+        },
+        "numberOfSubjectsEffectiveDate": {
+            "title": "numberOfSubjects.effectiveDate",
+            "type": "string",
+            "format": "date",
+            "description": "The effective date."
+        },
+        "numberOfSubjectsActualTreatmentCompleted": {
+            "title": "numberOfSubjects.actualNumberOfSubjectsTreatmentCompleted",
+            "type": "integer",
+            "format": "int32",
+            "description": "The actual number of CLINICAL TRIAL SUBJECTs completed treatment."
+        },
+        "numberOfSubjectsPlannedTreatmentCompleted": {
+            "title": "numberOfSubjects.plannedNumberOfSubjectsTreatmentCompleted",
+            "type": "integer",
+            "format": "int32",
+            "description": "The planned number of CLINICAL TRIAL SUBJECTs treatment completed."
+        },
+        "numberOfSubjectsActualTreatmentDropped": {
+            "title": "numberOfSubjects.actualNumberOfSubjectsTreatmentDropped",
+            "type": "integer",
+            "format": "int32",
+            "description": "The actual number of CLINICAL TRIAL SUBJECTs treatment dropped."
+        },
+        "numberOfSubjectsPlannedTreatmentDropped": {
+            "title": "numberOfSubjects.plannedNumberOfSubjectsTreatmentDropped",
+            "type": "integer",
+            "format": "int32",
+            "description": "The planned number of CLINICAL TRIAL SUBJECTs treatment dropped."
+        },
+        "numberOfSubjectsActualRandomised": {
+            "title": "numberOfSubjects.actualNumberOfSubjectsRandomised",
+            "type": "integer",
+            "format": "int32",
+            "description": "The actual number of CLINICAL TRIAL SUBJECTs randomised."
+        },
+        "numberOfSubjectsPlannedRandomised": {
+            "title": "numberOfSubjects.plannedNumberOfSubjectsRandomised",
+            "type": "integer",
+            "format": "int32",
+            "description": "The planned number of CLINICAL TRIAL SUBJECTs randomised."
+        },
+        "numberOfSubjectsActualScreened": {
+            "title": "numberOfSubjects.actualNumberOfSubjectsScreened",
+            "type": "integer",
+            "format": "int32",
+            "description": "The actual number of CLINICAL TRIAL SUBJECTs screened."
+        },
+        "numberOfSubjectsPlannedScreened": {
+            "title": "numberOfSubjects.plannedNumberOfSubjectsScreened",
+            "type": "integer",
+            "format": "int32",
+            "description": "The planned number of CLINICAL TRIAL SUBJECTs screened."
+        },
+        "numberOfCountriesActual": {
+            "title": "numberOfCountries.actualNumberOfCountries",
+            "type": "integer",
+            "format": "int32",
+            "description": "...provides actual numbers of countries in which the CLINICAL TRIAL will be performed."
+        },
+        "numberOfCountriesEffectiveDate": {
+            "title": "numberOfCountries.effectiveDate",
+            "type": "string",
+            "format": "date",
+            "description": "The effective date."
+        },
+        "numberOfCountriesPlanned": {
+            "title": "numberOfCountries.plannedNumberOfCountries",
+            "type": "integer",
+            "format": "int32",
+            "description": "...provides planned numbers of countries in which the CLINICAL TRIAL will be performed."
+        },
+        "historicalNumbersOfSubjects": {
+            "title": "numbersOfSubjects",
+            "type": "array",
+            "description": "... provides planned and actual numbers of subjects included in a CLINICAL TRIAL",
+            "items": {
+                "$ref": "#/definitions/ClinicalTrialSubjectFigures"
+            }
+        },
+        "indication": {
+            "title": "clinicalTrialIndication",
+            "type": "array",
+            "description": "The CLINICAL TRIAL INDICATION defines for an CLINICAL TRIAL with which combination of INDICATION MEDDRA (Low Level Term) and MEDRY SYSTEM ORGAN CLASS the trial handles.\nThere might be more than one CLINICAL TRIAL INDICATION for on CINICAL TRIAL.",
+            "items": {
+                "$ref": "ClinicalTrialIndication.v1.json"
+            }
+        },
+        "numberOfSitesActual": {
+            "title": "numberOfSites.actualNumberOfStudySites",
+            "type": "integer",
+            "format": "int32",
+            "description": "…provides the actual number of CLINICAL TRIAL SITES."
+        },
+        "numberOfSitesActualConfirmed": {
+            "title": "numberOfSites.actualNumberOfStudySitesConfirmed",
+            "type": "integer",
+            "format": "int32",
+            "description": "…provides the actual number of confirmed study sites."
+        },
+        "numberOfSitesActualUnconfirmed": {
+            "title": "numberOfSites.actualNumberOfStudySitesUnconfirmed",
+            "type": "integer",
+            "format": "int32",
+            "description": "…provides the actual number of unconfirmed CLINICAL TRIAL SITEs."
+        },
+        "numberOfSitesEffectiveDate": {
+            "title": "numberOfSites.effectiveDate",
+            "type": "string",
+            "format": "date",
+            "description": "The effective date."
+        },
+        "numberOfSitesPlanned": {
+            "title": "numberOfSites.plannedNumberOfSites",
+            "type": "integer",
+            "format": "int32",
+            "description": "…provides the planned number of CLINICAL TRIAL SITEs."
+        },
+        "ongoingStatusLastChangeDate": {
+            "title": "clinicalTrialOngoingStatus.lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Defines the date of the last change of the status"
+        },
+        "ongoingStatusLastChangeReason": {
+            "title": "clinicalTrialOngoingStatus.lastChangeReason",
+            "type": "string",
+            "description": "Defines the reason of the last status change"
+        },
+        "ongoingStatusType": {
+            "title": "clinicalTrialOngoingStatus.type",
+            "type": "string",
+            "enum": [
+                "ONGOING",
+                "HOLD",
+                "CANCEL",
+                "DISCONTINUE"
+            ]
+        },
+        "hcpFlagCode": {
+            "title": "humanPharmacologyCenterStudyFlagCode",
+            "type": "string",
+            "description": "Indicates whether this study takes place at a Human Pharmacology Center only (true) or not (false)."
+        },
+        "hcpFlag": {
+            "title": "humanPharmacologyCenterStudyFlag",
+            "type": "string",
+            "description": "Indicates whether this CLINICAL TRIAL takes place at a Human Pharmacology Center only (true) or not (false)."
+        },
+        "shortTitle": {
+            "title": "shortTitle",
+            "type": "string",
+            "description": "A short title that may be the same as the clinical trial abbreviation."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "Gives a short description about the CLINICAL TRIAL."
+        },
+        "status": {
+            "title": "status",
+            "type": "string",
+            "description": "The status is the assigned status of the newest Important Dates of the Study."
+        },
+        "title": {
+            "title": "studyTitle",
+            "type": "string",
+            "description": "The official, full-fledged title that is given on the study protocol pertaining to a specific study."
+        },
+        "biobankingTypeCode": {
+            "title": "biobankingType.code",
+            "type": "string",
+            "description": "Code"
+        },
+        "biobankingTypeTerm": {
+            "title": "biobankingType.term",
+            "type": "string",
+            "description": "Term"
+        },
+        "personnel": {
+            "title": "individualClinicalDevelopmentFunctions",
+            "type": "array",
+            "description": "INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION defines the role executed by an employee of Boehringer or a CRO in the context of clinical operations. \nINDIVIDUAL CLINICAL DEVELOPMENT FUNCTION is specialized in INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL COUNTRY, INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION FOR CLINICAL TRIAL SITE. \nThe values (roles types) are defined by INDIVIDUAL CLINICAL DEVELOPMENT FUNCTION TYPE.",
+            "items": {
+                "$ref": "IndividualClinicalDevelopmentFunction.v1.json"
+            }
+        },
+        "reportingTimelineTypeCode": {
+            "title": "reportingTimelineType.code",
+            "type": "string",
+            "description": "Code\nCode of the Reporting Timeline Type"
+        },
+        "reportingTimelineTypeTerm": {
+            "title": "reportingTimelineType.term",
+            "type": "string",
+            "description": "Term\nTerm of the Reporting Timeline Type"
+        },
+        "scientificStudyCode": {
+            "title": "scientificTrialType.code",
+            "type": "string",
+            "description": "Provides the code for the scientific study type"
+        },
+        "scientificStudyTerm": {
+            "title": "scientificTrialType.term",
+            "type": "string",
+            "description": "Provides the term for the scientific study type"
+        },
+        "scientificStudySubtype": {
+            "title": "scientificTrialType.subtype",
+            "type": "string",
+            "description": "Describes the specific subtype of this CLINICAL TRIAL TYPE."
+        },
+        "scientificStudySecondarySubtype": {
+            "title": "scientificTrialType.secondarySubtype",
+            "type": "string",
+            "description": "Describes the secondary subtype of this CLINICAL TRIAL TYPE."
+        },
+         "design": {
+            "$ref": "#/definitions/ClinicalTrialDesign"
+        },
+        "additionalClinicalTrialInformation": {
+            "title": "additionalClinicalTrialInformation",
+            "type": "array",
+            "description": "Defines various different information concerning a CLINICAL TRIAL. E.g. information about Sponsoring/Funding, Scientific Study Type, ...",
+            "items": {
+                "$ref": "ClinicalTrialAdditionalInformation.v1.json"
+            }
+        },
+        "clinicalTrialCountry": {
+            "title": "clinicalTrialCountry",
+            "type": "array",
+            "description": "A CLINICAL TRIAL COUNTRY describes the contribution of patients from a specific country to a clinical trial. The patients are assumed to be \"supplied\" from one geographical country and their contribution is managed by a designated CML. This CML does not necessarily need to be located within the country supplying the patients.\nThe contribution brings together a set of information (planning and monitoring relevant) from different areas. It is in general always a pair of CML/Country. Via the CML role assignment, the responsible company can be derived.\nThis combination implies which BI Company is responsible for planning and tracking on external costs for the countries/sites it is assigned to. In a regional setting, the OPU with regional scope (like e.g. RA for South America) may take on financial responsibility for a multitude of countries in SA during a given clinical trial.\nIt is to be noted, however, that the monitoring responsibility of the CML might not correspond to the financial responsibility. It might be decided to have one regional CML only or one CML for two countries and one for each remaining country.",
+            "items": {
+                "$ref": "ClinicalTrialCountry.v1.json"
+            }
+        },
+        "progressionStageName": {
+            "title": "progressionStage.name",
+            "type": "string",
+            "description": "Meaningfull name of the PROGRESSION STAGE"
+        },
+        "technicalIdentifier": {
+            "title": "technicalIdentifier",
+            "type": "array",
+            "description": "A TECHNICAL IDENTIFIER can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+            "items": {
+                "$ref": "#/definitions/TechnicalIdentifier"
+            }
+        },
+        "metrics": {
+            "$ref": "#/definitions/ClinicalTrialMetrics"
+        },
+        "milestones": {
+            "title": "milestones",
+            "type": "array",
+            "description": "A MILESTONE is an actual or planned event which will be indicated for the different scopes of CLINICAL DEVELOPMENT PROJECT and conduct of a CLINICAL TRIAL. \nA MILESTONE is specified by the MILESTONE TYPE.",
+            "items": {
+                "$ref": "Milestone.v1.json"
+            }
+        },
+        "paediatricTrialIndicator": {
+            "title": "paediatricTrialIndicator",
+            "type": "boolean",
+            "description": "Indicates whether this clinical trial is a paediatric trial (true) or not (false)"
+        },
+        "isComparatorControlled": {
+            "title": "isComparatorControlled",
+            "type": "boolean",
+            "description": "Indicates whether the trial is comparator controlled or not."
+        },
+        "testProductRoles": {
+            "title": "testProductRoles",
+            "type": "array",
+            "description": "A certain TEST PRODUCT ROLE this product has in the related study.",
+            "items": {
+                "$ref": "#/definitions/TestProductRoleInClinicalTrial"
+            }
+        }
+    },
+    "definitions": {
+        "NumberOfCountriesPerClinicalTrial": {
+            "title": "numberOfCountriesPerClinicalTrial",
+            "type": "object",
+            "description": "... provides planned and actual numbers of countries in which the CLINICAL TRIAL will be performed.",
+            "properties": {
+                "actual": {
+                    "title": "actualNumberOfCountries",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "...provides actual numbers of countries in which the CLINICAL TRIAL will be performed."
+                },
+                "effectiveDate": {
+                    "title": "effectiveDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The effective date."
+                },
+                "planned": {
+                    "title": "plannedNumberOfCountries",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "...provides planned numbers of countries in which the CLINICAL TRIAL will be performed."
+                }
+            }
+        },
+        "NumberOfSitesPerClinicalTrial": {
+            "title": "numberOfSitesPerClinicalTrial",
+            "type": "object",
+            "description": "... provides planned, actual, confirmed and unconfirmed numbers of sites included in a study.",
+            "properties": {
+                "actual": {
+                    "title": "actualNumberOfStudySites",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the actual number of CLINICAL TRIAL SITES."
+                },
+                "actualConfirmed": {
+                    "title": "actualNumberOfStudySitesConfirmed",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the actual number of confirmed study sites."
+                },
+                "actualUnconfirmed": {
+                    "title": "actualNumberOfStudySitesUnconfirmed",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the actual number of unconfirmed CLINICAL TRIAL SITEs."
+                },
+                "effectiveDate": {
+                    "title": "effectiveDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The effective date."
+                },
+                "planned": {
+                    "title": "plannedNumberOfSites",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the planned number of CLINICAL TRIAL SITEs."
+                }
+            }
+        },
+        "ClinicalTrialSubjectFigures": {
+            "title": "clinicalTrialSubjectFigures",
+            "type": "object",
+            "description": "... provides planned and actual numbers of subjects included in a CLINICAL TRIAL",
+            "properties": {
+                "effectiveDate": {
+                    "title": "effectiveDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "The effective date."
+                },
+                "actualTreatmentCompleted": {
+                    "title": "actualNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The actual number of CLINICAL TRIAL SUBJECTs completed treatment."
+                },
+                "plannedTreatmentCompleted": {
+                    "title": "plannedNumberOfSubjectsTreatmentCompleted",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The planned number of CLINICAL TRIAL SUBJECTs treatment completed."
+                },
+                "actualTreatmentDropped": {
+                    "title": "actualNumberOfSubjectsTreatmentDropped",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The actual number of CLINICAL TRIAL SUBJECTs treatment dropped."
+                },
+                "plannedTreatmentDropped": {
+                    "title": "plannedNumberOfSubjectsTreatmentDropped",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The planned number of CLINICAL TRIAL SUBJECTs treatment dropped."
+                },
+                "actualRandomised": {
+                    "title": "actualNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The actual number of CLINICAL TRIAL SUBJECTs randomised."
+                },
+                "plannedRandomised": {
+                    "title": "plannedNumberOfSubjectsRandomised",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The planned number of CLINICAL TRIAL SUBJECTs randomised."
+                },
+                "actualScreened": {
+                    "title": "actualNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The actual number of CLINICAL TRIAL SUBJECTs screened."
+                },
+                "plannedScreened": {
+                    "title": "plannedNumberOfSubjectsScreened",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The planned number of CLINICAL TRIAL SUBJECTs screened."
+                }
+            }
+        },
+        "ClinicalTrialDesign": {
+            "title": "clinicalTrialDesign",
+            "type": "object",
+            "description": "Plan for the precise procedure to be followed in a clinical trial, including planned and actual timing of events, choice of control group, method of allocating treatments, blinding methods; assigns a subject to pass through one or more epochs in the course of a trial. Specific design elements are taken in consideration (e.g., crossover, parallel, doseescalation). Includes also Administrative Activity which is defined at a global library level that is independent of a study subject but is necessary for the conduct of the CLINICAL TRIAL. CLINICAL TRIAL DESIGN is linked to a CLINICAL TRIAL PROTOCOL.",
+            "properties": {
+                "clinicalPhaseCode": {
+                    "title": "clinicalPhase.code",
+                    "type": "string",
+                    "description": "Defines the Code of a clinical phase; e.g.:\nI <--> Phase I\nIA <--> Phase Ia"
+                },
+                "clinicalPhaseName": {
+                    "title": "clinicalPhase.term",
+                    "type": "string",
+                    "description": "Defines the Term of a clinical phase; e.g.:\nI <--> Phase I\nIA <--> Phase Ia"
+                },
+                "blindingTypeCode": {
+                    "title": "blindingType.code",
+                    "type": "string",
+                    "description": "The code of this BLINDING TYPE."
+                },
+                "blindingTypeName": {
+                    "title": "blindingType.term",
+                    "type": "string",
+                    "description": "The name of this BLINDING TYPE."
+                }
+            }
+        },
+        "TechnicalIdentifier": {
+            "title": "technicalIdentifier",
+            "type": "object",
+            "description": "A TECHNICAL IDENTIFIER can be stored in different SYSTEMS and can have in these SYSTEMS internal, external or within a specific nomenclature different identifiers.",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "The code sequence of the identifier."
+                },
+                "providingSource": {
+                    "title": "providingSource",
+                    "type": "string",
+                    "description": "The source where this identifier is valid."
+                }
+            }
+        },
+        "ClinicalTrialMetrics": {
+            "title": "clinicalTrialMetrics",
+            "type": "object",
+            "description": "Provides a collection of metrics concerning CLINICAL TRIAL COUNTRIES, CLINICAL TRIAL SITEs and subjects that belong to a specific CLINICAL TRIAL.",
+            "properties": {
+                "actualNumberOfCountries": {
+                    "title": "actualNumberOfCountries",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "...provides actual numbers of countries in which the CLINICAL TRIAL will be performed."
+                },
+                "actualNumberOfSites": {
+                    "title": "actualNumberOfSites",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the actual number of CLINICAL TRIAL SITES."
+                },
+                "confirmedNumberOfSites": {
+                    "title": "confirmedNumberOfSites",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Gives the confirmed number of clinical trial sites."
+                },
+                "plannedNumberOfCountries": {
+                    "title": "plannedNumberOfCountries",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "...provides planned numbers of countries in which the CLINICAL TRIAL will be performed."
+                },
+                "plannedNumberOfSites": {
+                    "title": "plannedNumberOfSites",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "…provides the planned number of CLINICAL TRIAL SITEs."
+                },
+                "completedTreatment": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "inTreatment": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "randomised": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "droppedTreatment": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "droppedTreatmentDueAdverseEvent": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "droppedTreatmentDueTreatmentFailure": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "droppedTreatmentOtherReasons": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "inScreening": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "droppedScreening": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "enteredScreening": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "screened": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "completedClinicalTrial": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "transferredInBaseline": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "transferredInScreening": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "transferredInTreatment": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "transferredOutOfBaseline": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "transferredOutOfScreening": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                },
+                "transferredOutOfTreatment": {
+                    "$ref": "#/definitions/ClinicalTrialSubjectMetricsType"
+                }
+            }
+        },
+        "ClinicalTrialSubjectMetricsType": {
+            "title": "clinicalTrialSubjectMetricsType",
+            "type": "object",
+            "description": "...provides the data type for the planned, actual and unconfirmed numbers of the CLINICAL TRIAL SUBJECT FIGURES.",
+            "properties": {
+                "actual": {
+                    "title": "actualNumber",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The actual number of figures."
+                },
+                "planned": {
+                    "title": "plannedNumber",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The planned number of figures."
+                },
+                "unconfirmed": {
+                    "title": "unconfirmedNumber",
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "The unconfirmed number of figures."
+                }
+            }
+        },
+        "TestProductRoleInClinicalTrial": {
+            "title": "testProductRoleInClinicalTrial",
+            "type": "object",
+            "description": "A certain TEST PRODUCT ROLE this product has in the related study.",
+            "properties": {
+                "testProductName": {
+                    "title": "testProduct.testProductName",
+                    "type": "string",
+                    "description": "Name of the TEST PRODUCT."
+                },
+                "testProductRoleName": {
+                    "title": "testProductRole.term",
+                    "type": "string",
+                    "description": "The Term of this TEST PRODUCT ROLE."
+                }
+            }
+        }
+   }
+}

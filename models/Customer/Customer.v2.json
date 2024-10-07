@@ -1,0 +1,137 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Customer/Customer.v2.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CUSTOMER",
+    "type": "object",
+    "description": "A CUSTOMER is any person, legal entity or authority with which Boehringer Ingelheim is doing business, that ...\n\n•\treceives goods or services from Boehringer Ingelheim, or\n•\tpays BI for goods or services according to agreed terms and conditions or applicable laws, or\n•\tinteracts with BI as part of any selling or information gathering or distributing activity such as quotations, offers, rebates, ...",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "title": "customerIdentifier",
+                    "type": "string",
+                    "description": "The internal ID is used (from MDG as sending system) to facilitate analysis of the data for receiving systems"
+                },
+                "classification": {
+                    "title": "customerClassification",
+                    "type": "string",
+                    "description": "Is the classification of the Customer.",
+                    "enum": [
+                        "BUILD",
+                        "DEFEND",
+                        "GAIN",
+                        "MAINTAIN",
+                        "MARGINAL",
+                        "NC",
+                        "OBSERVE",
+                        "OS",
+                        "FR CLUB",
+                        "FR ACCESS",
+                        "FR PLATINUM"
+                    ]
+                },
+                "accountingGroup": {
+                    "title": "accountingGroup",
+                    "type": "string",
+                    "enum": [
+                        "BILL-TO PARTY",
+                        "SOLD-TO PARTY",
+                        "PAYER",
+                        "GOODS RECIPIENT",
+                        "EMPLOYEE",
+                        "HIERARCHY NODE",
+                        "INTERCOMPANY DEBI CUSTOMER",
+                        "MAILBOX OWNER",
+                        "NON-COMMERCIAL CUSTOMER",
+                        "ONE-TIME CUSTOMER",
+                        "Z DO NOT USE CUSTOMER INTERCOM"
+                    ]
+                },
+                "territoryAssignments": {
+                    "title": "customerTerritoryAssignments",
+                    "type": "array",
+                    "description": "shows the fact that a CUSTOMER is assigned to a TERRITORY",
+                    "items": {
+                        "$ref": "#/definitions/CustomerTerritoryAssignment"
+                    }
+                }
+            }
+        },
+        {
+            "$ref": "../Vendor/BusinessPartner.v2.json"
+        }
+    ],
+    "definitions": {
+        "CustomerTerritoryAssignment": {
+            "title": "customerTerritoryAssignment",
+            "type": "object",
+            "description": "shows the fact that a CUSTOMER is assigned to a TERRITORY",
+            "properties": {
+                "startDate": {
+                    "title": "startDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "First Day of assignment"
+                },
+                "endDate": {
+                    "title": "endDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Last Day of assignment"
+                },
+                "territory": {
+                    "$ref": "#/definitions/Territory"
+                }
+            }
+        },
+        "Territory": {
+            "title": "territory",
+            "type": "object",
+            "description": "A Territory is an “area of responsibility” in the customer relationship management field, i.e. a number of tasks within a field force team. Usually it takes place in a geographical area and has rules e.g. to specify which customers (HCP, HCO) are belonging to it, which products (one or more Local Brands) it is about, and it has assigned some Customer Facing Employee (aka Roster Member) to it who is “in charge”.",
+            "properties": {
+                "fieldForceName": {
+                    "title": "fieldForce.name",
+                    "type": "string",
+                    "description": "Name of Field Force, which is used as an Identifier. There are naming conventions including Country, Business Unit, Field Force Type or similar"
+                },
+                "salesArea": {
+                    "$ref": "SalesArea.v1.json"
+                }
+            }
+        },
+        "BuyingGroup": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "responsibleBiCompany": {
+                            "$ref": "../Finance/BiLegalEntity.v1.json"
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/Organization"
+                }
+            ]
+        },
+        "Organization": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "organizationName": {
+                            "title": "preferedOrganizationName.name",
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "$ref": "../Vendor/BusinessPartner.v2.json"
+                }
+            ]
+        }
+    }
+}

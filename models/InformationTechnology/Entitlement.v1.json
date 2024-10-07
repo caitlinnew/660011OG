@@ -1,0 +1,171 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/Entitlement.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ENTITLEMENT",
+    "type": "object",
+    "properties": {
+        "approvalType": {
+            "title": "approvalType",
+            "type": "string",
+            "enum": [
+                "ENTITLEMENT OWNER",
+                "APPROVAL GROUP",
+                "ENTITLEMENT MEMBERS"
+            ]
+        },
+        "description": {
+            "title": "description",
+            "type": "string",
+            "description": "The description and human understandable explanation of the Entitlement."
+        },
+        "ownerApproval": {
+            "title": "entitlementOwnerApproval",
+            "type": "boolean",
+            "description": "If the checkbox is checked, the owner of the ENTITLEMENT has to approve every ENTITLEMENT ASSIGNMENT."
+        },
+        "functionalManagerApproval": {
+            "title": "functionalManagerApproval",
+            "type": "boolean",
+            "description": "If the checkbox is checked, the approval of a Functional Manager is required."
+        },
+        "id": {
+            "title": "identifier",
+            "type": "string",
+            "description": "The Identifier of the ENTITLEMENT in BIDS"
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "Name of the Entitlement."
+        },
+        "orderable": {
+            "title": "orderable",
+            "type": "boolean",
+            "description": "Determines if this entitlement is orderable / selectable in myServices (in case of an available order form)"
+        },
+        "trainingType": {
+            "title": "trainingType",
+            "type": "string",
+            "enum": [
+                "LOS",
+                "MANUAL",
+                "NONE"
+            ]
+        },
+        "type": {
+            "title": "type",
+            "type": "string",
+            "enum": [
+                "GROUP",
+                "APPROVAL",
+                "SECURITY PROFILE",
+                "APPLICATION ROLE",
+                "ACTIVE GROUP"
+            ]
+        },
+        "adGroupName": {
+            "title": "activeDirectoryGroup.name",
+            "type": "string"
+        },
+        "approvalGroupId": {
+            "title": "approvalGroup.identifier",
+            "type": "string"
+        },
+        "dataDomainId": {
+            "title": "dataDomain.identifier",
+            "type": "string"
+        },
+        "informationSystemId": {
+            "title": "entitlementGroup.configItem.systemIdentifier",
+            "type": "string",
+            "description": "The unique Config Item ID for the Information System as defined in CMDB."
+        },
+        "informationSystemName": {
+            "title": "entitlementGroup.configItem.systemName",
+            "type": "string",
+            "description": "The name of the Information System as defined in CMDB."
+        },
+        "excludedEntitlements": {
+            "title": "excludedEntitlement",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/EntitlementRef"
+            }
+        },
+        "ownerAdIdentity": {
+            "$ref": "#/definitions/Identity"
+        },
+        "ownerAdUserName": {
+            "title": "resourceOwner.userName",
+            "type": "string",
+            "description": "The name of the DIRECTORY SERVICE ACCOUNT."
+        },
+        "trainingId": {
+            "title": "training.identifier",
+            "type": "string"
+        },
+        "trainingWorkgroupId": {
+            "title": "trainingWorkgroup.identifier",
+            "type": "string"
+        },
+        "entitledResourceId": {
+            "title": "entitledResource.id",
+            "type": "string",
+            "description": "The Identifier of an resource which can be accessed.\nSuch a resource might be a folder, database or application.\ne.g. rsi09876624"
+        },
+        "provisioningWorkgroupId": {
+            "title": "provisioningWorkgroupId",
+            "type": "string",
+            "description": "The id of the workgroup that will set up entitlements and grant access manually\ne.g. BI-ITEDS-ESM-SERVICENOW-L2EXT"
+        },
+        "alternateIdentifiers": {
+            "title": "alternateIdentifier",
+            "type": "array",
+            "description": "An ENTITLEMENT may be identified via different identifiers.\nFrom a global BI perspective one primary identifier has to exist for each ENTITLEMENT in BIDS.\nAll other Identifiers that can identify an ENTITLEMENT are ALTERNATE IDENTIFIERS.\nFrom a local issuer centric perspective the Identifier of that organisation or IT system is the primary identifier used within an IT system.",
+            "items": {
+                "$ref": "#/definitions/EntitlementIdentifier"
+            }
+        }
+    },
+    "definitions": {
+        "EntitlementRef": {
+            "title": "entitlementRef",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "title": "identifier",
+                    "type": "string"
+                }
+            }
+        },
+        "EntitlementIdentifier": {
+            "title": "entitlementIdentifier",
+            "type": "object",
+            "description": "An ENTITLEMENT may be identified via different identifiers.\nFrom a global BI perspective one primary identifier has to exist for each ENTITLEMENT in BIDS.\nAll other Identifiers that can identify an ENTITLEMENT are ALTERNATE IDENTIFIERS.\nFrom a local issuer centric perspective the Identifier of that organisation or IT system is the primary identifier used within an IT system.",
+            "properties": {
+                "identifier": {
+                    "title": "identifier",
+                    "type": "string",
+                    "description": "The key used to identify an object."
+                },
+                "issuerCode": {
+                    "title": "issuer.code",
+                    "type": "string",
+                    "description": "The string that identifies the issuer of an (ALTERNATE) IDENTIFIER.\nFor IT systems within BI their CI is a unique code."
+                }
+            }
+        },
+        "Identity": {
+            "title": "identity",
+            "type": "object",
+            "description": "Identity is a collection of information on the employee and his access rights.",
+            "properties": {
+                "globalId": {
+                    "title": "globalIdentifier",
+                    "type": "string",
+                    "description": "The Global Identifier also known as BIDS-ID is the global unique identifier of an Identity It is also the only one-to-one identifier of an Identity. Example: \"GI00001234\""
+                }
+            }
+        }
+    }
+}

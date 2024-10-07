@@ -1,0 +1,69 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/InformationTechnology/DatabaseColumnDefinition.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DATABASE COLUMN DEFINITION",
+    "type": "object",
+    "description": "An DATABASE COLUMN DEFINITION represents a field or attribute as column in a DATABASE TABLE DEFINITION. It defines the technical storage of Information needed by Business defined in an INFORMATION ATTRIBUTE.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "isList": {
+                    "title": "isList",
+                    "type": "boolean",
+                    "description": "Defines if the property holds a single value (false) or multiple values as a List (true)."
+                },
+                "dataType": {
+                    "title": "dataType",
+                    "type": "string",
+                    "enum": [
+                        "Character String",
+                        "Integer",
+                        "Rational Number",
+                        "Logical Value",
+                        "Date",
+                        "Timestamp"
+                    ]
+                },
+                "isPrimaryKey": {
+                    "title": "isPrimaryKey",
+                    "type": "boolean",
+                    "description": "Defines if the Column is the primary key of this Table."
+                },
+                "linkedTable": {
+                    "$ref": "#/definitions/DatabaseTableDefinition"
+                },
+                "explainingInformationAttribute": {
+                    "$ref": "#/definitions/InformationAttribute"
+                }
+            }
+        },
+        {
+            "$ref": "InformationModelElement.v1.json"
+        }
+    ],
+    "definitions": {
+        "DatabaseTableDefinition": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        },
+        "InformationAttribute": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "InformationModelElement.v1.json"
+                }
+            ]
+        }
+    }
+}

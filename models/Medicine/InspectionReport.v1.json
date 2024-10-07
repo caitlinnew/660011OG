@@ -1,0 +1,41 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/InspectionReport.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "INSPECTION REPORT",
+    "type": "object",
+    "description": "An INSPECTION REPORT outlines the outcome of an INSPECTION. The INSPECTION REPORT could include INSPECTION FINDINGs made during the INSPECTION, including any non-compliance issues or deficiencies.",
+    "properties": {
+        "inspectionReportReceived": {
+            "title": "inspectionReportReceived",
+            "type": "boolean",
+            "description": "Whether the report has been received"
+        },
+        "receiveDate": {
+            "title": "receiveDate",
+            "type": "string",
+            "format": "date-time",
+            "description": "Date on which the INSPECTION REPORT was received."
+        },
+        "justificationForInspectionReportNotReceived": {
+            "title": "justificationForInspectionReportNotReceived",
+            "type": "string",
+            "description": "The Justification if the Inspection Report has not been received"
+        },
+        "inspectionId": {
+            "title": "inspection.id",
+            "type": "string",
+            "description": "Identifier of an INSPECTION."
+        },
+        "healthAuthority": {
+            "$ref": "HealthAuthority.v1.json"
+        },
+        "inspectionResponse": {
+            "title": "inspectionResponse",
+            "type": "array",
+            "description": "An INSPECTION RESPONSE refers to the response provided by BI to the HEALTH AUTHORITY with refernce to the inspection outcome. The response could include the Corrective and Preventive Actions (CAPAs) triggered by the INSPECTION FINDINGs.",
+            "items": {
+                "$ref": "InspectionResponse.v1.json"
+            }
+        }
+    }
+}

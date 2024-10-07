@@ -1,0 +1,70 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/MaturityLevel.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "MATURITY LEVEL",
+    "type": "object",
+    "description": "The MATURITY LEVEL describes the maturity of the data content of a data object. Every data object (not its individual attributes) of the first three levels of the Logical Data Model for Product, i.e. Strategic -, Regulatory - and Scientific Product Description has exactly one MATURITY LEVEL.\nThe MATURITY LEVEL is used to define (a) whether or not individual attribute content can still be changed and (b) which child objects can reference the data object at this MATURITY LEVEL.\nThe MATURITY LEVELs are defined as abstract Maturity Levels 1, 2, 3, 4. This allows to match those MATURITY LEVEL to the BUSINESS UNIT-specfic Development Milestones.\nThe MATURITY LEVEL is not to be confused with the GLOBAL LIFE CYCLE STATUS.\nThe GLOBAL LIFE CYCLE STATUS describes per object its position in its life cylce and therefore its relevance for the BI corporation (e.g. active, inactive). The MATURITY LEVEL describes within a GLOBAL LIFE CYCLE STATUS the maturity of its data content.",
+    "properties": {
+        "id": {
+            "title": "referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "name": {
+            "title": "name",
+            "type": "string",
+            "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+        },
+        "shortDescription": {
+            "title": "shortDescription",
+            "type": "string",
+            "description": "The Short Description is the human readable unique and complete name. In cases when the complete name fits into the Term then it is identical to the Short Description.\nEnglish is the leading Language."
+        },
+        "longDescription": {
+            "title": "longDescription",
+            "type": "string",
+            "description": "The description provides all information needed for business to understand the meaning of the provided term. \nEnglish is the leading Language."
+        },
+        "isActive": {
+            "title": "status",
+            "type": "string",
+            "description": "REFERENCE DATA has a STATUS."
+        },
+        "lastChangeDate": {
+            "title": "lastChangeDate",
+            "type": "string",
+            "format": "date",
+            "description": "Last Change Date is the timestamp when any value of the reference data record has been changed or created."
+        },
+        "lastChangingUser": {
+            "title": "lastChangingUser",
+            "type": "string",
+            "description": "Last Changing User is the last Boehringer employee or external person that changed or created the reference data record in the system."
+        },
+        "sourcesRefIds": {
+            "title": "sourceOfInformation",
+            "type": "array",
+            "description": "SOURCE OF INFORMATION describes who defined specific Reference Data.\nThe Source can be an external or internal standard.",
+            "items": {
+                "title": "referenceDataId",
+                "type": "string",
+                "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+            }
+        },
+        "disabledAttributes": {
+            "title": "disabledAttributes",
+            "type": "array",
+            "description": "a list of disabled misc attributes in this dataset",
+            "items": {
+                "title": "disabledAttributes",
+                "type": "string",
+                "description": "a list of disabled misc attributes in this dataset"
+            }
+        },
+        "sapCode": {
+            "title": "sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        }
+    }
+}

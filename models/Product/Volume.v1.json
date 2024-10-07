@@ -1,0 +1,17 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/Volume.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Volume",
+    "type": "object",
+    "description": "VOLUME is the product of Length x Width x Height.",
+    "properties": {
+        "nominalVolume": {
+            "title": "nominalVolume.nominalVolume",
+            "type": "number",
+            "description": "The Nominal Volume is the volume that a container is designed to hold, leaving a defined volume of headspace in the container. With that, the Nominal Volume is smaller than the Maximum Volume, which is the maximum volume a container can hold, leaving no headspace volume."
+        },
+        "unitOfMeasure": {
+            "$ref": "../ReferenceData/UnitOfMeasure.v1.json"
+        }
+    }
+}

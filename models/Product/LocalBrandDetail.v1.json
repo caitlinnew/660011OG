@@ -1,0 +1,158 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/LocalBrandDetail.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "LOCAL BRAND DETAIL",
+    "type": "object",
+    "description": "LOCAL BRAND DETAIL highlights either a single Target SPECIES or a single INDICATION of one LOCAL BRAND.\nThis object is used for Customer Relationship Managment (CRM) content or activities, which are sometimes specific for a single Target SPECIES (in BUSINESS UNIT Animal Health) or for a single INDICATION (in BUSINESS UNIT Human Pharma) of a LOCAL BRAND.\nFor BUSINESS UNIT Animal Health, the LOCAL BRAND DETAIL is a LOCAL BRAND + Target SPECIES, as there are Target SPECIES-specific content and activities for a LOCAL BRAND. INDICATIONs are not actively managed at this level (except for INDICATIONs for BUSINESS SEGMENT Veterinary Public Health) and thus not highlighted in a LOCAL BRAND DETAIL.\nFor BUSINESS UNIT Human Pharma, the LOCAL BRAND DETAIL is a LOCAL BRAND + INDICATION, as LOCAL BRAND content and activities are often INDICATION-specific. The Target SPECIES is per definition always human, thus not a differentiator in the BUSINESS UNIT Human Pharma, thus not highlighted in a LOCAL BRAND DETAIL.\n\nA LOCAL BRAND DETAIL has no link to MATERIAL, as the LOCAL BRAND holds the link to MATERIAL.",
+    "properties": {
+        "id": {
+            "title": "localBrandDetailId",
+            "type": "string",
+            "description": "The Local Brand Detail ID is an identifyier of the data record.\nHowever, the data record depends on either\nthe LOCAL BRAND and a single INDICATION of AI COMBINATION AND INDICATION or\nthe LOCAL BRAND and a single SPECIES of AI COMBINATION AND TARGET SPECIES."
+        },
+        "name": {
+            "$ref": "#/definitions/Text"
+        },
+        "marketingRelevance": {
+            "title": "marketingRelevance",
+            "deprecated": true,
+            "type": "boolean",
+            "description": "This field is currently constant true='X'. As constant, it will be removed. Marketing Relevance is the attribute triggering the sending of a LOCAL BRAND DETAIL for either a LOCAL BRAND and INDICATION or a LOCAL BRAND and Target SPECIES via the outbound interface."
+        },
+        "localBrandId": {
+            "title": "localBrand.localBrandId",
+            "type": "string",
+            "description": "Unique identifier of the object LOCAL BRAND."
+        },
+        "globalLifeCycleStatusRefId": {
+            "title": "globalLifeCycleStatus.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "globalLifeCycleStatusCode": {
+            "title": "globalLifeCycleStatus.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "usageOfAiCombination": {
+            "$ref": "AiCombinationTargetSpeciesAndIndication.v1.json"
+        },
+        "usagesOfAiCombination": {
+            "type": "object",
+            "deprecated" : true,
+            "description": "This hierarchy is DEPRECATED and will be replaced by usageOfAiCombination in the future.",
+            "properties": {
+                    "indicationRefId": {
+                    "title": "indication.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "indicationCode": {
+                    "title": "indication.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "targetSpeciesRefId": {
+                    "title": "targetSpecies.referenceId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "targetSpeciesCode": {
+                    "title": "targetSpecies.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        },
+        "maturityLevelRefId": {
+            "title": "maturityLevel.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "maturityLevelCode": {
+            "title": "maturityLevel.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "brandStageRefId": {
+            "title": "brandStage.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "brandStageCode": {
+            "title": "brandStage.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "alternativeNames": {
+            "title": "alternativeLocalBrandDetailName",
+            "type": "array",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "items": {
+                "$ref": "#/definitions/Text"
+            }
+        },
+        "routingLocalBrand": {
+            "$ref": "#/definitions/RoutingInformationLocalBrand"
+        }
+    },
+    "definitions": {
+        "Text": {
+            "type": "object",
+            "description": "The TEXT is any human readible text. It may be unstructured data (\"free text\") or it may be generated from structured data (\"auto text\"). It may have different maximum length. It may occur in different LANGUAGEs and WRITING SYSTEMs.",
+            "properties": {
+                "text": {
+                    "type": "string",
+                    "description": "The text string itself."
+                },
+                "typeName": {
+                    "title": "textType.term",
+                    "type": "string",
+                    "description": "Term is a human readable designator of the data record for this object."
+                },
+                "languageRefId": {
+                    "title": "language.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "languageCode": {
+                    "title": "language.sapCode",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                }
+            }
+        },
+        "RoutingInformationLocalBrand": {
+            "type": "object",
+            "description": "This information will not be provieded in future version. The information is already available by accessing the related Local Brand information. accumulates information from LOCAL BRAND (COUNTRY) und GLOBAL BRAND (BUSINESS UNIT) for veeva.",
+            "deprecated" : true,
+            "properties": {
+                "localBrandId": {
+                    "title": "localBrandId",
+                    "type": "string",
+                    "description": "Unique identifier of the object LOCAL BRAND."
+                },
+                "countryCode": {
+                    "title": "country.code",
+                    "type": "string",
+                    "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+                },
+                "countryRefId": {
+                    "title": "country.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "businessUnitCode": {
+                    "title": "businessUnit.prismaCode",
+                    "type": "string",
+                    "description": "The Code is the unique identifier of the data record for this object.\nSynonym for the Prisma Code, by default in sync with the SAP Code (2019)"
+                },
+                "businessUnitRefId": {
+                    "title": "businessUnit.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        }
+    }
+}

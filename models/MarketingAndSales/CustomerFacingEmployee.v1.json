@@ -1,0 +1,233 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/CustomerFacingEmployee.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CUSTOMER FACING EMPLOYEE",
+    "type": "object",
+    "description": "A Customer Facing Employee is any person acting on behalf of BI in the Customer Relationship area. \nPossible other name: CFT MEMBER (Customer Facing Team Member)",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "cfePositions": {
+                    "title": "cfePositions-Deprecated",
+                    "type": "array",
+                    "description": "The CFE POSITION shows the assignment of a Customer Facing Employee - CFE (or Customer Facing Team Member - CFT Member) to a field force position within a certain period of time (start date to end date).",
+                    "items": {
+                        "$ref": "#/definitions/CfePosition"
+                    }
+                },
+                "hireDate": {
+                    "title": "employee.hireDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Start date of the most recent employment of an employee with the corporation (equals date of most recent hire/rehire event for an employee)."
+                },
+                "lastWorkingDay": {
+                    "title": "employee.lastWorkingDay",
+                    "type": "string",
+                    "format": "date",
+                    "description": "This information reflects the last day the employee actively works for the corporation. It can differ from the termination date due to additional time accounts etc. prior to the termination date. Entering a date in this field will set the employee/contingent worker status to “inactive” in BIDS as of this date+1 which disables network access"
+                },
+                "originalHireDate": {
+                    "title": "employee.originalHireDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Start date of the first employment of an employee with the corporation -- also if the employment was in another country."
+                },
+                "employment": {
+                    "$ref": "#/definitions/Employment"
+                },
+                "identity": {
+                    "$ref": "#/definitions/Identity"
+                },
+                "roasterMember": {
+                    "title": "rosterMemberTerritoryAssignment",
+                    "type": "array",
+                    "description": "shows the fact that a CUSTOMER FACING EMPLOYEE is assigned to a TERRITORY as a ROSTER MEMBER",
+                    "items": {
+                        "$ref": "#/definitions/RosterMemberTerritoryAssignment"
+                    }
+                }
+            }
+        },
+        {
+            "$ref": "../Customer/Individual.v2.json"
+        }
+    ],
+    "definitions": {
+        "CfePosition": {
+            "title": "cfePosition",
+            "type": "object",
+            "description": "The CFE POSITION shows the assignment of a Customer Facing Employee - CFE (or Customer Facing Team Member - CFT Member) to a field force position within a certain period of time (start date to end date).",
+            "properties": {
+                "positionLevel": {
+                    "title": "fieldForcePosition.positionLevel",
+                    "type": "string",
+                    "description": "Hierarchy level of position"
+                },
+                "fieldForceName": {
+                    "title": "fieldForcePosition.fieldForce.name",
+                    "type": "string"
+                },
+                "fieldForceBusinessSegments": {
+                    "title": "fieldForcePosition.fieldForce.businessSegments",
+                    "type": "array",
+                    "description": "BUSINESS SEGMENTs are a further segmentation of the BUSINESS UNIT. They are needed because BUSINESS UNITs themselves are too large to be steered without having data on deeper levels. The BUSINESS SEGMENTs are BI’s focus areas for which separate data is needed to be able to decide which of these shall be kept/enlarged/discontinued.",
+                    "items": {
+                        "$ref": "#/definitions/BusinessSegment"
+                    }
+                },
+                "fieldForceTerritories": {
+                    "title": "fieldForcePosition.fieldForce.territories",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TerritoryDeprecated"
+                    }
+                },
+                "fieldForcePositionTypeName": {
+                    "title": "fieldForcePosition.fieldForcePositionType.term",
+                    "type": "string",
+                    "description": "term for the type in English"
+                }
+            }
+        },
+        "BusinessSegment": {
+            "title": "businessSegment",
+            "type": "object",
+            "description": "BUSINESS SEGMENTs are a further segmentation of the BUSINESS UNIT. They are needed because BUSINESS UNITs themselves are too large to be steered without having data on deeper levels. The BUSINESS SEGMENTs are BI’s focus areas for which separate data is needed to be able to decide which of these shall be kept/enlarged/discontinued.",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                },
+                "refId": {
+                    "title": "referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                },
+                "prismaCode": {
+                    "title": "prismaCode",
+                    "type": "string",
+                    "description": "Identifier of business segment (first digit = code of according business unit)"
+                }
+            }
+        },
+        "TerritoryDeprecated": {
+            "title": "territoryDeprecated",
+            "type": "object",
+            "properties": {
+                "code": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The User-friendly code of territory. It is the concatenation of \nCountry Code (Alpha-2 Iso Code)\nBusiness Unit and\nTerritory Name\nIt is the unique identifier of the data record for this object."
+                },
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "Name of Territory"
+                }
+            }
+        },
+        "Employment": {
+            "title": "employment",
+            "type": "object",
+            "description": "Employment is a relationship between two parties, usually based on a contract where work is paid for, where one party is the employer and the other is the employee/contingent worker. The employment holds relevant information for this working relationship (e.g. capacity, payment)",
+            "properties": {
+                "hrPosition": {
+                    "$ref": "#/definitions/HrPosition"
+                },
+                "legalEntity": {
+                    "$ref": "#/definitions/BiLegalEntity"
+                }
+            }
+        },
+        "HrPosition": {
+            "title": "hrPosition",
+            "type": "object",
+            "description": "A position describes the concrete responsibilities of a position holder. The hierarchical interrelationship between positions represents the enterprise structure. In addition it defines what position reports into whom (employee - manager relationship).\nGerman: \"Planstelle\"",
+            "properties": {
+                "jobName": {
+                    "title": "job.jobName",
+                    "type": "string",
+                    "description": "Is the Name of the Job."
+                },
+                "payGradeName": {
+                    "title": "payGradeStructure.payGradeName",
+                    "type": "string",
+                    "description": "Represents a specific value out of the paygrade structure."
+                }
+            }
+        },
+        "BiLegalEntity": {
+            "title": "biLegalEntity",
+            "type": "object",
+            "description": "A legal entity is defined as a company. There is a differentiation between affiliated BI companies (sometimes called Operating Unit), special purpose companies and 3rd party companies. Affiliated BI companies belonging to the worldwide BI group are part of the general corporate reporting. For some specific financial reasons it may be necessary to consider also special purpose companies (e.g. Parallel Trade Import.) 3rd party companies are only used in case they are to be consider as producer within the financial logistic in the Standard Cost Reporting.",
+            "properties": {
+                "countryIso2Code": {
+                    "title": "country.alpha-2Code",
+                    "type": "string",
+                    "description": "The Alpha-2 code according to ISO 3166-1"
+                },
+                "countryIso3Code": {
+                    "title": "country.alpha-3Code",
+                    "type": "string",
+                    "description": "The Alpha-3 code according to ISO 3166-1"
+                },
+                "countryName": {
+                    "title": "country.name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                },
+                "countryRefId": {
+                    "title": "country.referenceDataId",
+                    "type": "string",
+                    "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+                }
+            }
+        },
+        "Identity": {
+            "title": "identity",
+            "type": "object",
+            "description": "Identity is a collection of information on the employee and his access rights.",
+            "properties": {
+                "globalId": {
+                    "title": "globalIdentifier",
+                    "type": "string",
+                    "description": "The Global Identifier also known as BIDS-ID is the global unique identifier of an Identity It is also the only one-to-one identifier of an Identity. Example: \"GI00001234\""
+                }
+            }
+        },
+        "RosterMemberTerritoryAssignment": {
+            "title": "rosterMemberTerritoryAssignment",
+            "type": "object",
+            "description": "shows the fact that a CUSTOMER FACING EMPLOYEE is assigned to a TERRITORY as a ROSTER MEMBER",
+            "properties": {
+                "assignmentType": {
+                    "title": "assignmentType",
+                    "type": "string"
+                },
+                "endDate": {
+                    "title": "endDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "Last Day of assignment"
+                },
+                "startDate": {
+                    "title": "startDate",
+                    "type": "string",
+                    "format": "date",
+                    "description": "First Day of assignment"
+                },
+                "status": {
+                    "title": "status",
+                    "type": "string",
+                    "description": "indicates the current status of the assignment"
+                },
+                "territory": {
+                    "$ref": "../Customer/Territory.v1.json"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,224 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/MarketingAndSales/PromotionProgramParticipation.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "PromotionProgramParticipation",
+    "type": "object",
+    "description": "Describes the participation of a customer in a particular program, either through implicit or explicit enrollment or qualification.",
+    "properties": {
+        "promotionProgramName": {
+            "title": "promotionProgram.programName",
+            "type": "string",
+            "description": "Business name by which the program is known"
+        },
+        "shipToCustomerId": {
+            "title": "shipToCustomer.identifier",
+            "type": "string",
+            "description": "Internal or External (alternative) Identifier of the Business Partner."
+        },
+        "shipToCustomerIdTypeCode": {
+            "title": "shipToCustomer.identifierType.code",
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object."
+        },
+        "participationStartDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The date that the customer joined the program (e.g. opted in or qualified)."
+        },
+        "participationEndDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The date that the customer ceased to participate in the program (e.g. they no longer qualified, or opted out)"
+        },
+        "termsAndConditionsAcceptedDate": {
+            "type": "string",
+            "format": "date",
+            "description": "... provides the last date the participant accepted the terms and conditions of the program."
+        },
+        "enrollmentSource": {
+            "type": "string",
+            "description": "The source where the customers participation in the program was first recorded"
+        },
+        "participationStatusReason": {
+            "type": "string",
+            "description": "provides additional information about why the status how it is."
+        },
+        "participationStatusUpdateDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the status has been updated"
+        },
+        "participationStatus": {
+            "type": "string",
+            "description": "defines the current status of a Promotion Program Participation of a customer."
+        },
+        "shipToCustomer": {
+            "$ref": "../Vendor/BusinessPartner.v1.json"
+        },
+        "rewards": {
+            "title": "promotionProgramRewards",
+            "type": "array",
+            "description": "a reward at the overall program level (across program components) that a customer has acquired.",
+            "items": {
+                "$ref": "#/definitions/PromotionProgramReward"
+            }
+        },
+        "componentParticipations": {
+            "title": "promotionComponentParticipations",
+            "type": "array",
+            "description": "As a part of the promotion program participation, the PROMOTION COMPONENT PARTICIPATION tells about the customer's qualification and status for/of his participation in the single component.",
+            "items": {
+                "$ref": "#/definitions/PromotionComponentParticipation"
+            }
+        },
+        "customerConsent": {
+            "$ref": "#/definitions/CustomerConsent"
+        },
+        "participationEligibility": {
+            "title": "participationEligibility",
+            "type": "boolean",
+            "description": "Indicates whether the customer is eligible to participate in this program or not (TRUE = \"yes\", FALSE = \"no\")"
+        }
+    },
+    "definitions": {
+        "CustomerConsent": {
+            "type": "object",
+            "description": "The CUSTOMER CONSENT describes the state whether it is allowed to communicate with the respective customer using the associated communication channel or channel detail.",
+            "properties": {
+                "optInIndicator": {
+                    "title": "opt-InIndicator",
+                    "type": "boolean",
+                    "description": "The Opt-In Indicator documents whether the communication is allowed (true) or not (false)."
+                },
+                "consentTypeCode": {
+                    "title": "code",
+                    "type": "string",
+                    "description": "The Unique Identifier for a CONSENT TYPE."
+                },
+                "consentTypeName": {
+                    "title": "term",
+                    "type": "string",
+                    "description": "Term of the specific CONSENT TYPE (e.g. Consent for Marketing Activities):"
+                }
+            }
+        },
+        "PromotionProgramReward": {
+            "title": "promotionProgramReward",
+            "type": "object",
+            "description": "a reward at the overall program level (across program components) that a customer has acquired.",
+            "properties": {
+                "rewardName": {
+                    "title": "reward.name",
+                    "type": "string",
+                    "description": "Friendly label given to the reward."
+                },
+                "rewardAmount": {
+                    "title": "rewardAmount",
+                    "type": "number",
+                    "description": "The amount of that reward (e.g. rebate or discount) that has been provided to the customer."
+                }
+            }
+        },
+        "PromotionComponentParticipation": {
+            "allOf": [
+                {
+                    "title": "promotionComponentParticipation",
+                    "type": "object",
+                    "description": "As a part of the promotion program participation, the PROMOTION COMPONENT PARTICIPATION tells about the customer's qualification and status for/of his participation in the single component.",
+                    "properties": {
+                        "componentStatus": {
+                            "title": "componentStatus",
+                            "type": "string",
+                            "description": "General current status of the user's standing in this program component."
+                        },
+                        "reqirementsMet": {
+                            "title": "reqirementsMetFlag",
+                            "type": "boolean",
+                            "description": "says if the requirements for participating in the promotion component have been met by the customer / location (\"TRUE\") or not (\"FALSE\")"
+                        },
+                        "achievedAmount": {
+                            "title": "achievedAmount",
+                            "type": "number",
+                            "description": "The amount (spend or quantity) that the customer has already purchased which is counting for his participation in the Promotion Program Component. \nThe type of this amount is the same as the respective type in Promotopn Program Component. \nThe \"Remaining Amount\" for a customer to reach a certain Promotion Component Level equals the Target Amount of that level minus the Achieved Amount."
+                        },
+                        "rewards": {
+                            "title": "promotionComponentReward",
+                            "type": "array",
+                            "description": "a reward offered through the program component that the customer has acquired.",
+                            "items": {
+                                "$ref": "#/definitions/PromotionComponentReward"
+                            }
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/PromotionProgramComponent"
+                }
+            ]
+        },
+        "PromotionComponentReward": {
+            "title": "promotionComponentReward",
+            "type": "object",
+            "description": "a reward offered through the program component that the customer has acquired.",
+            "properties": {
+                "rewardName": {
+                    "title": "reward.name",
+                    "type": "string",
+                    "description": "Friendly label given to the reward."
+                },
+                "rewardAmount": {
+                    "title": "rewardAmount",
+                    "type": "number",
+                    "description": "The amount of that reward (e.g. rebate or discount) that has been provided to the customer."
+                }
+            }
+        },
+        "PromotionProgramComponent": {
+            "title": "promotionComponentParticipation",
+            "type": "object",
+            "description": "A single Promotion Program (or: Customer Loyalty Program) can be made up of multiple components, each of them having distinct qualifications and rules, but they fall under the same program, and there may be an additional, program reward if you participate in more than one of them.",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "Name of the promotion program component"
+                },
+                "qualifyingPurchaseAmount": {
+                    "title": "qualifyingPurchaseAmount",
+                    "type": "number",
+                    "description": "Total amount of purchases or quantity of items purchased that qualify for this program component.\n\"Sum of the orders, product quantities or shipments\". This will be a numerical figure which represents a count of purchases either at the order level or a product level (e.g. 250 orders, or 400 cartons, or 350 doses, etc.)."
+                },
+                "qualifyingPurchaseAmountType": {
+                    "title": "qualifyingPurchaseAmountType",
+                    "type": "string",
+                    "description": "says what is counted for the Qualifying Purchase Amount"
+                },
+                "levels": {
+                    "title": "promotionComponentLevel",
+                    "type": "array",
+                    "description": "a level (or tier) within a program component",
+                    "items": {
+                        "$ref": "#/definitions/PromotionComponentLevel"
+                    }
+                }
+            }
+        },
+        "PromotionComponentLevel": {
+            "title": "promotionComponentLevel",
+            "type": "object",
+            "description": "a level (or tier) within a program component",
+            "properties": {
+                "name": {
+                    "title": "name",
+                    "type": "string",
+                    "description": "Name of a level (or tier) within a program component."
+                },
+                "targetAmount": {
+                    "title": "targetAmount",
+                    "type": "number",
+                    "description": "The target number (spend or quantity) that a customer must hit to qualify for this level"
+                }
+            }
+        }
+    }
+}

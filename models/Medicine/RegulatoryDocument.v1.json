@@ -1,0 +1,15 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/RegulatoryDocument.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "REGULATORY DOCUMENT",
+    "type": "object",
+    "description": "This class represents a logical document, like a Study Protocol for a particular study or a safety report for a certain substance. Apart from the general attributes and relationships that are defined for the document entity, each special document type defines its own characteristics and content information.\nThe most important connection is the one to the document's Document Instances, each representing a physical realization of the document, be it as a file on a hard-drive or an actual paper copy.",
+    "allOf": [
+        {
+            "type": "object"
+        },
+        {
+            "$ref": "ManagedDocument.v1.json"
+        }
+    ]
+}

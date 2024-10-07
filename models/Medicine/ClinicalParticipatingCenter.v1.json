@@ -1,0 +1,85 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalParticipatingCenter.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL PARTICIPATING CENTER",
+    "type": "object",
+    "description": "CLINICAL PARTICIPATING CENTER organization which particpates in a CLINICAL TRIAL.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "number": {
+                    "title": "centerNumber",
+                    "type": "string",
+                    "description": "The CLINICAL PARTICIPATING CENTER has a center number."
+                },
+                "departmentName": {
+                    "title": "departmentName",
+                    "type": "string",
+                    "description": "The CLINICAL PARTICIPATING CENTER has a department name."
+                }
+            }
+        },
+        {
+            "$ref": "#/definitions/Organization"
+        }
+    ],
+    "definitions": {
+        "Organization": {
+            "type": "object",
+            "allOf": [
+                {
+                    "type": "object"
+                },
+                {
+                    "$ref": "#/definitions/BusinessPartner"
+                }
+            ]
+        },
+        "BusinessPartner": {
+            "title": "businessPartner",
+            "type": "object",
+            "description": "ORGANIZATION (firm, branch office), individual or a group of individuals or organizations in which your company has a business interest.\nA BUSINESS PARTNER is a generalization for the roles CUSTOMER, VENDOR, and EMPLOYEE, holding all the attributes and relationships / associations which are common for all of these.",
+            "properties": {
+                "address": {
+                    "$ref": "#/definitions/Address"
+                },
+                "telephoneNumber": {
+                    "title": "defaultTelephone.telephoneNumber",
+                    "type": "string"
+                }
+            }
+        },
+        "Address": {
+            "title": "address",
+            "type": "object",
+            "description": "An ADDRESS is the particulars of the place where a business partner is situated for example the purposes of postal delivery.\nADDRESS contains the non-localized attributes of this place.\nLOCALIZED ADDRESS contains the localized attributes of this place.",
+            "properties": {
+                "city": {
+                    "title": "city",
+                    "type": "string",
+                    "description": "Name of the City for the postal ADDRESS"
+                },
+                "line1": {
+                    "title": "addressLine1",
+                    "type": "string",
+                    "description": "May be used as alternative to Street Name and House Number or in addition to these attributes."
+                },
+                "zip": {
+                    "title": "zipOrPostalCode",
+                    "type": "string"
+                },
+                "countryIso3Code": {
+                    "title": "country.alpha-3Code",
+                    "type": "string",
+                    "description": "The Alpha-3 code according to ISO 3166-1"
+                },
+                "countrySubdivisionName": {
+                    "title": "countrySubdivision.name",
+                    "type": "string",
+                    "description": "The term is the human readable unique name typically used in drop down menus of applications. \nIn cases when the complete name is too long, then a meaningful abbreviation is created for the term.\nEnglish is the leading Language."
+                }
+            }
+        }
+    }
+}

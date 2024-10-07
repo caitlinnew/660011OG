@@ -1,0 +1,38 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/AlternateTargetQuantity.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "AlternateTargetQuantity",
+    "type": "object",
+    "description": "An ALTERNATE TARGET QUANTITY measured in the Alternate UNIT OF MEASURE (UoM) or Alternate UNIT OF PRESENTATION (UoP) specifies the same amount as the Target Quantity measured in the UNIT OF MEASURE: Quantity 1 [UoM] = Quantity 2 [Alternate UoM].\nOne ALTERNATE TARGET QUANTITY has either an Alternate UoM or an Alternate UoP (see constraint XOR):\n1.\tThe ALTERNATE TARGET QUANTITY has a UoM, if the ALTERNATE TARGET QUANTITY is not countable, but only measurable by weight (e.g. powder) or volume (e.g. liquid). \n2.\tIf the ALTERNATE TARGET QUANTITY is countable, it may use the UoM Eaches (or Pieces) or it may specify this UoM in a UoP (e.g. tablet, suppository).\n\nThis object should have been more generally named ALTERNATE UoM CONVERSION. The conversion rule Quantity 1 [UoM] = Quantity 2 [Alternate UoM] can be rearranged to calculate a conversion factor: 1 [UoM] = (Quantity 2 / Quantity 1) [Alternate UoM].\nQuantity 2 is the conversion factor numerator; here called Alternate Target Quantity.\nQuantity 1 is the conversion factor denominator; here called denominator, not Target Quantity.\nThe Alternate Target Quantity UoM or UoP are attributes of this object.\nThe Target Quantity UoM is an attribute of the object \"PRODUCT COMPOSITION\".",
+    "properties": {
+        "quantity": {
+            "title": "alternateTargetQuantity",
+            "type": "number",
+            "description": "The Alternate Target Quantity is the Numerator of the conversion factor that converts a Quantity 1 quantified in a UoM into a Quantity 2 quantified in an Alternate UoM.\nThe conversion rule is: Quantity 1 [UoM] = Quantity 2 [Alternate UoM].\nThis conversion rule can be rearranged to calculate a conversion factor: 1 [UoM] = (Quantity 2 / Quantity 1) [Alternate UoM]. Here, Quantity 2 is the Numerator and Quantity 1 is the Denominator of the conversion factor, respecitively.\nThe Alternate Target Quantity quantified in the Alternate UNIT OF MEASURE is the same amount as the Target Quantity quantified in the UNIT OF MEASURE."
+        },
+        "denominator": {
+            "type": "number",
+            "description": "The Denominator is the denominator of the conversion factor that converts a Quantity 1 quantified in a UoM into a Quantity 2 quantified in an Alternate UoM.\nThe conversion rule is: Quantity 1 [UoM] = Quantity 2 [Alternate UoM].\nThis conversion rule can be rearranged to calculate a conversion factor: 1 [UoM] = (Quantity 2 / Quantity 1) [Alternate UoM]. Here, Quantity 2 is the Numerator and Quantity 1 is the Denominator of the conversion factor, respecitively.\nConceptually, the Denominator of the conversion factor (Quantity 1) may be different from the Target Quantity used in PRODUCT COMPOSITION or STRENGTH DECLARATION, e.g. the Target Quantity of a PRODUCT COMPOSITION may be 100 ml, but the conversion factor to calculate the Alternate UoM doses is 1 ml = 1/2 dose.\nIn SAP-MDGx, the Denominator of the conversion factor is the Target Quantity, e.g. the Target Quantity of a PRODUCT COMPOSITION may be 100 ml, then the conversion factor to calculate the Alternate UoM doses is 1 ml = 50/100 dose."
+        },
+        "uomRefId": {
+            "title": "alternateTargetQuantityUom.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "uomCode": {
+            "title": "alternateTargetQuantityUom.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        },
+        "unitOfPresentationRefId": {
+            "title": "alternateTargetQuantityUop.referenceDataId",
+            "type": "string",
+            "description": "The Reference Data ID is the (technical) Identifier of all REFERNCE DATA maintained in the Reference Data Management System."
+        },
+        "unitOfPresentationCode": {
+            "title": "alternateTargetQuantityUop.sapCode",
+            "type": "string",
+            "description": "The SAP Code is the unique identifier from SAP to identity the data record."
+        }
+    }
+}

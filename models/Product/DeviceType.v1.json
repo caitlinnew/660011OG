@@ -1,0 +1,13 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Product/DeviceType.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DeviceType",
+    "type": "object",
+    "description": "The DEVICE TYPE describes the type of DEVICE using the list of values of PACKAGING CLASS.",
+    "properties": {
+        "code": {
+            "type": "string",
+            "description": "The Code is the unique identifier of the data record for this object.\nAlias SAP Code."
+        }
+    }
+}

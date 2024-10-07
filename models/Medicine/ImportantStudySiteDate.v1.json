@@ -1,0 +1,30 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ImportantStudySiteDate.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "IMPORTANT Study Site DATE",
+    "description": "An IMPORTANT DATE is a milestone or a planned event which will be specialized for the different scopes of IMPORTANT DATE; e.g. IMPORTANT DATE FOR STUDY, IMPORTANT DATE FOR STUDY COUNTRY, IMPORTANT DATE FOR STUDY SITE., ....\nAn IMPORTANT DATE is typificated by IMPORTANT DATE TYPE.",
+    "allOf": [
+        {
+            "type": "object",
+            "properties": {
+                "studySiteNumber": {
+                    "title": "studySite.studySiteNumber",
+                    "type": "string",
+                    "description": "Provides the unique identifier of the study site."
+                },
+                "studySiteStudyCountryCountryIso3Code": {
+                    "title": "studyCountry.country.alpha-3Code",
+                    "type": "string"
+                },
+                "studySiteStudyCountryStudyImpactId": {
+                    "title": "studyCountry.study.impactStudyId",
+                    "type": "string",
+                    "description": "the system generated study identifier"
+                }
+            }
+        },
+        {
+            "$ref": "ImportantDate.v1.json"
+        }
+    ]
+}

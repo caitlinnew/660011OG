@@ -1,0 +1,63 @@
+{
+    "x-id": "http://www.boehringer-ingelheim.com/Medicine/ClinicalTrialSubject.v1.json",
+    "x-schema": "http://json-schema.org/draft-07/schema#",
+    "title": "CLINICAL TRIAL SUBJECT",
+    "type": "object",
+    "description": "The CLINICAL TRIAL SUBJECT is a healthy person or a patient participating in a CLINICAL TRIAL.\nA physical entity which is the primary unit of operational and/or administrative interest in a CLINICAL TRIAL.",
+    "properties": {
+        "uniqueSubjectNumber": {
+            "title": "uniqueSubjectNumber",
+            "type": "string",
+            "description": "Unique identifier of the CLINICAL TRIAL SUBJECT enrolled at the associated CLINICAL TRIAL SITE.\nThe ID builds from the BI Clinical Trial Number, Clinical Trial Site ID together with the Subject Identifier given by the CTMS.\n\nDerivation is coming from Site Number from CLINICAL TRIAL SITE."
+        },
+        "clinicalTrialSite": {
+            "$ref": "ClinicalTrialSite.v1.json"
+        },
+        "subjectNumber": {
+            "title": "subjectNumber",
+            "type": "string",
+            "description": "Unique identifier of the CLINICAL TRIAL SUBJECT for a CLINICAL TRIAL SITE within a CLINICAL TRIAL.\n\nThe ID builds from the Clinical Trial Site ID together with the Subject Identifier given by the CTMS.\n\nDerivation is from Unique Subject Number from CLINICAL TRIAL SUBJECT."
+        },
+        "studySubjectVisit": {
+            "title": "studySubjectVisit",
+            "type": "array",
+            "description": "The visit for subject, designates one specific visit instance for a CLINICAL TRIAL SUBJECT or a subject recruited for other study types. It acts as a controlling object to check whether the subject visit has been completed or missed (status), when it has been completed and, if applicable, the delay in the visit's execution for the subject.",
+            "items": {
+                "$ref": "PerformedMedicalVisit.v1.json"
+            }
+        },
+        "statusName": {
+            "title": "status.name",
+            "type": "string",
+            "description": "Name of this RECRUITMENT STAGE"
+        },
+        "recruitmentDates": {
+            "title": "recruitmentDate",
+            "type": "array",
+            "description": "The actual date a specific task of the recruitment of a single CLINICAL TRIAL SUBJECT is done.",
+            "items": {
+                "$ref": "#/definitions/RecruitmentDate"
+            }
+        }
+    },
+    "definitions": {
+        "RecruitmentDate": {
+            "title": "recruitmentDate",
+            "type": "object",
+            "description": "The actual date a specific task of the recruitment of a single CLINICAL TRIAL SUBJECT is done.",
+            "properties": {
+                "actualDate": {
+                    "title": "actualDate",
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The actual date of the recruitment task defined in the Date Type."
+                },
+                "dateType": {
+                    "title": "dateType",
+                    "type": "string",
+                    "description": "Initial Consent Date\nScreened Date\nEnrolled Date\nRandomized Date\nStarted Treatment Date\nScreen Failed Date\nWithdrawn Date\nEnd of Treatment Date\nStarted Follow Date\nLost to Follow Up Date\nEnd of Study Date"
+                }
+            }
+        }
+    }
+}
